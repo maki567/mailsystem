@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+.icon1 {
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	position: absolute;
+	top: 250px;
+	left: 300px;
+}
+
+.icon2 {
+	z-index: 0;
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	position: absolute;
+	top: 250px;
+	left: 600px;
+}
+
+.icon3 {
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	position: absolute;
+	top: 250px;
+	left: 900px;
+}
+
+.icon4 {
+	z-index: 1;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 300px;
+	left: 550px;
+}
+
+.icon5 {
+	z-index: 1;
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	top: 300px;
+	left: 840px;
+}
+
+.renraku {
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	position: absolute;
+	top: 400px;
+	left: 315px;
+}
+
+.sousin {
+	z-index: 0;
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	position: absolute;
+	top: 400px;
+	left: 615px;
+}
+
+.rireki {
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+	position: absolute;
+	top: 400px;
+	left: 925px;
+}
+
+
+
+
+

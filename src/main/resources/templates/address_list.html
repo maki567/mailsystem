@@ -1,0 +1,79 @@
+<!doctype HTML>
+<html xmlns:th="http://www.thymelef.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>新規登録画面</title>
+	<link href="/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+	<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<header th:insert="fragments/page_header::commonHeader"></header>
+
+	<main>
+<div class="form">
+	<h2 class="title">連絡先一覧</h2>
+	
+	<table id="register" class="user">
+		<tr>
+			<th>会社名</th>
+			<td>
+				<input type="text" name="familyName" maxlength="16" />
+			</td>
+		</tr>
+		<tr>
+			<th>連絡先</th>
+			<td class="staffform">
+			<div class="staff">担当者名</div>
+			<div class="staffmail">メールアドレス</div>
+			
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				<input type="text" name="staffName" placeholder="" maxlength="16" />
+				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
+				
+			</td>
+		<tr>
+
+		<tr>
+			<th class="buttonArea">
+				<span class="info hidden">登録が完了しました。</span>
+			</th>
+			<th class="buttonArea">
+				<button id="confirm" disabled>確認</button>
+			</th>
+	</table>
+</div>
+
+<!-- Modal Dialog (メールアドレス重複) -->
+<div th:insert="fragments/dialog_duplicated_user_name::dialogDuplicatedUserName"></div>
+
+<!-- Modal Dialog (ユーザー入力エラー) -->
+<div th:insert="fragments/dialog_input_user_error::dialogInputUserError"></div>
+
+<!-- Modal Dialog (入力内容確認) -->
+<div th:insert="fragments/dialog_input_user_confirm::dialogInputUserConfirm"></div>
+
+</main>
+
+</body>
+
+</html>
+	
