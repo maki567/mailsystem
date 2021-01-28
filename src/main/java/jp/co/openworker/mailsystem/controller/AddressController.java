@@ -14,9 +14,9 @@ import jp.co.openworker.mailsystem.model.mapper.MstUserMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
-public class UserController {
-	@RequestMapping("/register_user")
+public class AddressController {
+	@RequestMapping("/register_address")
 	public String index() {
-		return "register_user";
+		return "register_address";
 	}
 }
