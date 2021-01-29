@@ -264,14 +264,14 @@ div.cart form {
 	padding: 20px;
 }
 
-/*my_pageのアイコンの部分*/
+/*indexのアイコンの部分*/
 .icon1 {
 	width: 150px;
 	height: 150px;
 	display: inline-block;
 	position: absolute;
 	top: 250px;
-	left: 300px;
+	left: 250px;
 }
 
 .icon2 {
@@ -317,7 +317,7 @@ div.cart form {
 	display: inline-block;
 	position: absolute;
 	top: 400px;
-	left: 315px;
+	left: 300px;
 }
 
 .sousin {
