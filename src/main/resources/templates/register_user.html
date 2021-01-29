@@ -9,10 +9,11 @@
 </head>
 
 <body>
+
 	<header th:insert="fragments/page_header::commonHeader"></header>
 
 <main>
-<div class="form">
+<div class="container">
 	<h2 class="title">新規ユーザー登録</h2>
 	
 	<table id="register" class="user">
@@ -41,8 +42,8 @@
 			<th>ユーザー名<br /><span class="note">（メールアドレス）</span></th>
 				<td>
 			
-				<input type="email" name="userName" placeholder="XXX@abc.com" maxlength="32">
-				<button id="checkMailAddress">重複確認</button>
+				<input type="email" name="userName" placeholder="myaccount@abc.com" maxlength="32" />
+				<button id="checkUserName">重複確認</button>
 				<span id="checkOK" class="hidden">OK</span>
 			</td>
 		<tr>
@@ -137,7 +138,7 @@ $(() => {
 	
 		$.ajax({
 			type: 'POST',
-			url: '/register_user/duplicatedUserName',
+			url: '/mailsystem/user/duplicatedUserName',
 			data: userName,
 			scriptCharset: 'utf-8'
 		})

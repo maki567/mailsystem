@@ -14,9 +14,36 @@ import jp.co.openworker.mailsystem.model.mapper.MstUserMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
+@RequestMapping("/mailsystem/user")
 public class UserController {
-	@RequestMapping("/mailsystem/register_user")
-	public String index() {
+	
+	@Autowired
+	private MstUserMapper userMapper;
+	
+	@Autowired
+	private LoginSession loginSession;
+	
+	@RequestMapping("/")
+	public String index(Model m) {
+		m.addAttribute("loginSession", loginSession);
 		return "register_user";
 	}
+	
+	@RequestMapping("/duplicatedUserName")
+	@ResponseBody
+	public boolean duplicatedUserName(@RequestParam String userName) {
+		int count = userMapper.findCountByUserName(userName);
+		return count > 0;
+	}
+	
+	@RequestMapping("/register")
+	@ResponseBody
+	public boolean register(@RequestBody UserForm f) {
+		MstUser user = new MstUser(f);
+		
+		int count = userMapper.insert(user);
+		
+		return count > 0;
+	}
+	
 }
