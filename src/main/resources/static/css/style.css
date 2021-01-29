@@ -290,7 +290,7 @@ div.cart form {
 	display: inline-block;
 	position: absolute;
 	top: 250px;
-	left: 900px;
+	left: 950px;
 }
 
 .icon4 {
@@ -308,7 +308,7 @@ div.cart form {
 	height: 90px;
 	position: absolute;
 	top: 300px;
-	left: 840px;
+	left: 900px;
 }
 
 .renraku {
@@ -317,7 +317,7 @@ div.cart form {
 	display: inline-block;
 	position: absolute;
 	top: 400px;
-	left: 300px;
+	left: 250px;
 }
 
 .sousin {
@@ -327,7 +327,7 @@ div.cart form {
 	display: inline-block;
 	position: absolute;
 	top: 400px;
-	left: 615px;
+	left: 600px;
 }
 
 .rireki {
@@ -336,7 +336,7 @@ div.cart form {
 	display: inline-block;
 	position: absolute;
 	top: 400px;
-	left: 925px;
+	left: 950px;
 }
 
 /*register_address*/
