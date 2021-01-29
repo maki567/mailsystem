@@ -15,7 +15,7 @@ import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
 public class IndexController {
-	@RequestMapping("/index")
+	@RequestMapping("/mailsystem")
 	public String index() {
 		return "index";
 	}

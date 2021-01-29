@@ -1,5 +1,5 @@
 /**
- * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®åˆæœŸè¨­å®šã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒã¤ãƒãƒ¼ãƒ ã‚¹ãƒšãƒ¼ã‚¹
+ * ƒ_ƒCƒAƒƒO‚Ì‰Šúİ’èƒIƒuƒWƒFƒNƒg‚ğ‚Âƒl[ƒ€ƒXƒy[ƒX
  */
 const dialogConfig = {
 	loginError: {
@@ -47,20 +47,20 @@ const dialogConfig = {
 		modal: true,
 		buttons: [
 			{
-				text: 'ç™»éŒ²',
+				text: '“o˜^',
 				click: function() {
 					let jsonString = {
 						'familyName': $('table#register input[name=familyName]').val(),
 						'firstName': $('table#register input[name=firstName]').val(),
 						'familyNameKana': $('table#register input[name=familyNameKana]').val(),
 						'firstNameKana': $('table#register input[name=firstNameKana]').val(),
-						'gender': $('table#register input[name=gender]:checked').val() == 'ç”·æ€§' ? '0' : '1',
+						'gender': $('table#register input[name=gender]:checked').val() == '’j«' ? '0' : '1',
 						'userName': $('table#register input[name=userName]').val(),
 						'password': $('table#register input[name=password]').val()
 					};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsystem1/user/register',
+						url: '/mailsystem/user/register',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						datatype: 'json',
@@ -83,7 +83,7 @@ const dialogConfig = {
 				}
 			},
 			{
-				text: 'æˆ»ã£ã¦ä¿®æ­£',
+				text: '–ß‚Á‚ÄC³',
 				click: function() {
 					$(this).dialog("close");
 				}
@@ -98,7 +98,7 @@ const dialogConfig = {
 			{
 				text: 'OK',
 				click: function() {
-					/* ãƒ•ãƒ­ãƒ³ãƒˆã®ã¿ã§å®Œçµã§ãã‚‹ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯ */
+					/* ƒtƒƒ“ƒg‚Ì‚İ‚ÅŠ®Œ‹‚Å‚«‚éƒGƒ‰[ƒ`ƒFƒbƒN */
 					let newPassword = $('table.resetPassword input[name=newPassword]').val();
 					let newPasswordConfirm = $('table.resetPassword input[name=newPasswordConfirm]').val();
 					let isError = false;
@@ -106,14 +106,14 @@ const dialogConfig = {
 							!validator.isHalfAlphanumeric(newPassword) || !validator.isHalfAlphanumeric(newPasswordConfirm) ||
 							validator.overMax(newPassword, 16) || validator.overMax(newPasswordConfirm, 16) ||
 							validator.underMin(newPassword, 6) || validator.underMin(newPasswordConfirm, 6)) {
-						alert('æ–°ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€ã¾ãŸã¯æ–°ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç¢ºèªã®å…¥åŠ›ãŒä¸æ­£ã§ã™ã€‚');
+						alert('VƒpƒXƒ[ƒhA‚Ü‚½‚ÍVƒpƒXƒ[ƒhŠm”F‚Ì“ü—Í‚ª•s³‚Å‚·B');
 						$('table.resetPassword input[name=password]').val('');
 						$('table.resetPassword input[name=newPassword]').val('');
 						$('table.resetPassword input[name=newPasswordConfirm]').val('');
 						return;
 					}
 					
-					/* ajaxã§ã®ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯ */
+					/* ajax‚Å‚ÌƒGƒ‰[ƒ`ƒFƒbƒN */
 					let jsonString = {
 								'userName': $('table.resetPassword span').text(),
 								'password': $('table.resetPassword input[name=password]').val(),
@@ -122,7 +122,7 @@ const dialogConfig = {
 					};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsystem1/auth/resetPassword',
+						url: '/mailsystem/auth/resetPassword',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						scriptCharset: 'utf-8'
@@ -132,7 +132,7 @@ const dialogConfig = {
 						$('table.resetPassword input[name=password]').val('');
 						$('table.resetPassword input[name=newPassword]').val('');
 						$('table.resetPassword input[name=newPasswordConfirm]').val('');
-						if (result === 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒå†è¨­å®šã•ã‚Œã¾ã—ãŸã€‚') {
+						if (result === 'ƒpƒXƒ[ƒh‚ªÄİ’è‚³‚ê‚Ü‚µ‚½B') {
 							let asters = '';
 							for (let i = 0; i < newPassword.length; i ++) {
 								asters += '*';
@@ -167,7 +167,7 @@ const dialogConfig = {
 		modal: true,
 		buttons: [
 			{
-				text: 'ç™»éŒ²',
+				text: '“o˜^',
 				click: function() {
 					let jsonString = {
 						'familyName': $('table#register input[name=familyName]').val(),
@@ -177,15 +177,15 @@ const dialogConfig = {
 					};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsystem1/destination/register',
+						url: '/mailsystem/destination/register',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						datatype: 'json',
 						scriptCharset: 'utf-8'
 					})
 					.then((result) => {
-						alert('ç™»éŒ²ãŒå®Œäº†ã—ã¾ã—ãŸã€‚');
-						// ç™»éŒ²ãŒå®Œäº†ã—ãŸã‚‰æ±ºæ¸ˆå‡¦ç†ã‚’ãŠã“ãªã†
+						alert('“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B');
+						// “o˜^‚ªŠ®—¹‚µ‚½‚çŒˆÏˆ—‚ğ‚¨‚±‚È‚¤
 						settlement(result);
 						
 					}, () => {
@@ -195,7 +195,7 @@ const dialogConfig = {
 				},
 			},
 			{
-				text: 'æˆ»ã£ã¦ä¿®æ­£',
+				text: '–ß‚Á‚ÄC³',
 				click: function() {
 					$(this).dialog("close");
 				}
@@ -205,14 +205,14 @@ const dialogConfig = {
 };
 
 /**
- * æ±ºæ¸ˆå‡¦ç†ã‚’ãŠã“ãªã†
- * @param destinationId å®›å…ˆæƒ…å ±ID
- * @returns ãªã—
+ * ŒˆÏˆ—‚ğ‚¨‚±‚È‚¤
+ * @param destinationId ˆ¶æî•ñID
+ * @returns ‚È‚µ
  */
 function settlement(destinationId) {
 	$.ajax({
 		type: 'POST',
-		url: '/mailsystem1/settlement/complete',
+		url: '/mailsystem/settlement/complete',
 		data: JSON.stringify({'destinationId': destinationId}),
 		datatype: 'json',
 		contentType: 'application/json',
@@ -225,9 +225,9 @@ function settlement(destinationId) {
 }
 
 /**
- * ç¢ºèªãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’ä½œæˆã™ã‚‹
- * @param checkerConfig ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯ç”¨ã®è¨­å®šã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
- * @returns ãªã—
+ * Šm”Fƒ_ƒCƒAƒƒO‚ğì¬‚·‚é
+ * @param checkerConfig ƒGƒ‰[ƒ`ƒFƒbƒN—p‚Ìİ’èƒIƒuƒWƒFƒNƒg
+ * @returns ‚È‚µ
  */
 function createConfirmDialog(checkerConfig) {
 	for ([key, value] of Object.entries(checkerConfig)) {

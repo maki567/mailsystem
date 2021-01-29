@@ -52,7 +52,7 @@ private Gson gson = new Gson();
 		loginSession.setUserName(null);
 		loginSession.setPassword(null);
 		
-		return "";
+		return "/index";
 	}
 	
 	@RequestMapping("/resetPassword")
