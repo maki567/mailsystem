@@ -1,5 +1,5 @@
 /**
- * ダイアログの初期設定オブジェクトを持つネームスペース
+ * 
  */
 const dialogConfig = {
 	loginError: {
@@ -47,7 +47,7 @@ const dialogConfig = {
 		modal: true,
 		buttons: [
 			{
-				text: '登録',
+				text: 'Confirm',
 				click: function() {
 					let jsonString = {
 						'familyName': $('table#register input[name=familyName]').val(),
@@ -83,7 +83,7 @@ const dialogConfig = {
 				}
 			},
 			{
-				text: '戻って修正',
+				text: 'Back',
 				click: function() {
 					$(this).dialog("close");
 				}
@@ -167,7 +167,7 @@ const dialogConfig = {
 		modal: true,
 		buttons: [
 			{
-				text: '登録',
+				text: 'Register',
 				click: function() {
 					let jsonString = {
 						'familyName': $('table#register input[name=familyName]').val(),
@@ -195,7 +195,7 @@ const dialogConfig = {
 				},
 			},
 			{
-				text: '戻って修正',
+				text: 'Back',
 				click: function() {
 					$(this).dialog("close");
 				}
@@ -218,7 +218,7 @@ function settlement(destinationId) {
 		contentType: 'application/json',
 	})
 	.then((result) => {
-		location.replace('/mailsystem1/history/');
+		location.replace('/mailsystem/history/');
 	}, () => {
 		alert('Error: ajax connection failed.');
 	});
