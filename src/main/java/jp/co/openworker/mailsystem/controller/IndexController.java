@@ -14,9 +14,16 @@ import jp.co.openworker.mailsystem.model.mapper.MstUserMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
+@RequestMapping("/mailsystem")
 public class IndexController {
-	@RequestMapping("/mailsystem")
-	public String index() {
+	
+	@Autowired
+	private LoginSession loginSession;
+	
+	@RequestMapping("/")
+	public String index(Model m) {
+		m.addAttribute("loginSession", loginSession);
 		return "index";
 	}
+	
 }
