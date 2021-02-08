@@ -341,6 +341,11 @@ div.cart form {
 
 /*register_address*/
 
+.companyInformation {
+	padding: 10px;
+}
+	
+
 .staffmail {
 	position: relative;
 	left: 185px;

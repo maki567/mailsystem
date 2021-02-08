@@ -17,16 +17,19 @@
 	
 	<table id="register" class="user">
 		<tr>
-			<th>会社名</th>
+			<th>会社情報</th>
 			<td>
-				<input type="text" name="familyName" maxlength="16" />
+				<div class="staff">会社名</div>
+				<div class="staff">所在地</div>
+				<input type="text" name="companyName" maxlength="16" />
+				<input type="text" name="companyAddress" maxlength="32" />
 			</td>
 		</tr>
 		<tr>
-			<th>連絡先</th>
+			<th>担当者情報</th>
 			<td class="staffform">
-			<div class="staff">担当者名</div>
-			<div class="staffmail">メールアドレス</div>
+				<div class="staff">担当者名</div>
+				<div class="staffmail">メールアドレス</div>
 			
 				<input type="text" name="staffName" placeholder="" maxlength="16" />
 				<input type="email" name="mailAddress" placeholder="" maxlength="16" />
