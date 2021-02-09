@@ -349,17 +349,12 @@ div.cart form {
 	width: 300px;
 }	
 
-.mailarea {
-	width: 10px;
+input.mailarea {
+	width: 150px;
 }
 
 .phonearea {
 	width: 100px;
-}
-
-.staffmail {
-	position: relative;
-	left: 185px;
 }
 
 .staff {
@@ -367,6 +362,16 @@ div.cart form {
 	position: relative;
 	top: 15px;
 	font-weight: bold;
+}
+
+.staffmail {
+	position: relative;
+	left: 185px;
+}
+
+.staffphone {
+	position: relative;
+	left: 350px;	
 }
 
 .staffform {
@@ -378,9 +383,6 @@ div.cart form {
 	margin: 30px;
 	font-weight: bold;
 }
-
-
-
 
 
 

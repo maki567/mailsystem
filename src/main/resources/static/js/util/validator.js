@@ -200,7 +200,7 @@ const checker = {
 /**
  * 入力チェックする
  * @param checkerConfig エラーチェック用の設定オブジェクト
- * @returns errInfo　isError:エラーメッセージがあるかないかのフラグ,errMsg：エラーメッセージ
+ * @returns errInfo isError:エラーメッセージがあるかないかのフラグ,errMsg：エラーメッセージ
  */
 function validate(checkerConfig) {
 	// エラー情報オブジェクト
