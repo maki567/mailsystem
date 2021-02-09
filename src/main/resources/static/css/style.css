@@ -344,7 +344,18 @@ div.cart form {
 .companyInformation {
 	padding: 10px;
 }
-	
+
+.textarea {
+	width: 300px;
+}	
+
+.mailarea {
+	width: 10px;
+}
+
+.phonearea {
+	width: 100px;
+}
 
 .staffmail {
 	position: relative;
