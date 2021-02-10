@@ -15,7 +15,7 @@ CREATE TABLE mst_user (
 
 CREATE TABLE mst_address (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
- campany_name VARCHAR(32) NOT NULL UNIQUE,
+ company_name VARCHAR(32) NOT NULL UNIQUE,
  staff_name VARCHAR(16) NOT NULL,
  mail_address VARCHAR(32) NOT NULL UNIQUE,
  company_address VARCHAR(255),
