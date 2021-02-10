@@ -350,7 +350,7 @@ div.cart form {
 }	
 
 input.mailarea {
-	width: 150px;
+	width: 190px;
 }
 
 .phonearea {
@@ -362,16 +362,19 @@ input.mailarea {
 	position: relative;
 	top: 15px;
 	font-weight: bold;
+		 float: left; /* ここを修正 */
+  display: block; /* ここを修正 */
 }
 
 .staffmail {
 	position: relative;
-	left: 185px;
+	left: 120px;
+	top: 15px;
 }
 
 .staffphone {
 	position: relative;
-	left: 350px;	
+	left: 390px;	
 }
 
 .staffform {
@@ -384,9 +387,17 @@ input.mailarea {
 	font-weight: bold;
 }
 
+.companyname {
+	position: relative;
+	left: 0px;
+	top: 15px;
+}
 
-
-
+.companyaddress {
+	position: relative;
+	left: 185px;
+	top: 0px;
+}
 
 
 
