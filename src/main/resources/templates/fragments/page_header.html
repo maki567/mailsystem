@@ -93,6 +93,10 @@
 		$('div.loginArea input[name=userName]').val('');
 		$('div.loginArea input[name=password]').val('');
 	}
+	
+	function koshin(){
+		location.reload();
+	}
 	/*]]>*/
 	</script>
 	<div class="headerTop">
@@ -105,13 +109,13 @@
 		<span class="welcomeMsg"
 			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
 	</div>
-	 
+	
 	<nav>
 		<div class="loginArea">
-			<input type="text" name="userName" placeholder="メールアドレス"/>
-			<input type="password" name="password" placeholder="パスワード"/>
+			<input type="text" name="userName" placeholder="メールアドレス" th:class="${loginSession.getUserName() == null ? '' : 'hidden'}"/>
+			<input type="password" name="password" placeholder="パスワード" th:class="${loginSession.getUserName() == null ? '' : 'hidden'}"/>
 			<input type="hidden" id="hiddenUserName" value="" />
-			<button id="login" th:class="${loginSession == null || loginSession.getUserName() == null ? '' : 'hidden'}">ログイン</button>
+			<button id="login" value="更新" onclick="koshin()" th:class="${loginSession == null || loginSession.getUserName() == null ? '' : 'hidden'}">ログイン</button>
 			<button id="logout" th:class="${loginSession == null || loginSession.getUserName() == null ? 'hidden' : ''}">ログアウト</button>
 		</div>
 	</nav>
