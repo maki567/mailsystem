@@ -8,6 +8,16 @@
 	<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 
+<!doctype HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>連絡先登録</title>
+	<link href="/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+	<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
 <body>
 	<header th:insert="fragments/page_header::commonHeader"></header>
 
@@ -19,7 +29,7 @@
 		<tr>
 			<th class="companyInformation">会社情報</th>
 			<td class="staffform">
-				<div class="companyname">会社名</div>
+				<div class="companyname">※会社名</div>
 				<div class="companyaddress">所在地</div>
 				<input type="text" name="companyName" maxlength="32" />
 				<input class="textarea" type="text" name="companyAddress" maxlength="32" />
@@ -28,9 +38,9 @@
 		<tr>
 			<th>担当者情報</th>
 			<td class="staffform">
-				<div class="staff">担当者名</div>
-				<div class="staffmail">メールアドレス</div>
-				<div class="staffphone">電話番号</div>
+				<div class="staffname">※担当者名</div>
+				<div class="mailaddress">※メールアドレス</div>
+				<div class="phonenumber">電話番号</div>
 				<input type="text" name="staffName" placeholder="" maxlength="16" />
 				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
 				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
@@ -72,19 +82,109 @@
 			<th class="buttonArea">
 				<button id="confirm" disabled>確認</button>
 			</th>
+			
 	</table>
+		<div class="chofukukakunin">
+			<button id="checkCompanyName">重複確認</button>
+			<span id="checkOK" class="hidden">OK</span>
+		</div>
+	
 </div>
 
-<!-- Modal Dialog (メールアドレス重複) -->
-<div th:insert="fragments/dialog_duplicated_user_name::dialogDuplicatedUserName"></div>
+<!-- Modal Dialog (会社名重複) -->
+<div th:insert="fragments/dialog_duplicated_company_name::dialogDuplicatedCompanyName"></div>
 
-<!-- Modal Dialog (ユーザー入力エラー) -->
-<div th:insert="fragments/dialog_input_user_error::dialogInputUserError"></div>
+<!-- Modal Dialog (会社情報入力エラー) -->
+<div th:insert="fragments/dialog_input_company_error::dialogInputCompanyError"></div>
 
 <!-- Modal Dialog (入力内容確認) -->
-<div th:insert="fragments/dialog_input_user_confirm::dialogInputUserConfirm"></div>
+<div th:insert="fragments/dialog_input_company_confirm::dialogInputCompanyConfirm"></div>
 
 </main>
+
+<script>
+// dialog_input_company_error.htmlのエラーメッセージを表示するdivのクラスを定義
+const companyerrorSelector = {
+	'会社名': '.companyNameError',
+	'担当者': '.staffNameError',
+	'メールアドレス': '.mailAddressError',
+};
+
+$(() => {
+	
+	// jQuery-UIダイアログの初期設定
+	$('#duplicatedCompanyName').dialog(dialogConfig.duplicatedCompanyName);
+	$('#inputCompanyError').dialog(dialogConfig.inputCompanyError);
+	$('#inputCompanyConfirm').dialog(dialogConfig.inputCompanyConfirm);
+	
+	$('button#checkCompanyName').on('click', () => {
+		let companyName = $('table#register input[name=companyName]');
+		if (isEmpty($(companyName).val())) return;
+		checkCompanyName(companyName);
+	});
+	
+	$('button#confirm').on('click', () => {
+	// 入力チェック処理(companyvalidator.js:validate(checkerConfig))を呼び出す
+	// 引数はcompanyvalidator.js:checkerからチェックしたい項目の変数の宣言を作成する
+		let errInfo = validate({
+			'companyName': checker.companyName,
+			'staffName': checker.staffName,
+			'mailAddress': checker.mailAddress,
+			'companyAddress': checker.companyAddress,
+			'phoneNumber': checker.phoneNumber,
+
+		});
+		if (errInfo.isError) {
+			// エラーがあればエラーダイアログを表示する(companyvalidator.js:createErrorDialog(checkerConfig))
+			createErrorDialog(errInfo.errMsg);
+			$("#inputCompanyError").dialog("open");
+		} else {
+			// エラーがなければ、確認ダイアログを表示する(companydialogConfig.js:createConfirmDialog(checkerConfig))
+			createConfirmDialog({
+				'companyName': checker.companyName,
+				'staffName': checker.staffName,
+				'mailAddress': checker.mailAddress,
+				'companyAddress': checker.companyAddress,
+				'phoneNumber': checker.phoneNumber,
+	
+			});
+			$("#inputCompanyConfirm").dialog("open");
+		}
+	});
+});
+
+	function checkCompanyName(companyName) {
+		let errInfo = validate({ 'companyName': checker.companyName });
+		if (errInfo.isError) {
+				createErrorDialog(errInfo.errMsg);
+				$("#inputCompanyError").dialog("open");
+				return;
+			}
+	
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/user/duplicatedCompanyName',
+			data: userName,
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			if (result) {	// 重複あり
+				$('button#confirm').prop('disabled', true);
+				$("#duplicatedCompanyName").dialog("open");
+				//$('button#checkCompanyName').prop('class', '');
+				$('span#checkOK').prop('class', 'hidden');
+			} else {			// 重複なし
+				$('button#confirm').prop('disabled', false);
+				//$('button#checkCompanyName').prop('class', 'hidden');
+				$('span#checkOK').prop('class', 'info');
+			}
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});
+	
+}
+
+</script>
 
 </body>
 

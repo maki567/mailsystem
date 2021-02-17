@@ -44,6 +44,10 @@ nav {
 	display: none;
 }
 
+.hidden {
+	display: none;
+}
+
 span.welcomeMsg {
 	float: right;
 	margin-top: 15px;
@@ -357,7 +361,7 @@ input.mailarea {
 	width: 100px;
 }
 
-.staff {
+.staffname {
 	display: inline; 
 	position: relative;
 	top: 15px;
@@ -366,13 +370,13 @@ input.mailarea {
   display: block; /* ここを修正 */
 }
 
-.staffmail {
+.mailaddress {
 	position: relative;
-	left: 120px;
+	left: 100px;
 	top: 15px;
 }
 
-.staffphone {
+.phonenumber {
 	position: relative;
 	left: 390px;	
 }
@@ -399,6 +403,9 @@ input.mailarea {
 	top: 0px;
 }
 
-
+.chofukukakunin {
+	left: 1000px;
+	position: relative;
+}
 
 
