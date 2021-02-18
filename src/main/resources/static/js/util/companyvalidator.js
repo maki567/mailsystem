@@ -22,7 +22,7 @@ const companyvalidateConstants = {
 /**
  * バリデーション用の汎用メソッドを持つオブジェクトネームスペース
  */
-const companyvalidator = {
+const validator = {
 	// 引数 target が半角英数字か判定する
 	isHalfAlphanumeric: (target) => {
 		target = (target === null) ? '' : target;
@@ -78,10 +78,10 @@ const companychecker = {
 		const title = '「会社名」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.EMPTY);
 		}
-		if (validator.overMax(target, validateConstants.CAMPANY_NAME_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		if (validator.overMax(target, companyvalidateConstants.CAMPANY_NAME_MAX)) {
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.OVER_MAX);
 		}
 		return errMsg;
 	},
@@ -90,10 +90,10 @@ const companychecker = {
 		const title = '「担当者名」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.EMPTY);
 		}
-		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		if (validator.overMax(target, companyvalidateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.OVER_MAX);
 		}
 		return errMsg;
 	},
@@ -102,16 +102,16 @@ const companychecker = {
 		const title = '「メールアドレス」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.EMPTY);
 		}
 		if (!validator.isMailAddress(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.INVALID_FORMAT);
 		}
-		if (validator.underMin(target, validateConstants.STAFF_MAIL_MIN)) {
-			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		if (validator.underMin(target, companyvalidateConstants.STAFF_MAIL_MIN)) {
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.UNDER_MIN);
 		}
-		if (validator.overMax(target, validateConstants.STAFF_MAIL_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		if (validator.overMax(target, companyvalidateConstants.STAFF_MAIL_MAX)) {
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.OVER_MAX);
 		}
 		return errMsg;
 	},
@@ -120,10 +120,10 @@ const companychecker = {
 		const title = '「所在地」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.EMPTY);
 		}
-		if (validator.overMax(target, validateConstants.COMPANY_ADDRESS_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		if (validator.overMax(target, companyvalidateConstants.COMPANY_ADDRESS_MAX)) {
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.OVER_MAX);
 		}
 		return errMsg;
 	},
@@ -133,16 +133,16 @@ const companychecker = {
 		const title = '「電話番号」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.EMPTY);
 		}
 		if (!validator.isHalfNumeric(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
 		}
-		if (validator.overMax(target, validateConstants.STAFF_PHONE_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		if (validator.overMax(target, companyvalidateConstants.STAFF_PHONE_MAX)) {
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.OVER_MAX);
 		}
-		if (validator.underMin(target, validateConstants.STAFF_PHONE_MIN)) {
-			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		if (validator.underMin(target, companyvalidateConstants.STAFF_PHONE_MIN)) {
+			errMsg.push(title + companyvalidateConstants.ERR_MSG.UNDER_MIN);
 		}
 		return errMsg;
 	},	
@@ -153,29 +153,26 @@ const companychecker = {
  * @param checkerConfig エラーチェック用の設定オブジェクト
  * @returns errInfo isError:エラーメッセージがあるかないかのフラグ,errMsg：エラーメッセージ
  */
-function validate(checkerConfig) {
+function validate(companycheckerConfig) {
 	// エラー情報オブジェクト
-	let errInfo = {
+	let companyerrInfo = {
 		isError: false,
 		errMsg: new Array()
 	};
 	
-	for ([key, value] of Object.entries(checkerConfig)) {
-		if (key === 'gender') {
-			continue;
-		}
-		let obj = $('table#register input[name=' + key + ']');
+	
+		let obj = $('table#company input[name=' + key + ']');
 		value($(obj).val()).forEach((v, i) => {
-			errInfo.errMsg.push(v);
+			companyerrInfo.errMsg.push(v);
 		});
 	}
 	
-	if (errInfo.errMsg.length > 0) {
-		errInfo.isError = true;
+	if (companyerrInfo.errMsg.length > 0) {
+		companyerrInfo.isError = true;
 	}
 	
-	return errInfo;
-}
+	return companyerrInfo;
+
 
 /**
  * エラーメッセージダイアログを作成する

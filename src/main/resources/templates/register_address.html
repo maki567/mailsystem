@@ -1,14 +1,4 @@
 <!doctype HTML>
-<html xmlns:th="http://www.thymelef.org">
-
-<head>
-	<meta charset="UTF-8">
-	<title>連絡先登録</title>
-	<link href="/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
-	<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
-</head>
-
-<!doctype HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -25,7 +15,7 @@
 <div class="form">
 	<h2 class="title">連絡先登録</h2>
 	
-	<table id="register" class="user">
+	<table id="company" class="register_address">
 		<tr>
 			<th class="companyInformation">会社情報</th>
 			<td class="staffform">
@@ -80,7 +70,7 @@
 				<span class="info hidden">登録が完了しました。</span>
 			</th>
 			<th class="buttonArea">
-				<button id="confirm" disabled>確認</button>
+				<button id="confirm" >確認</button>
 			</th>
 			
 	</table>
@@ -108,17 +98,19 @@ const companyerrorSelector = {
 	'会社名': '.companyNameError',
 	'担当者': '.staffNameError',
 	'メールアドレス': '.mailAddressError',
+	'所在地': '.companyAddressError',
+	'電話番号': '.phoneNumberError',
 };
 
 $(() => {
 	
 	// jQuery-UIダイアログの初期設定
-	$('#duplicatedCompanyName').dialog(dialogConfig.duplicatedCompanyName);
-	$('#inputCompanyError').dialog(dialogConfig.inputCompanyError);
-	$('#inputCompanyConfirm').dialog(dialogConfig.inputCompanyConfirm);
+	$('#duplicatedCompanyName').dialog(companydialogConfig.duplicatedCompanyName);
+	$('#inputCompanyError').dialog(companydialogConfig.inputCompanyError);
+	$('#inputCompanyConfirm').dialog(companydialogConfig.inputCompanyConfirm);
 	
 	$('button#checkCompanyName').on('click', () => {
-		let companyName = $('table#register input[name=companyName]');
+		let companyName = $('table#company input[name=companyName]');
 		if (isEmpty($(companyName).val())) return;
 		checkCompanyName(companyName);
 	});
@@ -127,25 +119,25 @@ $(() => {
 	// 入力チェック処理(companyvalidator.js:validate(checkerConfig))を呼び出す
 	// 引数はcompanyvalidator.js:checkerからチェックしたい項目の変数の宣言を作成する
 		let errInfo = validate({
-			'companyName': checker.companyName,
-			'staffName': checker.staffName,
-			'mailAddress': checker.mailAddress,
-			'companyAddress': checker.companyAddress,
-			'phoneNumber': checker.phoneNumber,
+			'companyName': companychecker.companyName,
+			'staffName': companychecker.staffName,
+			'mailAddress': companychecker.mailAddress,
+			'companyAddress': companychecker.companyAddress,
+			'phoneNumber': companychecker.phoneNumber,
 
 		});
-		if (errInfo.isError) {
-			// エラーがあればエラーダイアログを表示する(companyvalidator.js:createErrorDialog(checkerConfig))
-			createErrorDialog(errInfo.errMsg);
+		if (companyerrInfo.isError) {
+			// エラーがあればエラーダイアログを表示する(companyvalidator.js:createErrorDialog(companycheckerConfig))
+			createErrorDialog(companyerrInfo.companyerrMsg);
 			$("#inputCompanyError").dialog("open");
 		} else {
-			// エラーがなければ、確認ダイアログを表示する(companydialogConfig.js:createConfirmDialog(checkerConfig))
+			// エラーがなければ、確認ダイアログを表示する(companydialogConfig.js:createConfirmDialog(companycheckerConfig))
 			createConfirmDialog({
-				'companyName': checker.companyName,
-				'staffName': checker.staffName,
-				'mailAddress': checker.mailAddress,
-				'companyAddress': checker.companyAddress,
-				'phoneNumber': checker.phoneNumber,
+				'companyName': companychecker.companyName,
+				'staffName': companychecker.staffName,
+				'mailAddress': companychecker.mailAddress,
+				'companyAddress': companychecker.companyAddress,
+				'phoneNumber': companychecker.phoneNumber,
 	
 			});
 			$("#inputCompanyConfirm").dialog("open");
@@ -154,17 +146,17 @@ $(() => {
 });
 
 	function checkCompanyName(companyName) {
-		let errInfo = validate({ 'companyName': checker.companyName });
-		if (errInfo.isError) {
-				createErrorDialog(errInfo.errMsg);
+		let companyerrInfo = validate({ 'companyName': checker.companyName });
+		if (companyerrInfo.isError) {
+				createErrorDialog(companyerrInfo.errMsg);
 				$("#inputCompanyError").dialog("open");
 				return;
 			}
 	
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/user/duplicatedCompanyName',
-			data: userName,
+			url: '/mailsystem/register_address/duplicatedCompanyName',
+			data: companyName,
 			scriptCharset: 'utf-8'
 		})
 		.then((result) => {
