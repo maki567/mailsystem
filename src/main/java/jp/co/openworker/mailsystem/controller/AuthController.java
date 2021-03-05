@@ -26,18 +26,18 @@ private Gson gson = new Gson();
 	
 	@RequestMapping("/login")
 	public String login(@RequestBody UserForm f) {
-		MstUser user = userMapper.findByUserNameAndPassword(f.getUserName(), f.getPassword());
+		MstUser user = userMapper.findByMailAddressAndPassword(f.getMailAddress(), f.getPassword());
 		
 		if (user != null) {
 			loginSession.setTmpUserId(0);
 			loginSession.setLogined(true);
 			loginSession.setUserId(user.getId());
-			loginSession.setUserName(user.getUserName());
+			loginSession.setMailAddress(user.getMailAddress());
 			loginSession.setPassword(user.getPassword());
 		} else {
 			loginSession.setLogined(false);
 			loginSession.setUserId(0);
-			loginSession.setUserName(null);
+			loginSession.setMailAddress(null);
 			loginSession.setPassword(null);
 		}
 		
@@ -49,7 +49,7 @@ private Gson gson = new Gson();
 		loginSession.setTmpUserId(0);
 		loginSession.setLogined(false);
 		loginSession.setUserId(0);
-		loginSession.setUserName(null);
+		loginSession.setMailAddress(null);
 		loginSession.setPassword(null);
 		
 		return "/index";
@@ -61,7 +61,7 @@ private Gson gson = new Gson();
 		String newPassword = f.getNewPassword();
 		String newPasswordConfirm = f.getNewPasswordConfirm();
 		
-		MstUser user = userMapper.findByUserNameAndPassword(f.getUserName(), f.getPassword());
+		MstUser user = userMapper.findByMailAddressAndPassword(f.getMailAddress(), f.getPassword());
 		if (user == null) {
 			return "現在のパスワードが正しくありません。";
 		}
@@ -74,7 +74,7 @@ private Gson gson = new Gson();
 			return "新パスワードと確認用パスワードが一致しません。";
 		}
 		// mst_userとloginSessionのパスワードを更新する
-		userMapper.updatePassword(user.getUserName(), f.getNewPassword());
+		userMapper.updatePassword(user.getMailAddress(), f.getNewPassword());
 		loginSession.setPassword(f.getNewPassword());
 		
 		

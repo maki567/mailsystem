@@ -13,10 +13,8 @@ const validateConstants = {
 	},
 	FAMILY_NAME_MAX: 16,
 	FIRST_NAME_MAX: 16,
-	FAMILY_NAME_KANA_MAX: 16,
-	FIRST_NAME_KANA_MAX: 16,
-	USER_NAME_MIN: 3,
-	USER_NAME_MAX: 32,
+	MAIL_ADDRESS_MIN: 3,
+	MAIL_ADDRESS_MAX: 32,
 	PASSWORD_MIN: 6,
 	PASSWORD_MAX: 16,
 	TEL_NUMBER_MIN:10,
@@ -102,39 +100,9 @@ const checker = {
 		}
 		return errMsg;
 	},
-	// 姓ふりがなチェック
-	familyNameKana: (target) => {
-		const title = '「姓ふりがな」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (!validator.isHiragana(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
-		}
-		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-	// 名ふりがなチェック
-	firstNameKana: (target) => {
-		const title = '「名ふりがな」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (!validator.isHiragana(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
-		}
-		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-	// ユーザー名（メールアドレス）チェック
-	userName: (target) => {
-		const title = '「ユーザー名」';
+	// メールアドレスチェック
+	mailAddress: (target) => {
+		const title = '「メールアドレス」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
@@ -213,7 +181,7 @@ function validate(checkerConfig) {
 		if (key === 'gender') {
 			continue;
 		}
-		let obj = $('table#register input[name=' + key + ']');
+		let obj = $('form#register input[name=' + key + ']');
 		value($(obj).val()).forEach((v, i) => {
 			errInfo.errMsg.push(v);
 		});

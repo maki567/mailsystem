@@ -15,7 +15,7 @@ const dialogConfig = {
 			},
 		]
 	},
-	duplicatedUserName: {
+	duplicatedMailAddress: {
 		autoOpen: false,
 		width: 650,
 		modal: true,

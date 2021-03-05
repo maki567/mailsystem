@@ -5,21 +5,18 @@ import java.io.Serializable;
 public class UserForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private String userName;
+	private String mailAddress;
 	private String password;
 	private String familyName;
 	private String firstName;
-	private String familyNameKana;
-	private String firstNameKana;
-	private int gender;
 	private String newPassword;
 	private String newPasswordConfirm;
 	
-	public String getUserName() {
-		return userName;
+	public String getMailAddress() {
+		return mailAddress;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setMailAddress(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 	public String getFamilyName() {
 		return familyName;
@@ -32,24 +29,6 @@ public class UserForm implements Serializable {
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-	public String getFamilyNameKana() {
-		return familyNameKana;
-	}
-	public void setFamilyNameKana(String familyNameKana) {
-		this.familyNameKana = familyNameKana;
-	}
-	public String getFirstNameKana() {
-		return firstNameKana;
-	}
-	public void setFirstNameKana(String firstNameKana) {
-		this.firstNameKana = firstNameKana;
-	}
-	public int getGender() {
-		return gender;
-	}
-	public void setGender(int gender) {
-		this.gender = gender;
 	}
 	public String getPassword() {
 		return password;

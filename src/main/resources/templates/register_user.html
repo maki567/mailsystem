@@ -3,66 +3,45 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>新規登録画面</title>
-	<link href="/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
-	<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+	<title>新規ユーザー登録画面</title>
+	<link href="/css/register_user.css" th:href="@{/css/register_user.css}" rel="stylesheet" />
 </head>
 
 <body>
 
-	<header th:insert="fragments/page_header::commonHeader"></header>
-
 <main>
+
+<img class="logo" src="/img/h_logo.png">
+
 <div class="container">
-	<h2 class="title">新規ユーザー登録</h2>
+	<h3 class="title">新規ユーザー登録</h3>
 	
-	<table id="register" class="user">
-		<tr>
-			<th>氏名</th>
-			<td>
-				<input type="text" name="familyName" placeholder="山田"maxlength="16" />
-				<input type="text" name="firstName" placeholder="太郎"maxlength="16" />
-			</td>
-		</tr>
-		<tr>
-				<th>氏名ふりがな</th>
-				<td>
-					<input type="text" name="familyNameKana" placeholder="やまだ" maxlength="16" />
-					<input type="text" name="firstNameKana" placeholder="たろう" maxlength="16" />
-				</td>
-			</tr>
-			<tr>
-				<th>性別</th>
-				<td>
-					<label><input type="radio" name="gender" value="男性" checked />男性</label>
-					<label><input type="radio" name="gender" value="女性" />女性</label>
-				</td>
-			</tr>
-		<tr>
-			<th>ユーザー名<br /><span class="note">（メールアドレス）</span></th>
-				<td>
-			
-				<input type="email" name="userName" placeholder="myaccount@abc.com" maxlength="32" />
-				<button id="checkUserName">重複確認</button>
-				<span id="checkOK" class="hidden">OK</span>
-			</td>
-		<tr>
-			<th>パスワード<span class="note">  </span></th>
-			<td>
-				<input type="password" name="password" placeholder="6~16文字"maxlength="16" />
-			</td>
-		<tr>
-			<th class="buttonArea">
-				<span class="info hidden">登録が完了しました。</span>
-			</th>
-			<th class="buttonArea">
+	<form action="" method="post">
+		<h4 class="koumokuName">ユーザー名</h4>
+		<input class="form" type="text" name="familyName" placeholder="姓" maxlength="16" />
+		<input class="form" type="text" name="firstName" placeholder="名" maxlength="16" />
+		
+		<h4 class="koumokuMail">メールアドレス</h4>
+		<input class="form" type="email" name="mailAddress" placeholder="メールアドレス" maxlength="32" />
+		<button id="checkMailAddress">重複確認</button>
+		<span id="checkOK" class="hidden">OK</span>
+		
+		<h4 class="koumokuPass">パスワード<span class="note">  </span></h4>
+		<input class="form" type="password" name="password" placeholder="※半角英数字6~16文字まで" maxlength="16" /><br />
+		<input class="form" type="password" name="password" placeholder="確認のためもう一度入力してください" maxlength="16" />
+		
+		<div class="buttonArea">
+			<span class="info hidden">登録が完了しました。</span>
+		</div>
+		<div class="buttonArea">
 				<button id="confirm" disabled>確認</button>
-			</th>
-	</table>
+		</div>
+	</form>
+	
 </div>
 
-<!-- Modal Dialog (ユーザー名重複) -->
-<div th:insert="fragments/dialog_duplicated_user_name::dialogDuplicatedUserName"></div>
+<!-- Modal Dialog (メールアドレス重複) -->
+<div th:insert="fragments/dialog_duplicated_mail_address::dialogDuplicatedMailAddress"></div>
 
 <!-- Modal Dialog (ユーザー入力エラー) -->
 <div th:insert="fragments/dialog_input_user_error::dialogInputUserError"></div>
@@ -77,23 +56,21 @@
 const errorSelector = {
 	'姓': '.familyNameError',
 	'名': '.firstNameError',
-	'姓ふりがな': '.familyNameKanaError',
-	'名ふりがな': '.firstNameKanaError',
-	'ユーザー名': '.userNameError',
+	'メールアドレス': '.mailAddressError',
 	'パスワード': '.passwordError',
 };
 
 $(() => {
 	
 	// jQuery-UIダイアログの初期設定
-	$('#duplicatedUserName').dialog(dialogConfig.duplicatedUserName);
+	$('#duplicatedMailAddress').dialog(dialogConfig.duplicatedMailAddress);
 	$('#inputUserError').dialog(dialogConfig.inputUserError);
 	$('#inputUserConfirm').dialog(dialogConfig.inputUserConfirm);
 	
-	$('button#checkUserName').on('click', () => {
-		let userName = $('table#register input[name=userName]');
-		if (isEmpty($(userName).val())) return;
-		checkUserName(userName);
+	$('button#checkMailAddress').on('click', () => {
+		let mailAddress = $('button#checkMailAddress input[name=mailAddress]');
+		if (isEmpty($(mailAddress).val())) return;
+		checkMailAddress(mailAddress);
 	});
 	
 	$('button#confirm').on('click', () => {
@@ -102,10 +79,7 @@ $(() => {
 		let errInfo = validate({
 			'familyName': checker.familyName,
 			'firstName': checker.firstName,
-			'familyNameKana': checker.familyNameKana,
-			'firstNameKana': checker.firstNameKana,
-			'gender': null,
-			'userName': checker.userName,
+			'mailAddress': checker.mailAddress,
 			'password': checker.password,
 		});
 		if (errInfo.isError) {
@@ -117,10 +91,7 @@ $(() => {
 			createConfirmDialog({
 				'familyName': checker.familyName,
 				'firstName': checker.firstName,
-				'familyNameKana': checker.familyNameKana,
-				'firstNameKana': checker.firstNameKana,
-				'gender': null,
-				'userName': checker.userName,
+				'mailAddress': checker.mailAddress,
 				'password': checker.password,
 			});
 			$("#inputUserConfirm").dialog("open");
@@ -128,8 +99,8 @@ $(() => {
 	});
 });
 
-	function checkUserName(userName) {
-		let errInfo = validate({ 'userName': checker.userName });
+	function checkMailAddress(mailAddress) {
+		let errInfo = validate({ 'mailAddress': checker.mailAddress });
 		if (errInfo.isError) {
 				createErrorDialog(errInfo.errMsg);
 				$("#inputUserError").dialog("open");
@@ -138,19 +109,19 @@ $(() => {
 	
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/user/duplicatedUserName',
-			data: userName,
+			url: '/mailsystem/user/duplicatedMailAddress',
+			data: mailAddress,
 			scriptCharset: 'utf-8'
 		})
 		.then((result) => {
 			if (result) {	// 重複あり
 				$('button#confirm').prop('disabled', true);
-				$("#duplicatedUserName").dialog("open");
-				//$('button#checkUserName').prop('class', '');
+				$("#duplicatedMailAddress").dialog("open");
+				//$('button#checkMailAddress').prop('class', '');
 				$('span#checkOK').prop('class', 'hidden');
 			} else {			// 重複なし
 				$('button#confirm').prop('disabled', false);
-				//$('button#checkUserName').prop('class', 'hidden');
+				//$('button#checkMailAddress').prop('class', 'hidden');
 				$('span#checkOK').prop('class', 'info');
 			}
 		}, () => {
