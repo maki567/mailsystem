@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+main {
+	text-align: center;
+}
+
+.logo {
+	margin-top: 50px;
+	margin-bottom: 15px;
+}
+
+.title {
+	margin-bottom: 5px;
+}
+
+.koumokuName {
+	margin-top: 0;
+	margin-bottom: 5px;
+	margin-right: 405px;
+}
+
+.koumokuMail {
+	margin-top: 30px;
+	margin-bottom: 5px;
+	margin-right: 305px;
+}
+
+.koumokuPass {
+	margin-top: 30px;
+	margin-bottom: 5px;
+	margin-right: 305px;
+}
+
+.form {
+	text-align: center;
+	height: 20px;
+	margin-bottom: 5px;
+	border-radius: 3px;
+	border: 2px solid;
+}
+
+input[name="mailAddress"], input[name="password"] {
+	width: 300px;
+}
+
+input[name="mailAddress"] {
+	margin-left: 75px;
+}
+
+button {
+	background-color: #a5ff4a;
+	border-radius: 3px;
+	border: 1px solid;
+}
+
+button[id="confirm"] {
+	width: 70px;
+	margin: 20px;
+}
+
+.hidden {
+	display: none;
+}

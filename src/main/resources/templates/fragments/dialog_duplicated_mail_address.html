@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>新規ユーザー登録</title>
+</head>
+<body>
+
+<th:block th:fragment="dialogDuplicatedMailAddress">
+	<div id="duplicatedMailAddress" title="メールアドレス重複" class="hidden">
+		<h2 class="error">
+		入力されたメールアドレスはすでに存在しています。<br />
+		別のメールアドレスをお試しください。
+		</h2>
+		
+	</div>
+</th:block>
+
+
+</body>
+</html>
