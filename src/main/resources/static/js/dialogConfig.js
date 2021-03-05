@@ -57,7 +57,7 @@ const dialogConfig = {
 					};
 					$.ajax({
 						type: 'POST',
-						url: '/pegasus/user/register',
+						url: '/mailsystem/user/register',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						datatype: 'json',

@@ -110,10 +110,10 @@ const checker = {
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
-		if (validator.underMin(target, validateConstants.USER_NAME_MIN)) {
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
 			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
 		}
-		if (validator.overMax(target, validateConstants.USER_NAME_MAX)) {
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
 		return errMsg;
@@ -177,11 +177,7 @@ function validate(checkerConfig) {
 		errMsg: new Array()
 	};
 	
-	for ([key, value] of Object.entries(checkerConfig)) {
-		if (key === 'gender') {
-			continue;
-		}
-		let obj = $('form#register input[name=' + key + ']');
+		let obj = $('table#register input[name=' + key + ']');
 		value($(obj).val()).forEach((v, i) => {
 			errInfo.errMsg.push(v);
 		});
@@ -192,7 +188,7 @@ function validate(checkerConfig) {
 	}
 	
 	return errInfo;
-}
+
 
 /**
  * エラーメッセージダイアログを作成する
