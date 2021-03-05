@@ -16,27 +16,39 @@
 <div class="container">
 	<h3 class="title">新規ユーザー登録</h3>
 	
-	<form action="" method="post">
-		<h4 class="koumokuName">ユーザー名</h4>
-		<input class="form" type="text" name="familyName" placeholder="姓" maxlength="16" />
-		<input class="form" type="text" name="firstName" placeholder="名" maxlength="16" />
+	<table id="register" class="user">
+		<tr>
+			<td>
+				<input class="form" type="text" name="familyName" placeholder="姓" maxlength="16" />
+				<input class="form" type="text" name="firstName" placeholder="名" maxlength="16" />
+			</td>
+		</tr>
 		
-		<h4 class="koumokuMail">メールアドレス</h4>
-		<input class="form" type="email" name="mailAddress" placeholder="メールアドレス" maxlength="32" />
-		<button id="checkMailAddress">重複確認</button>
-		<span id="checkOK" class="hidden">OK</span>
+		<tr>
+			<td>
+				<input class="form" type="email" name="mailAddress" placeholder="メールアドレス" maxlength="32" />
+				<button id="checkMailAddress">重複確認</button>
+				<span id="checkOK" class="hidden">OK</span>
+			</td>
+		</tr>
 		
-		<h4 class="koumokuPass">パスワード<span class="note">  </span></h4>
-		<input class="form" type="password" name="password" placeholder="※半角英数字6~16文字まで" maxlength="16" /><br />
-		<input class="form" type="password" name="password" placeholder="確認のためもう一度入力してください" maxlength="16" />
+		<tr>
+			<td>
+				<input class="form" type="password" name="password" placeholder="※半角英数字6~16文字まで" maxlength="16" /><br />
+				<input class="form" type="password" name="password" placeholder="確認のためもう一度入力してください" maxlength="16" />
+			</td>
+		</tr>
 		
-		<div class="buttonArea">
-			<span class="info hidden">登録が完了しました。</span>
-		</div>
-		<div class="buttonArea">
+		<tr>
+			<th class="buttonArea">
+				<span class="info hidden">登録が完了しました。</span>
+			</th>
+		
+			<th class="buttonArea">
 				<button id="confirm" disabled>確認</button>
-		</div>
-	</form>
+			</th>
+		</tr>
+	</table>
 	
 </div>
 

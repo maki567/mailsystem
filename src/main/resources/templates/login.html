@@ -19,7 +19,7 @@
 		<input type="text" name="userName" placeholder="メールアドレス" />
 		<input type="password" name="password" placeholder="パスワード" />
 		<input type="hidden" id="hiddenUserName" value="" />
-		<button id="login" onclick="koshin()" th:class="${loginSession == null || loginSession.getMailAddress() == null ? '' : 'hidden'}">ログイン</button>
+		<button id="login" th:class="${loginSession == null || loginSession.getMailAddress() == null ? '' : 'hidden'}">ログイン</button>
 	</div>
 		
 	<a href="http://localhost:8080/mailsystem/user/">新規ユーザー登録はこちら</a>
