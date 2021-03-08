@@ -13,27 +13,29 @@ import jp.co.openworker.mailsystem.model.domain.MstUser;
 public interface MstUserMapper {
 	
 	@Insert("INSERT INTO mst_user ("
-					+ "mail_address, password, "
-					+ "family_name, first_name, "
+					+ "user_name, password, "
+					+ "family_name, first_name, family_name_kana, first_name_kana, "
+					+ "gender"
 					+ ") "
 					+ "VALUES ("
-					+ "#{mailAddress}, #{password}, "
-					+ "#{familyName}, #{firstName}"
+					+ "#{userName}, #{password}, "
+					+ "#{familyName}, #{firstName}, #{familyNameKana}, #{firstNameKana}, "
+					+ "#{gender}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstUser user);
 	
-		@Select("SELECT * FROM mst_user WHERE mail_address = #{mailAddress} AND password = #{password}")
-		MstUser findByMailAddressAndPassword(
-					@Param("mailAddress") String mailAddress,
+		@Select("SELECT * FROM mst_user WHERE user_name = #{userName} AND password = #{password}")
+		MstUser findByUserNameAndPassword(
+					@Param("userName") String userName,
 					@Param("password") String password);
 		
-		@Select("SELECT count(id) FROM mst_user WHERE mail_address = #{mailAddress}")
-		int findCountByMailAddress(@Param("mailAddress") String mailAddress);
+		@Select("SELECT count(id) FROM mst_user WHERE user_name = #{userName}")
+		int findCountByUserName(@Param("userName") String userName);
 		
-		@Update("UPDATE mst_user SET password = #{password} WHERE mail_address = #{mailAddress}")
+		@Update("UPDATE mst_user SET password = #{password} WHERE user_name = #{userName}")
 		int updatePassword(
-					@Param("mailAddress") String mailAddress,
+					@Param("userName") String userName,
 					@Param("password") String password);
 	
 }

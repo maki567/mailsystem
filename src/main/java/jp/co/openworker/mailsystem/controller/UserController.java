@@ -29,10 +29,10 @@ public class UserController {
 		return "register_user";
 	}
 	
-	@RequestMapping("/duplicatedMailAddress")
+	@RequestMapping("/duplicatedUserName")
 	@ResponseBody
-	public boolean duplicatedMailAddress(@RequestParam String mailAddress) {
-		int count = userMapper.findCountByMailAddress(mailAddress);
+	public boolean duplicatedUserName(@RequestParam String userName) {
+		int count = userMapper.findCountByUserName(userName);
 		return count > 0;
 	}
 	

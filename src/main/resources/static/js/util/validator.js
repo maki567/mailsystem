@@ -13,8 +13,10 @@ const validateConstants = {
 	},
 	FAMILY_NAME_MAX: 16,
 	FIRST_NAME_MAX: 16,
-	MAIL_ADDRESS_MIN: 3,
-	MAIL_ADDRESS_MAX: 32,
+	FAMILY_NAME_KANA_MAX: 16,
+	FIRST_NAME_KANA_MAX: 16,
+	USER_NAME_MIN: 3,
+	USER_NAME_MAX: 32,
 	PASSWORD_MIN: 6,
 	PASSWORD_MAX: 16,
 	TEL_NUMBER_MIN:10,
@@ -100,9 +102,39 @@ const checker = {
 		}
 		return errMsg;
 	},
-	// メールアドレスチェック
-	mailAddress: (target) => {
-		const title = '「メールアドレス」';
+	// 姓ふりがなチェック
+	familyNameKana: (target) => {
+		const title = '「姓ふりがな」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isHiragana(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
+		}
+		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 名ふりがなチェック
+	firstNameKana: (target) => {
+		const title = '「名ふりがな」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isHiragana(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
+		}
+		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// ユーザー名（メールアドレス）チェック
+	userName: (target) => {
+		const title = '「ユーザー名」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
@@ -110,10 +142,10 @@ const checker = {
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
-		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+		if (validator.underMin(target, validateConstants.USER_NAME_MIN)) {
 			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
 		}
-		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+		if (validator.overMax(target, validateConstants.USER_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
 		return errMsg;
@@ -168,7 +200,7 @@ const checker = {
 /**
  * 入力チェックする
  * @param checkerConfig エラーチェック用の設定オブジェクト
- * @returns errInfo isError:エラーメッセージがあるかないかのフラグ,errMsg：エラーメッセージ
+ * @returns errInfo　isError:エラーメッセージがあるかないかのフラグ,errMsg：エラーメッセージ
  */
 function validate(checkerConfig) {
 	// エラー情報オブジェクト
@@ -177,6 +209,10 @@ function validate(checkerConfig) {
 		errMsg: new Array()
 	};
 	
+	for ([key, value] of Object.entries(checkerConfig)) {
+		if (key === 'gender') {
+			continue;
+		}
 		let obj = $('table#register input[name=' + key + ']');
 		value($(obj).val()).forEach((v, i) => {
 			errInfo.errMsg.push(v);
@@ -188,7 +224,7 @@ function validate(checkerConfig) {
 	}
 	
 	return errInfo;
-
+}
 
 /**
  * エラーメッセージダイアログを作成する

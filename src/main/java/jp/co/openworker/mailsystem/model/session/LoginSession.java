@@ -13,7 +13,7 @@ public class LoginSession implements Serializable {
 
 	private int userId;
 	private int tmpUserId;
-	private String mailAddress;
+	private String userName;
 	private String password;
 	private boolean logined;
 	
@@ -29,11 +29,11 @@ public class LoginSession implements Serializable {
 	public void setTmpUserId(int tmpUserId) {
 		this.tmpUserId = tmpUserId;
 	}
-	public String getMailAddress() {
-		return mailAddress;
+	public String getUserName() {
+		return userName;
 	}
-	public void setMailAddress(String mailAddress) {
-		this.mailAddress = mailAddress;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;

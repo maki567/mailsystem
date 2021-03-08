@@ -16,7 +16,7 @@ import jp.co.openworker.mailsystem.model.session.LoginSession;
 @RequestMapping("/mailsystem/auth")
 public class AuthController {
 	
-private Gson gson = new Gson();
+	private Gson gson = new Gson();
 	
 	@Autowired
 	private MstUserMapper userMapper;
@@ -26,18 +26,21 @@ private Gson gson = new Gson();
 	
 	@RequestMapping("/login")
 	public String login(@RequestBody UserForm f) {
-		MstUser user = userMapper.findByMailAddressAndPassword(f.getMailAddress(), f.getPassword());
+		MstUser user = userMapper.findByUserNameAndPassword(f.getUserName(), f.getPassword());
+		
+		int tmpUserId = loginSession.getTmpUserId();
+		
 		
 		if (user != null) {
 			loginSession.setTmpUserId(0);
 			loginSession.setLogined(true);
 			loginSession.setUserId(user.getId());
-			loginSession.setMailAddress(user.getMailAddress());
+			loginSession.setUserName(user.getUserName());
 			loginSession.setPassword(user.getPassword());
 		} else {
 			loginSession.setLogined(false);
 			loginSession.setUserId(0);
-			loginSession.setMailAddress(null);
+			loginSession.setUserName(null);
 			loginSession.setPassword(null);
 		}
 		
@@ -49,10 +52,10 @@ private Gson gson = new Gson();
 		loginSession.setTmpUserId(0);
 		loginSession.setLogined(false);
 		loginSession.setUserId(0);
-		loginSession.setMailAddress(null);
+		loginSession.setUserName(null);
 		loginSession.setPassword(null);
 		
-		return "/index";
+		return "";
 	}
 	
 	@RequestMapping("/resetPassword")
@@ -61,7 +64,7 @@ private Gson gson = new Gson();
 		String newPassword = f.getNewPassword();
 		String newPasswordConfirm = f.getNewPasswordConfirm();
 		
-		MstUser user = userMapper.findByMailAddressAndPassword(f.getMailAddress(), f.getPassword());
+		MstUser user = userMapper.findByUserNameAndPassword(f.getUserName(), f.getPassword());
 		if (user == null) {
 			return "現在のパスワードが正しくありません。";
 		}
@@ -74,7 +77,7 @@ private Gson gson = new Gson();
 			return "新パスワードと確認用パスワードが一致しません。";
 		}
 		// mst_userとloginSessionのパスワードを更新する
-		userMapper.updatePassword(user.getMailAddress(), f.getNewPassword());
+		userMapper.updatePassword(user.getUserName(), f.getNewPassword());
 		loginSession.setPassword(f.getNewPassword());
 		
 		
