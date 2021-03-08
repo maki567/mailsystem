@@ -13,22 +13,29 @@ main {
 	margin-bottom: 5px;
 }
 
+table {
+	display: inline;
+}
+
 .koumokuName {
 	margin-top: 0;
 	margin-bottom: 5px;
-	margin-right: 405px;
+	margin-right: 330px;
+	font-weight: bold;
 }
 
 .koumokuMail {
 	margin-top: 30px;
 	margin-bottom: 5px;
-	margin-right: 305px;
+	margin-right: 185px;
+	font-weight: bold;
 }
 
 .koumokuPass {
 	margin-top: 30px;
 	margin-bottom: 5px;
-	margin-right: 305px;
+	margin-right: 310px;
+	font-weight: bold;
 }
 
 .form {
@@ -39,12 +46,16 @@ main {
 	border: 2px solid;
 }
 
-input[name="mailAddress"], input[name="password"] {
+input[name="familyName"],input[name="firstName"] {
+	width: 143px;
+}
+
+input[name="userName"], input[name="password"] {
 	width: 300px;
 }
 
-input[name="mailAddress"] {
-	margin-left: 75px;
+input[name="userName"] {
+	margin-left: 100px;
 }
 
 button {
