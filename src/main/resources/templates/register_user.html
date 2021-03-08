@@ -9,7 +9,13 @@
 
 <body>
 
-<header th:insert="fragments/page_header::commonHeader"></header>
+	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet"
+			href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script>
+	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
+	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
 
 <main>
 
@@ -27,20 +33,6 @@
 			</td>
 		</tr>
 		<tr>
-				<th>氏名ふりがな</th>
-				<td>
-					<input type="text" name="familyNameKana" placeholder="やまだ" maxlength="16" />
-					<input type="text" name="firstNameKana" placeholder="たろう" maxlength="16" />
-				</td>
-			</tr>
-			<tr>
-				<th>性別</th>
-				<td>
-					<label><input type="radio" name="gender" value="男性" checked />男性</label>
-					<label><input type="radio" name="gender" value="女性" />女性</label>
-				</td>
-			</tr>
-		<tr>
 			<td>
 				<div class="koumokuMail">ユーザー名(メールアドレス)</div>
 				<input class="form" type="email" name="userName" placeholder="myaccount@abc.com" maxlength="32" />
@@ -55,6 +47,9 @@
 			</td>
 		</tr>
 		<tr>
+			<td>
+				<span class="info hidden">登録が完了しました。</span>
+			</td>
 			<td>
 				<button id="confirm" disabled>確認</button>
 			</td>
@@ -78,8 +73,6 @@
 const errorSelector = {
 	'姓': '.familyNameError',
 	'名': '.firstNameError',
-	'姓ふりがな': '.familyNameKanaError',
-	'名ふりがな': '.firstNameKanaError',
 	'ユーザー名': '.userNameError',
 	'パスワード': '.passwordError',
 };
@@ -103,9 +96,6 @@ $(() => {
 		let errInfo = validate({
 			'familyName': checker.familyName,
 			'firstName': checker.firstName,
-			'familyNameKana': checker.familyNameKana,
-			'firstNameKana': checker.firstNameKana,
-			'gender': null,
 			'userName': checker.userName,
 			'password': checker.password,
 		});
@@ -118,9 +108,6 @@ $(() => {
 			createConfirmDialog({
 				'familyName': checker.familyName,
 				'firstName': checker.firstName,
-				'familyNameKana': checker.familyNameKana,
-				'firstNameKana': checker.firstNameKana,
-				'gender': null,
 				'userName': checker.userName,
 				'password': checker.password,
 			});

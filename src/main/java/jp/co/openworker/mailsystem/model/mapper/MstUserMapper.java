@@ -14,13 +14,11 @@ public interface MstUserMapper {
 	
 	@Insert("INSERT INTO mst_user ("
 					+ "user_name, password, "
-					+ "family_name, first_name, family_name_kana, first_name_kana, "
-					+ "gender"
+					+ "family_name, first_name"
 					+ ") "
 					+ "VALUES ("
 					+ "#{userName}, #{password}, "
-					+ "#{familyName}, #{firstName}, #{familyNameKana}, #{firstNameKana}, "
-					+ "#{gender}"
+					+ "#{familyName}, #{firstName}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstUser user);

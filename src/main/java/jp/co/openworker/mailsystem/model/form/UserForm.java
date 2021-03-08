@@ -9,9 +9,6 @@ public class UserForm implements Serializable {
 	private String password;
 	private String familyName;
 	private String firstName;
-	private String familyNameKana;
-	private String firstNameKana;
-	private int gender;
 	private String newPassword;
 	private String newPasswordConfirm;
 	
@@ -32,24 +29,6 @@ public class UserForm implements Serializable {
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-	public String getFamilyNameKana() {
-		return familyNameKana;
-	}
-	public void setFamilyNameKana(String familyNameKana) {
-		this.familyNameKana = familyNameKana;
-	}
-	public String getFirstNameKana() {
-		return firstNameKana;
-	}
-	public void setFirstNameKana(String firstNameKana) {
-		this.firstNameKana = firstNameKana;
-	}
-	public int getGender() {
-		return gender;
-	}
-	public void setGender(int gender) {
-		this.gender = gender;
 	}
 	public String getPassword() {
 		return password;

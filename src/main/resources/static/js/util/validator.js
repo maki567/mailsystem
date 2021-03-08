@@ -102,36 +102,6 @@ const checker = {
 		}
 		return errMsg;
 	},
-	// 姓ふりがなチェック
-	familyNameKana: (target) => {
-		const title = '「姓ふりがな」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (!validator.isHiragana(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
-		}
-		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-	// 名ふりがなチェック
-	firstNameKana: (target) => {
-		const title = '「名ふりがな」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (!validator.isHiragana(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
-		}
-		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
 	// ユーザー名（メールアドレス）チェック
 	userName: (target) => {
 		const title = '「ユーザー名」';
