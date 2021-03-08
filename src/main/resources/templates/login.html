@@ -13,6 +13,9 @@
 <main>
 
 	<img class="logo" src="/img/h_logo.png">
+	
+	<span class="welcomeMsg"
+			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
 
 <nav>
 	<div class="loginArea">
@@ -45,7 +48,7 @@
 		
 		$('button#login').on('click', () => {
 			let jsonString = {
-				'mailAddress': $('div.loginArea input[name=mailAddress]').val(),
+				'userName': $('div.loginArea input[name=userName]').val(),
 				'password': $('div.loginArea input[name=password]').val()
 			};
 			$.ajax({
@@ -59,10 +62,10 @@
 			.then((result) => {
 				let user = JSON.parse(result);
 				if (isEmpty(user)) {
-					$('#hiddenMailAddress').val('');
+					$('#hiddenUserName').val('');
 					$('#loginError').dialog('open');
 				} else {
-					$('#hiddenMailAddress').val(user['mailAddress']);
+					$('#hiddenUserName').val(user['userName']);
 					login(user);
 				}
 			}, () => {
@@ -78,10 +81,10 @@
 				scriptCharset: 'utf-8'
 			})
 			.then((result) => {
-				$('#hiddenMailAddress').val('');
+				$('#hiddenUserName').val('');
 				logout();
 				alert('ログアウトしました。');
-				location.replace('/mailsystem/');
+				location.replace('/pegasus/');
 			}, () => {
 				alert('Error: ajax connection failed.');
 			});
@@ -90,8 +93,8 @@
 	});
 	
 	function login(user) {
-		let mailAddress = user['mailAddress'];
-		$('.welcomeMsg').text(`ようこそ！ ${mailAddress} さん`);
+		let userName = user['userName'];
+		$('.welcomeMsg').text(`ようこそ！ ${userName} さん`);
 		if (isEmpty($('button#login').prop('class'))) {
 			$('button#login').addClass('hidden');
 			$('button#logout').removeClass('hidden');
@@ -99,7 +102,7 @@
 
 		$('#mypageMenu').removeClass('hidden');
 		
-		$('div.loginArea input[name=mailAddress]').val('');
+		$('div.loginArea input[name=userName]').val('');
 		$('div.loginArea input[name=password]').val('');
 	}
 	
@@ -113,12 +116,8 @@
 			$('#mypageMenu').addClass('hidden');
 		}
 		
-		$('div.loginArea input[name=mailAddress]').val('');
+		$('div.loginArea input[name=userName]').val('');
 		$('div.loginArea input[name=password]').val('');
-	}
-	
-	function koshin(){
-		location.reload();
 	}
 	/*]]>*/
 	</script>
