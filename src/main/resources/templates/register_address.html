@@ -4,65 +4,53 @@
 <head>
 	<meta charset="UTF-8">
 	<title>連絡先登録</title>
-	<link href="/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
-	<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+	<link href="/css/register_address.css" th:href="@{/css/register_address.css}" rel="stylesheet" />
 </head>
 
 <body>
 	<header th:insert="fragments/page_header::commonHeader"></header>
 
 <main>
-<div class="form">
-	<h2 class="title">連絡先登録</h2>
+<div class="container">
+	<h2 class="title">新規連絡先登録</h2>
 	
 	<table id="register" class="user">
 		<tr>
-			<th>会社情報</th>
 			<td>
-				<div class="staff">会社名</div>
-				<div class="staff">所在地</div>
-				<input type="text" name="companyName" maxlength="16" />
-				<input type="text" name="companyAddress" maxlength="32" />
+				<div class="company_name">会社名</div>
+				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="16" />
+			</td>
+			<td>
+				<div class="chofukukakunin">
+					<button id="checkCompanyName">重複確認</button>
+					<span id="checkOK" class="hidden">OK</span>
+				</div>
+			</td>
+			<td>	
+				<div class="company_address">会社住所</div>
+				<input class="form" type="text" name="companyAddress"placeholder="所在地" maxlength="32" />
 			</td>
 		</tr>
+	</table>
+	<table id="register" class="user">
 		<tr>
-			<th>担当者情報</th>
 			<td class="staffform">
-				<div class="staff">担当者名</div>
-				<div class="staffmail">メールアドレス</div>
-				<div class="phonenumber">電話番号</div>
-			
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				<input type="text" name="staffName" placeholder="" maxlength="16" />
-				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
-				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-				
+				<div class="staff_name">担当者名</div>
+				<input class="form" type="text" name="staffName" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName" placeholder="氏名" maxlength="16" /><br />
+			</td>
+			<td>
+				<div class="staff_mail">メールアドレス</div>
+				<input class="form" type="email" name="mailAddress" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="mailAddress" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="mailAddress" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+			</td>
+			<td>
+				<div class="phone_number">電話番号</div>
+				<input class="form" type="tel" name="phoneNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="phoneNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="phoneNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
 			</td>
 		<tr>
 
@@ -70,14 +58,10 @@
 			<th class="buttonArea">
 				<span class="info hidden">登録が完了しました。</span>
 			</th>
-			<th class="buttonArea">
-				<button id="confirm" disabled>確認</button>
+			<th>
+				<button class="kakunin" id="confirm" disabled>確認</button>
 			</th>
 	</table>
-			<div class="chofukukakunin">
-			<button id="checkCompanyName">重複確認</button>
-			<span id="checkOK" class="hidden">OK</span>
-		</div>
 	
 </div>
 

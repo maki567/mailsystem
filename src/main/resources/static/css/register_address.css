@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+main {
+	text-align: center;
+}
+
+table {
+	display: inline;
+}
+
+.company_name {
+	font-weight: bold;
+	margin-right: 260px;
+}
+
+.chofukukakunin {
+	margin-top: 18px;
+	margin-right: 30px;
+}
+
+.company_address {
+	font-weight: bold;
+	margin-right: 440px;
+}
+
+.staff_name {
+	font-weight: bold;
+}
+
+.staff_mail {
+	font-weight: bold;
+}
+
+.phone_number {
+	font-weight: bold;
+}
+
+.form {
+	text-align: center;
+	height: 20px;
+	margin-bottom: 5px;
+	border-radius: 3px;
+	border: 2px solid;
+	border-color: gray;
+}
+
+input[name="companyName"] {
+	width: 300px;
+}
+
+input[name="companyAddress"] {
+	width: 500px;
+}
+
+input[name="staffName"],[name="phoneNumber"] {
+	width: 270px;
+}
+
+input[name="mailAddress"] {
+	width: 350px;
+}
+
+.kakunin {
+	margin-top: 30px;
+	width: 70px;
+}
+
+button {
+	background-color: #a5ff4a;
+	border-radius: 3px;
+	border: 1px solid;
+}
+
+.hidden {
+	display: none;
+}
