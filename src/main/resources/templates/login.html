@@ -17,14 +17,15 @@
 	<span class="welcomeMsg"
 			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
 
+
 <nav>
 	<div class="loginArea">
+		<form action="/hello" method="POST">
 		<input type="text" name="userName" placeholder="メールアドレス" />
 		<input type="password" name="password" placeholder="パスワード" />
 		<input type="hidden" id="hiddenUserName" value="" />
-		<button id="login" th:class="${loginSession == null || loginSession.getMailAddress() == null ? '' : 'hidden'}">ログイン</button>
-	</div>
-		
+		<button type="submit">Login</button>	</div>
+		</form>
 	<a href="http://localhost:8080/mailsystem/user/">新規ユーザー登録はこちら</a>
 		
 </nav>

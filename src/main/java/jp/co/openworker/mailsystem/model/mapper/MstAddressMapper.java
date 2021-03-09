@@ -12,21 +12,18 @@ import jp.co.openworker.mailsystem.model.domain.MstAddress;
 public interface MstAddressMapper {
 	
 	@Insert("INSERT INTO mst_address ("
-					+ "company_name, staff_name, "
-					+ "mail_address, company_address, phone_number, "
+					+ "company_name, staff_name, mail_address, "
+					+ "company_address, phone_number"
 					+ ") "
 					+ "VALUES ("
-					+ "#{companyName}, #{staffName}, "
-					+ "#{mailAddress}, #{companyAddress}, #{phoneNumber}, "
+					+ "#{companyName}, #{staffName},#{mailAddress}, "
+					+ "#{companyAddress}, #{phoneNumber}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
-	int insert(MstAddress company);
+	int insert(MstAddress address);
 	
-		@Select("SELECT * FROM mst_address WHERE company_name = #{companyName}")
-		MstAddress findByCompanyName(
-					@Param("companyName") String companyName);
-		
-		@Select("SELECT count(id) FROM mst_address WHERE company_name = #{companyName}")
-		int findCountByCompanyName(@Param("companyName") String companyName);
+	
+	@Select("SELECT count(id) FROM mst_address WHERE company_name = #{companyName}")
+	int findCountByCompanyName(@Param("companyName") String companyName);
 		
 }

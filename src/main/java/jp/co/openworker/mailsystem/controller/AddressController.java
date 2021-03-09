@@ -14,7 +14,7 @@ import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
-@RequestMapping("/mailsystem/register_address")
+@RequestMapping("/mailsystem/address")
 public class AddressController {
 	
 	@Autowired
@@ -35,13 +35,14 @@ public class AddressController {
 		int count = addressMapper.findCountByCompanyName(companyName);
 		return count > 0;
 	}
+
 	
 	@RequestMapping("/register")
 	@ResponseBody
 	public boolean register(@RequestBody AddressForm f) {
-		MstAddress company = new MstAddress(f);
+		MstAddress address = new MstAddress(f);
 		
-		int count = addressMapper.insert(company);
+		int count = addressMapper.insert(address);
 		
 		return count > 0;
 	}

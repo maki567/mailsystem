@@ -44,10 +44,6 @@ nav {
 	display: none;
 }
 
-.hidden {
-	display: none;
-}
-
 span.welcomeMsg {
 	float: right;
 	margin-top: 15px;
@@ -348,37 +344,18 @@ div.cart form {
 .companyInformation {
 	padding: 10px;
 }
+	
 
-.textarea {
-	width: 300px;
-}	
-
-input.mailarea {
-	width: 190px;
+.staffmail {
+	position: relative;
+	left: 185px;
 }
 
-.phonearea {
-	width: 100px;
-}
-
-.staffname {
+.staff {
 	display: inline; 
 	position: relative;
 	top: 15px;
 	font-weight: bold;
-		 float: left; /* ここを修正 */
-  display: block; /* ここを修正 */
-}
-
-.mailaddress {
-	position: relative;
-	left: 100px;
-	top: 15px;
-}
-
-.phonenumber {
-	position: relative;
-	left: 390px;	
 }
 
 .staffform {
@@ -391,21 +368,21 @@ input.mailarea {
 	font-weight: bold;
 }
 
-.companyname {
-	position: relative;
-	left: 0px;
-	top: 15px;
+/*home.html*/
+
+.kensaku {
+	width: 50px;
 }
 
-.companyaddress {
-	position: relative;
-	left: 185px;
-	top: 0px;
+.musimegane {
+	top: 500px;
 }
 
-.chofukukakunin {
-	left: 1000px;
+.mailkensaku {
 	position: relative;
+	top: 30px;
 }
+
+
 
 

@@ -28,15 +28,14 @@ public class AuthController {
 	public String login(@RequestBody UserForm f) {
 		MstUser user = userMapper.findByUserNameAndPassword(f.getUserName(), f.getPassword());
 		
-		int tmpUserId = loginSession.getTmpUserId();
-		
-		
 		if (user != null) {
 			loginSession.setTmpUserId(0);
 			loginSession.setLogined(true);
 			loginSession.setUserId(user.getId());
 			loginSession.setUserName(user.getUserName());
 			loginSession.setPassword(user.getPassword());
+		
+			
 		} else {
 			loginSession.setLogined(false);
 			loginSession.setUserId(0);

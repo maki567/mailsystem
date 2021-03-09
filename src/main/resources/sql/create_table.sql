@@ -12,13 +12,11 @@ CREATE TABLE mst_user (
 
 CREATE TABLE mst_address (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
- company_name VARCHAR(32) NOT NULL UNIQUE, 
- company_name_kana VARCHAR(32) NOT NULL UNIQUE,
+ company_name VARCHAR(32) NOT NULL UNIQUE,
  staff_name VARCHAR(16) NOT NULL,
- staff_mail VARCHAR(32) NOT NULL UNIQUE,
+ mail_address VARCHAR(32) NOT NULL UNIQUE,
  company_address VARCHAR(255),
  phone_number VARCHAR(16),
- before_after TINYINT DEFAULT 0,
  created_at TIMESTAMP NOT NULL DEFAULT current_timestamp(),
  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 );

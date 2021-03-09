@@ -52,6 +52,9 @@ const dialogConfig = {
 					let jsonString = {
 						'familyName': $('table#register input[name=familyName]').val(),
 						'firstName': $('table#register input[name=firstName]').val(),
+						'familyNameKana': $('table#register input[name=familyNameKana]').val(),
+						'firstNameKana': $('table#register input[name=firstNameKana]').val(),
+						'gender': $('table#register input[name=gender]:checked').val() == '男性' ? '0' : '1',
 						'userName': $('table#register input[name=userName]').val(),
 						'password': $('table#register input[name=password]').val()
 					};
@@ -68,6 +71,9 @@ const dialogConfig = {
 						$('#checkOK').addClass('hidden');
 						$('table#register input[name=familyName]').val('');
 						$('table#register input[name=firstName]').val('');
+						$('table#register input[name=familyNameKana]').val('');
+						$('table#register input[name=firstNameKana]').val('');
+						($('table#register input[name=gender]')[0]).checked = true;
 						$('table#register input[name=userName]').val('');
 						$('table#register input[name=password]').val('');
 					}, () => {
@@ -116,7 +122,7 @@ const dialogConfig = {
 					};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsyste/auth/resetPassword',
+						url: '/mailsystem/auth/resetPassword',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						scriptCharset: 'utf-8'
@@ -155,7 +161,23 @@ const dialogConfig = {
 			},
 		]
 	},
-	inputDestinationConfirm: {
+
+	
+		inputCompanyError: {
+		autoOpen: false,
+		width: 650,
+		modal: true,
+		buttons: [
+			{
+				text: 'OK',
+				click: function() {
+					$(this).dialog('close');
+				}
+			},
+		]
+	},
+	
+	inputCompanyConfirm: {
 		autoOpen: false,
 		width: 850,
 		modal: true,
@@ -164,29 +186,38 @@ const dialogConfig = {
 				text: '登録',
 				click: function() {
 					let jsonString = {
-						'familyName': $('table#register input[name=familyName]').val(),
-						'firstName': $('table#register input[name=firstName]').val(),
-						'address': $('table#register input[name=address]').val(),
-						'telNumber': $('table#register input[name=telNumber]').val()
-					};
+						'companyName': $('table#register input[name=companyName]').val(),
+						'staffName': $('table#register input[name=staffName]').val(),
+						'mailAddress': $('table#register input[name=mailAddress]').val(),
+						'companyAddress': $('table#register input[name=companyAddress]').val(),
+						'phoneNumber': $('table#register input[name=phoneNumber]').val(),
+						
+						
+								};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsyste/destination/register',
+						url: '/mailsystem/address/register',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						datatype: 'json',
 						scriptCharset: 'utf-8'
 					})
 					.then((result) => {
-						alert('登録が完了しました。');
-						// 登録が完了したら決済処理をおこなう
-						settlement(result);
+						$('.info').removeClass('hidden');
+						$('#checkOK').addClass('hidden');
+						$('table#register input[name=companyName]').val('');
+						$('table#register input[name=staffName]').val('');
+						$('table#register input[name=mailAddress]').val('');
+						$('table#register input[name=companyAddress]').val('');
+						($('table#register input[name=phoneNumber]').val(''));
+						
+						
 						
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
 					$(this).dialog('close');
-				},
+				}
 			},
 			{
 				text: '戻って修正',
@@ -198,25 +229,6 @@ const dialogConfig = {
 	},
 };
 
-/**
- * 決済処理をおこなう
- * @param destinationId 宛先情報ID
- * @returns なし
- */
-function settlement(destinationId) {
-	$.ajax({
-		type: 'POST',
-		url: '/mailsyste/settlement/complete',
-		data: JSON.stringify({'destinationId': destinationId}),
-		datatype: 'json',
-		contentType: 'application/json',
-	})
-	.then((result) => {
-		location.replace('/mailsyste/history/');
-	}, () => {
-		alert('Error: ajax connection failed.');
-	});
-}
 
 /**
  * 確認ダイアログを作成する
@@ -243,4 +255,17 @@ function createConfirmDialog(checkerConfig) {
 		
 		$(objConfirm).html(value);
 	}
+	
+	
 }
+function createConfirmDialog(checkerConfig) {
+	for ([key, value] of Object.entries(checkerConfig)) {
+		let obj = $('table#register input[name=' + key + ']');
+		let objConfirm = $('table.confirm span.' + key);
+		
+		let value = $(obj).val();
+		
+
+		$(objConfirm).html(value);
+	}
+	}

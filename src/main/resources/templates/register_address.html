@@ -15,22 +15,23 @@
 <div class="form">
 	<h2 class="title">連絡先登録</h2>
 	
-	<table id="company" class="register_address">
+	<table id="register" class="user">
 		<tr>
-			<th class="companyInformation">会社情報</th>
-			<td class="staffform">
-				<div class="companyname">※会社名</div>
-				<div class="companyaddress">所在地</div>
-				<input type="text" name="companyName" maxlength="32" />
-				<input class="textarea" type="text" name="companyAddress" maxlength="32" />
+			<th>会社情報</th>
+			<td>
+				<div class="staff">会社名</div>
+				<div class="staff">所在地</div>
+				<input type="text" name="companyName" maxlength="16" />
+				<input type="text" name="companyAddress" maxlength="32" />
 			</td>
 		</tr>
 		<tr>
 			<th>担当者情報</th>
 			<td class="staffform">
-				<div class="staffname">※担当者名</div>
-				<div class="mailaddress">※メールアドレス</div>
+				<div class="staff">担当者名</div>
+				<div class="staffmail">メールアドレス</div>
 				<div class="phonenumber">電話番号</div>
+			
 				<input type="text" name="staffName" placeholder="" maxlength="16" />
 				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
 				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
@@ -61,7 +62,7 @@
 				<input type="text" name="staffName" placeholder="" maxlength="16" />
 				<input class="mailarea" type="email" name="mailAddress"  maxlength="32" />
 				<input class="phonearea" type="tel" name="phoneNumber"  maxlength="16" />
-							
+				
 			</td>
 		<tr>
 
@@ -70,11 +71,10 @@
 				<span class="info hidden">登録が完了しました。</span>
 			</th>
 			<th class="buttonArea">
-				<button id="confirm" >確認</button>
+				<button id="confirm" disabled>確認</button>
 			</th>
-			
 	</table>
-		<div class="chofukukakunin">
+			<div class="chofukukakunin">
 			<button id="checkCompanyName">重複確認</button>
 			<span id="checkOK" class="hidden">OK</span>
 		</div>
@@ -91,53 +91,51 @@
 <div th:insert="fragments/dialog_input_company_confirm::dialogInputCompanyConfirm"></div>
 
 </main>
-
 <script>
 // dialog_input_company_error.htmlのエラーメッセージを表示するdivのクラスを定義
-const companyerrorSelector = {
+const errorSelector = {
 	'会社名': '.companyNameError',
-	'担当者': '.staffNameError',
+	'担当者名': '.staffNameError',
 	'メールアドレス': '.mailAddressError',
-	'所在地': '.companyAddressError',
-	'電話番号': '.phoneNumberError',
+	
 };
 
 $(() => {
 	
 	// jQuery-UIダイアログの初期設定
-	$('#duplicatedCompanyName').dialog(companydialogConfig.duplicatedCompanyName);
-	$('#inputCompanyError').dialog(companydialogConfig.inputCompanyError);
-	$('#inputCompanyConfirm').dialog(companydialogConfig.inputCompanyConfirm);
+	$('#duplicatedCompanyName').dialog(dialogConfig.duplicatedCompanyName);
+	$('#inputCompanyError').dialog(dialogConfig.inputCompanyError);
+	$('#inputCompanyConfirm').dialog(dialogConfig.inputCompanyConfirm);
 	
 	$('button#checkCompanyName').on('click', () => {
-		let companyName = $('table#company input[name=companyName]');
+		let companyName = $('table#register input[name=companyName]');
 		if (isEmpty($(companyName).val())) return;
 		checkCompanyName(companyName);
 	});
 	
 	$('button#confirm').on('click', () => {
-	// 入力チェック処理(companyvalidator.js:validate(checkerConfig))を呼び出す
-	// 引数はcompanyvalidator.js:checkerからチェックしたい項目の変数の宣言を作成する
+	// 入力チェック処理(validate.js:validate(checkerConfig))を呼び出す
+	// 引数はvalidate.js:checkerからチェックしたい項目の変数の宣言を作成する
 		let errInfo = validate({
-			'companyName': companychecker.companyName,
-			'staffName': companychecker.staffName,
-			'mailAddress': companychecker.mailAddress,
-			'companyAddress': companychecker.companyAddress,
-			'phoneNumber': companychecker.phoneNumber,
-
+			'companyName': checker.companyName,
+				'staffName': checker.staffName,
+				'mailAddress': checker.mailAddress,
+				'companyAddress': checker.companyAddress,
+				'phoneNumber': checker.phoneNumber,
+	
 		});
-		if (companyerrInfo.isError) {
-			// エラーがあればエラーダイアログを表示する(companyvalidator.js:createErrorDialog(companycheckerConfig))
-			createErrorDialog(companyerrInfo.companyerrMsg);
+		if (errInfo.isError) {
+			// エラーがあればエラーダイアログを表示する(validator.js:createErrorDialog(checkerConfig))
+			createErrorDialog(errInfo.errMsg);
 			$("#inputCompanyError").dialog("open");
 		} else {
-			// エラーがなければ、確認ダイアログを表示する(companydialogConfig.js:createConfirmDialog(companycheckerConfig))
+			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
 			createConfirmDialog({
-				'companyName': companychecker.companyName,
-				'staffName': companychecker.staffName,
-				'mailAddress': companychecker.mailAddress,
-				'companyAddress': companychecker.companyAddress,
-				'phoneNumber': companychecker.phoneNumber,
+				'companyName': checker.companyName,
+				'staffName': checker.staffName,
+				'mailAddress': checker.mailAddress,
+				'companyAddress': checker.companyAddress,
+				'phoneNumber': checker.phoneNumber,
 	
 			});
 			$("#inputCompanyConfirm").dialog("open");
@@ -146,16 +144,16 @@ $(() => {
 });
 
 	function checkCompanyName(companyName) {
-		let companyerrInfo = validate({ 'companyName': checker.companyName });
-		if (companyerrInfo.isError) {
-				createErrorDialog(companyerrInfo.errMsg);
+		let errInfo = validate({ 'companyName': checker.companyName });
+		if (errInfo.isError) {
+				createErrorDialog(errInfo.errMsg);
 				$("#inputCompanyError").dialog("open");
 				return;
 			}
 	
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/register_address/duplicatedCompanyName',
+			url: '/mailsystem/address/duplicatedCompanyName',
 			data: companyName,
 			scriptCharset: 'utf-8'
 		})
