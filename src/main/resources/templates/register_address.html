@@ -11,6 +11,10 @@
 	<header th:insert="fragments/page_header::commonHeader"></header>
 
 <main>
+
+<span class="welcomeMsg"
+			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
+
 <div class="container">
 	<h2 class="title">新規連絡先登録</h2>
 	

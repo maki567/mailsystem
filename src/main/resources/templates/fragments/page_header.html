@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>共通ヘッダー</title>
-
+<link href="/css/page_header.css" th:href="@{/css/page_header.css}" rel="stylesheet" />
 </head>
 <body>
 
@@ -58,7 +58,7 @@
 				$('#hiddenUserName').val('');
 				logout();
 				alert('ログアウトしました。');
-				location.replace('/mailsystem/');
+				location.replace('/mailsystem/login/');
 			}, () => {
 				alert('Error: ajax connection failed.');
 			});

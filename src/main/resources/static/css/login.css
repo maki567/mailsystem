@@ -9,6 +9,10 @@ main {
 	margin-bottom: 15px;
 }
 
+button[id="logout"] {
+	text-align: right;
+}
+
 .hidden {
 	display: none;
 }

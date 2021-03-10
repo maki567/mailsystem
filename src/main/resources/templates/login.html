@@ -26,6 +26,8 @@
 		<button id="login" th:class="${loginSession == null || loginSession.getUserName() == null ? '' : 'hidden'}">ログイン</button>	</div>
 	
 	<a href="http://localhost:8080/mailsystem/user/">新規ユーザー登録はこちら</a>
+	
+	<button id="logout">ログアウト</button>
 		
 </nav>
 
@@ -67,6 +69,7 @@
 				} else {
 					$('#hiddenUserName').val(user['userName']);
 					login(user);
+					location.replace('/mailsystem/address/');
 				}
 			}, () => {
 				alert('Error: ajax connection failed.');
@@ -84,7 +87,7 @@
 				$('#hiddenUserName').val('');
 				logout();
 				alert('ログアウトしました。');
-				location.replace('/pegasus/');
+				location.replace('/mailsystem/user/');
 			}, () => {
 				alert('Error: ajax connection failed.');
 			});
