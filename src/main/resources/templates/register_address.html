@@ -8,12 +8,12 @@
 </head>
 
 <body>
+
 	<header th:insert="fragments/page_header::commonHeader"></header>
 
-<main>
+	<a href="http://localhost:8080/mailsystem/home/">ホーム画面へ戻る</a>
 
-<span class="welcomeMsg"
-			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
+<main>
 
 <div class="container">
 	<h2 class="title">新規連絡先登録</h2>
@@ -106,10 +106,10 @@ $(() => {
 	// 引数はvalidate.js:checkerからチェックしたい項目の変数の宣言を作成する
 		let errInfo = validate({
 			'companyName': checker.companyName,
-				'staffName': checker.staffName,
-				'mailAddress': checker.mailAddress,
-				'companyAddress': checker.companyAddress,
-				'phoneNumber': checker.phoneNumber,
+			'staffName': checker.staffName,
+			'mailAddress': checker.mailAddress,
+			'companyAddress': checker.companyAddress,
+			'phoneNumber': checker.phoneNumber,
 	
 		});
 		if (errInfo.isError) {

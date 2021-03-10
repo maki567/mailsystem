@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>ホーム画面</title>
+	<title>メール作成画面</title>
 	
 </head>
 
@@ -16,12 +16,8 @@
 	<span class="welcomeMsg"
 			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
 
-	<a href="http://localhost:8080/mailsystem/mail/">メール作成</a>
+	<a href="http://localhost:8080/mailsystem/home/">キャンセル</a>
 	
-	<a href="http://localhost:8080/mailsystem/list/">連絡先一覧</a>
-	
-	<a href="http://localhost:8080/mailsystem/address/">連絡先登録</a>
-
 </main>
 
 </body>

@@ -161,9 +161,7 @@ const dialogConfig = {
 			},
 		]
 	},
-
-	
-		inputCompanyError: {
+	duplicatedCompanyName: {
 		autoOpen: false,
 		width: 650,
 		modal: true,
@@ -176,7 +174,19 @@ const dialogConfig = {
 			},
 		]
 	},
-	
+	inputCompanyError: {
+		autoOpen: false,
+		width: 650,
+		modal: true,
+		buttons: [
+			{
+				text: 'OK',
+				click: function() {
+					$(this).dialog('close');
+				}
+			},
+		]
+	},
 	inputCompanyConfirm: {
 		autoOpen: false,
 		width: 850,

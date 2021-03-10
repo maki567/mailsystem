@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
-@RequestMapping("/mailsystem/home")
-public class HomeController {
+@RequestMapping("/mailsystem/mail")
+public class MailController {
 	
 	@Autowired
 	private LoginSession loginSession;
@@ -17,6 +17,6 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(Model m) {
 		m.addAttribute("loginSession", loginSession);
-		return "home";
+		return "create_mail";
 	}
 }
