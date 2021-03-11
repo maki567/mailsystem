@@ -12,22 +12,20 @@
 
 <main>
 
-	<img class="logo" src="/img/h_logo.png">
-	
-	<span class="welcomeMsg"
-			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
-
-
 <nav>
+
+	<div class="title">ユーザーログイン</div>
+
 	<div class="loginArea">
-		<input type="text" name="userName" placeholder="メールアドレス" />
-		<input type="password" name="password" placeholder="パスワード" />
+		<div class="koumokuName">ユーザー名</div>
+		<input class="form" type="text" name="userName" placeholder="メールアドレス" /><br />
+		<div class="koumokuPass">パスワード</div>
+		<input class="form" type="password" name="password" placeholder="パスワード" /><br />
 		<input type="hidden" id="hiddenUserName" value="" />
-		<button id="login" th:class="${loginSession == null || loginSession.getUserName() == null ? '' : 'hidden'}">ログイン</button>	</div>
+		<button id="login">ログイン</button>
+	</div>
 	
-	<a href="http://localhost:8080/mailsystem/user/">新規ユーザー登録はこちら</a>
-	
-	<button id="logout">ログアウト</button>
+	<button class="btn btn--yellow btn--cubic" onclick="location.href='http://localhost:8080/mailsystem/user/'">新規ユーザー登録</button>
 		
 </nav>
 
