@@ -117,35 +117,6 @@ const checker = {
 		}
 		return errMsg;
 	},
-	address: (target) => {
-		const title = '「住所」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (validator.overMax(target, validateConstants.ADDRESS_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-	telNumber: (target) => {
-		const title = '「電話番号」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (!validator.isHalfNumeric(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
-		}
-		if (validator.overMax(target, validateConstants.TEL_NUMBER_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		if (validator.underMin(target, validateConstants.TEL_NUMBER_MIN)) {
-			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
-		}
-		return errMsg;
-	},
-	
 	// 会社名チェック
 	companyName: (target) => {
 		const title = '「会社名」';
@@ -171,7 +142,7 @@ const checker = {
 		return errMsg;
 	},
 	// 電話番号（会社）チェック
-	phoneNumber: (target) => {
+	companyNumber: (target) => {
 		const title = '「電話番号」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
@@ -201,7 +172,7 @@ const checker = {
 		return errMsg;
 	},
 	// メールアドレス（担当者）チェック
-	mailAddress: (target) => {
+	staffMail: (target) => {
 		const title = '「メールアドレス」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
@@ -219,7 +190,7 @@ const checker = {
 		return errMsg;
 	},
 	// 電話番号（担当者）チェック
-	phoneNumber: (target) => {
+	staffNumber: (target) => {
 		const title = '「電話番号」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
@@ -251,7 +222,7 @@ function validate(checkerConfig) {
 	};
 	
 	for ([key, value] of Object.entries(checkerConfig)) {
-		if (key === 'gender') {
+		if (key === 'corporation') {
 			continue;
 		}
 		let obj = $('table#register input[name=' + key + ']');

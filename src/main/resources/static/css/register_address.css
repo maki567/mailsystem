@@ -62,7 +62,7 @@ input[name="companyNumber"] {
 	width: 70px;
 }
 
-.staff_name, .phone_number {
+.staff_name, .staff_number {
 	font-weight: bold;
 	color: white;
 	background-color: gray;
