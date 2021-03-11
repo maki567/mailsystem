@@ -9,8 +9,6 @@ public class MstUser {
 	private int id;
 	private String userName;
 	private String password;
-	private String familyName;
-	private String firstName;
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
 
@@ -19,8 +17,6 @@ public class MstUser {
 	public MstUser(UserForm f) {
 		userName = f.getUserName();
 		password = f.getPassword();
-		familyName = f.getFamilyName();
-		firstName = f.getFirstName();
 	}
 
 	public int getId() {
@@ -40,18 +36,6 @@ public class MstUser {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getFamilyName() {
-		return familyName;
-	}
-	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
 	}
 	public Timestamp getCreatedAt() {
 		return createdAt;

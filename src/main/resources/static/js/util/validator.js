@@ -11,10 +11,6 @@ const validateConstants = {
 		NOT_ONLY_NUMERIC: 'に半角数字以外の文字が含まれています。',
 		INVALID_FORMAT: 'の書式が不正です。',
 	},
-	FAMILY_NAME_MAX: 16,
-	FIRST_NAME_MAX: 16,
-	FAMILY_NAME_KANA_MAX: 16,
-	FIRST_NAME_KANA_MAX: 16,
 	USER_NAME_MIN: 3,
 	USER_NAME_MAX: 32,
 	PASSWORD_MIN: 6,
@@ -85,60 +81,6 @@ const validator = {
  * 結果としてエラーメッセージ（Array）を返却するメソッド群のネームスペース
  */
 const checker = {
-	// 姓チェック
-	familyName: (target) => {
-		const title = '「姓」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (validator.overMax(target, validateConstants.FAMILY_NAME_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-	// 名チェック
-	firstName: (target) => {
-		const title = '「名」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (validator.overMax(target, validateConstants.FIRST_NAME_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-	// 姓ふりがなチェック
-	familyNameKana: (target) => {
-		const title = '「姓ふりがな」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (!validator.isHiragana(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
-		}
-		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-	// 名ふりがなチェック
-	firstNameKana: (target) => {
-		const title = '「名ふりがな」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (!validator.isHiragana(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_HIRAGANA);
-		}
-		if (validator.overMax(target, validateConstants.FAMILY_NAME_KANA_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
 	// ユーザー名（メールアドレス）チェック
 	userName: (target) => {
 		const title = '「ユーザー名」';

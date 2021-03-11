@@ -28,8 +28,8 @@
 			<td>
 				<div class="koumokuMail">ユーザー名(メールアドレス)</div>
 				<input class="form" type="email" name="userName" placeholder="myaccount@abc.com" maxlength="32" /><br />
-				<span id="checkOK" class="hidden">OK</span>
 				<button id="checkUserName">重複確認</button>
+				<span id="checkOK" class="hidden">OK</span>
 			</td>
 		</tr>
 		<tr>
@@ -93,8 +93,6 @@ $(() => {
 	// 入力チェック処理(validate.js:validate(checkerConfig))を呼び出す
 	// 引数はvalidate.js:checkerからチェックしたい項目の変数の宣言を作成する
 		let errInfo = validate({
-			'familyName': checker.familyName,
-			'firstName': checker.firstName,
 			'userName': checker.userName,
 			'password': checker.password,
 		});
@@ -105,8 +103,6 @@ $(() => {
 		} else {
 			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
 			createConfirmDialog({
-				'familyName': checker.familyName,
-				'firstName': checker.firstName,
 				'userName': checker.userName,
 				'password': checker.password,
 			});

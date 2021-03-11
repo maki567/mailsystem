@@ -7,8 +7,6 @@ public class UserForm implements Serializable {
 	
 	private String userName;
 	private String password;
-	private String familyName;
-	private String firstName;
 	private String newPassword;
 	private String newPasswordConfirm;
 	
@@ -17,18 +15,6 @@ public class UserForm implements Serializable {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-	public String getFamilyName() {
-		return familyName;
-	}
-	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
 	}
 	public String getPassword() {
 		return password;

@@ -13,12 +13,10 @@ import jp.co.openworker.mailsystem.model.domain.MstUser;
 public interface MstUserMapper {
 	
 	@Insert("INSERT INTO mst_user ("
-					+ "user_name, password, "
-					+ "family_name, first_name"
+					+ "user_name, password"
 					+ ") "
 					+ "VALUES ("
-					+ "#{userName}, #{password}, "
-					+ "#{familyName}, #{firstName}"
+					+ "#{userName}, #{password}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstUser user);
