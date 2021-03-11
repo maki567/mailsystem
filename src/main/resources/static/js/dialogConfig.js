@@ -187,12 +187,12 @@ const dialogConfig = {
 				click: function() {
 					let jsonString = {
 						'companyName': $('table#register input[name=companyName]').val(),
-						'staffName': $('table#register input[name=staffName]').val(),
-						'mailAddress': $('table#register input[name=mailAddress]').val(),
 						'companyAddress': $('table#register input[name=companyAddress]').val(),
-						'phoneNumber': $('table#register input[name=phoneNumber]').val(),
-						
-						
+						'corporation': $('table#register input[name=corporation]').val(),
+						'companyNumber': $('table#register input[name=companyNumber]').val(),
+						'staffName': $('table#register input[name=staffName]').val(),
+						'staffAddress': $('table#register input[name=staffAddress]').val(),
+						'staffNumber': $('table#register input[name=staffNumber]').val(),
 								};
 					$.ajax({
 						type: 'POST',
@@ -206,10 +206,12 @@ const dialogConfig = {
 						$('.info').removeClass('hidden');
 						$('#checkOK').addClass('hidden');
 						$('table#register input[name=companyName]').val('');
-						$('table#register input[name=staffName]').val('');
-						$('table#register input[name=mailAddress]').val('');
 						$('table#register input[name=companyAddress]').val('');
-						($('table#register input[name=phoneNumber]').val(''));
+						$('table#register input[name=corporation]').val('');
+						$('table#register input[name=companyNumber]').val('');
+						$('table#register input[name=staffName]').val('');
+						$('table#register input[name=staffAddress]').val('');
+						($('table#register input[name=staffNumber]').val(''));
 						
 						
 						

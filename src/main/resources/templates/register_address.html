@@ -62,15 +62,15 @@
 			</td>
 			<td>
 				<div class="staff_mail">メールアドレス</div>
-				<input class="form" type="email" name="mailAddress" placeholder="担当者のメールアドレス" maxlength="32" /><br />
-				<input class="form" type="email" name="mailAddress" placeholder="担当者のメールアドレス" maxlength="32" /><br />
-				<input class="form" type="email" name="mailAddress" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail" placeholder="担当者のメールアドレス" maxlength="32" /><br />
 			</td>
 			<td>
 				<div class="phone_number">電話番号</div>
-				<input class="form" type="tel" name="phoneNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
-				<input class="form" type="tel" name="phoneNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
-				<input class="form" type="tel" name="phoneNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
 			</td>
 		<tr>
 
@@ -97,7 +97,7 @@
 const errorSelector = {
 	'会社名': '.companyNameError',
 	'担当者名': '.staffNameError',
-	'メールアドレス': '.mailAddressError',
+	'メールアドレス': '.staffMailError',
 	
 };
 
@@ -119,10 +119,12 @@ $(() => {
 	// 引数はvalidate.js:checkerからチェックしたい項目の変数の宣言を作成する
 		let errInfo = validate({
 			'companyName': checker.companyName,
-			'staffName': checker.staffName,
-			'mailAddress': checker.mailAddress,
 			'companyAddress': checker.companyAddress,
-			'phoneNumber': checker.phoneNumber,
+			'corporation': checker.corporation,
+			'companyNumber': checker.companyNumber,
+			'staffName': checker.staffName,
+			'staffMail': checker.staffMail,
+			'staffNumber': checker.staffNumber,
 	
 		});
 		if (errInfo.isError) {
@@ -133,10 +135,12 @@ $(() => {
 			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
 			createConfirmDialog({
 				'companyName': checker.companyName,
-				'staffName': checker.staffName,
-				'mailAddress': checker.mailAddress,
 				'companyAddress': checker.companyAddress,
-				'phoneNumber': checker.phoneNumber,
+				'corporation': checker.corporation,
+				'companyNumber': checker.companyNumber,
+				'staffName': checker.staffName,
+				'staffMail': checker.staffMail,
+				'staffNumber': checker.staffNumber,
 	
 			});
 			$("#inputCompanyConfirm").dialog("open");

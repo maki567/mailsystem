@@ -62,15 +62,30 @@ input[name="companyNumber"] {
 	width: 70px;
 }
 
-.staff_name {
+.staff_name, .phone_number {
 	font-weight: bold;
+	color: white;
+	background-color: gray;
+	padding-top: 10px;
+	width: 280px;
+	height: 30px;
 }
 
 .staff_mail {
 	font-weight: bold;
+	color: white;
+	background-color: gray;
+	padding-top: 10px;
+	width: 360px;
+	height: 30px;
 }
 
-.phone_number {
+th {
+	padding: 5px;
+	height: 20px;
+	vertical-align: middle;
+	background:rgb(201, 236, 191);
+	border: 1px solid #228B22;
 	font-weight: bold;
 }
 

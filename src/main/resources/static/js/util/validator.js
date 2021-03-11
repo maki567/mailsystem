@@ -20,10 +20,11 @@ const validateConstants = {
 	ADDRESS_MAX:50,
 	
 	COMPANY_NAME_MAX: 32,
-	STAFF_NAME_MAX: 16,
-	MAIL_ADDRESS_MAX: 32,
 	COMPANY_ADDRESS_MAX: 32,
-	PHONE_NUMBER_MAX: 16
+	COMPANY_NUMBER_MAX: 16,
+	STAFF_NAME_MAX: 16,
+	STAFF_ADDRESS_MAX: 32,
+	STAFF_NUMBER_MAX: 16
 
 }
 
@@ -145,7 +146,7 @@ const checker = {
 		return errMsg;
 	},
 	
-		// 会社名チェック
+	// 会社名チェック
 	companyName: (target) => {
 		const title = '「会社名」';
 		let errMsg = new Array();
@@ -154,6 +155,36 @@ const checker = {
 		}
 		if (validator.overMax(target, validateConstants.CAMPANY_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 所在地チェック
+	companyAddress: (target) => {
+		const title = '「所在地」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.COMPANY_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（会社）チェック
+	phoneNumber: (target) => {
+		const title = '「電話番号」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		if (validator.underMin(target, validateConstants.PHONE_NUMBER_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
 		}
 		return errMsg;
 	},
@@ -187,19 +218,6 @@ const checker = {
 		}
 		return errMsg;
 	},
-	// 所在地チェック
-	companyAddress: (target) => {
-		const title = '「所在地」';
-		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
-		if (validator.overMax(target, validateConstants.COMPANY_ADDRESS_MAX)) {
-			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		return errMsg;
-	},
-
 	// 電話番号（担当者）チェック
 	phoneNumber: (target) => {
 		const title = '「電話番号」';

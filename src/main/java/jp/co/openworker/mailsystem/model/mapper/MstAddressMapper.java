@@ -12,12 +12,12 @@ import jp.co.openworker.mailsystem.model.domain.MstAddress;
 public interface MstAddressMapper {
 	
 	@Insert("INSERT INTO mst_address ("
-					+ "company_name, staff_name, mail_address, "
-					+ "company_address, phone_number"
+					+ "company_name, company_address, corporation, company_number,"
+					+ "staff_name, staff_address, staff_number"
 					+ ") "
 					+ "VALUES ("
-					+ "#{companyName}, #{staffName},#{mailAddress}, "
-					+ "#{companyAddress}, #{phoneNumber}"
+					+ "#{companyName}, #{companyAddress}, #{corporation}, #{companyNumber},"
+					+ "#{staffName}, #{staffAddress}, #{staffNumber}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstAddress address);

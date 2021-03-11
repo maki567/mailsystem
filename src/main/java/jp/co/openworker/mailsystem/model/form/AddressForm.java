@@ -6,10 +6,12 @@ public class AddressForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String companyName;
-	private String staffName;
-	private String mailAddress;
 	private String companyAddress;
-	private String phoneNumber;
+	private int corporation;
+	private String companyNumber;
+	private String staffName;
+	private String staffAddress;
+	private String staffNumber;
 	
 	public String getCompanyName() {
 		return companyName;
@@ -17,28 +19,41 @@ public class AddressForm implements Serializable {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-	public String getStaffName() {
-		return staffName;
-	}
-	public void setStaffName(String staffName) {
-		this.staffName = staffName;
-	}
-	public String getMailAddress() {
-		return mailAddress;
-	}
-	public void setMailAddress(String mailAddress) {
-		this.mailAddress = mailAddress;
-	}
 	public String getCompanyAddress() {
 		return companyAddress;
 	}
 	public void setCompanyAddress(String companyAddress) {
 		this.companyAddress = companyAddress;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public int getCorporation() {
+		return corporation;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setCorporation(int corporation) {
+		this.corporation = corporation;
+	}
+	public String getCompanyNumber() {
+		return companyNumber;
+	}
+	public void setCompanyNumber(String companyNumber) {
+		this.companyNumber = companyNumber;
+	}
+	public String getStaffName() {
+		return staffName;
+	}
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+	public String getStaffAddress() {
+		return staffAddress;
+	}
+	public void setStaffAddress(String staffAddress) {
+		this.staffAddress = staffAddress;
+	}
+	
+	public String getStaffNumber() {
+		return staffNumber;
+	}
+	public void setStaffNumber(String staffNumber) {
+		this.staffNumber = staffNumber;
 	}
 }
