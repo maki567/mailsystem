@@ -4,69 +4,61 @@ main {
 	text-align: center;
 }
 
-.logo {
-	margin-top: 50px;
-	margin-bottom: 15px;
-}
-
 .title {
-	margin-bottom: 5px;
+	margin: 0 auto;
+	width: 350px;
+	height: 60px;
+	padding-top: 40px;
+	margin-top: 70px;
+	color: white;
+	background: black;
 }
 
-table {
-	display: inline;
-}
-
-.koumokuName {
-	margin-top: 0;
-	margin-bottom: 5px;
-	margin-right: 330px;
-	font-weight: bold;
+.container {
+	margin: 0 auto;
+	width: 350px;
+	height: 350px;
+	margin-bottom: 50px;
+	background: #dfdfdf;
 }
 
 .koumokuMail {
-	margin-top: 30px;
-	margin-bottom: 5px;
-	margin-right: 185px;
+	padding-top: 50px;
+	margin-right: 90px;
 	font-weight: bold;
+	font-size: 15px;
 }
 
 .koumokuPass {
-	margin-top: 30px;
-	margin-bottom: 5px;
-	margin-right: 310px;
+	margin-right: 215px;
 	font-weight: bold;
+	font-size: 15px;
 }
 
 .form {
-	text-align: center;
-	height: 20px;
+	width: 280px;
+	height: 25px;
+	margin-left: 0px;
 	margin-bottom: 5px;
 	border-radius: 3px;
 	border: 2px solid;
+	border-color: blue;
 }
 
-input[name="familyName"],input[name="firstName"] {
-	width: 143px;
-}
-
-input[name="userName"], input[name="password"] {
-	width: 300px;
-}
-
-input[name="userName"] {
-	margin-left: 100px;
-}
-
-button {
-	background-color: #a5ff4a;
-	border-radius: 3px;
-	border: 1px solid;
+button[id="checkUserName"] {
+	width: 80px;
+	height: 25px;
+	margin-left: 230px;
+	color: white;
+	background-color: #0080ff;
 }
 
 button[id="confirm"] {
-	width: 70px;
-	margin: 20px;
+	width: 150px;
+	height: 40px;
+	color: white;
+	margin-top: 30px;
+	background-color: #0080ff;
 }
 
 .hidden {

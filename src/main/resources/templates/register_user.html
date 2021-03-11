@@ -19,31 +19,24 @@
 
 <main>
 
-<img class="logo" src="/img/h_logo.png">
-
+<div class="title">新規ユーザー登録</div>
+	
 <div class="container">
-	<h2 class="title">新規ユーザー登録</h2>
 	
 	<table id="register" class="user">
 		<tr>
 			<td>
-				<div class="koumokuName">氏名</div>
-				<input class="form" type="text" name="familyName" placeholder="山田"maxlength="16" />
-				<input class="form" type="text" name="firstName" placeholder="太郎"maxlength="16" />
-			</td>
-		</tr>
-		<tr>
-			<td>
 				<div class="koumokuMail">ユーザー名(メールアドレス)</div>
-				<input class="form" type="email" name="userName" placeholder="myaccount@abc.com" maxlength="32" />
-				<button id="checkUserName">重複確認</button>
+				<input class="form" type="email" name="userName" placeholder="myaccount@abc.com" maxlength="32" /><br />
 				<span id="checkOK" class="hidden">OK</span>
+				<button id="checkUserName">重複確認</button>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="koumokuPass">パスワード</div>
 				<input class="form" type="password" name="password" placeholder="※半角英数字6～16字まで" maxlength="16" />
+				<input class="form" type="password" name="password" placeholder="確認のためもう一度入力してください" maxlength="16" />
 			</td>
 		</tr>
 		<tr>
@@ -79,8 +72,6 @@
 <script>
 // dialog_input_user_error.htmlのエラーメッセージを表示するdivのクラスを定義
 const errorSelector = {
-	'姓': '.familyNameError',
-	'名': '.firstNameError',
 	'ユーザー名': '.userNameError',
 	'パスワード': '.passwordError',
 };

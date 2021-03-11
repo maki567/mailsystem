@@ -4,35 +4,33 @@ main {
 	text-align: center;
 }
 
-body {
-  background: #2c3338;
-  color: #606468;
-  font: 87.5%/1.5em 'Open Sans', sans-serif;
-  margin: 0;
-}
-
-
 .title {
-	border: 30px;
+	margin: 0 auto;
+	width: 350px;
+	height: 60px;
+	padding-top: 40px;
+	margin-top: 70px;
 	color: white;
 	background: black;
 }
 
 .loginArea {
-	background: gray;
+	margin: 0 auto;
+	width: 350px;
+	height: 300px;
+	margin-bottom: 50px;
+	background: #dfdfdf;
 }
 
 .koumokuName {
-	margin-top: 0;
-	margin-bottom: 5px;
-	margin-right: 330px;
+	padding-top: 50px;
+	margin-right: 200px;
 	font-weight: bold;
 }
 
 .koumokuPass {
 	margin-top: 30px;
-	margin-bottom: 5px;
-	margin-right: 310px;
+	margin-right: 200px;
 	font-weight: bold;
 }
 
@@ -42,22 +40,19 @@ body {
 	margin-bottom: 5px;
 	border-radius: 3px;
 	border: 2px solid;
+	border-color: blue;
 }
 
 button[id="login"] {
+	width: 150px;
+	height: 30px;
+	margin-top: 50px;
 	color: white;
 	background-color: #0080ff;
 }
 
-.btn--yellow {
-	width: 200px;
-	height: 50px;
-	color: #000;
-	background-color: #f7ff5b;
-	border-top: 0px;
-	border-left: 0px;
-	border-right: 5px solid gray;
- 	border-bottom: 5px solid gray;
+.register {
+	margin-top: 50px;
 }
 
 .hidden {
