@@ -241,8 +241,8 @@ function createConfirmDialog(checkerConfig) {
 		
 		let value = $(obj).val();
 		
-		if (key === 'gender') {
-			value = $('table#register input[name=gender]:checked').val();
+		if (key === 'corporation') {
+			value = $('table#register input[name=corporation]:checked').val();
 		}
 		if (key === 'password') {
 			let tmpValue = '';
@@ -255,16 +255,4 @@ function createConfirmDialog(checkerConfig) {
 		$(objConfirm).html(value);
 	}
 	
-	
 }
-function createConfirmDialog(checkerConfig) {
-	for ([key, value] of Object.entries(checkerConfig)) {
-		let obj = $('table#register input[name=' + key + ']');
-		let objConfirm = $('table.confirm span.' + key);
-		
-		let value = $(obj).val();
-		
-
-		$(objConfirm).html(value);
-	}
-	}
