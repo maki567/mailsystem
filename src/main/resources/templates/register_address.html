@@ -26,7 +26,7 @@
 		<tr>
 			<td>
 				<div class="company_name">会社名</div>
-				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="16" />
+				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="32" />
 			</td>
 			<td>
 				<div class="chofukukakunin">
@@ -36,7 +36,7 @@
 			</td>
 			<td>	
 				<div class="company_address">所在地</div>
-				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="32" />
+				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="64" />
 			</td>
 		</tr>
 	</table>
@@ -55,7 +55,7 @@
 				<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="modoru">ホームへ戻る</button>
 			</td>
 			<td>
-				<button class="kakunin" id="confirm">確認</button>
+				<button class="kakunin" id="confirm" disabled>確認</button>
 			</td>
 		</tr>
 	</table>
@@ -103,9 +103,11 @@
 // dialog_input_company_error.htmlのエラーメッセージを表示するdivのクラスを定義
 const errorSelector = {
 	'会社名': '.companyNameError',
+	'所在地': '.companyAddressError',
+	'電話番号(会社)': '.companyNumberError',
 	'担当者名': '.staffNameError',
 	'メールアドレス': '.staffMailError',
-	
+	'電話番号(担当者)': '.staffNumberError',
 };
 
 $(() => {

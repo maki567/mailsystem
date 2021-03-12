@@ -15,17 +15,13 @@ const validateConstants = {
 	USER_NAME_MAX: 32,
 	PASSWORD_MIN: 6,
 	PASSWORD_MAX: 16,
-	TEL_NUMBER_MIN:10,
-	TEL_NUMBER_MAX:13,
-	ADDRESS_MAX:50,
 	
 	COMPANY_NAME_MAX: 32,
-	COMPANY_ADDRESS_MAX: 32,
+	COMPANY_ADDRESS_MAX: 64,
 	COMPANY_NUMBER_MAX: 16,
 	STAFF_NAME_MAX: 16,
 	STAFF_MAIL_MAX: 32,
 	STAFF_NUMBER_MAX: 16
-
 }
 
 /**
@@ -72,7 +68,7 @@ const validator = {
 	// 引数 target が電話番号の書式か判定する
 	isHalfNumeric: (target) => {
 		target = (target === null) ? '' : target;
-		return target.match(/^[0-9]+$/);
+		return target.match(/^[0-9]*$/);
 	},
 };
 
@@ -140,16 +136,13 @@ const checker = {
 	},
 	// 電話番号（会社）チェック
 	companyNumber: (target) => {
-		const title = '「電話番号」';
+		const title = '「電話番号(会社)」';
 		let errMsg = new Array();
 		if (!validator.isHalfNumeric(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
 		}
 		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		if (validator.underMin(target, validateConstants.PHONE_NUMBER_MIN)) {
-			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
 		}
 		return errMsg;
 	},
@@ -185,16 +178,13 @@ const checker = {
 	},
 	// 電話番号（担当者）チェック
 	staffNumber: (target) => {
-		const title = '「電話番号」';
+		const title = '「電話番号(担当者)」';
 		let errMsg = new Array();
 		if (!validator.isHalfNumeric(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
 		}
 		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
-		}
-		if (validator.underMin(target, validateConstants.PHONE_NUMBER_MIN)) {
-			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
 		}
 		return errMsg;
 	},
