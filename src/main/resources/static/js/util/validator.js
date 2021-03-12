@@ -133,9 +133,6 @@ const checker = {
 	companyAddress: (target) => {
 		const title = '「所在地」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.COMPANY_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -145,9 +142,6 @@ const checker = {
 	companyNumber: (target) => {
 		const title = '「電話番号」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isHalfNumeric(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
 		}
@@ -193,9 +187,6 @@ const checker = {
 	staffNumber: (target) => {
 		const title = '「電話番号」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isHalfNumeric(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
 		}
