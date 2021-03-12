@@ -15,7 +15,7 @@ CREATE TABLE mst_address (
  corporation TINYINT DEFAULT 0,
  company_number VARCHAR(16),
  staff_name VARCHAR(16) NOT NULL,
- staff_mail VARCHAR(32) NOT NULL UNIQUE,
+ staff_mail VARCHAR(32) NOT NULL,
  staff_number VARCHAR(16),
  created_at TIMESTAMP NOT NULL DEFAULT current_timestamp(),
  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
