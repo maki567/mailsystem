@@ -13,11 +13,11 @@ public interface MstAddressMapper {
 	
 	@Insert("INSERT INTO mst_address ("
 					+ "company_name, company_address, corporation, company_number,"
-					+ "staff_name, staff_address, staff_number"
+					+ "staff_name, staff_mail, staff_number"
 					+ ") "
 					+ "VALUES ("
 					+ "#{companyName}, #{companyAddress}, #{corporation}, #{companyNumber},"
-					+ "#{staffName}, #{staffAddress}, #{staffNumber}"
+					+ "#{staffName}, #{staffMail}, #{staffNumber}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstAddress address);

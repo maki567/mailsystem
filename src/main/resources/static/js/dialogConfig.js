@@ -191,7 +191,7 @@ const dialogConfig = {
 						'corporation': $('table#register input[name=corporation]:checked').val() == '前株' ? '0' : '1',
 						'companyNumber': $('table#register input[name=companyNumber]').val(),
 						'staffName': $('table#register input[name=staffName]').val(),
-						'staffAddress': $('table#register input[name=staffAddress]').val(),
+						'staffMail': $('table#register input[name=staffMail]').val(),
 						'staffNumber': $('table#register input[name=staffNumber]').val(),
 								};
 					$.ajax({
@@ -210,7 +210,7 @@ const dialogConfig = {
 						($('table#register input[name=corporation]')[0]).checked = true;
 						$('table#register input[name=companyNumber]').val('');
 						$('table#register input[name=staffName]').val('');
-						$('table#register input[name=staffAddress]').val('');
+						$('table#register input[name=staffMail]').val('');
 						$('table#register input[name=staffNumber]').val('');
 					}, () => {
 						alert('Error: ajax connection failed.');

@@ -10,7 +10,7 @@ public class AddressForm implements Serializable {
 	private int corporation;
 	private String companyNumber;
 	private String staffName;
-	private String staffAddress;
+	private String staffMail;
 	private String staffNumber;
 	
 	public String getCompanyName() {
@@ -43,13 +43,12 @@ public class AddressForm implements Serializable {
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
 	}
-	public String getStaffAddress() {
-		return staffAddress;
+	public String getStaffMail() {
+		return staffMail;
 	}
-	public void setStaffAddress(String staffAddress) {
-		this.staffAddress = staffAddress;
+	public void setStaffMail(String staffMail) {
+		this.staffMail = staffMail;
 	}
-	
 	public String getStaffNumber() {
 		return staffNumber;
 	}

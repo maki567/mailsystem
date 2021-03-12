@@ -12,7 +12,7 @@ public class MstAddress {
 	private int corporation;
 	private String companyNumber;
 	private String staffName;
-	private String staffAddress;
+	private String staffMail;
 	private String staffNumber;
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
@@ -25,7 +25,7 @@ public class MstAddress {
 		corporation = f.getCorporation();
 		companyNumber = f.getCompanyNumber();
 		staffName = f.getStaffName();
-		staffAddress = f.getStaffAddress();
+		staffMail = f.getStaffMail();
 		staffNumber = f.getStaffNumber();
 	}
 
@@ -65,13 +65,12 @@ public class MstAddress {
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
 	}
-	public String getStaffAddress() {
-		return staffAddress;
+	public String getStaffMail() {
+		return staffMail;
 	}
-	public void setStaffAddress(String staffAddress) {
-		this.staffAddress = staffAddress;
+	public void setStaffMail(String staffMail) {
+		this.staffMail = staffMail;
 	}
-	
 	public String getStaffNumber() {
 		return staffNumber;
 	}
