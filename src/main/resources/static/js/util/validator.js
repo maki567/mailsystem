@@ -192,9 +192,6 @@ const checker = {
 	staffName2: (target) => {
 		const title = '「担当者名2」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -204,9 +201,6 @@ const checker = {
 	staffMail2: (target) => {
 		const title = '「メールアドレス2」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -234,9 +228,6 @@ const checker = {
 	staffName3: (target) => {
 		const title = '「担当者名3」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -246,9 +237,6 @@ const checker = {
 	staffMail3: (target) => {
 		const title = '「メールアドレス3」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -276,9 +264,6 @@ const checker = {
 	staffName4: (target) => {
 		const title = '「担当者名4」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -288,9 +273,6 @@ const checker = {
 	staffMail4: (target) => {
 		const title = '「メールアドレス4」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -318,9 +300,6 @@ const checker = {
 	staffName5: (target) => {
 		const title = '「担当者名5」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -330,9 +309,6 @@ const checker = {
 	staffMail5: (target) => {
 		const title = '「メールアドレス5」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -360,9 +336,6 @@ const checker = {
 	staffName6: (target) => {
 		const title = '「担当者名6」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -372,9 +345,6 @@ const checker = {
 	staffMail6: (target) => {
 		const title = '「メールアドレス6」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -402,9 +372,6 @@ const checker = {
 	staffName7: (target) => {
 		const title = '「担当者名7」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -414,9 +381,6 @@ const checker = {
 	staffMail7: (target) => {
 		const title = '「メールアドレス7」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -444,9 +408,6 @@ const checker = {
 	staffName8: (target) => {
 		const title = '「担当者名8」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -456,9 +417,6 @@ const checker = {
 	staffMail8: (target) => {
 		const title = '「メールアドレス8」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -486,9 +444,6 @@ const checker = {
 	staffName9: (target) => {
 		const title = '「担当者名9」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -498,9 +453,6 @@ const checker = {
 	staffMail9: (target) => {
 		const title = '「メールアドレス9」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
@@ -528,9 +480,6 @@ const checker = {
 	staffName10: (target) => {
 		const title = '「担当者名10」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -540,9 +489,6 @@ const checker = {
 	staffMail10: (target) => {
 		const title = '「メールアドレス10」';
 		let errMsg = new Array();
-		if (validator.isEmpty(target)) {
-			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
-		}
 		if (!validator.isMailAddress(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
 		}
