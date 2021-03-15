@@ -63,21 +63,18 @@
 		<tr>
 			<td class="staffform">
 				<div class="staff_name">担当者名</div>
-				<input class="form" type="text" name="staffName" placeholder="氏名" maxlength="16" /><br />
-				<input class="form" type="text" name="staffName" placeholder="氏名" maxlength="16" /><br />
-				<input class="form" type="text" name="staffName" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName1" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName2" placeholder="氏名" maxlength="16" /><br />
 			</td>
 			<td>
 				<div class="staff_mail">メールアドレス</div>
-				<input class="form" type="email" name="staffMail" placeholder="担当者のメールアドレス" maxlength="32" /><br />
-				<input class="form" type="email" name="staffMail" placeholder="担当者のメールアドレス" maxlength="32" /><br />
-				<input class="form" type="email" name="staffMail" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail1" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail2" placeholder="担当者のメールアドレス" maxlength="32" /><br />
 			</td>
 			<td>
 				<div class="staff_number">電話番号</div>
-				<input class="form" type="tel" name="staffNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
-				<input class="form" type="tel" name="staffNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
-				<input class="form" type="tel" name="staffNumber" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber1" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber2" placeholder="担当者の電話番号" maxlength="16" /><br />
 			</td>
 		<tr>
 
@@ -105,9 +102,12 @@ const errorSelector = {
 	'会社名': '.companyNameError',
 	'所在地': '.companyAddressError',
 	'電話番号(会社)': '.companyNumberError',
-	'担当者名': '.staffNameError',
-	'メールアドレス': '.staffMailError',
-	'電話番号(担当者)': '.staffNumberError',
+	'担当者名1': '.staffName1Error',
+	'メールアドレス1': '.staffMail1Error',
+	'電話番号(担当者)1': '.staffNumber1Error',
+	'担当者名2': '.staffName2Error',
+	'メールアドレス2': '.staffMail2Error',
+	'電話番号(担当者)2': '.staffNumber2Error',
 };
 
 $(() => {
@@ -131,9 +131,12 @@ $(() => {
 			'companyAddress': checker.companyAddress,
 			'corporation': null,
 			'companyNumber': checker.companyNumber,
-			'staffName': checker.staffName,
-			'staffMail': checker.staffMail,
-			'staffNumber': checker.staffNumber,
+			'staffName1': checker.staffName1,
+			'staffMail1': checker.staffMail1,
+			'staffNumber1': checker.staffNumber1,
+			'staffName2': checker.staffName2,
+			'staffMail2': checker.staffMail2,
+			'staffNumber2': checker.staffNumber2,
 	
 		});
 		if (errInfo.isError) {
@@ -147,9 +150,12 @@ $(() => {
 				'companyAddress': checker.companyAddress,
 				'corporation': null,
 				'companyNumber': checker.companyNumber,
-				'staffName': checker.staffName,
-				'staffMail': checker.staffMail,
-				'staffNumber': checker.staffNumber,
+				'staffName1': checker.staffName1,
+				'staffMail1': checker.staffMail1,
+				'staffNumber1': checker.staffNumber1,
+				'staffName2': checker.staffName2,
+				'staffMail2': checker.staffMail2,
+				'staffNumber2': checker.staffNumber2,
 	
 			});
 			$("#inputCompanyConfirm").dialog("open");

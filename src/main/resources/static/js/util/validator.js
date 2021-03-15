@@ -146,9 +146,9 @@ const checker = {
 		}
 		return errMsg;
 	},
-	// 担当者名チェック
+	// 担当者名1チェック
 	staffName: (target) => {
-		const title = '「担当者名」';
+		const title = '「担当者名1」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
@@ -158,9 +158,9 @@ const checker = {
 		}
 		return errMsg;
 	},
-	// メールアドレス（担当者）チェック
+	// メールアドレス（担当者）1チェック
 	staffMail: (target) => {
-		const title = '「メールアドレス」';
+		const title = '「メールアドレス1」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
@@ -176,9 +176,51 @@ const checker = {
 		}
 		return errMsg;
 	},
-	// 電話番号（担当者）チェック
+	// 電話番号（担当者）1チェック
 	staffNumber: (target) => {
-		const title = '「電話番号(担当者)」';
+		const title = '「電話番号(担当者)1」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名2チェック
+	staffName: (target) => {
+		const title = '「担当者名2」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）2チェック
+	staffMail: (target) => {
+		const title = '「メールアドレス2」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）2チェック
+	staffNumber: (target) => {
+		const title = '「電話番号(担当者)2」';
 		let errMsg = new Array();
 		if (!validator.isHalfNumeric(target)) {
 			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);

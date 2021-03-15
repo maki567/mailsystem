@@ -9,9 +9,12 @@ public class AddressForm implements Serializable {
 	private String companyAddress;
 	private int corporation;
 	private String companyNumber;
-	private String staffName;
-	private String staffMail;
-	private String staffNumber;
+	private String staffName1;
+	private String staffMail1;
+	private String staffNumber1;
+	private String staffName2;
+	private String staffMail2;
+	private String staffNumber2;
 	
 	public String getCompanyName() {
 		return companyName;
@@ -37,22 +40,40 @@ public class AddressForm implements Serializable {
 	public void setCompanyNumber(String companyNumber) {
 		this.companyNumber = companyNumber;
 	}
-	public String getStaffName() {
-		return staffName;
+	public String getStaffName1() {
+		return staffName1;
 	}
-	public void setStaffName(String staffName) {
-		this.staffName = staffName;
+	public void setStaffName1(String staffName1) {
+		this.staffName1 = staffName1;
 	}
-	public String getStaffMail() {
-		return staffMail;
+	public String getStaffMail1() {
+		return staffMail1;
 	}
-	public void setStaffMail(String staffMail) {
-		this.staffMail = staffMail;
+	public void setStaffMail1(String staffMail1) {
+		this.staffMail1 = staffMail1;
 	}
-	public String getStaffNumber() {
-		return staffNumber;
+	public String getStaffNumber1() {
+		return staffNumber1;
 	}
-	public void setStaffNumber(String staffNumber) {
-		this.staffNumber = staffNumber;
+	public void setStaffNumber1(String staffNumber1) {
+		this.staffNumber1 = staffNumber1;
+	}
+	public String getStaffName2() {
+		return staffName2;
+	}
+	public void setStaffName2(String staffName2) {
+		this.staffName2 = staffName2;
+	}
+	public String getStaffMail2() {
+		return staffMail2;
+	}
+	public void setStaffMail2(String staffMail2) {
+		this.staffMail2 = staffMail2;
+	}
+	public String getStaffNumber2() {
+		return staffNumber2;
+	}
+	public void setStaffNumber2(String staffNumber2) {
+		this.staffNumber2 = staffNumber2;
 	}
 }

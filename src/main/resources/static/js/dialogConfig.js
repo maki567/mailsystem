@@ -190,9 +190,12 @@ const dialogConfig = {
 						'companyAddress': $('table#register input[name=companyAddress]').val(),
 						'corporation': $('table#register input[name=corporation]:checked').val() == '前株' ? '0' : '1',
 						'companyNumber': $('table#register input[name=companyNumber]').val(),
-						'staffName': $('table#register input[name=staffName]').val(),
-						'staffMail': $('table#register input[name=staffMail]').val(),
-						'staffNumber': $('table#register input[name=staffNumber]').val(),
+						'staffName1': $('table#register input[name=staffName1]').val(),
+						'staffMail1': $('table#register input[name=staffMail1]').val(),
+						'staffNumber1': $('table#register input[name=staffNumber1]').val(),
+						'staffName2': $('table#register input[name=staffName2]').val(),
+						'staffMail2': $('table#register input[name=staffMail2]').val(),
+						'staffNumber2': $('table#register input[name=staffNumber2]').val(),
 								};
 					$.ajax({
 						type: 'POST',
@@ -209,9 +212,12 @@ const dialogConfig = {
 						$('table#register input[name=companyAddress]').val('');
 						($('table#register input[name=corporation]')[0]).checked = true;
 						$('table#register input[name=companyNumber]').val('');
-						$('table#register input[name=staffName]').val('');
-						$('table#register input[name=staffMail]').val('');
-						$('table#register input[name=staffNumber]').val('');
+						$('table#register input[name=staffName1]').val('');
+						$('table#register input[name=staffMail1]').val('');
+						$('table#register input[name=staffNumber1]').val('');
+						$('table#register input[name=staffName2]').val('');
+						$('table#register input[name=staffMail2]').val('');
+						$('table#register input[name=staffNumber2]').val('');
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
