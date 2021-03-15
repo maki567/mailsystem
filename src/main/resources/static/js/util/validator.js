@@ -147,7 +147,7 @@ const checker = {
 		return errMsg;
 	},
 	// 担当者名1チェック
-	staffName: (target) => {
+	staffName1: (target) => {
 		const title = '「担当者名1」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
@@ -159,7 +159,7 @@ const checker = {
 		return errMsg;
 	},
 	// メールアドレス（担当者）1チェック
-	staffMail: (target) => {
+	staffMail1: (target) => {
 		const title = '「メールアドレス1」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
@@ -177,7 +177,7 @@ const checker = {
 		return errMsg;
 	},
 	// 電話番号（担当者）1チェック
-	staffNumber: (target) => {
+	staffNumber1: (target) => {
 		const title = '「電話番号(担当者)1」';
 		let errMsg = new Array();
 		if (!validator.isHalfNumeric(target)) {
@@ -189,7 +189,7 @@ const checker = {
 		return errMsg;
 	},
 	// 担当者名2チェック
-	staffName: (target) => {
+	staffName2: (target) => {
 		const title = '「担当者名2」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
@@ -201,7 +201,7 @@ const checker = {
 		return errMsg;
 	},
 	// メールアドレス（担当者）2チェック
-	staffMail: (target) => {
+	staffMail2: (target) => {
 		const title = '「メールアドレス2」';
 		let errMsg = new Array();
 		if (validator.isEmpty(target)) {
@@ -219,7 +219,7 @@ const checker = {
 		return errMsg;
 	},
 	// 電話番号（担当者）2チェック
-	staffNumber: (target) => {
+	staffNumber2: (target) => {
 		const title = '「電話番号(担当者)2」';
 		let errMsg = new Array();
 		if (!validator.isHalfNumeric(target)) {
