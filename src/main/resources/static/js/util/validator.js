@@ -230,6 +230,342 @@ const checker = {
 		}
 		return errMsg;
 	},
+	// 担当者名3チェック
+	staffName3: (target) => {
+		const title = '「担当者名3」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）3チェック
+	staffMail3: (target) => {
+		const title = '「メールアドレス3」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）3チェック
+	staffNumber3: (target) => {
+		const title = '「電話番号(担当者)3」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名4チェック
+	staffName4: (target) => {
+		const title = '「担当者名4」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）4チェック
+	staffMail4: (target) => {
+		const title = '「メールアドレス4」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）4チェック
+	staffNumber4: (target) => {
+		const title = '「電話番号(担当者)4」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名5チェック
+	staffName5: (target) => {
+		const title = '「担当者名5」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）5チェック
+	staffMail5: (target) => {
+		const title = '「メールアドレス5」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）5チェック
+	staffNumber5: (target) => {
+		const title = '「電話番号(担当者)5」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名6チェック
+	staffName6: (target) => {
+		const title = '「担当者名6」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）6チェック
+	staffMail6: (target) => {
+		const title = '「メールアドレス6」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）6チェック
+	staffNumber6: (target) => {
+		const title = '「電話番号(担当者)6」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名7チェック
+	staffName7: (target) => {
+		const title = '「担当者名7」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）7チェック
+	staffMail7: (target) => {
+		const title = '「メールアドレス7」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）7チェック
+	staffNumber7: (target) => {
+		const title = '「電話番号(担当者)7」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名8チェック
+	staffName8: (target) => {
+		const title = '「担当者名8」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）8チェック
+	staffMail8: (target) => {
+		const title = '「メールアドレス8」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）8チェック
+	staffNumber8: (target) => {
+		const title = '「電話番号(担当者)8」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名9チェック
+	staffName9: (target) => {
+		const title = '「担当者名9」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）9チェック
+	staffMail9: (target) => {
+		const title = '「メールアドレス9」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）9チェック
+	staffNumber9: (target) => {
+		const title = '「電話番号(担当者)9」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 担当者名10チェック
+	staffName10: (target) => {
+		const title = '「担当者名10」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (validator.overMax(target, validateConstants.STAFF_NAME_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// メールアドレス（担当者）10チェック
+	staffMail10: (target) => {
+		const title = '「メールアドレス10」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
+		if (validator.underMin(target, validateConstants.MAIL_ADDRESS_MIN)) {
+			errMsg.push(title + validateConstants.ERR_MSG.UNDER_MIN);
+		}
+		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
+	// 電話番号（担当者）10チェック
+	staffNumber10: (target) => {
+		const title = '「電話番号(担当者)10」';
+		let errMsg = new Array();
+		if (!validator.isHalfNumeric(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ONLY_NUMERIC);
+		}
+		if (validator.overMax(target, validateConstants.PHONE_NUMBER_MAX)) {
+			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
+		}
+		return errMsg;
+	},
 }
 
 /**

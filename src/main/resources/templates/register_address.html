@@ -65,16 +65,40 @@
 				<div class="staff_name">担当者名</div>
 				<input class="form" type="text" name="staffName1" placeholder="氏名" maxlength="16" /><br />
 				<input class="form" type="text" name="staffName2" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName3" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName4" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName5" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName6" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName7" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName8" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName9" placeholder="氏名" maxlength="16" /><br />
+				<input class="form" type="text" name="staffName10" placeholder="氏名" maxlength="16" /><br />
 			</td>
 			<td>
 				<div class="staff_mail">メールアドレス</div>
 				<input class="form" type="email" name="staffMail1" placeholder="担当者のメールアドレス" maxlength="32" /><br />
 				<input class="form" type="email" name="staffMail2" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail3" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail4" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail5" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail6" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail7" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail8" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail9" placeholder="担当者のメールアドレス" maxlength="32" /><br />
+				<input class="form" type="email" name="staffMail10" placeholder="担当者のメールアドレス" maxlength="32" /><br />
 			</td>
 			<td>
 				<div class="staff_number">電話番号</div>
 				<input class="form" type="tel" name="staffNumber1" placeholder="担当者の電話番号" maxlength="16" /><br />
 				<input class="form" type="tel" name="staffNumber2" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber3" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber4" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber5" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber6" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber7" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber8" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber9" placeholder="担当者の電話番号" maxlength="16" /><br />
+				<input class="form" type="tel" name="staffNumber10" placeholder="担当者の電話番号" maxlength="16" /><br />
 			</td>
 		<tr>
 
@@ -108,6 +132,30 @@ const errorSelector = {
 	'担当者名2': '.staffName2Error',
 	'メールアドレス2': '.staffMail2Error',
 	'電話番号(担当者)2': '.staffNumber2Error',
+	'担当者名3': '.staffName1Error',
+	'メールアドレス3': '.staffMail1Error',
+	'電話番号(担当者)3': '.staffNumber1Error',
+	'担当者名4': '.staffName2Error',
+	'メールアドレス4': '.staffMail2Error',
+	'電話番号(担当者)4': '.staffNumber2Error',
+	'担当者名5': '.staffName1Error',
+	'メールアドレス5': '.staffMail1Error',
+	'電話番号(担当者)5': '.staffNumber1Error',
+	'担当者名6': '.staffName2Error',
+	'メールアドレス6': '.staffMail2Error',
+	'電話番号(担当者)6': '.staffNumber2Error',
+	'担当者名7': '.staffName1Error',
+	'メールアドレス7': '.staffMail1Error',
+	'電話番号(担当者)7': '.staffNumber1Error',
+	'担当者名8': '.staffName2Error',
+	'メールアドレス8': '.staffMail2Error',
+	'電話番号(担当者)8': '.staffNumber2Error',
+	'担当者名9': '.staffName1Error',
+	'メールアドレス9': '.staffMail1Error',
+	'電話番号(担当者)9': '.staffNumber1Error',
+	'担当者名10': '.staffName2Error',
+	'メールアドレス10': '.staffMail2Error',
+	'電話番号(担当者)10': '.staffNumber2Error',
 };
 
 $(() => {
@@ -137,7 +185,30 @@ $(() => {
 			'staffName2': checker.staffName2,
 			'staffMail2': checker.staffMail2,
 			'staffNumber2': checker.staffNumber2,
-	
+			'staffName3': checker.staffName3,
+			'staffMail3': checker.staffMail3,
+			'staffNumber3': checker.staffNumber3,
+			'staffName4': checker.staffName4,
+			'staffMail4': checker.staffMail4,
+			'staffNumber4': checker.staffNumber4,
+			'staffName5': checker.staffName5,
+			'staffMail5': checker.staffMail5,
+			'staffNumber5': checker.staffNumber5,
+			'staffName6': checker.staffName6,
+			'staffMail6': checker.staffMail6,
+			'staffNumber6': checker.staffNumber6,
+			'staffName7': checker.staffName7,
+			'staffMail7': checker.staffMail7,
+			'staffNumber7': checker.staffNumber7,
+			'staffName8': checker.staffName8,
+			'staffMail8': checker.staffMail8,
+			'staffNumber8': checker.staffNumber8,
+			'staffName9': checker.staffName9,
+			'staffMail9': checker.staffMail9,
+			'staffNumber9': checker.staffNumber9,
+			'staffName10': checker.staffName10,
+			'staffMail10': checker.staffMail10,
+			'staffNumber10': checker.staffNumber10,
 		});
 		if (errInfo.isError) {
 			// エラーがあればエラーダイアログを表示する(validator.js:createErrorDialog(checkerConfig))
@@ -156,7 +227,30 @@ $(() => {
 				'staffName2': checker.staffName2,
 				'staffMail2': checker.staffMail2,
 				'staffNumber2': checker.staffNumber2,
-	
+				'staffName3': checker.staffName3,
+				'staffMail3': checker.staffMail3,
+				'staffNumber3': checker.staffNumber3,
+				'staffName4': checker.staffName4,
+				'staffMail4': checker.staffMail4,
+				'staffNumber4': checker.staffNumber4,
+				'staffName5': checker.staffName5,
+				'staffMail5': checker.staffMail5,
+				'staffNumber5': checker.staffNumber5,
+				'staffName6': checker.staffName6,
+				'staffMail6': checker.staffMail6,
+				'staffNumber6': checker.staffNumber6,
+				'staffName7': checker.staffName7,
+				'staffMail7': checker.staffMail7,
+				'staffNumber7': checker.staffNumber7,
+				'staffName8': checker.staffName8,
+				'staffMail8': checker.staffMail8,
+				'staffNumber8': checker.staffNumber8,
+				'staffName9': checker.staffName9,
+				'staffMail9': checker.staffMail9,
+				'staffNumber9': checker.staffNumber9,
+				'staffName10': checker.staffName10,
+				'staffMail10': checker.staffMail10,
+				'staffNumber10': checker.staffNumber10,	
 			});
 			$("#inputCompanyConfirm").dialog("open");
 		}
