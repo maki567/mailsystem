@@ -17,6 +17,7 @@
 	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
 	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
 
+<header></header>
 
 <main>
 
@@ -59,7 +60,8 @@
 			</td>
 		</tr>
 	</table>
-	<table id="register" class="user">
+	<div class="tantou">
+	<table id="register">
 		<tr>
 			<td class="staffform">
 				<div class="staff_name">担当者名</div>
@@ -74,7 +76,7 @@
 				<input class="form" type="text" name="staffName9" placeholder="氏名" maxlength="16" /><br />
 				<input class="form" type="text" name="staffName10" placeholder="氏名" maxlength="16" /><br />
 			</td>
-			<td>
+			<td class="staffform">
 				<div class="staff_mail">メールアドレス</div>
 				<input class="form" type="email" name="staffMail1" placeholder="担当者のメールアドレス" maxlength="32" /><br />
 				<input class="form" type="email" name="staffMail2" placeholder="担当者のメールアドレス" maxlength="32" /><br />
@@ -87,7 +89,7 @@
 				<input class="form" type="email" name="staffMail9" placeholder="担当者のメールアドレス" maxlength="32" /><br />
 				<input class="form" type="email" name="staffMail10" placeholder="担当者のメールアドレス" maxlength="32" /><br />
 			</td>
-			<td>
+			<td class="staffform">
 				<div class="staff_number">電話番号</div>
 				<input class="form" type="tel" name="staffNumber1" placeholder="担当者の電話番号" maxlength="16" /><br />
 				<input class="form" type="tel" name="staffNumber2" placeholder="担当者の電話番号" maxlength="16" /><br />
@@ -106,8 +108,9 @@
 			<th class="buttonArea">
 				<span class="info hidden">登録が完了しました。</span>
 			</th>
+		</tr>
 	</table>
-	
+	</div>
 </div>
 
 <!-- Modal Dialog (会社名重複) -->

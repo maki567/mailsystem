@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+header {
+	margin: 40px;
+}
+
 main {
 	text-align: center;
 }
@@ -44,11 +48,7 @@ table {
 }
 
 .company_number {
-	margin-right: 85px;
-}
-
-input[name="companyNumber"] {
-	margin-right: 20px;
+	margin-right: 95px;
 }
 
 .modoru {
@@ -80,13 +80,8 @@ input[name="companyNumber"] {
 	height: 30px;
 }
 
-th {
-	padding: 5px;
-	height: 20px;
-	vertical-align: middle;
-	background:rgb(201, 236, 191);
-	border: 1px solid #228B22;
-	font-weight: bold;
+.staff_name, .staff_mail, .staff_number {
+	margin-bottom: 10px;
 }
 
 .form {
@@ -100,19 +95,22 @@ th {
 
 input[name="companyName"] {
 	width: 300px;
-	
 }
 
 input[name="companyAddress"] {
 	width: 500px;
 }
 
-input[name="staffName"],[name="phoneNumber"] {
-	width: 270px;
+input[name="companyNumber"] {
+	width: 200px;
 }
 
-input[name="mailAddress"] {
-	width: 350px;
+input[placeholder="氏名"],[placeholder="担当者の電話番号"] {
+	width: 260px;
+}
+
+input[placeholder="担当者のメールアドレス"] {
+	width: 340px;
 }
 
 button[id="checkCompanyName"],[id="confirm"] {
@@ -123,7 +121,7 @@ button[id="checkCompanyName"],[id="confirm"] {
 button[id="confirm"] {
 	width: 100px;
 	height: 30px;
-	margin-left: 30px;
+	margin-left: 20px;
 }
 
 .hidden {
