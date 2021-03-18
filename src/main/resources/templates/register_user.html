@@ -35,8 +35,8 @@
 		<tr>
 			<td>
 				<div class="koumokuPass">パスワード</div>
-				<input class="form" type="password" name="password" placeholder="※半角英数字6～16字まで" maxlength="16" />
-				<input class="form" type="password" name="password" placeholder="確認のためもう一度入力してください" maxlength="16" />
+				<input class="form"  type="password" name="password" placeholder="※半角英数字6～16字まで" maxlength="16" />
+				<input class="form" type="password" name="password2" placeholder="確認のためもう一度入力してください" maxlength="16" />
 			</td>
 		</tr>
 		<tr>
@@ -70,14 +70,16 @@
 </main>
 
 <script>
+
+//console.log(input_password.value); 
+
 // dialog_input_user_error.htmlのエラーメッセージを表示するdivのクラスを定義
 const errorSelector = {
 	'ユーザー名': '.userNameError',
 	'パスワード': '.passwordError',
 };
 
-$(() => {
-	
+$(() => {	
 	// jQuery-UIダイアログの初期設定
 	$('#duplicatedUserName').dialog(dialogConfig.duplicatedUserName);
 	$('#inputUserError').dialog(dialogConfig.inputUserError);
@@ -101,7 +103,7 @@ $(() => {
 			createErrorDialog(errInfo.errMsg);
 			$("#inputUserError").dialog("open");
 			
-		} else if (1==1) {
+		} else if ($('table#register input[name=password]').val() != $('table#register input[name=password2]').val()) {
 			alert('入力値が一致しません。');
 		} else {
 			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
