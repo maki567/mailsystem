@@ -178,7 +178,7 @@ const dialogConfig = {
 		]
 	},
 	inputCompanyConfirm: {
-		autoOpen: true,
+		autoOpen: false,
 		width: 800,
 		height: 600,
 		modal: true,
