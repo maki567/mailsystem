@@ -6,75 +6,73 @@
 </head>
 <body>
 
+//大文字のCはConfirm(確認ダイアログだけのクラス)の意
+
 <th:block th:fragment="dialogInputCompanyConfirm">
+
 	<div id="inputCompanyConfirm" title="入力内容確認" class="hidden">
-		<table class="company confirm">
+	<h3 class="CCinfo">会社情報</h3>
+		<table class="user confirm">
 			<tr>
-				<th>会社名</th>
 				<td>
+					<span class="CCname">会社名 ：</span>
 					<span class="companyName"></span>
 				</td>
 			</tr>
 			<tr>
-				<th>所在地</th>
 				<td>
+					<span class="CCaddress">所在地 ：</span>
 					<span class="companyAddress"></span>
 				</td>
+				<td>
 			</tr>
 			<tr>
-				<th>法人呼称</th>
 				<td>
-					<span class="corporation"></span>
-				</td>
-			</tr>
-			<tr>
-				<th>電話番号(会社)</th>
-				<td>
+					<span class="CCnumber">電話番号 ：</span>
 					<span class="companyNumber"></span>
 				</td>
 			</tr>
+		</table>
+	<h3 class="CSinfo">担当者情報</h3>
+		<table class="user confirm">
 			<tr>
-				<th>担当者名</th>
-				<td>
-					<span class="staffName1"></span>
-					<span class="staffName2"></span>
-					<span class="staffName3"></span>
-					<span class="staffName4"></span>
-					<span class="staffName5"></span>
-					<span class="staffName6"></span>
-					<span class="staffName7"></span>
-					<span class="staffName8"></span>
-					<span class="staffName9"></span>
+				<td class="CS1">
+					<div class="CSname">氏名</div>
+					<span class="staffName1"></span><br />
+					<span class="staffName2"></span><br />
+					<span class="staffName3"></span><br />
+					<span class="staffName4"></span><br />
+					<span class="staffName5"></span><br />
+					<span class="staffName6"></span><br />
+					<span class="staffName7"></span><br />
+					<span class="staffName8"></span><br />
+					<span class="staffName9"></span><br />
 					<span class="staffName10"></span>
 				</td>
-			</tr>
-			<tr>
-				<th>メールアドレス</th>
-				<td>
-					<span class="staffMail1"></span>
-					<span class="staffMail2"></span>
-					<span class="staffMail3"></span>
-					<span class="staffMail4"></span>
-					<span class="staffMail5"></span>
-					<span class="staffMail6"></span>
-					<span class="staffMail7"></span>
-					<span class="staffMail8"></span>
-					<span class="staffMail9"></span>
+				<td class="CS2">
+					<div class="CSmail">メールアドレス</div>
+					<span class="staffMail1"></span><br />
+					<span class="staffMail2"></span><br />
+					<span class="staffMail3"></span><br />
+					<span class="staffMail4"></span><br />
+					<span class="staffMail5"></span><br />
+					<span class="staffMail6"></span><br />
+					<span class="staffMail7"></span><br />
+					<span class="staffMail8"></span><br />
+					<span class="staffMail9"></span><br />
 					<span class="staffMail10"></span>
 				</td>
-			</tr>
-			<tr>
-				<th>電話番号(担当者)</th>
-				<td>
-					<span class="staffNumber1"></span>
-					<span class="staffNumber2"></span>
-					<span class="staffNumber3"></span>
-					<span class="staffNumber4"></span>
-					<span class="staffNumber5"></span>
-					<span class="staffNumber6"></span>
-					<span class="staffNumber7"></span>
-					<span class="staffNumber8"></span>
-					<span class="staffNumber9"></span>
+				<td class="CS3">
+					<div class="CSnumber">電話番号</div>
+					<span class="staffNumber1"></span><br />
+					<span class="staffNumber2"></span><br />
+					<span class="staffNumber3"></span><br />
+					<span class="staffNumber4"></span><br />
+					<span class="staffNumber5"></span><br />
+					<span class="staffNumber6"></span><br />
+					<span class="staffNumber7"></span><br />
+					<span class="staffNumber8"></span><br />
+					<span class="staffNumber9"></span><br />
 					<span class="staffNumber10"></span>
 				</td>
 			</tr>

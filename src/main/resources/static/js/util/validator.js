@@ -68,7 +68,7 @@ const validator = {
 	// 引数 target が電話番号の書式か判定する
 	isHalfNumeric: (target) => {
 		target = (target === null) ? '' : target;
-		return target.match(/^[0-9]*$/);
+		return target.match(/^[0-9-]*$/);
 	},
 };
 

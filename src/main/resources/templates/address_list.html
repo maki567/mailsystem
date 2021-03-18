@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>連絡先一覧画面</title>
-	
+	<link href="/css/address_list.css" th:href="@{/css/address_list.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -19,19 +19,17 @@
 
 <main>
 
+	<form name="searchForm" action="/mailsystem/search">
+		<input type="text" name="keywords"	th:value="${keywords}"/>
+		<button type="submit">検索</button>
+	</form>
+	
+	<button>連絡先削除</button>
 	<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="modoru">ホームへ戻る</button>
-
-</main>
-
-		<form name="searchForm" action="/mailsystem/search">
-			<input type="text" name="keywords"	th:value="${keywords}"/>
-			<button type="submit">検索</button>
-		</form>
+	
 		
-		<div class="noData"	th:if="${products == null || products.size() == 0}">
-			<p class="info">検索結果はありません。</p>
-		</div>
-
+</main>
+		
 </body>
 
 </html>

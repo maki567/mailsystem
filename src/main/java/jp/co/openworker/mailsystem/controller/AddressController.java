@@ -35,7 +35,6 @@ public class AddressController {
 		int count = addressMapper.findCountByCompanyName(companyName);
 		return count > 0;
 	}
-
 	
 	@RequestMapping("/register")
 	@ResponseBody
@@ -45,6 +44,8 @@ public class AddressController {
 		int count = addressMapper.insert(address);
 		
 		return count > 0;
+		
+		
 	}
 	
 }

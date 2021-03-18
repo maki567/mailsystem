@@ -105,11 +105,11 @@ input[name="companyNumber"] {
 	width: 200px;
 }
 
-input[placeholder="氏名"],[placeholder="担当者の電話番号"] {
+input[placeholder="氏名"],[placeholder="※必須 氏名"],[placeholder="担当者の電話番号"] {
 	width: 260px;
 }
 
-input[placeholder="担当者のメールアドレス"] {
+input[placeholder="担当者のメールアドレス"],[placeholder="※必須 担当者のメールアドレス"] {
 	width: 340px;
 }
 
@@ -126,4 +126,63 @@ button[id="confirm"] {
 
 .hidden {
 	display: none;
+}
+
+/*登録内容確認ダイアログ*/
+
+.CCinfo {
+	text-align: center;
+	color: white;
+	background-color: gray;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+.CCname, .CCaddress {
+	margin-left: 80px;
+	font-weight: bold;
+}
+
+.CCnumber {
+	margin-left: 80px;
+	font-weight: bold;
+}
+
+
+.CSinfo {
+	text-align: center;
+	color: white;
+	background-color: gray;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.CSname {
+	width: 200px;
+	margin-left: px;
+	font-weight: bold;
+}
+
+.CSmail {
+	width: 325px;
+	margin-left: px;
+	font-weight: bold;
+}
+
+.CSnumber {
+	width: 200px;
+	margin-left: px;
+	font-weight: bold;
+}
+
+td[class="CS1"]{
+	text-align: center;
+}
+
+td[class="CS2"]{
+	text-align: center;
+}
+
+td[class="CS3"]{
+	text-align: center;
 }

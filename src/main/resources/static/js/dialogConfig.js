@@ -178,8 +178,9 @@ const dialogConfig = {
 		]
 	},
 	inputCompanyConfirm: {
-		autoOpen: false,
-		width: 850,
+		autoOpen: true,
+		width: 800,
+		height: 600,
 		modal: true,
 		buttons: [
 			{
@@ -295,6 +296,10 @@ function createConfirmDialog(checkerConfig) {
 		
 		let value = $(obj).val();
 		
+		if (key === 'companyName') {
+			value = $('table#register input[name=corporation]:checked').val() 
+						== '前株' ? "株式会社 " + $('table#register input[name=companyName]').val() : $('table#register input[name=companyName]').val() + " 株式会社"
+		}
 		if (key === 'corporation') {
 			value = $('table#register input[name=corporation]:checked').val();
 		}

@@ -1,5 +1,7 @@
 package jp.co.openworker.mailsystem.model.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -43,5 +45,14 @@ public interface MstAddressMapper {
 	
 	@Select("SELECT count(id) FROM mst_address WHERE company_name = #{companyName}")
 	int findCountByCompanyName(@Param("companyName") String companyName);
+	
+	
+	@Select("select * from mst_address")
+	List<MstAddress> find();
+		
+	List<MstAddress> findByCompanyName(@Param("keywords") String[] keywords);
+		
+	@Select("select * from mst_address where id = #{id}")
+	MstAddress findById(@Param("id") int id);
 		
 }
