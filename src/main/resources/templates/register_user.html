@@ -100,6 +100,9 @@ $(() => {
 			// エラーがあればエラーダイアログを表示する(volidator.js:createErrorDialog(checkerConfig))
 			createErrorDialog(errInfo.errMsg);
 			$("#inputUserError").dialog("open");
+			
+		} else if (1==1) {
+			alert('入力値が一致しません。');
 		} else {
 			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
 			createConfirmDialog({
@@ -107,6 +110,7 @@ $(() => {
 				'password': checker.password,
 			});
 			$("#inputUserConfirm").dialog("open");
+			
 		}
 	});
 });
