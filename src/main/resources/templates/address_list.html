@@ -28,7 +28,11 @@
 	<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="modoru">ホームへ戻る</button>
 	<button onclick="location.href='http://localhost:8080/mailsystem/edit/'" class="modoru">連絡先編集画面へ</button>
 	
-	<input type="checkbox" name="delete" value=""><a href="" th:text="${address}"></a>
+	<table>
+		<tr th:each="address : ${address}">
+			<td th:text="${address}">コード</td>
+		</tr>
+	</table>
 	
 </main>
 		
