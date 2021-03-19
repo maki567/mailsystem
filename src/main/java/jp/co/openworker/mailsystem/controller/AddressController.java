@@ -22,6 +22,7 @@ public class AddressController {
 
 	@Autowired
 	private LoginSession loginSession;
+
 	
 	@RequestMapping("/")
 	public String index(Model m) {
