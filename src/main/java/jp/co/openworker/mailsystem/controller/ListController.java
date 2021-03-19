@@ -1,5 +1,7 @@
 package jp.co.openworker.mailsystem.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,7 @@ public class ListController {
 	@RequestMapping("/")
 	public String index(Model m, String companyName) {
 		
-		String address = addressMapper.Cname(companyName);
+		List<String> address = addressMapper.selectCompanyName(companyName);
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("address", address);

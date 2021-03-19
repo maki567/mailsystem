@@ -55,7 +55,6 @@ public interface MstAddressMapper {
 	@Select("select * from mst_address where id = #{id}")
 	MstAddress findById(@Param("id") int id);
 	
-	@Select("select company_name from mst_address where company_name ='‘åì'")
-	String Cname(@Param("companyName") String companyName);
-		
+	@Select("select company_name from mst_address")
+	List<String> selectCompanyName(@Param("companyName") String companyName);
 }
