@@ -11,14 +11,56 @@
 
 <main>
 
-	<img class="logo" src="/img/h_logo.png">
-
-	<span class="welcomeMsg"
-			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
-
-	<a href="http://localhost:8080/mailsystem/home/">キャンセル</a>
+	<div class="message">
+	<input type="text" name="message_subject" size="40" maxlength="20">
+	<textarea name="message_text" rows="4" cols="40">本文</textarea>
+	</div>
+	
+	<div class="menubar">
+	
+	<div id="btn">ファイルを選択</div>
+	<input type="file" id="failes"/>
+	<input type="text" id="failename" placeholder="選択されていません" readonly />
+	
+	
+	
+	<div class="menubar_attachment"></div>
+	<div class="menubar_cancel"><a href="http://localhost:8080/mailsystem/home/">キャンセル</a></div>
+	<div class="menubar_nextscreen"><a href="http://localhost:8080/mailsystem/home/">連絡先選択へ</a></div>
+	</div>
+	
+	
+	
+	
+	
+	
 	
 </main>
+
+<script type="text/javascript">
+ $(function() {
+     $('#files').css({
+         'position': 'absolute',
+         'top': '-9999px'
+     }).change(function() {
+         var val = $(this).val();
+         var path = val.replace(/\\/g, '/');
+         var match = path.lastIndexOf('/');
+    $('#filename').css("display","inline-block");
+         $('#filename').val(match !== -1 ? val.substring(match + 1) : val);
+     });
+     $('#filename').bind('keyup, keydown, keypress', function() {
+         return false;
+     });
+     $('#filename, #btn').click(function() {
+         $('#files').trigger('click');
+     });
+ });
+</script>
+
+
+
+	</script>
 
 </body>
 
