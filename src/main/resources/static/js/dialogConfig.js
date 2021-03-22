@@ -281,6 +281,29 @@ const dialogConfig = {
 			},
 		]
 	},
+	daleteAddressConfirm: {
+		autoOpen: false,
+		width: 650,
+		modal: true,
+		buttons: [
+			{
+				text: '削除',
+				click: function() {
+					for (checked of checkedList) {
+				checkedIdList.push($(checked).val());
+					}
+				deleteAddress(checkedList,checkedIdList);
+				}
+					
+			},
+			{
+				text: 'キャンセル',
+				click: function() {
+					$(this).dialog('close');
+				}
+			},
+		]
+	},
 };
 
 

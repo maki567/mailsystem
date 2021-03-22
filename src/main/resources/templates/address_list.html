@@ -24,17 +24,48 @@
 		<button type="submit">検索</button>
 	</form>
 	
-	<button>連絡先削除</button>
+	<button id="deleteButton">連絡先削除</button>
 	<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="modoru">ホームへ戻る</button>
-	<button onclick="location.href='http://localhost:8080/mailsystem/edit/'" class="modoru">連絡先編集画面へ</button>
+	<button onclick="location.href='http://localhost:8080/mailsystem/edit/'" class="">連絡先編集画面へ</button>
 	
 	<table>
 		<tr th:each="address : ${address}">
-			<td th:text="${address}">コード</td>
+			<td><input type="checkbox" name="id"  class="checkList"  th:text="${address.companyName}" th:value="${address.id}" /></td>
 		</tr>
 	</table>
 	
+<!-- Modal Dialog (削除確認) -->
+<div th:insert="fragments/dialog_Dalete_Address_Confirm::dialogDaleteAddressConfirm"></div>
+
 </main>
+
+<!-- ボタンクリック時、jsでそれぞれの動作を定義 -->
+<script th:inline="javascript">
+/*[CDATA[*/
+$(() => {
+
+	// jQuery-UIダイアログの初期設定
+	$('#daleteAddressConfirm').dialog(dialogConfig.daleteAddressConfirm);
+
+	$('#deleteButton').on('click', () => {
+		let checkedList = $('.checkList:checked');
+		let checkedIdList = [];
+	
+		if ($(checkedList)　== " ") {
+			// チェックボックスにチェックが入っていない場合はアラートを表示する
+			alert('削除する連絡先を選択してください。');
+		} else {
+			// チェックボックスにチェックが入っている場合は確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
+			createConfirmDialog({
+			});
+			$("#daleteAddressConfirm").dialog("open");
+		}
+		});
+	});
+
+/*]]>*/
+</script>
+
 		
 </body>
 

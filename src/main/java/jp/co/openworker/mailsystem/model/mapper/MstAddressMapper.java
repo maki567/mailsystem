@@ -2,6 +2,7 @@ package jp.co.openworker.mailsystem.model.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -55,6 +56,9 @@ public interface MstAddressMapper {
 	@Select("select * from mst_address where id = #{id}")
 	MstAddress findById(@Param("id") int id);
 	
-	@Select("select company_name from mst_address")
-	List<String> selectCompanyName(@Param("companyName") String companyName);
+	@Select("select * from mst_address")
+	List<MstAddress> select();
+	
+	@Delete("DELETE from mst_address WHERE id = #{id}")
+	int deleteById(@Param("id") int id);
 }
