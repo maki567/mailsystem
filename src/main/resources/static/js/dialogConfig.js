@@ -288,8 +288,16 @@ const dialogConfig = {
 		buttons: [
 			{
 				text: '削除',
-				click: function deleteAddress(checkedList, checkedIdList){
+				click: function() {
 					
+					let checkedList = $('.checkList:checked');
+					let checkedIdList = [];
+					for (checked of checkedList) {
+						checkedIdList.push($(checked).val());
+					}
+					deleteAddress(checkedList,checkedIdList);
+					
+					function deleteAddress(checkedList, checkedIdList){
 					$.ajax({
 						type: 'POST',
 						url: '/mailsystem/list/delete',
@@ -302,14 +310,10 @@ const dialogConfig = {
 						for (checked of checkedList) {
 							$(checked).parent().parent().remove();
 							}
-		
-					let checkList = $('.checkList');
-						if(checkList.length == 0){
-							location.replace('/mailsystem/list/');
-							}
 					}, () => {
 					alert('Error: ajax connection failed.');
 					});
+					}
 					$(this).dialog('close');
 					}
 				},
