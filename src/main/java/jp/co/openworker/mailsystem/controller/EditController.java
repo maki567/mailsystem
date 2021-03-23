@@ -3,20 +3,24 @@ package jp.co.openworker.mailsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.co.openworker.mailsystem.model.session.LoginSession;
+import jp.co.openworker.mailsystem.model.domain.MstAddress;
+import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
 
 @Controller
 @RequestMapping("/mailsystem/edit")
 public class EditController {
 	
 	@Autowired
-	private LoginSession loginSession;
+	MstAddressMapper addressMapper;
 	
-	@RequestMapping("/")
-	public String index(Model m) {
-		m.addAttribute("loginSession", loginSession);
+	@RequestMapping("/{id}")
+	public String index(@PathVariable("id") int id, Model m) {
+		MstAddress address = addressMapper.findById(id);
+		m.addAttribute("address", address);
+		
 		return "edit_address";
 	}
 }

@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+header {
+	margin: 40px;
+}
+
+main {
+	text-align: center;
+}
+
+table {
+	display: inline;
+}
+
+.company_name {
+	font-weight: bold;
+	margin-right: 260px;
+}
+
+.chofukukakunin {
+	margin-top: 18px;
+	margin-right: 30px;
+}
+
+.company_address {
+	font-weight: bold;
+	margin-right: 460px;
+}
+
+.corporation {
+	font-weight: bold;
+	margin-right: 268px;
+}
+
+.company_number {
+	font-weight: bold;
+	margin-right: 0px;
+}
+
+.mae {
+	font-weight: bold;
+	margin-right: 50px;
+}
+
+.ushiro {
+	font-weight: bold;
+	margin-right: 150px;
+}
+
+.company_number {
+	margin-right: 95px;
+}
+
+.modoru {
+	margin-top: 20px;
+	margin-left: 30px;
+}
+
+.hensyu {
+	margin-top: 20px;
+	margin-right: 50px;
+	width: 70px;
+}
+
+.staff_name, .staff_number {
+	font-weight: bold;
+	color: white;
+	background-color: gray;
+	padding-top: 10px;
+	width: 280px;
+	height: 30px;
+}
+
+.staff_mail {
+	font-weight: bold;
+	color: white;
+	background-color: gray;
+	padding-top: 10px;
+	width: 360px;
+	height: 30px;
+}
+
+.staff_name, .staff_mail, .staff_number {
+	margin-bottom: 10px;
+}
+
+.form {
+	text-align: center;
+	height: 20px;
+	margin-bottom: 5px;
+	border-radius: 3px;
+	border: 2px solid;
+	border-color: gray;
+}
+
+input[name="companyName"] {
+	width: 300px;
+}
+
+input[name="companyAddress"] {
+	width: 500px;
+}
+
+input[name="companyNumber"] {
+	width: 200px;
+}
+
+input[placeholder="氏名"],[placeholder="※必須 氏名"],[placeholder="担当者の電話番号"] {
+	width: 260px;
+}
+
+input[placeholder="担当者のメールアドレス"],[placeholder="※必須 担当者のメールアドレス"] {
+	width: 340px;
+}
+
+button[id="checkCompanyName"],[id="confirm"] {
+	color: white;
+	background-color: #0080ff;
+}
+
+button[id="confirm"] {
+	width: 100px;
+	height: 30px;
+	margin-left: 20px;
+}
+
+.hidden {
+	display: none;
+}
+
+/*登録内容確認ダイアログ*/
+
+.CCinfo {
+	text-align: center;
+	color: white;
+	background-color: gray;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+.CCname, .CCaddress {
+	margin-left: 80px;
+	font-weight: bold;
+}
+
+.CCnumber {
+	margin-left: 80px;
+	font-weight: bold;
+}
+
+
+.CSinfo {
+	text-align: center;
+	color: white;
+	background-color: gray;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.CSname {
+	width: 200px;
+	margin-left: px;
+	font-weight: bold;
+}
+
+.CSmail {
+	width: 325px;
+	margin-left: px;
+	font-weight: bold;
+}
+
+.CSnumber {
+	width: 200px;
+	margin-left: px;
+	font-weight: bold;
+}
+
+td[class="CS1"]{
+	text-align: center;
+}
+
+td[class="CS2"]{
+	text-align: center;
+}
+
+td[class="CS3"]{
+	text-align: center;
+}

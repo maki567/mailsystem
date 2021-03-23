@@ -30,7 +30,10 @@
 	
 	<table>
 		<tr th:each="address : ${address}">
-			<td><input type="checkbox" name="id" id="check" class="checkList"  th:text="${address.companyName}" th:value="${address.id}" /></td>
+			<td><input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
+			<a href="/mailsystem/edit/" th:href="@{/mailsystem/edit/{id}(id=${address.id})}" >
+			<label th:text="${address.companyName}" /></label></a>
+			</td>
 		</tr>
 	</table>
 	
@@ -53,9 +56,6 @@ $(() => {
 	
 		if ($(checkedList).prop("checked") == true) {
 			// チェックボックスにチェックが入っている場合は確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
-			createConfirmDialog({
-			'companyName': checker.companyName,
-			});
 			$("#daleteAddressConfirm").dialog("open");
 		} else {
 			// チェックボックスにチェックが入っていない場合はアラートを表示する

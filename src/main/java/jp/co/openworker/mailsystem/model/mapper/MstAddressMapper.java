@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import jp.co.openworker.mailsystem.model.domain.MstAddress;
 
@@ -40,6 +41,9 @@ public interface MstAddressMapper {
 					+ "#{staffName9}, #{staffMail9}, #{staffNumber9},"
 					+ "#{staffName10}, #{staffMail10}, #{staffNumber10}"
 					+ ")")
+	
+	@Update("UPDATE mst_address SET * = #{password} WHERE user_name = #{userName}")
+	
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstAddress address);
 	

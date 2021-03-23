@@ -41,7 +41,7 @@ public class ListController {
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/delete")
 	@ResponseBody
-	public boolean deleteCart(@RequestBody String checkedIdList) {
+	public boolean deleteAddress(@RequestBody String checkedIdList) {
 		int result = 0;
 																				
 		Map<String, List<String>> map = gson.fromJson(checkedIdList, Map.class);
