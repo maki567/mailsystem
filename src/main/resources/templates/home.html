@@ -21,9 +21,9 @@
 
 
 	<table>
-		<tr th:each="address : ${address}">
-			<td><input th:text="${address.companyName}" th:value="${address.id}" /></td>
-		</tr>
+		<tr th:each="mail : ${mail}">
+			<td><p th:text="${mail.subject}"/></td>
+		</tr>		
 	</table>
 
 

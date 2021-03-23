@@ -7,8 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.co.openworker.mailsystem.model.domain.MstAddress;
-import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
+//import com.google.gson.Gson;
+
+import jp.co.openworker.mailsystem.model.domain.MailHistory;
+//import jp.co.openworker.mailsystem.model.domain.MstAddress;
+import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
+//import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
@@ -19,15 +23,16 @@ public class HomeController {
 	private LoginSession loginSession;
 	
 	@Autowired
-	MstAddressMapper addressMapper;
+	MailHistoryMapper mailMapper;
+	
 	
 	@RequestMapping("/")
 	public String index(Model m) {
 		
-		List<MstAddress> address = addressMapper.select();
+		List<MailHistory> mail = mailMapper.select();
 		
 		m.addAttribute("loginSession", loginSession);
-		m.addAttribute("address", address);
+		m.addAttribute("mail", mail);
 		return "home";
 	}
 }
