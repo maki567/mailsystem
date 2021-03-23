@@ -23,6 +23,18 @@
 	<table>
 		<tr th:each="mail : ${mail}">
 			<td><p th:text="${mail.subject}"/></td>
+		</tr>
+		
+		<tr th:each="mail : ${mail}">
+			<td><p th:text="${mail.toStaff}"/></td>
+		</tr>
+		
+		<tr th:each="mail : ${mail}">
+			<td><p th:text="${mail.toCompany}"/></td>
+		</tr>
+		
+		<tr th:each="mail : ${mail}">
+			<td><p th:text="${mail.dayTime}"/></td>
 		</tr>		
 	</table>
 
