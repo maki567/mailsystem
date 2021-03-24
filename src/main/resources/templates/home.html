@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ホーム画面</title>
-	
+	<link href="/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />	
 </head>
 
 <body>
@@ -18,28 +18,125 @@
 	<a href="http://localhost:8080/mailsystem/list/">連絡先一覧</a>
 	
 	<a href="http://localhost:8080/mailsystem/address/">連絡先登録</a>
+	
+	<button id="logout" th:class="${loginSession == null || loginSession.getUserName() == null ? 'hidden' : ''}">ログアウト</button>
+		
+	
+	<span class="welcomeMsg"
+		th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
+	
 
 
-	<table>
+	<table border="1">
+	 <tr>
+      <th>件名</th>
+      <th>送信先</th>
+      <th>所属</th>
+      <th>日付</th>
+    </tr>
 		<tr th:each="mail : ${mail}">
 			<td><p th:text="${mail.subject}"/></td>
-		</tr>
 		
-		<tr th:each="mail : ${mail}">
+		
+		
 			<td><p th:text="${mail.toStaff}"/></td>
-		</tr>
 		
-		<tr th:each="mail : ${mail}">
+		
+		
 			<td><p th:text="${mail.toCompany}"/></td>
-		</tr>
 		
-		<tr th:each="mail : ${mail}">
-			<td><p th:text="${mail.dayTime}"/></td>
+		
+		
+			<td><p th:text="${mail.createdAt}"/></td>
 		</tr>		
 	</table>
 
 
 </main>
+<script>
+		/*<![CDATA[*/
+	$(() => {
+		$('#loginError').dialog(dialogConfig.loginError);
+		
+		$('button#login').on('click', () => {
+			let jsonString = {
+				'userName': $('div.loginArea input[name=userName]').val(),
+				'password': $('div.loginArea input[name=password]').val()
+			};
+			$.ajax({
+				type: 'POST',
+				url: '/mailsystem/auth/login',
+				data: JSON.stringify(jsonString),
+				contentType: 'application/json',
+				datatype: 'json',
+				scriptCharset: 'utf-8'
+			})
+			.then((result) => {
+				let user = JSON.parse(result);
+				if (isEmpty(user)) {
+					$('#hiddenUserName').val('');
+					$('#loginError').dialog('open');
+				} else {
+					$('#hiddenUserName').val(user['userName']);
+					login(user);
+				}
+			}, () => {
+				alert('Error: ajax connection failed.');
+			});
+		});
+		
+		$('button#logout').on('click', () => {
+			$.ajax({
+				type: 'POST',
+				url: '/mailsystem/auth/logout',
+				datatype: 'json',
+				scriptCharset: 'utf-8'
+			})
+			.then((result) => {
+				$('#hiddenUserName').val('');
+				logout();
+				alert('ログアウトしました。');
+				location.replace('/mailsystem/login/');
+			}, () => {
+				alert('Error: ajax connection failed.');
+			});
+		});
+		
+	});
+	
+	function login(user) {
+		let userName = user['userName'];
+		$('.welcomeMsg').text(`ようこそ！ ${userName} さん`);
+		if (isEmpty($('button#login').prop('class'))) {
+			$('button#login').addClass('hidden');
+			$('button#logout').removeClass('hidden');
+		}
+
+		$('#mypageMenu').removeClass('hidden');
+		
+		$('div.loginArea input[name=userName]').val('');
+		$('div.loginArea input[name=password]').val('');
+	}
+	
+	function logout() {
+		$('.welcomeMsg').text(`ようこそ！ ゲスト さん`);
+		if (isEmpty($('button#logout').prop('class'))) {
+			$('button#logout').addClass('hidden');
+			$('button#login').removeClass('hidden');
+		}
+		if (isEmpty($('#mypageMenu').prop('class'))) {
+			$('#mypageMenu').addClass('hidden');
+		}
+		
+		$('div.loginArea input[name=userName]').val('');
+		$('div.loginArea input[name=password]').val('');
+	}
+	
+	function koshin(){
+		location.reload();
+	}
+	/*]]>*/
+</script>
 
 </body>
 

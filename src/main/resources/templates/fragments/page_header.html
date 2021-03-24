@@ -104,6 +104,24 @@
 	</div>
 	<button id="logout">ログアウト</button>
 	
+
+	<span class="welcomeMsg"
+			th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
+	
+	
+	<nav>
+		<div class="loginArea">
+			<input type="text" name="userName" placeholder="メールアドレス" th:class="${loginSession.getUserName() == null ? '' : 'hidden'}"/>
+			<input type="password" name="password" placeholder="パスワード" th:class="${loginSession.getUserName() == null ? '' : 'hidden'}"/>
+			<input type="hidden" id="hiddenUserName" value="" />
+			<button id="login" value="更新" onclick="koshin()" th:class="${loginSession == null || loginSession.getUserName() == null ? '' : 'hidden'}">ログイン</button>
+			<button id="logout" th:class="${loginSession == null || loginSession.getUserName() == null ? 'hidden' : ''}">ログアウト</button>
+		</div>
+	</nav>
+	<!-- Modal Dialog (ログインエラー) -->
+	<div th:insert="fragments/dialog_login_error::dialogLoginError"></div>
+</th:block>
+	
 </th:block>
 
 </body>

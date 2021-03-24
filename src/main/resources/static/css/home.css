@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+th {
+	background-color: gray;
+	height:50px;
+}
+
+table {
+margin-top: 100px;
+margin-bottom: 100px;
+margin-left: 300px;
+width: 1000px;
+}
