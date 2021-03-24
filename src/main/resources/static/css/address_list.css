@@ -3,3 +3,11 @@
 form {
 	float: left;
 }
+
+.target-area .hidden {
+  display: none
+}
+
+.hidden {
+	display: none;
+}
