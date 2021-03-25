@@ -315,13 +315,29 @@ const dialogConfig = {
 					alert('Error: ajax connection failed.');
 					});
 					}
-					$(this).dialog('close')
+					$(this).dialog("close");
+					// jQuery-UIダイアログの初期設定
+					$('#completeDeleteAddress').dialog(dialogConfig.completeDeleteAddress);
+					$("#completeDeleteAddress").dialog("open");
 					}
 				},
 			{
 				text: 'キャンセル',
 				click: function() {
 					$(this).dialog('close');
+				}
+			},
+		]
+	},
+	completeDeleteAddress: {
+		autoOpen: false,
+		width: 650,
+		modal: true,
+		buttons: [
+			{
+				text: 'OK',
+				click: function() {
+					location.reload(true)
 				}
 			},
 		]
