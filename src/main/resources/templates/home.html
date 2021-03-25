@@ -8,26 +8,43 @@
 </head>
 
 <body>
-
+	<!-- <header th:insert="fragments/page_header::commonHeader"></header> -->
 <main>
 
-	<img class="logo" src="/img/h_logo.png">
+	<table class = "user-info" border="1" align="left">
+		<tr>
+    		<th class = "user-info">ユーザー情報</th>
+    	</tr>
+    	<tr>
+    		<td>UserName</td>
+    	</tr>
+    	<tr>
+    		<td>	<span class="welcomeMsg"
+			th:text="${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
+			</td>
+    	</tr>
+    	<tr>
+    		<td>Password　変更</td>
+    	</tr>
+    	<tr>
+    		<td>電子署名</td>
+    	</tr>
+    	<tr>
+    		<td><button id="logout">ログアウト</button></td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<button class="mail" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成</button><br>
+    	
+    			<button class="ichiran" onclick="location.href='http://localhost:8080/mailsystem/list/'">連絡先一覧</button><br>
+    			
+    			<button class="toroku" onclick="location.href='http://localhost:8080/mailsystem/address/'">連絡先登録</button><br>
+    			
+    		</td>
+    	</tr>
+    </table>
 
-	<a href="http://localhost:8080/mailsystem/mail/">メール作成</a>
-	
-	<a href="http://localhost:8080/mailsystem/list/">連絡先一覧</a>
-	
-	<a href="http://localhost:8080/mailsystem/address/">連絡先登録</a>
-	
-	<button id="logout" th:class="${loginSession == null || loginSession.getUserName() == null ? 'hidden' : ''}">ログアウト</button>
-		
-	
-	<span class="welcomeMsg"
-		th:text="'ようこそ！ ' + ${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
-	
-
-
-	<table border="1">
+	<table class = "mail-history" border="1">
 	 <tr>
       <th>件名</th>
       <th>送信先</th>
@@ -36,16 +53,10 @@
     </tr>
 		<tr th:each="mail : ${mail}">
 			<td><p th:text="${mail.subject}"/></td>
-		
-		
-		
+			
 			<td><p th:text="${mail.toStaff}"/></td>
 		
-		
-		
 			<td><p th:text="${mail.toCompany}"/></td>
-		
-		
 		
 			<td><p th:text="${mail.createdAt}"/></td>
 		</tr>		
@@ -53,8 +64,16 @@
 
 
 </main>
-<script>
-		/*<![CDATA[*/
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet"
+			href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script>
+	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
+	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
+	<script th:inline="javascript">
+	/*<![CDATA[*/
 	$(() => {
 		$('#loginError').dialog(dialogConfig.loginError);
 		
@@ -136,7 +155,7 @@
 		location.reload();
 	}
 	/*]]>*/
-</script>
+	</script>
 
 </body>
 
