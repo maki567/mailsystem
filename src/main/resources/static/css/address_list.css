@@ -1,11 +1,62 @@
 @charset "UTF-8";
 
-form {
-	float: left;
+main {
+	text-align: center;
+}
+
+.form {
+	margin-top: 50px;
+}
+
+.kensaku {
+	margin-right: 50px;
+	border-radius: 3px;
+}
+
+.modoru {
+	margin-right: 100px;
+}
+
+input[id="search-text"] {
+	width: 300px;
+	height: 30px;
+	padding-left: 10px;
+}
+
+button[id="deleteButton"] {
+	width: 100px;
+	height: 30px;
+	background-color: orange;
+}
+
+table {
+	width: 180px;
+	height: 50px;
+	vertical-align: middle;
+	display: inline-block;
+	background-color: #80ff80;
+	margin-bottom: 5px;
+	border-radius: 6px;
+	position: relative;
+}
+
+td[class="check"] {
+	line-height: 50px;
+}
+
+td[class="inner"] {
+	position: absolute;
+	top: 50%;
+	-webkit-transform : translateY(-50%);
+	transform : translateY(-50%);
+}
+
+input[type="checkbox"] {
+	display: inline;
 }
 
 .target-area .hidden {
-  display: none
+	display: none
 }
 
 .hidden {

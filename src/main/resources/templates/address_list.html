@@ -19,23 +19,25 @@
 
 <main>
 	
-	<button id="deleteButton">連絡先削除</button>
-	<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="modoru">ホームへ戻る</button>
-	
 <div class="wrapper">
-    <div class="search-area">
-		<form>
-			<input type="text" id="search-text" placeholder="検索ワードを入力">
-		</form>
+
+	<div class="form"> 
+		<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
+		<button class="modoru" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
+		<button class="delete" id="deleteButton">連絡先削除</button>
+	</div>
+		
 	<div class="search-result">
         <div class="search-result__hit-num"></div>
         <div id="search-result__list"></div>
-	</div>
     </div>
 	<br>
-	<table>
-		<tr th:each="address : ${address}">
-			<td class="target-area"><input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
+	<table class="target-area" th:each="address : ${address}">
+		<tr>
+			<td class="check">
+				<input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
+			</td>
+			<td class="inner">
 				<a href="/mailsystem/edit/" th:href="@{/mailsystem/edit/{id}(id=${address.id})}" >
 				<label th:text="${address.companyName}" /></label></a>
 			</td>
@@ -68,32 +70,32 @@ $(() => {
 			alert('削除する連絡先を選択してください。');
 		}
 		});
+		
 	});
 	
 	$(function () {
-  searchWord = function(){
+	searchWord = function(){
     var searchText = $(this).val(), // 検索ボックスに入力された値
-        targetText;
+	targetText;
 
     $('.target-area').each(function() {
       targetText = $(this).text();
 
-      // 検索対象となるリストに入力された文字列が存在するかどうかを判断
-      if (targetText.indexOf(searchText) != -1) {
-        $(this).removeClass('hidden');
-      } else {
-        $(this).addClass('hidden');
-      }
-    });
-  };
+	// 検索対象となるリストに入力された文字列が存在するかどうかを判断
+	if (targetText.indexOf(searchText) != -1) {
+		$(this).removeClass('hidden');
+	} else {
+		$(this).addClass('hidden');
+	}
+	});
+	};
 
-  // searchWordの実行
-  $('#search-text').on('input', searchWord);
+	// searchWordの実行
+	$('#search-text').on('input', searchWord);
 });
 /*]]>*/
 </script>
 
-		
 </body>
 
 </html>

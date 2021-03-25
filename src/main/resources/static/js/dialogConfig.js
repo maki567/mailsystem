@@ -315,7 +315,7 @@ const dialogConfig = {
 					alert('Error: ajax connection failed.');
 					});
 					}
-					$(this).dialog('close');
+					$(this).dialog('close')
 					}
 				},
 			{
