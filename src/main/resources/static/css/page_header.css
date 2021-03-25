@@ -1,5 +1,5 @@
 @charset "UTF-8";
 
-button[id="logout"] {
+.logout {
 	margin-left: 500px;
 }
