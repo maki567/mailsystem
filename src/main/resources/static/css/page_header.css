@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
 .logout {
-	margin-left: 500px;
+	position: relative;
+	left: 500px;
+	background-color: red;
 }

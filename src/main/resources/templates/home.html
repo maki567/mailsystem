@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<!-- <header th:insert="fragments/page_header::commonHeader"></header> -->
+	<header th:insert="fragments/page_header::commonHeader"></header>
 <main>
 
 	<table class = "user-info" border="1" align="left">
@@ -44,7 +44,7 @@
     	</tr>
     </table>
 
-	<table class = "mail-history" border="1">
+	<table class = "mail-history" border="1" rules="rows">
 	 <tr>
       <th>件名</th>
       <th>送信先</th>
