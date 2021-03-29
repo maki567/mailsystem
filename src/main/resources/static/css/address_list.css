@@ -1,28 +1,37 @@
 @charset "UTF-8";
 
+html {
+ overflow-y: scroll;
+}
+
 .form {
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .kensaku {
-	margin-right: 50px;
+	margin-left: 350px;
 	border-radius: 3px;
 }
 
 .modoru {
-	margin-right: 100px;
+	margin-left: 100px;
+	height: 35px;
+}
+
+.delete {
+	margin-left: 50px;
 }
 
 input[id="search-text"] {
-	width: 300px;
+	width: 400px;
 	height: 30px;
 	padding-left: 10px;
 }
 
 button[id="deleteButton"] {
 	width: 100px;
-	height: 30px;
+	height: 35px;
 	background-color: orange;
 }
 
