@@ -201,6 +201,9 @@ const checker = {
 	staffMail2: (target) => {
 		const title = '「メールアドレス2」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -231,6 +234,9 @@ const checker = {
 	staffMail3: (target) => {
 		const title = '「メールアドレス3」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -261,6 +267,9 @@ const checker = {
 	staffMail4: (target) => {
 		const title = '「メールアドレス4」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -291,6 +300,9 @@ const checker = {
 	staffMail5: (target) => {
 		const title = '「メールアドレス5」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -321,6 +333,9 @@ const checker = {
 	staffMail6: (target) => {
 		const title = '「メールアドレス6」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -351,6 +366,9 @@ const checker = {
 	staffMail7: (target) => {
 		const title = '「メールアドレス7」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -381,6 +399,9 @@ const checker = {
 	staffMail8: (target) => {
 		const title = '「メールアドレス8」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -411,6 +432,9 @@ const checker = {
 	staffMail9: (target) => {
 		const title = '「メールアドレス9」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
@@ -441,6 +465,9 @@ const checker = {
 	staffMail10: (target) => {
 		const title = '「メールアドレス10」';
 		let errMsg = new Array();
+		if (!validator.isMailAddress(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.INVALID_FORMAT);
+		}
 		if (validator.overMax(target, validateConstants.MAIL_ADDRESS_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
