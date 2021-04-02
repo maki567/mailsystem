@@ -44,15 +44,18 @@ public interface MstAddressMapper {
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstAddress address);
 	
-		@Select("select * from mst_address where id = #{id}")
+		@Select("SELECT * from mst_address where id = #{id}")
 		MstAddress findById(@Param("id") int id);
 	
 		@Select("SELECT count(id) FROM mst_address WHERE company_name = #{companyName}")
 		int findCountByCompanyName(@Param("companyName") String companyName);
 	
-		@Select("select * from mst_address")
+		@Select("SELECT * from mst_address")
 		List<MstAddress> select();
 	
 		@Delete("DELETE from mst_address WHERE id = #{id}")
 		int deleteById(@Param("id") int id);
+		
+		@Update("UPDATE mst_address SET * = '*' ")
+		int updata(MstAddress address);
 }

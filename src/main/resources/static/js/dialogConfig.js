@@ -342,6 +342,110 @@ const dialogConfig = {
 			},
 		]
 	},
+	updateCompanyConfirm: {
+		autoOpen: false,
+		width: 800,
+		height: 600,
+		modal: true,
+		buttons: [
+			{
+				text: '登録',
+				click: function() {
+					let jsonString = {
+						'companyName': $('table#register input[name=companyName]').val(),
+						'companyAddress': $('table#register input[name=companyAddress]').val(),
+						'corporation': $('table#register input[name=corporation]:checked').val() == '前株' ? '0' : '1',
+						'companyNumber': $('table#register input[name=companyNumber]').val(),
+						'staffName1': $('table#register input[name=staffName1]').val(),
+						'staffMail1': $('table#register input[name=staffMail1]').val(),
+						'staffNumber1': $('table#register input[name=staffNumber1]').val(),
+						'staffName2': $('table#register input[name=staffName2]').val(),
+						'staffMail2': $('table#register input[name=staffMail2]').val(),
+						'staffNumber2': $('table#register input[name=staffNumber2]').val(),
+						'staffName3': $('table#register input[name=staffName3]').val(),
+						'staffMail3': $('table#register input[name=staffMail3]').val(),
+						'staffNumber3': $('table#register input[name=staffNumber3]').val(),
+						'staffName4': $('table#register input[name=staffName4]').val(),
+						'staffMail4': $('table#register input[name=staffMail4]').val(),
+						'staffNumber4': $('table#register input[name=staffNumber4]').val(),
+						'staffName5': $('table#register input[name=staffName5]').val(),
+						'staffMail5': $('table#register input[name=staffMail5]').val(),
+						'staffNumber5': $('table#register input[name=staffNumber5]').val(),
+						'staffName6': $('table#register input[name=staffName6]').val(),
+						'staffMail6': $('table#register input[name=staffMail6]').val(),
+						'staffNumber6': $('table#register input[name=staffNumber6]').val(),
+						'staffName7': $('table#register input[name=staffName7]').val(),
+						'staffMail7': $('table#register input[name=staffMail7]').val(),
+						'staffNumber7': $('table#register input[name=staffNumber7]').val(),
+						'staffName8': $('table#register input[name=staffName8]').val(),
+						'staffMail8': $('table#register input[name=staffMail8]').val(),
+						'staffNumber8': $('table#register input[name=staffNumber8]').val(),
+						'staffName9': $('table#register input[name=staffName9]').val(),
+						'staffMail9': $('table#register input[name=staffMail9]').val(),
+						'staffNumber9': $('table#register input[name=staffNumber9]').val(),
+						'staffName10': $('table#register input[name=staffName10]').val(),
+						'staffMail10': $('table#register input[name=staffMail10]').val(),
+						'staffNumber10': $('table#register input[name=staffNumber10]').val(),
+								};
+					$.ajax({
+						type: 'POST',
+						url: '/mailsystem/address/update',
+						data: JSON.stringify(jsonString),
+						contentType: 'application/json',
+						datatype: 'json',
+						scriptCharset: 'utf-8'
+					})
+					.then((result) => {
+						$('.info').removeClass('hidden');
+						$('#checkOK').addClass('hidden');
+						$('table#register input[name=companyName]').val('');
+						$('table#register input[name=companyAddress]').val('');
+						($('table#register input[name=corporation]')[0]).checked = true;
+						$('table#register input[name=companyNumber]').val('');
+						$('table#register input[name=staffName1]').val('');
+						$('table#register input[name=staffMail1]').val('');
+						$('table#register input[name=staffNumber1]').val('');
+						$('table#register input[name=staffName2]').val('');
+						$('table#register input[name=staffMail2]').val('');
+						$('table#register input[name=staffNumber2]').val('');
+						$('table#register input[name=staffName3]').val('');
+						$('table#register input[name=staffMail3]').val('');
+						$('table#register input[name=staffNumber3]').val('');
+						$('table#register input[name=staffName4]').val('');
+						$('table#register input[name=staffMail4]').val('');
+						$('table#register input[name=staffNumber4]').val('');
+						$('table#register input[name=staffName5]').val('');
+						$('table#register input[name=staffMail5]').val('');
+						$('table#register input[name=staffNumber5]').val('');
+						$('table#register input[name=staffName6]').val('');
+						$('table#register input[name=staffMail6]').val('');
+						$('table#register input[name=staffNumber6]').val('');
+						$('table#register input[name=staffName7]').val('');
+						$('table#register input[name=staffMail7]').val('');
+						$('table#register input[name=staffNumber7]').val('');
+						$('table#register input[name=staffName8]').val('');
+						$('table#register input[name=staffMail8]').val('');
+						$('table#register input[name=staffNumber8]').val('');
+						$('table#register input[name=staffName9]').val('');
+						$('table#register input[name=staffMail9]').val('');
+						$('table#register input[name=staffNumber9]').val('');
+						$('table#register input[name=staffName10]').val('');
+						$('table#register input[name=staffMail10]').val('');
+						$('table#register input[name=staffNumber10]').val('');
+					}, () => {
+						alert('Error: ajax connection failed.');
+					});
+					$(this).dialog('close');
+				}
+			},
+			{
+				text: '戻って修正',
+				click: function() {
+					$(this).dialog("close");
+				}
+			},
+		]
+	},
 };
 
 

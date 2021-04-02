@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
-.logout {
-	position: relative;
-	left: 500px;
-	background-color: red;
+button[id="logout"] {
+	color: red;
 }
+

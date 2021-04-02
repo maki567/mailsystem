@@ -1,15 +1,19 @@
 @charset "UTF-8";
 
-main {
-	text-align: center;
-}
-
 .container {
 	margin-top: 30px;
 }
 
 table {
 	display: inline;
+}
+
+.first, .second, .third {
+	text-align: center;	
+}
+
+.third {
+	margin-right: 60px;
 }
 
 .company_name {
@@ -53,12 +57,12 @@ table {
 
 .modoru {
 	margin-top: 20px;
-	margin-left: 30px;
+	margin-left: 0px;
 }
 
 .hensyu {
 	margin-top: 20px;
-	margin-right: 50px;
+	margin-right: 10px;
 	width: 70px;
 }
 
@@ -119,10 +123,25 @@ button[id="checkCompanyName"],[id="confirm"] {
 	background-color: #0080ff;
 }
 
+button[class="modoru"] {
+	width: 100px;
+	height: 30px;
+	margin-left: 45px;
+}
+
 button[id="confirm"] {
 	width: 100px;
 	height: 30px;
-	margin-left: 20px;
+	margin-left: 40px;
+}
+
+input[onclick="clearForm1()"] {
+	margin-top: 50px;
+}
+
+input[value="クリア"] {
+	display: inline-block;
+	margin-bottom: 5px;
 }
 
 .hidden {

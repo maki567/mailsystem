@@ -14,8 +14,9 @@
 <main>
 
 <div class="container">
-	
-	<table id="register" class="user">
+
+<div class="first">
+	<table id="register" >
 		<tr>
 			<td>
 				<div class="company_name">会社名</div>
@@ -27,6 +28,8 @@
 			</td>
 		</tr>
 	</table>
+</div>
+<div class="second">
 	<table id="register" class="user">
 		<tr>
 			<td>
@@ -39,54 +42,67 @@
 				<input class="form" type="tel" name="companyNumber" placeholder="会社の電話番号" maxlength="16" th:value="${address.companyNumber}" /><br />
 			</td>
 			<td>
-				<button onclick="location.href='http://localhost:8080/mailsystem/list/'" class="modoru">連絡先一覧へ戻る</button>
+				<button onclick="location.href='http://localhost:8080/mailsystem/list/'" class="modoru">一覧へ戻る</button>
 			</td>
 			<td>
 				<button class="hensyu" id="confirm">編集</button>
 			</td>
 		</tr>
 	</table>
-	<div class="tantou">
+</div>
+<div class="third">
 	<table id="register">
 		<tr>
+			<td class="clear">
+				<input type="button" value="クリア" onclick="clearForm1()" /><br />
+				<input type="button" value="クリア" onclick="clearForm2()" /><br />
+				<input type="button" value="クリア" onclick="clearForm3()" /><br />
+				<input type="button" value="クリア" onclick="clearForm4()" /><br />
+				<input type="button" value="クリア" onclick="clearForm5()" /><br />
+				<input type="button" value="クリア" onclick="clearForm6()" /><br />
+				<input type="button" value="クリア" onclick="clearForm7()" /><br />
+				<input type="button" value="クリア" onclick="clearForm8()" /><br />
+				<input type="button" value="クリア" onclick="clearForm9()" /><br />
+				<input type="button" value="クリア" onclick="clearForm10()" />
+			</td>
 			<td class="staffform">
 				<div class="staff_name">担当者名</div>
-				<input class="form" type="text" name="staffName1" placeholder="※必須 氏名" maxlength="16" th:value="${address.staffName1}" /><br />
-				<input class="form" type="text" name="staffName2" placeholder="氏名" maxlength="16" th:value="${address.staffName2}" /><br />
-				<input class="form" type="text" name="staffName3" placeholder="氏名" maxlength="16" th:value="${address.staffName3}" /><br />
-				<input class="form" type="text" name="staffName4" placeholder="氏名" maxlength="16" th:value="${address.staffName4}" /><br />
-				<input class="form" type="text" name="staffName5" placeholder="氏名" maxlength="16" th:value="${address.staffName5}" /><br />
-				<input class="form" type="text" name="staffName6" placeholder="氏名" maxlength="16" th:value="${address.staffName6}" /><br />
-				<input class="form" type="text" name="staffName7" placeholder="氏名" maxlength="16" th:value="${address.staffName7}" /><br />
-				<input class="form" type="text" name="staffName8" placeholder="氏名" maxlength="16" th:value="${address.staffName8}" /><br />
-				<input class="form" type="text" name="staffName9" placeholder="氏名" maxlength="16" th:value="${address.staffName9}" /><br />
-				<input class="form" type="text" name="staffName10" placeholder="氏名" maxlength="16" th:value="${address.staffName10}" /><br />
+				<input class="form" type="text" id="name1" name="staffName1" placeholder="※必須 氏名" maxlength="16" th:value="${address.staffName1}" /><br />
+				<input class="form" type="text" id="name2" name="staffName2" placeholder="氏名" maxlength="16" th:value="${address.staffName2}" /><br />
+				<input class="form" type="text" id="name3" name="staffName3" placeholder="氏名" maxlength="16" th:value="${address.staffName3}" /><br />
+				<input class="form" type="text" id="name4" name="staffName4" placeholder="氏名" maxlength="16" th:value="${address.staffName4}" /><br />
+				<input class="form" type="text" id="name5" name="staffName5" placeholder="氏名" maxlength="16" th:value="${address.staffName5}" /><br />
+				<input class="form" type="text" id="name6" name="staffName6" placeholder="氏名" maxlength="16" th:value="${address.staffName6}" /><br />
+				<input class="form" type="text" id="name7" name="staffName7" placeholder="氏名" maxlength="16" th:value="${address.staffName7}" /><br />
+				<input class="form" type="text" id="name8" name="staffName8" placeholder="氏名" maxlength="16" th:value="${address.staffName8}" /><br />
+				<input class="form" type="text" id="name9" name="staffName9" placeholder="氏名" maxlength="16" th:value="${address.staffName9}" /><br />
+				<input class="form" type="text" id="name10" name="staffName10" placeholder="氏名" maxlength="16" th:value="${address.staffName10}" /><br />
 			</td>
 			<td class="staffform">
 				<div class="staff_mail">メールアドレス</div>
-				<input class="form" type="email" name="staffMail1" placeholder="※必須 担当者のメールアドレス" maxlength="32" th:value="${address.staffMail1}" /><br />
-				<input class="form" type="email" name="staffMail2" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail2}" /><br />
-				<input class="form" type="email" name="staffMail3" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail3}" /><br />
-				<input class="form" type="email" name="staffMail4" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail4}" /><br />
-				<input class="form" type="email" name="staffMail5" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail5}" /><br />
-				<input class="form" type="email" name="staffMail6" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail6}" /><br />
-				<input class="form" type="email" name="staffMail7" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail7}" /><br />
-				<input class="form" type="email" name="staffMail8" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail8}" /><br />
-				<input class="form" type="email" name="staffMail9" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail9}" /><br />
-				<input class="form" type="email" name="staffMail10" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail10}" /><br />
+				<input class="form" type="email" id="mail1" name="staffMail1" placeholder="※必須 担当者のメールアドレス" maxlength="32" th:value="${address.staffMail1}" /><br />
+				<input class="form" type="email" id="mail2" name="staffMail2" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail2}" /><br />
+				<input class="form" type="email" id="mail3" name="staffMail3" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail3}" /><br />
+				<input class="form" type="email" id="mail4" name="staffMail4" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail4}" /><br />
+				<input class="form" type="email" id="mail5" name="staffMail5" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail5}" /><br />
+				<input class="form" type="email" id="mail6" name="staffMail6" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail6}" /><br />
+				<input class="form" type="email" id="mail7" name="staffMail7" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail7}" /><br />
+				<input class="form" type="email" id="mail8" name="staffMail8" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail8}" /><br />
+				<input class="form" type="email" id="mail9" name="staffMail9" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail9}" /><br />
+				<input class="form" type="email" id="mail10" name="staffMail10" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail10}" /><br />
 			</td>
 			<td class="staffform">
 				<div class="staff_number">電話番号</div>
-				<input class="form" type="tel" name="staffNumber1" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber1}" /><br />
-				<input class="form" type="tel" name="staffNumber2" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber2}" /><br />
-				<input class="form" type="tel" name="staffNumber3" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber3}" /><br />
-				<input class="form" type="tel" name="staffNumber4" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber4}" /><br />
-				<input class="form" type="tel" name="staffNumber5" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber5}" /><br />
-				<input class="form" type="tel" name="staffNumber6" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber6}" /><br />
-				<input class="form" type="tel" name="staffNumber7" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber7}" /><br />
-				<input class="form" type="tel" name="staffNumber8" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber8}" /><br />
-				<input class="form" type="tel" name="staffNumber9" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber9}" /><br />
-				<input class="form" type="tel" name="staffNumber10" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber10}" /><br />
+				<input class="form" type="tel" id="num1" name="staffNumber1" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber1}" /><br />
+				<input class="form" type="tel" id="num2" name="staffNumber2" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber2}" /><br />
+				<input class="form" type="tel" id="num3" name="staffNumber3" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber3}" /><br />
+				<input class="form" type="tel" id="num4" name="staffNumber4" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber4}" /><br />
+				<input class="form" type="tel" id="num5" name="staffNumber5" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber5}" /><br />
+				<input class="form" type="tel" id="num6" name="staffNumber6" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber6}" /><br />
+				<input class="form" type="tel" id="num7" name="staffNumber7" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber7}" /><br />
+				<input class="form" type="tel" id="num8" name="staffNumber8" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber8}" /><br />
+				<input class="form" type="tel" id="num9" name="staffNumber9" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber9}" /><br />
+				<input class="form" type="tel" id="num10" name="staffNumber10" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber10}" /><br />
 			</td>
 		</tr>
 		<tr>
@@ -104,7 +120,228 @@
 	</div>
 </div>
 
+<!-- Modal Dialog (会社情報入力エラー) -->
+<div th:insert="fragments/dialog_input_company_error::dialogInputCompanyError"></div>
+
+<!-- Modal Dialog (入力内容確認) -->
+<div th:insert="fragments/dialog_update_company_confirm::dialogUpdateCompanyConfirm"></div>
+
 </main>
+<!-- ボタンクリック時、jsでそれぞれの動作を定義 -->
+<script th:inline="javascript">
+
+	//dialog_input_company_error.htmlのエラーメッセージを表示するdivのクラスを定義
+	const errorSelector = {
+		'会社名': '.companyNameError',
+		'所在地': '.companyAddressError',
+		'電話番号(会社)': '.companyNumberError',
+		'担当者名1': '.staffName1Error',
+		'メールアドレス1': '.staffMail1Error',
+		'電話番号(担当者)1': '.staffNumber1Error',
+		'担当者名2': '.staffName2Error',
+		'メールアドレス2': '.staffMail2Error',
+		'電話番号(担当者)2': '.staffNumber2Error',
+		'担当者名3': '.staffName1Error',
+		'メールアドレス3': '.staffMail1Error',
+		'電話番号(担当者)3': '.staffNumber1Error',
+		'担当者名4': '.staffName2Error',
+		'メールアドレス4': '.staffMail2Error',
+		'電話番号(担当者)4': '.staffNumber2Error',
+		'担当者名5': '.staffName1Error',
+		'メールアドレス5': '.staffMail1Error',
+		'電話番号(担当者)5': '.staffNumber1Error',
+		'担当者名6': '.staffName2Error',
+		'メールアドレス6': '.staffMail2Error',
+		'電話番号(担当者)6': '.staffNumber2Error',
+		'担当者名7': '.staffName1Error',
+		'メールアドレス7': '.staffMail1Error',
+		'電話番号(担当者)7': '.staffNumber1Error',
+		'担当者名8': '.staffName2Error',
+		'メールアドレス8': '.staffMail2Error',
+		'電話番号(担当者)8': '.staffNumber2Error',
+		'担当者名9': '.staffName1Error',
+		'メールアドレス9': '.staffMail1Error',	
+		'電話番号(担当者)9': '.staffNumber1Error',
+		'担当者名10': '.staffName2Error',
+		'メールアドレス10': '.staffMail2Error',
+		'電話番号(担当者)10': '.staffNumber2Error',
+};
+
+$(() => {
+	
+	// jQuery-UIダイアログの初期設定
+	$('#inputCompanyError').dialog(dialogConfig.inputCompanyError);
+	$('#updateCompanyConfirm').dialog(dialogConfig.updateCompanyConfirm);
+	
+	$('button#confirm').on('click', () => {
+	// 入力チェック処理(validate.js:validate(checkerConfig))を呼び出す
+	// 引数はvalidate.js:checkerからチェックしたい項目の変数の宣言を作成する
+		let errInfo = validate({
+			'companyName': checker.companyName,
+			'companyAddress': checker.companyAddress,
+			'corporation': null,
+			'companyNumber': checker.companyNumber,
+			'staffName1': checker.staffName1,
+			'staffMail1': checker.staffMail1,
+			'staffNumber1': checker.staffNumber1,
+			'staffName2': checker.staffName2,
+			'staffMail2': checker.staffMail2,
+			'staffNumber2': checker.staffNumber2,
+			'staffName3': checker.staffName3,
+			'staffMail3': checker.staffMail3,
+			'staffNumber3': checker.staffNumber3,
+			'staffName4': checker.staffName4,
+			'staffMail4': checker.staffMail4,
+			'staffNumber4': checker.staffNumber4,
+			'staffName5': checker.staffName5,
+			'staffMail5': checker.staffMail5,
+			'staffNumber5': checker.staffNumber5,
+			'staffName6': checker.staffName6,
+			'staffMail6': checker.staffMail6,
+			'staffNumber6': checker.staffNumber6,
+			'staffName7': checker.staffName7,
+			'staffMail7': checker.staffMail7,
+			'staffNumber7': checker.staffNumber7,
+			'staffName8': checker.staffName8,
+			'staffMail8': checker.staffMail8,
+			'staffNumber8': checker.staffNumber8,
+			'staffName9': checker.staffName9,
+			'staffMail9': checker.staffMail9,
+			'staffNumber9': checker.staffNumber9,
+			'staffName10': checker.staffName10,
+			'staffMail10': checker.staffMail10,
+			'staffNumber10': checker.staffNumber10,
+		});
+		if (errInfo.isError) {
+			// エラーがあればエラーダイアログを表示する(validator.js:createErrorDialog(checkerConfig))
+			createErrorDialog(errInfo.errMsg);
+			$("#inputCompanyError").dialog("open");
+		} else {
+			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
+			createUpdateDialog({
+				'companyName': checker.companyName,
+				'companyAddress': checker.companyAddress,
+				'corporation': null,
+				'companyNumber': checker.companyNumber,
+				'staffName1': checker.staffName1,
+				'staffMail1': checker.staffMail1,
+				'staffNumber1': checker.staffNumber1,
+				'staffName2': checker.staffName2,
+				'staffMail2': checker.staffMail2,
+				'staffNumber2': checker.staffNumber2,
+				'staffName3': checker.staffName3,
+				'staffMail3': checker.staffMail3,
+				'staffNumber3': checker.staffNumber3,
+				'staffName4': checker.staffName4,
+				'staffMail4': checker.staffMail4,
+				'staffNumber4': checker.staffNumber4,
+				'staffName5': checker.staffName5,
+				'staffMail5': checker.staffMail5,
+				'staffNumber5': checker.staffNumber5,
+				'staffName6': checker.staffName6,
+				'staffMail6': checker.staffMail6,
+				'staffNumber6': checker.staffNumber6,
+				'staffName7': checker.staffName7,
+				'staffMail7': checker.staffMail7,
+				'staffNumber7': checker.staffNumber7,
+				'staffName8': checker.staffName8,
+				'staffMail8': checker.staffMail8,
+				'staffNumber8': checker.staffNumber8,
+				'staffName9': checker.staffName9,
+				'staffMail9': checker.staffMail9,
+				'staffNumber9': checker.staffNumber9,
+				'staffName10': checker.staffName10,
+				'staffMail10': checker.staffMail10,
+				'staffNumber10': checker.staffNumber10,	
+			});
+			$("#updateCompanyConfirm").dialog("open");
+		}
+	});
+});
+
+
+	function clearForm1() {
+		let nameForm1 = document.getElementById("name1");
+		let mailForm1 = document.getElementById("mail1");
+		let numForm1 = document.getElementById("num1");
+		nameForm1.value = '';
+		mailForm1.value = '';
+		numForm1.value = '';
+		}
+	function clearForm2() {
+		let nameForm2 = document.getElementById("name2");
+		let mailForm2 = document.getElementById("mail2");
+		let numForm2 = document.getElementById("num2");
+		nameForm2.value = '';
+		mailForm2.value = '';
+		numForm2.value = '';
+		}
+	function clearForm3() {
+		let nameForm3 = document.getElementById("name3");
+		let mailForm3 = document.getElementById("mail3");
+		let numForm3 = document.getElementById("num3");
+		nameForm3.value = '';
+		mailForm3.value = '';
+		numForm3.value = '';
+		}
+	function clearForm4() {
+		let nameForm4 = document.getElementById("name4");
+		let mailForm4 = document.getElementById("mail4");
+		let numForm4 = document.getElementById("num4");
+		nameForm4.value = '';
+		mailForm4.value = '';
+		numForm4.value = '';
+		}
+	function clearForm5() {
+		let nameForm5 = document.getElementById("name5");
+		let mailForm5 = document.getElementById("mail5");
+		let numForm5 = document.getElementById("num5");
+		nameForm5.value = '';
+		mailForm5.value = '';
+		numForm5.value = '';
+		}
+	function clearForm6() {
+		let nameForm6 = document.getElementById("name6");
+		let mailForm6 = document.getElementById("mail6");
+		let numForm6 = document.getElementById("num6");
+		nameForm6.value = '';
+		mailForm6.value = '';
+		numForm6.value = '';
+		}
+	function clearForm7() {
+		let nameForm7 = document.getElementById("name7");
+		let mailForm7 = document.getElementById("mail7");
+		let numForm7 = document.getElementById("num7");
+		nameForm7.value = '';
+		mailForm7.value = '';
+		numForm7.value = '';
+		}
+	function clearForm8() {
+		let nameForm8 = document.getElementById("name8");
+		let mailForm8 = document.getElementById("mail8");
+		let numForm8 = document.getElementById("num8");
+		nameForm8.value = '';
+		mailForm8.value = '';
+		numForm8.value = '';
+		}
+	function clearForm9() {
+		let nameForm9 = document.getElementById("name9");
+		let mailForm9 = document.getElementById("mail9");
+		let numForm9 = document.getElementById("num9");
+		nameForm9.value = '';
+		mailForm9.value = '';
+		numForm9.value = '';
+		}
+	function clearForm10() {
+		let nameForm10 = document.getElementById("name10");
+		let mailForm10 = document.getElementById("mail10");
+		let numForm10 = document.getElementById("num10");
+		nameForm10.value = '';
+		mailForm10.value = '';
+		numForm10.value = '';
+		}
+
+</script>
 
 </body>
 

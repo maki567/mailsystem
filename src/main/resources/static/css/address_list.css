@@ -7,16 +7,11 @@ html {
 .form {
 	text-align: center;
 	margin-top: 30px;
+	margin-left: 150px;
 }
 
 .kensaku {
-	margin-left: 350px;
 	border-radius: 3px;
-}
-
-.modoru {
-	margin-left: 100px;
-	height: 35px;
 }
 
 .delete {
