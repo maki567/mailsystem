@@ -389,7 +389,7 @@ const dialogConfig = {
 								};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsystem/address/update',
+						url: '/mailsystem/edit/update',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						datatype: 'json',

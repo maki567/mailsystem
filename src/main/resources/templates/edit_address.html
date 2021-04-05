@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>ホーム画面</title>
+	<title>連絡先編集画面</title>
 	<link href="/css/edit_address.css" th:href="@{/css/edit_address.css}" rel="stylesheet" />
 </head>
 
@@ -218,7 +218,7 @@ $(() => {
 			$("#inputCompanyError").dialog("open");
 		} else {
 			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
-			createUpdateDialog({
+			createConfirmDialog({
 				'companyName': checker.companyName,
 				'companyAddress': checker.companyAddress,
 				'corporation': null,
