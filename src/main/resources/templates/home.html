@@ -4,7 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ホーム画面</title>
-	<link href="/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />	
+	<link href="/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
+		
 </head>
 
 <body>
@@ -16,28 +17,30 @@
     		<th class = "user-info">ユーザー情報</th>
     	</tr>
     	<tr>
-    		<td>UserName</td>
+    		<td class="home">UserName</td>
     	</tr>
     	<tr>
-    		<td>	<span class="welcomeMsg"
+    		<td class="home">	<span class="welcomeMsg"
 			th:text="${loginSession == null || loginSession.getUserName() == null ? 'ゲスト さん' : loginSession.getUserName() + ' さん'}"></span>
 			</td>
     	</tr>
     	<tr>
-    		<td>Password　変更</td>
+    		<td class="home">Password　<a href="#" class="resetPassword" style="color:#008000;">変更</a>
+					<input type="hidden" id="hiddenPassword"/>
+			</td>
     	</tr>
     	<tr>
-    		<td>電子署名</td>
+    		<td class="home">電子署名</td>
     	</tr>
     	<tr>
-    		<td><button id="logout">ログアウト</button></td>
+    		<td class="home"><button id="logout">ログアウト</button></td>
     	</tr>
     	<tr>
-    		<td>
+    		<td class="home">
     			<button class="mail" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成</button><br>
     	
     			<button class="ichiran" onclick="location.href='http://localhost:8080/mailsystem/list/'">連絡先一覧</button><br>
-    			
+    	
     			<button class="toroku" onclick="location.href='http://localhost:8080/mailsystem/address/'">連絡先登録</button><br>
     			
     		</td>
@@ -46,10 +49,10 @@
 
 	<table class = "mail-history" border="1" rules="rows">
 	 <tr>
-      <th>件名</th>
-      <th>送信先</th>
-      <th>所属</th>
-      <th>日付</th>
+      <th class="home">件名</th>
+      <th class="home">送信先</th>
+      <th class="home">所属</th>
+      <th class="home">日付</th>
     </tr>
 		<tr th:each="mail : ${mail}">
 			<td><p th:text="${mail.subject}"/></td>
@@ -62,16 +65,20 @@
 		</tr>		
 	</table>
 
+	<!-- Modal Dialog (パスワード再設定) -->
+	<div th:insert="fragments/dialog_reset_password::dialogResetPassword"></div>
 
 </main>
 
-    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	<link rel="stylesheet"
 			href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 	<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script>
 	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
-	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
+	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script> -->
+	
+	
 	<script th:inline="javascript">
 	/*<![CDATA[*/
 	$(() => {
@@ -156,6 +163,24 @@
 	}
 	
 	/*]]>*/
+	
+	$(() => {
+	
+	 	let password = $('#hiddenPassword').val(); 
+	 		let asters = ''; 
+	 	for (let i = 0; i < password.length; i ++) { 
+	 		asters += '*'; 
+	 	} 
+	 	$('span.password').text(asters); 
+	 	 
+
+		$('#resetPassword').dialog(dialogConfig.resetPassword);
+	
+		$('a.resetPassword').on('click', (e) => {
+		$("#resetPassword").dialog("open");
+	});
+});
+	
 	</script>
 
 </body>

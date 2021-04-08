@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-th {
+th.home {
 	background-color: rgb(192, 192, 192);
 	height:50px;
 }
@@ -11,7 +11,7 @@ th.user-info {
 	height:50px;
 }
 
-td {
+td.home {
 	height:50px;
 }
 
@@ -45,6 +45,10 @@ table.mail-history {
 	text-align: center;
 }
 
+.hidden {
+	display: none;
+}
+
 .mail {
 	display: inline;
 	margin: 20px;
@@ -65,4 +69,16 @@ table.mail-history {
 	background-color: rgb(230, 241, 14);
 	width: 150px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
