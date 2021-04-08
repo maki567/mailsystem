@@ -44,21 +44,34 @@ public interface MstAddressMapper {
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstAddress address);
 	
-		@Select("SELECT * from mst_address where id = #{id}")
+		@Select("SELECT * FROM mst_address where id = #{id}")
 		MstAddress findById(@Param("id") int id);
 		
-		@Select("SELECT * from mst_address where company_name = #{companyName}")
+		@Select("SELECT * FROM mst_address where company_name = #{companyName}")
 		MstAddress findByCompanyName(@Param("companyName") String companyName);
 	
 		@Select("SELECT count(id) FROM mst_address WHERE company_name = #{companyName}")
 		int findCountByCompanyName(@Param("companyName") String companyName);
 	
-		@Select("SELECT * from mst_address")
+		@Select("SELECT * FROM mst_address ORDER BY company_name")
 		List<MstAddress> select();
 	
-		@Delete("DELETE from mst_address WHERE id = #{id}")
+		@Delete("DELETE FROM mst_address WHERE id = #{id}")
 		int deleteById(@Param("id") int id);
 		
-		@Update("UPDATE mst_address SET company_name = #{companyName} where id = #{id}")
+		@Update("UPDATE mst_address SET "
+				+ "company_name = #{companyName}, company_address = #{companyAddress},"
+				+ "corporation = #{corporation}, company_number = #{companyNumber},"
+				+ "staff_name1 = #{staffName1}, staff_mail1 = #{staffMail1}, staff_number1 = #{staffNumber1},"
+				+ "staff_name2 = #{staffName2}, staff_mail2 = #{staffMail2}, staff_number2 = #{staffNumber2},"
+				+ "staff_name3 = #{staffName3}, staff_mail3 = #{staffMail3}, staff_number3 = #{staffNumber3},"
+				+ "staff_name4 = #{staffName4}, staff_mail4 = #{staffMail4}, staff_number4 = #{staffNumber4},"
+				+ "staff_name5 = #{staffName5}, staff_mail5 = #{staffMail5}, staff_number5 = #{staffNumber5},"
+				+ "staff_name6 = #{staffName6}, staff_mail6 = #{staffMail6}, staff_number6 = #{staffNumber6},"
+				+ "staff_name7 = #{staffName7}, staff_mail7 = #{staffMail7}, staff_number7 = #{staffNumber7},"
+				+ "staff_name8 = #{staffName8}, staff_mail8 = #{staffMail8}, staff_number8 = #{staffNumber8},"
+				+ "staff_name9 = #{staffName9}, staff_mail9 = #{staffMail9}, staff_number9 = #{staffNumber9},"
+				+ "staff_name10 = #{staffName10}, staff_mail10 = #{staffMail10}, staff_number10 = #{staffNumber10}"
+				+ "where id = #{id}")
 		int update(MstAddress address);
 }
