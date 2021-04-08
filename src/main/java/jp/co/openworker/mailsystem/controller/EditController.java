@@ -32,7 +32,7 @@ public class EditController {
 	public boolean update(@RequestBody AddressForm f) {
 		MstAddress address = new MstAddress(f);
 		
-		int result = addressMapper.updata(address, address);
+		int result = addressMapper.update(address);
 		
 		return result > 0;
 	}

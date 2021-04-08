@@ -10,7 +10,7 @@ CREATE TABLE mst_user (
 
 CREATE TABLE mst_address (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
- company_name VARCHAR(32) NOT NULL UNIQUE,
+ company_name VARCHAR(32) NOT NULL,
  company_address VARCHAR(255),
  corporation TINYINT DEFAULT 0,
  company_number VARCHAR(16),

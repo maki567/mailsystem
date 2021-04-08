@@ -352,6 +352,7 @@ const dialogConfig = {
 				text: '登録',
 				click: function() {
 					let jsonString = {
+						'id': $('table#register input[name=id]').val(),
 						'companyName': $('table#register input[name=companyName]').val(),
 						'companyAddress': $('table#register input[name=companyAddress]').val(),
 						'corporation': $('table#register input[name=corporation]:checked').val() == '前株' ? '0' : '1',
@@ -398,6 +399,7 @@ const dialogConfig = {
 					.then((result) => {
 						$('.info').removeClass('hidden');
 						$('#checkOK').addClass('hidden');
+						$('table#register input[name=id]').val('');
 						$('table#register input[name=companyName]').val('');
 						$('table#register input[name=companyAddress]').val('');
 						($('table#register input[name=corporation]')[0]).checked = true;

@@ -47,6 +47,7 @@ public class MstAddress {
 	public MstAddress() {}
 
 	public MstAddress(AddressForm f) {
+		id = f.getId();
 		companyName = f.getCompanyName();
 		companyAddress = f.getCompanyAddress();
 		corporation = f.getCorporation();

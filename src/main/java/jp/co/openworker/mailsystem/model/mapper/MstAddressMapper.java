@@ -59,8 +59,6 @@ public interface MstAddressMapper {
 		@Delete("DELETE from mst_address WHERE id = #{id}")
 		int deleteById(@Param("id") int id);
 		
-		@Update("UPDATE mst_address SET company_name = #{companyName} WHERE id = #{id}")
-		int updata(
-						@Param("id") MstAddress id,
-						@Param("companyName") MstAddress companyName);
+		@Update("UPDATE mst_address SET company_name = #{companyName} where id = #{id}")
+		int update(MstAddress address);
 }
