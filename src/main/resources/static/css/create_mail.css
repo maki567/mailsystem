@@ -1,15 +1,100 @@
 @charset "UTF-8";
 
-#btn {
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-    padding: 15px 30px;
-    display: inline-block;
+
+main {
+	text-align: center;
+	display: inline-block;
+	margin-left:200px;
+	margin-top: 50px;
 }
 
-input {
-    background: none;
-    box-shadow: none;
-    border: none;
+
+
+/*横並び*/
+.menubar_attachment {
+	display: inline;
 }
+
+.menubar_cancel {
+	display: inline;
+}
+
+.menubar_llnextscreen {
+	display: inline;
+}
+
+.menubar {
+	border-style: none;
+	padding: 20px;
+	width: 850px;
+}
+
+
+button[id="confirm"] {
+	width: 100px;
+	height: 30px;
+}
+
+
+.menubar_files {
+	margin-right: 20px;
+}
+
+
+.menubar_cancel {
+	width: 120px;
+	height: 40px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #808080;
+	margin-right: 100px;
+}
+
+.menubar_llnextscreen {
+	width: 120px;
+	height: 40px;
+	background-color: #1e90ff;
+	color: #ffffff;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #808080;
+}
+
+
+
+/*入力欄*/
+
+input[name="messageSubject"] {
+	width: 890px;
+	height: 50px;
+	border-style: solid;
+	border-width: 2px;
+	border-bottom: none;
+	border-color: #dcdcdc;
+}
+
+
+textarea[name="messageText"] {
+	width: 890px;
+	height: 390px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+}
+
+
+::placeholder {
+	color: dcdcdc;
+	font-size: 15px;
+}
+
+
+.hidden {
+	display: none;
+}
+
+
+
+
+

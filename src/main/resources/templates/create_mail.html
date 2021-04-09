@@ -4,63 +4,61 @@
 <head>
 	<meta charset="UTF-8">
 	<title>メール作成画面</title>
-	
+	<link href="/css/create_mail.css" th:href="@{/css/create_mail.css}" rel="stylesheet" />
 </head>
 
 <body>
 
-<main>
+<header th:insert="fragments/page_header::commonHeader"></header>
 
-	<div class="message">
-	<input type="text" name="message_subject" size="40" maxlength="20">
-	<textarea name="message_text" rows="4" cols="40">本文</textarea>
+<main>
+	<div class="message" id="create">
+		<input type="text" name="messageSubject" value="" placeholder="件名" id="subject">
+		<br>
+		<textarea name="messageText" placeholder="本文" id="text" rows="4" cols="40"></textarea>
 	</div>
+	
 	
 	<div class="menubar">
-	
-	<div id="btn">ファイルを選択</div>
-	<input type="file" id="failes"/>
-	<input type="text" id="failename" placeholder="選択されていません" readonly />
-	
-	
-	
-	<div class="menubar_attachment"></div>
-	<div class="menubar_cancel"><a href="http://localhost:8080/mailsystem/home/">キャンセル</a></div>
-	<div class="menubar_nextscreen"><a href="http://localhost:8080/mailsystem/home/">連絡先選択へ</a></div>
+		<input type="file" id="files" class="menubar_files"/>
+		<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
+		<button id="confirm" class="menubar_llnextscreen">連絡先選択へ</button>
 	</div>
 	
 	
-	
-	
+<!-- Modal Dialog (入力内容確認) -->
+<div th:insert="fragments/dialog_create_mail_confirm::dialogCreateMailConfirm"></div>
 	
 	
 	
 </main>
 
-<script type="text/javascript">
- $(function() {
-     $('#files').css({
-         'position': 'absolute',
-         'top': '-9999px'
-     }).change(function() {
-         var val = $(this).val();
-         var path = val.replace(/\\/g, '/');
-         var match = path.lastIndexOf('/');
-    $('#filename').css("display","inline-block");
-         $('#filename').val(match !== -1 ? val.substring(match + 1) : val);
-     });
-     $('#filename').bind('keyup, keydown, keypress', function() {
-         return false;
-     });
-     $('#filename, #btn').click(function() {
-         $('#files').trigger('click');
-     });
- });
+
+<script th:inline="javascript">
+ 
+
+
+$(() => {	
+	// jQuery-UIダイアログの初期設定
+	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
+	
+	
+	
+	$('button#confirm').on('click', () => {
+		let subject = document.getElementById("subject");
+	
+	
+	
+		if(subject.value == null){
+			alert('件名と本文を入力してください')
+		} else{
+			$("#createMailConfirm").dialog("open");
+			
+		}
+	});
+});
 </script>
 
-
-
-	</script>
 
 </body>
 
