@@ -139,6 +139,68 @@ const dialogConfig = {
 			},
 		]
 	},
+		
+	
+		electronicSignature: {
+		autoOpen: false,
+		width: 750,
+		modal: true,
+		buttons: [
+			{
+				text: 'OK',
+				click: function() {
+					/* フロントのみで完結できるエラーチェック */
+					let newPassword = $('table.resetPassword input[name=newPassword]').val();
+					let newPasswordConfirm = $('table.resetPassword input[name=newPasswordConfirm]').val();
+					let isError = false;
+					if (validator.isEmpty(newPassword) || validator.isEmpty(newPassword) ||
+							!validator.isHalfAlphanumeric(newPassword) || !validator.isHalfAlphanumeric(newPasswordConfirm) ||
+							validator.overMax(newPassword, 16) || validator.overMax(newPasswordConfirm, 16) ||
+							validator.underMin(newPassword, 6) || validator.underMin(newPasswordConfirm, 6)) {
+						alert('新パスワード、または新パスワード確認の入力が不正です。');
+						$('table.resetPassword input[name=password]').val('');
+						$('table.resetPassword input[name=newPassword]').val('');
+						$('table.resetPassword input[name=newPasswordConfirm]').val('');
+						return;
+					}
+					
+					/* ajaxでのエラーチェック */
+					let jsonString = {
+								'userName': $('table.resetPassword span').text(),
+								'password': $('table.resetPassword input[name=password]').val(),
+								'newPassword': newPassword,
+								'newPasswordConfirm': newPasswordConfirm
+					};
+					$.ajax({
+						type: 'POST',
+						url: '/mailsystem/auth/resetPassword',
+						data: JSON.stringify(jsonString),
+						contentType: 'application/json',
+						scriptCharset: 'utf-8'
+					})
+					.then((result) => {
+						alert(result);
+						$('table.resetPassword input[name=password]').val('');
+						$('table.resetPassword input[name=newPassword]').val('');
+						$('table.resetPassword input[name=newPasswordConfirm]').val('');
+						if (result === 'パスワードが再設定されました。') {
+							let asters = '';
+							for (let i = 0; i < newPassword.length; i ++) {
+								asters += '*';
+							}
+							$('span.password').text(asters);
+							$(this).dialog('close');
+						}
+					}, () => {
+						alert('Error: ajax connection failed.');
+						$(this).dialog('close');
+					});
+				}
+			},
+		]
+	},
+	
+	
 	inputDestinationError: {
 		autoOpen: false,
 		width: 650,

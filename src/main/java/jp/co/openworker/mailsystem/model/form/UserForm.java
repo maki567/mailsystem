@@ -9,6 +9,7 @@ public class UserForm implements Serializable {
 	private String password;
 	private String newPassword;
 	private String newPasswordConfirm;
+	private String signature;
 	
 	public String getUserName() {
 		return userName;
@@ -34,5 +35,11 @@ public class UserForm implements Serializable {
 	public void setNewPasswordConfirm(String newPasswordConfirm) {
 		this.newPasswordConfirm = newPasswordConfirm;
 	}
-
+	public String getSignature() {
+		return signature;
+	}
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
 }
+	

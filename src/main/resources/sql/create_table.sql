@@ -4,6 +4,7 @@ CREATE TABLE mst_user (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
  user_name VARCHAR(32) NOT NULL UNIQUE,
  password VARCHAR(16) NOT NULL,
+ signature VARCHAR(255),
  created_at TIMESTAMP NOT NULL DEFAULT current_timestamp(),
  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 );
