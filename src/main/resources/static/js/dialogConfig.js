@@ -461,7 +461,6 @@ const dialogConfig = {
 			},
 		]
 	},
-	}
 };
 
 
