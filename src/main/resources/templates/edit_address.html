@@ -20,11 +20,11 @@
 		<tr>
 			<td>
 				<div class="company_name">会社名</div>
-				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="32" th:value="${address.companyName}" />
+				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="16" th:value="${address.companyName}" />
 			</td>
 			<td>	
 				<div class="company_address">所在地</div>
-				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="64" th:value="${address.companyAddress}" />
+				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="32" th:value="${address.companyAddress}" />
 			</td>
 		</tr>
 	</table>
@@ -34,8 +34,8 @@
 		<tr>
 			<td>
 				<div class="corporation">法人呼称の表記位置</div>
-				<label class="mae"><input type="radio" name="corporation" th:checked='${address.corporation == 0 ? "checked" : null}' />前株</label>
-				<label class="ushiro"><input type="radio" name="corporation" th:checked='${address.corporation == 1 ? "checked" : null}' />後株</label>
+				<label class="mae"><input type="radio" name="corporation" value="前株" th:checked='${address.corporation == 0 ? "checked" : null}' />前株</label>
+				<label class="ushiro"><input type="radio" name="corporation" value="後株" th:checked='${address.corporation == 1 ? "checked" : null}' />後株</label>
 			</td>
 			<td>
 				<div class="company_number">電話番号(会社)</div>

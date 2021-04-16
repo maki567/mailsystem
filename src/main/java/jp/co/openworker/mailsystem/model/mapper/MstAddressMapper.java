@@ -15,6 +15,12 @@ import jp.co.openworker.mailsystem.model.domain.MstAddress;
 @Mapper
 public interface MstAddressMapper {
 	
+		@Select("SELECT * FROM mst_address ORDER BY company_name")
+		List<MstAddress> select();
+
+		@Delete("DELETE FROM mst_address WHERE id = #{id}")
+		int deleteById(@Param("id") int id);
+	
 	@Insert("INSERT INTO mst_address ("
 					+ "company_name, company_address, corporation, company_number,"
 					+ "staff_name1, staff_mail1, staff_number1,"
@@ -52,12 +58,6 @@ public interface MstAddressMapper {
 	
 		@Select("SELECT count(id) FROM mst_address WHERE company_name = #{companyName}")
 		int findCountByCompanyName(@Param("companyName") String companyName);
-	
-		@Select("SELECT * FROM mst_address ORDER BY company_name")
-		List<MstAddress> select();
-	
-		@Delete("DELETE FROM mst_address WHERE id = #{id}")
-		int deleteById(@Param("id") int id);
 		
 		@Update("UPDATE mst_address SET "
 				+ "company_name = #{companyName}, company_address = #{companyAddress},"

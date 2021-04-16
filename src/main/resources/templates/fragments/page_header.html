@@ -15,37 +15,11 @@
 	<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script>
 	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
 	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
+	
 	<script th:inline="javascript">
 	/*<![CDATA[*/
 	$(() => {
 		$('#loginError').dialog(dialogConfig.loginError);
-		
-		$('button#login').on('click', () => {
-			let jsonString = {
-				'userName': $('div.loginArea input[name=userName]').val(),
-				'password': $('div.loginArea input[name=password]').val()
-			};
-			$.ajax({
-				type: 'POST',
-				url: '/mailsystem/auth/login',
-				data: JSON.stringify(jsonString),
-				contentType: 'application/json',
-				datatype: 'json',
-				scriptCharset: 'utf-8'
-			})
-			.then((result) => {
-				let user = JSON.parse(result);
-				if (isEmpty(user)) {
-					$('#hiddenUserName').val('');
-					$('#loginError').dialog('open');
-				} else {
-					$('#hiddenUserName').val(user['userName']);
-					login(user);
-				}
-			}, () => {
-				alert('Error: ajax connection failed.');
-			});
-		});
 		
 		$('button#logout').on('click', () => {
 			$.ajax({
@@ -65,20 +39,6 @@
 		});
 		
 	});
-	
-	function login(user) {
-		let userName = user['userName'];
-		$('.welcomeMsg').text(`ようこそ！ ${userName} さん`);
-		if (isEmpty($('button#login').prop('class'))) {
-			$('button#login').addClass('hidden');
-			$('button#logout').removeClass('hidden');
-		}
-
-		$('#mypageMenu').removeClass('hidden');
-		
-		$('div.loginArea input[name=userName]').val('');
-		$('div.loginArea input[name=password]').val('');
-	}
 	
 	function logout() {
 		$('.welcomeMsg').text(`ようこそ！ ゲスト さん`);
@@ -105,7 +65,7 @@
 	
 	<span style="position: relative; left: 300px; font-weight: bold;font-size: 25px;">
 	<script>
-	var getPageTitle = document.title;
+	let getPageTitle = document.title;
 	document.write(document.title);
 	</script>
 	</span>

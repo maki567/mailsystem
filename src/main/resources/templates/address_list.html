@@ -13,8 +13,6 @@
 
 <main>
 	
-<div class="wrapper">
-
 	<div class="form"> 
 		<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
 		<button class="delete" id="deleteButton">連絡先削除</button>
@@ -36,7 +34,7 @@
 			</td>
 		</tr>
 	</table>
-</div>
+
 	
 <!-- Modal Dialog (削除確認) -->
 <div th:insert="fragments/dialog_Dalete_Address_Confirm::dialogDaleteAddressConfirm"></div>
@@ -72,24 +70,24 @@ $(() => {
 	
 	//連絡先検索機能
 	$(function () {
-	searchWord = function(){
-    var searchText = $(this).val(), // 検索ボックスに入力された値
-	targetText;
+		searchWord = function(){
+    	let searchText = $(this).val(), // 検索ボックスに入力された値
+		targetText;
 
     $('.target-area').each(function() {
-      targetText = $(this).text();
+    	targetText = $(this).text();
 
 	// 検索対象となるリストに入力された文字列が存在するかどうかを判断
-	if (targetText.indexOf(searchText) != -1) {
-		$(this).removeClass('hidden');
-	} else {
-		$(this).addClass('hidden');
-	}
+		if (targetText.indexOf(searchText) != -1) {
+			$(this).removeClass('hidden');
+		} else {
+			$(this).addClass('hidden');
+		}
 	});
 	};
 
 	// searchWordの実行
-	$('#search-text').on('input', searchWord);
+		$('#search-text').on('input', searchWord);
 });
 /*]]>*/
 </script>
