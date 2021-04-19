@@ -8,16 +8,8 @@
 </head>
 
 <body>
-
-	<!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
-	<!--<link rel="stylesheet" -->
-	<!--		href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> -->
-	<!--<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script> -->
-	<!--<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script> -->
-	<!--<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script> --> 
-
-<header th:insert="fragments/page_header::commonHeader"></header>
+	
+	<header th:insert="fragments/page_header::commonHeader"></header>
 
 <main>
 
@@ -27,7 +19,7 @@
 		<tr>
 			<td>
 				<div class="company_name">会社名</div>
-				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="32" />
+				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="16" />
 			</td>
 			<td>
 				<div class="chofukukakunin">
@@ -37,7 +29,7 @@
 			</td>
 			<td>	
 				<div class="company_address">所在地</div>
-				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="64" />
+				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="32" />
 			</td>
 		</tr>
 	</table>
