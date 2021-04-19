@@ -12,16 +12,11 @@
 	<header th:insert="fragments/page_header::commonHeader"></header>
 
 <main>
-	
+
 	<div class="form"> 
 		<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
 		<button class="delete" id="deleteButton">連絡先削除</button>
 	</div>
-		
-	<div class="search-result">
-        <div class="search-result__hit-num"></div>
-        <div id="search-result__list"></div>
-    </div>
 	<br>
 	<table class="target-area" th:each="address : ${address}">
 		<tr>

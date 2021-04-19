@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8" />
-<title>共通ヘッダー</title>
-<link href="../page_header.css" th:href="@{../page_header.css}" rel="stylesheet" />
+	<meta charset="UTF-8" />
+	<title>共通ヘッダー</title>
+	<link href="../page_header.css" th:href="@{../page_header.css}" rel="stylesheet" />
 </head>
+
 <body>
 
 <th:block th:fragment="commonHeader">
@@ -16,8 +18,8 @@
 	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
 	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
 	
-	<script th:inline="javascript">
-	/*<![CDATA[*/
+<script th:inline="javascript">
+/*<![CDATA[*/
 	$(() => {
 		$('#loginError').dialog(dialogConfig.loginError);
 		
@@ -57,21 +59,22 @@
 	function koshin(){
 		location.reload();
 	}
-	/*]]>*/
-	</script>
+/*]]>*/
+</script>
+
 	<span class="headerTop">
 		<a href="/mailsystem/home/"><img src="/img/h_logo.png"></a>
 	</span>
 	
 	<span style="position: relative; left: 300px; font-weight: bold;font-size: 25px;">
-	<script>
-	let getPageTitle = document.title;
-	document.write(document.title);
-	</script>
+		<script>
+			let getPageTitle = document.title;
+			document.write(document.title);
+		</script>
 	</span>
 		
 	<span class="logout">
-	<button style="position: relative;left: 700px;" id="logout">ログアウト</button>
+		<button style="position: relative;left: 700px;" id="logout">ログアウト</button>
 	</span>
 	<hr>
 	
