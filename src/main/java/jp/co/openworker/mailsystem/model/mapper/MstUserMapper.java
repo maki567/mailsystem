@@ -1,5 +1,7 @@
 package jp.co.openworker.mailsystem.model.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -7,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+//import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.domain.MstUser;
 
 @Mapper
@@ -34,4 +37,6 @@ public interface MstUserMapper {
 					@Param("userName") String userName,
 					@Param("password") String password);
 	
+		@Select("SELECT * FROM mst_user ORDER BY user_name")
+		List<MstUser> select();
 }
