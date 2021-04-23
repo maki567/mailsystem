@@ -16,6 +16,7 @@ import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
 import jp.co.openworker.mailsystem.model.mapper.MstUserMapper;
 //import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
+import jp.co.openworker.mailsystem.model.form.UserForm;
 
 @Controller
 @RequestMapping("/mailsystem/home")
@@ -34,7 +35,7 @@ public class HomeController {
 	public String index(Model m) {
 		
 		List<MailHistory> mail = mailMapper.select();
-		List<MstUser> user = userMapper.select();
+		MstUser user = userMapper.findBySignature(null);
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("mail", mail);

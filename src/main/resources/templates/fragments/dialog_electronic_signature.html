@@ -18,8 +18,8 @@
 			<tr>
 				<th>電子署名</th>
 				<td>
-					<textarea name="newPassword" placeholder="新パスワード" maxlength="255" 
-					style="width:350px;height:200px;" th:each="user : ${user}"
+					<textarea name="newPassword" placeholder="" maxlength="255" 
+					style="width:350px;height:200px;" 
 					th:text="${user.signature}"/></textarea>
 				</td>
 			</tr>

@@ -37,6 +37,7 @@ public interface MstUserMapper {
 					@Param("userName") String userName,
 					@Param("password") String password);
 	
-		@Select("SELECT * FROM mst_user ORDER BY user_name")
-		List<MstUser> select();
+		@Select("SELECT * FROM mst_user ")
+		MstUser findBySignature(
+				@Param("signature") String signature);
 }
