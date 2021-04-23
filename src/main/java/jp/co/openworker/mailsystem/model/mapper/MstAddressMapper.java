@@ -21,8 +21,8 @@ public interface MstAddressMapper {
 		@Delete("DELETE FROM mst_address WHERE id = #{id}")
 		int deleteById(@Param("id") int id);
 	
-	@Insert("INSERT INTO mst_address ("
-					+ "company_name, company_address, corporation, company_number,"
+		@Insert("INSERT INTO mst_address ("
+					+ "user_id, company_name, company_address, corporation, company_number,"
 					+ "staff_name1, staff_mail1, staff_number1,"
 					+ "staff_name2, staff_mail2, staff_number2,"
 					+ "staff_name3, staff_mail3, staff_number3,"
@@ -35,7 +35,7 @@ public interface MstAddressMapper {
 					+ "staff_name10, staff_mail10, staff_number10"
 					+ ") "
 					+ "VALUES ("
-					+ "#{companyName}, #{companyAddress}, #{corporation}, #{companyNumber},"
+					+ "#{userId}, #{companyName}, #{companyAddress}, #{corporation}, #{companyNumber},"
 					+ "#{staffName1}, #{staffMail1}, #{staffNumber1},"
 					+ "#{staffName2}, #{staffMail2}, #{staffNumber2},"
 					+ "#{staffName3}, #{staffMail3}, #{staffNumber3},"
@@ -47,8 +47,8 @@ public interface MstAddressMapper {
 					+ "#{staffName9}, #{staffMail9}, #{staffNumber9},"
 					+ "#{staffName10}, #{staffMail10}, #{staffNumber10}"
 					+ ")")
-	@Options(useGeneratedKeys=true, keyProperty="id")
-	int insert(MstAddress address);
+		@Options(useGeneratedKeys=true, keyProperty="id")
+		int insert(MstAddress address);
 	
 		@Select("SELECT * FROM mst_address where id = #{id}")
 		MstAddress findById(@Param("id") int id);
@@ -60,7 +60,7 @@ public interface MstAddressMapper {
 		int findCountByCompanyName(@Param("companyName") String companyName);
 		
 		@Update("UPDATE mst_address SET "
-				+ "company_name = #{companyName}, company_address = #{companyAddress},"
+				+ "user_id = #{userId}, company_name = #{companyName}, company_address = #{companyAddress},"
 				+ "corporation = #{corporation}, company_number = #{companyNumber},"
 				+ "staff_name1 = #{staffName1}, staff_mail1 = #{staffMail1}, staff_number1 = #{staffNumber1},"
 				+ "staff_name2 = #{staffName2}, staff_mail2 = #{staffMail2}, staff_number2 = #{staffNumber2},"

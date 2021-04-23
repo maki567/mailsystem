@@ -6,6 +6,7 @@ public class AddressForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
+	private int userId;
 	private String companyName;
 	private String companyAddress;
 	private int corporation;
@@ -46,6 +47,12 @@ public class AddressForm implements Serializable {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getCompanyName() {
 		return companyName;

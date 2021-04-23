@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>メール作成画面</title>
+</head>
+
+<body>
+
+<th:block th:fragment="dialogSelectAddress">
+	<div id="selectAddress" title="送信先選択" class="hidden">
+		<div class="form"> 
+			<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
+		</div>
+		<br>
+		
+		<table class="target-area" th:each="address : ${address}">
+			<thead><tr>
+				<th class="check"><label><input type="checkbox" name="all" id="all" class="" th:value="${address.id}"><span th:text="${address.companyName}"></span></label>
+			</thead>
+			<tbody id="boxes">
+				<tr><td><label><input type="checkbox" name="chk[]" th:value="${address.id}"><span th:text="${address.staffName1}"></span></label>
+			</tbody>
+		</table>
+		
+	</div>
+
+<script th:inline="javascript">
+/*[CDATA[*/
+$(() => {
+
+	//送信先全選択機能
+	$(function() {
+	//「全選択」する
+		$('#all').on('click', function() {
+			$("input[name='chk[]']").prop('checked', this.checked);
+		});
+
+	//「全選択」以外のチェックボックスがクリックされたら、
+	$("input[name='chk[]']").on('click', function() {
+		if ($('#boxes :checked').length == $('#boxes :input').length) {
+			// 全てのチェックボックスにチェックが入っていたら、「全選択」 = checked
+			$('#all').prop('checked', true);
+		} else {
+			// 1つでもチェックが入っていたら、「全選択」 = checked
+			$('#all').prop('checked', false);
+		}
+    });
+});
+
+
+	//連絡先削除機能
+	$('#deleteButton').on('click', () => {
+		let checkedList = $('.checkList:checked');
+		let checkedIdList = [];
+	
+		if ($(checkedList).prop("checked") == true) {
+			// チェックボックスにチェックが入っている場合は確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
+			$("#daleteAddressConfirm").dialog("open");
+		} else {
+			// チェックボックスにチェックが入っていない場合はアラートを表示する
+			alert('削除する連絡先を選択してください。');
+		}
+		});
+	});
+	
+	
+	//連絡先検索機能
+	$(function () {
+		searchWord = function(){
+    	let searchText = $(this).val(), // 検索ボックスに入力された値
+		targetText;
+
+    $('.target-area').each(function() {
+    	targetText = $(this).text();
+
+	// 検索対象となるリストに入力された文字列が存在するかどうかを判断
+		if (targetText.indexOf(searchText) != -1) {
+			$(this).removeClass('hidden');
+		} else {
+			$(this).addClass('hidden');
+		}
+	});
+	};
+
+	//searchWordの実行
+		$('#search-text').on('input', searchWord);
+		
+});
+/*]]>*/
+</script>
+
+</th:block>
+
+</body>
+</html>

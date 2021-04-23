@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.form.AddressForm;
 import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
+import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
 @RequestMapping("/mailsystem/edit")
 public class EditController {
+	
+	@Autowired
+	private LoginSession loginSession;
 	
 	@Autowired
 	MstAddressMapper addressMapper;
@@ -22,6 +26,8 @@ public class EditController {
 	@RequestMapping("/{id}")
 	public String index(@PathVariable("id") int id, Model m) {
 		MstAddress address = addressMapper.findById(id);
+		
+		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("address", address);
 		
 		return "edit_address";

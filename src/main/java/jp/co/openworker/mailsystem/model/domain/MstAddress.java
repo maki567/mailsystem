@@ -7,6 +7,7 @@ import jp.co.openworker.mailsystem.model.form.AddressForm;
 public class MstAddress {
 
 	private int id;
+	private int userId;
 	private String companyName;
 	private String companyAddress;
 	private int corporation;
@@ -48,6 +49,7 @@ public class MstAddress {
 
 	public MstAddress(AddressForm f) {
 		id = f.getId();
+		userId = f.getUserId();
 		companyName = f.getCompanyName();
 		companyAddress = f.getCompanyAddress();
 		corporation = f.getCorporation();
@@ -89,6 +91,12 @@ public class MstAddress {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getCompanyName() {
 		return companyName;

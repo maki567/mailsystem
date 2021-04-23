@@ -11,6 +11,7 @@ CREATE TABLE mst_user (
 
 CREATE TABLE mst_address (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
+ user_id int(11) NOT NUll,
  company_name VARCHAR(32) NOT NULL,
  company_address VARCHAR(255),
  corporation TINYINT DEFAULT 0,
@@ -51,6 +52,7 @@ CREATE TABLE mst_address (
 
 CREATE TABLE mail_history (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
+ user_id int(11) NOT NUll,
  subject VARCHAR(255), 
  to_staff VARCHAR(16),
  to_company VARCHAR(32), 

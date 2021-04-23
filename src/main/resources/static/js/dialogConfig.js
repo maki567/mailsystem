@@ -250,6 +250,7 @@ const dialogConfig = {
 				text: '登録',
 				click: function() {
 					let jsonString = {
+						'userId': $('table#register input[name=userId]').val(),
 						'companyName': $('table#register input[name=companyName]').val(),
 						'companyAddress': $('table#register input[name=companyAddress]').val(),
 						'corporation': $('table#register input[name=corporation]:checked').val() == '前株' ? '0' : '1',
@@ -296,6 +297,7 @@ const dialogConfig = {
 					.then((result) => {
 						$('.info').removeClass('hidden');
 						$('#checkOK').addClass('hidden');
+						$('table#register input[name=userId]').val('');
 						$('table#register input[name=companyName]').val('');
 						$('table#register input[name=companyAddress]').val('');
 						($('table#register input[name=corporation]')[0]).checked = true;
@@ -519,6 +521,19 @@ const dialogConfig = {
 				text: 'OK',
 				click: function() {
 					$(this).dialog('close');
+				}
+			},
+		]
+	},
+	selectAddress: {
+		autoOpen: true,
+		width: 1200,
+		modal: true,
+		buttons: [
+			{
+				text: 'OK',
+				click: function() {
+					location.reload(true)
 				}
 			},
 		]
