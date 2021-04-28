@@ -15,6 +15,7 @@ public class LoginSession implements Serializable {
 	private int tmpUserId;
 	private String userName;
 	private String password;
+	private String signature;
 	private boolean logined;
 	
 	public int getUserId() {
@@ -40,6 +41,12 @@ public class LoginSession implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getSignature() {
+		return signature;
+	}
+	public void setSignature(String signature) {
+		this.signature = signature;
 	}
 	public boolean getLogined() {
 		return this.logined;

@@ -8,9 +8,13 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import jp.co.openworker.mailsystem.model.domain.MstAddress;
 //import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.domain.MstUser;
+import jp.co.openworker.mailsystem.model.session.LoginSession;
+import jp.co.openworker.mailsystem.model.form.UserForm;
 
 @Mapper
 public interface MstUserMapper {
@@ -37,10 +41,17 @@ public interface MstUserMapper {
 					@Param("userName") String userName,
 					@Param("password") String password);
 	
-		@Select("SELECT signature FROM mst_user where id = 2")
+		@Select("SELECT signature FROM mst_user where id = #{id}")
 		MstUser findBySignature(
-				@Param("signature") String signature);
+				@Param("id") int id);
+		
 }
+
+		
+
+
+
+
 
 
 

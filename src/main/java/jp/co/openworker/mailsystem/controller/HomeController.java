@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //import com.google.gson.Gson;
 
 import jp.co.openworker.mailsystem.model.domain.MailHistory;
+import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.domain.MstUser;
 //import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
@@ -35,11 +37,14 @@ public class HomeController {
 	public String index(Model m) {
 		
 		List<MailHistory> mail = mailMapper.select();
-		MstUser user = userMapper.findBySignature(null);
+		MstUser user = userMapper.findBySignature(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("mail", mail);
 		m.addAttribute("user", user);
 		return "home";
 	}
+
+
+
 }
