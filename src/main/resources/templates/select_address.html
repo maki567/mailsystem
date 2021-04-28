@@ -1,0 +1,55 @@
+<!doctype HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>送信選択画面</title>
+	<link href="/css/select_address.css" th:href="@{/css/select_address.css}" rel="stylesheet" />
+</head>
+
+<body>
+
+<header th:insert="fragments/page_header::commonHeader"></header>
+
+<main>
+
+	<frameset cols="150,*">
+		<frame src="frame_select_list.html" name="hidari>
+		<frame src="frame_select_scroll.html" name="migi">
+	</frameset>
+
+	
+	
+	
+</main>
+
+
+<script th:inline="javascript">
+ 
+
+
+$(() => {	
+	// jQuery-UIダイアログの初期設定
+	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
+	
+	
+	
+	$('button#confirm').on('click', () => {
+		let subject = document.getElementById("subject");
+	
+	
+	
+		if(subject.value == null){
+			alert('件名と本文を入力してください')
+		} else{
+			$("#createMailConfirm").dialog("open");
+			
+		}
+	});
+});
+</script>
+
+
+</body>
+
+</html>

@@ -20,3 +20,12 @@ public class MailController {
 		return "create_mail";
 	}
 }
+
+//この下からメール作成　送信先選択に遷移//
+
+
+
+
+
+
+
