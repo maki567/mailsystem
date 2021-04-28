@@ -51,7 +51,8 @@ const dialogConfig = {
 				click: function() {
 					let jsonString = {
 						'userName': $('table#register input[name=userName]').val(),
-						'password': $('table#register input[name=password]').val()
+						'password': $('table#register input[name=password]').val(),
+						'signature': $('table#register input[name=signature]').val()
 					};
 					$.ajax({
 						type: 'POST',
@@ -66,6 +67,7 @@ const dialogConfig = {
 						$('#checkOK').addClass('hidden');
 						$('table#register input[name=userName]').val('');
 						$('table#register input[name=password]').val('');
+						$('table#register input[name=signature]').val('');
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
@@ -149,52 +151,23 @@ const dialogConfig = {
 			{
 				text: 'OK',
 				click: function() {
-					/* フロントのみで完結できるエラーチェック */
-					let newPassword = $('table.resetPassword input[name=newPassword]').val();
-					let newPasswordConfirm = $('table.resetPassword input[name=newPasswordConfirm]').val();
-					let isError = false;
-					if (validator.isEmpty(newPassword) || validator.isEmpty(newPassword) ||
-							!validator.isHalfAlphanumeric(newPassword) || !validator.isHalfAlphanumeric(newPasswordConfirm) ||
-							validator.overMax(newPassword, 16) || validator.overMax(newPasswordConfirm, 16) ||
-							validator.underMin(newPassword, 6) || validator.underMin(newPasswordConfirm, 6)) {
-						alert('新パスワード、または新パスワード確認の入力が不正です。');
-						$('table.resetPassword input[name=password]').val('');
-						$('table.resetPassword input[name=newPassword]').val('');
-						$('table.resetPassword input[name=newPasswordConfirm]').val('');
-						return;
-					}
-					
-					/* ajaxでのエラーチェック */
 					let jsonString = {
-								'userName': $('table.resetPassword span').text(),
-								'password': $('table.resetPassword input[name=password]').val(),
-								'newPassword': newPassword,
-								'newPasswordConfirm': newPasswordConfirm
-					};
+						'companyName': $('table.resetPassword input[name=signature]').val(),
+								};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsystem/auth/resetPassword',
+						url: '/mailsystem/home/update',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
+						datatype: 'json',
 						scriptCharset: 'utf-8'
 					})
 					.then((result) => {
-						alert(result);
-						$('table.resetPassword input[name=password]').val('');
-						$('table.resetPassword input[name=newPassword]').val('');
-						$('table.resetPassword input[name=newPasswordConfirm]').val('');
-						if (result === 'パスワードが再設定されました。') {
-							let asters = '';
-							for (let i = 0; i < newPassword.length; i ++) {
-								asters += '*';
-							}
-							$('span.password').text(asters);
-							$(this).dialog('close');
-						}
+						$('table.resetPassword input[name=signature]').val('');
 					}, () => {
 						alert('Error: ajax connection failed.');
-						$(this).dialog('close');
 					});
+					$(this).dialog('close');
 				}
 			},
 		]

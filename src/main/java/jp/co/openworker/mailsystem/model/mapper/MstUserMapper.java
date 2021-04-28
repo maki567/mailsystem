@@ -20,10 +20,10 @@ import jp.co.openworker.mailsystem.model.form.UserForm;
 public interface MstUserMapper {
 	
 	@Insert("INSERT INTO mst_user ("
-					+ "user_name, password"
+					+ "user_name, password, signature"
 					+ ") "
 					+ "VALUES ("
-					+ "#{userName}, #{password}"
+					+ "#{userName}, #{password}, #{signature}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstUser user);
@@ -43,8 +43,12 @@ public interface MstUserMapper {
 	
 		@Select("SELECT signature FROM mst_user where id = #{id}")
 		MstUser findBySignature(
-				@Param("id") int id);
+					@Param("id") int id);
 		
+		@Update("UPDATE mst_user SET "
+				+ " staff_number10 = #{staffNumber10}")
+		int update(MstUser user);
+	
 }
 
 		

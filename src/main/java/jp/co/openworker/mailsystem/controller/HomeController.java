@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 //import com.google.gson.Gson;
 
@@ -18,6 +20,7 @@ import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
 import jp.co.openworker.mailsystem.model.mapper.MstUserMapper;
 //import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
+import jp.co.openworker.mailsystem.model.form.AddressForm;
 import jp.co.openworker.mailsystem.model.form.UserForm;
 
 @Controller
@@ -45,6 +48,14 @@ public class HomeController {
 		return "home";
 	}
 
-
+	@RequestMapping("/update")
+	@ResponseBody
+	public boolean update(@RequestBody UserForm f) {
+		MstUser user = new MstUser(f);
+		
+		int result = userMapper.update(user);
+		
+		return result > 0;
+	}
 
 }
