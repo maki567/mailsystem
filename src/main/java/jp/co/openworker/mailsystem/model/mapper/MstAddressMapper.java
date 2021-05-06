@@ -15,8 +15,8 @@ import jp.co.openworker.mailsystem.model.domain.MstAddress;
 @Mapper
 public interface MstAddressMapper {
 	
-		@Select("SELECT * FROM mst_address ORDER BY company_name")
-		List<MstAddress> select();
+		@Select("SELECT * FROM mst_address WHERE user_id = #{userId} ORDER BY company_name")
+		List<MstAddress> select(@Param("userId") int userId);
 
 		@Delete("DELETE FROM mst_address WHERE id = #{id}")
 		int deleteById(@Param("id") int id);
@@ -60,7 +60,7 @@ public interface MstAddressMapper {
 		int findCountByCompanyName(@Param("companyName") String companyName);
 		
 		@Update("UPDATE mst_address SET "
-				+ "user_id = #{userId}, company_name = #{companyName}, company_address = #{companyAddress},"
+				+ "company_name = #{companyName}, company_address = #{companyAddress},"
 				+ "corporation = #{corporation}, company_number = #{companyNumber},"
 				+ "staff_name1 = #{staffName1}, staff_mail1 = #{staffMail1}, staff_number1 = #{staffNumber1},"
 				+ "staff_name2 = #{staffName2}, staff_mail2 = #{staffMail2}, staff_number2 = #{staffNumber2},"

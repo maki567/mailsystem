@@ -24,7 +24,7 @@ public class TestController {
 	@RequestMapping("/")
 	public String index(Model m) {
 		
-		List<MstAddress> address = addressMapper.select();
+		List<MstAddress> address = addressMapper.select(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("address", address);
