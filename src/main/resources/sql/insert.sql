@@ -210,11 +210,11 @@ VALUES('99','baa','a','0','0','a','a@a','0');
 INSERT INTO mst_address(id,company_name,company_address,corporation,company_number,staff_name1,staff_mail1,staff_number1)
 VALUES('100','baaaaa1','a','1','0','a','a@a','0');
 
-INSERT INTO mail_history(subject,to_staff,to_company,day_time)
-VALUES('業務経歴書の件でのご相談1','田中太郎1','ABC1','2021/03/03 12:17');
+INSERT INTO mail_history(user_id,subject,to_staff,to_company,day_time)
+VALUES('1','業務経歴書の件でのご相談1','田中太郎1','ABC1','2021/03/03 12:17');
 
-INSERT INTO mail_history(subject,to_staff,to_company,day_time)
-VALUES('業務経歴書の件でのご相談2','田中太郎2','ABC2','2021/03/03 12:17');
+INSERT INTO mail_history(user_id,subject,to_staff,to_company,day_time)
+VALUES('2','業務経歴書の件でのご相談2','田中太郎2','ABC2','2021/03/03 12:17');
 
 INSERT INTO mail_history(subject,to_staff,to_company,day_time)
 VALUES('業務経歴書の件でのご相談3','田中太郎3','ABC3','2021/03/03 12:17');

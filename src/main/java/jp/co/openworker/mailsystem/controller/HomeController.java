@@ -39,7 +39,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(Model m) {
 		
-		List<MailHistory> mail = mailMapper.select();
+		List<MailHistory> mail = mailMapper.select(loginSession.getUserId());
 		MstUser user = userMapper.findBySignature(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);

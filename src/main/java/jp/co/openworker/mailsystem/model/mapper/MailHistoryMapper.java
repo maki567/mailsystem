@@ -42,8 +42,8 @@ public interface MailHistoryMapper {
 	@Select("select * from mail_history where id = #{id}")
 	MailHistory findById(@Param("id") int id);
 	
-	@Select("select * from mail_history")
-	List<MailHistory> select();
+	@Select("select * from mail_history where user_id = #{userId}")
+	List<MailHistory> select(@Param("userId") int userId);
 	
 	@Delete("DELETE from mail_history WHERE id = #{id}")
 	int deleteById(@Param("id") int id);
