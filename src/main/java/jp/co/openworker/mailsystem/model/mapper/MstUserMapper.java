@@ -45,8 +45,7 @@ public interface MstUserMapper {
 		MstUser findBySignature(
 					@Param("id") int id);
 		
-		@Update("UPDATE mst_user SET "
-				+ " staff_number10 = #{staffNumber10}")
+		@Update("UPDATE mst_user SET signature = #{signature} where id = #{id}")
 		int update(MstUser user);
 	
 }

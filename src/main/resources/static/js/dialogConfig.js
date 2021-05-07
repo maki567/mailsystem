@@ -152,7 +152,8 @@ const dialogConfig = {
 				text: 'OK',
 				click: function() {
 					let jsonString = {
-						'companyName': $('table.resetPassword input[name=signature]').val(),
+						'signature': $('table#update textarea[name=signature]').val(),
+						'id': $('table#update textarea[name=id]').val(),
 								};
 					$.ajax({
 						type: 'POST',
@@ -163,10 +164,12 @@ const dialogConfig = {
 						scriptCharset: 'utf-8'
 					})
 					.then((result) => {
-						$('table.resetPassword input[name=signature]').val('');
+						$('table#update textarea[name=signature]').val('');
+						$('table#update textarea[name=id]').val('');
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
+					alert('電子署名が変更されました。');
 					$(this).dialog('close');
 				}
 			},

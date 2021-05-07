@@ -8,19 +8,21 @@
 <body>
 <th:block th:fragment="dialogElectronicSignature">
 	<div id="electronicSignature" title="電子署名　設定" class="hidden">
-		<table class="resetPassword confirm">
+		<table id="update" class="resetPassword confirm">
 			<tr>
 				<th class="reset">ユーザー名　</th>
 				<td>
-					<span th:text="${loginSession.getUserName()}"></span>
+					<span name="username" th:text="${loginSession.getUserName()}"></span>
+					
 				</td>
 			</tr>
 			<tr>
 				<th>電子署名</th>
 				<td>
-					<textarea name="newPassword" placeholder="" maxlength="255" 
+					<textarea name="signature" placeholder="" maxlength="255" 
 					style="width:350px;height:200px;" 
 					th:text="${user.signature}"/></textarea>
+					<textarea name="id" th:text="${user.id}"></textarea>
 				</td>
 			</tr>
 		</table>
