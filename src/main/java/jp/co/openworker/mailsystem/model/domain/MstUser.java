@@ -16,6 +16,7 @@ public class MstUser {
 	public MstUser() {}
 
 	public MstUser(UserForm f) {
+		id = f.getId();
 		userName = f.getUserName();
 		password = f.getPassword();
 		signature = f.getSignature();

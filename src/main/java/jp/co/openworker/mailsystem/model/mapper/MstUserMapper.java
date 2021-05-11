@@ -41,23 +41,12 @@ public interface MstUserMapper {
 					@Param("userName") String userName,
 					@Param("password") String password);
 	
-		@Select("SELECT signature FROM mst_user where id = #{id}")
+		@Select("SELECT * FROM mst_user WHERE id = #{id}")
 		MstUser findBySignature(
-					@Param("id") int id);
+				@Param("id") int id);
 		
-		@Update("UPDATE mst_user SET signature = #{signature} where id = #{id}")
+		@Update("UPDATE mst_user SET signature = #{signature} WHERE id = #{id}")
 		int update(MstUser user);
-	
-}
-
 		
-
-
-
-
-
-
-
-
-
+}
 

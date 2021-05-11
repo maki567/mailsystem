@@ -5,11 +5,19 @@ import java.io.Serializable;
 public class UserForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	private int id;
 	private String userName;
 	private String password;
 	private String newPassword;
 	private String newPasswordConfirm;
 	private String signature;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getUserName() {
 		return userName;
