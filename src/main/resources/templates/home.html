@@ -82,8 +82,7 @@
 	
 	
 	<script th:inline="javascript">
-	/*<![CDATA[*/
-		
+	/*<![CDATA[*/		
 	$(() => {
 	
 	 	let password = $('#hiddenPassword').val(); 
@@ -93,16 +92,12 @@
 	 	} 
 	 	$('span.password').text(asters); 
 	 	 
-
 		$('#resetPassword').dialog(dialogConfig.resetPassword);
 	
 		$('a.resetPassword').on('click', (e) => {
 		$("#resetPassword").dialog("open");
 	});
 });
-	
-	
-		
 	</script>
 
 	<script th:inline="javascript">
