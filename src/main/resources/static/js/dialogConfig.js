@@ -171,6 +171,7 @@ const dialogConfig = {
 					});
 					alert('電子署名が変更されました。');
 					$(this).dialog('close');
+					location.reload();
 				}
 			},
 		]
