@@ -12,11 +12,9 @@
 
 <main>
 
-	<form action="http://localhost:8080/mailsystem/select/">
-
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffName1}" />
 		<span th:text="${address.staffName1}"></span><span th:text="${address.staffMail1}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffName2}" />
 		<span th:text="${address.staffName2}"></span><span th:text="${address.staffMail2}"></span></label><br />
 		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
 		<span th:text="${address.staffName3}"></span><span th:text="${address.staffMail3}"></span></label><br />
@@ -34,22 +32,23 @@
 		<span th:text="${address.staffName9}"></span><span th:text="${address.staffMail9}"></span></label><br />
 		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
 		<span th:text="${address.staffName10}"></span><span th:text="${address.staffMail10}"></span></label><br />
-		<input type="submit" id="submit">
 		
-	</form>
+		<button id="test" onclick="location.href='http://localhost:8080/mailsystem/select/'">テスト</button>
+		
 	
 </main>
 
 <script type="text/javascript">
 
-	$('#submit').on('click', () => {
-  		let checkedList = $('.checkList:checked');
+	$('#test').on('click', () => {
+		let checkedList = $('.checkList:checked');
 		let checkedIdList = [];
-		for (checked of checkedList) {
-			checkedIdList.push($(checked).val());
-			sessionStorage.setItem('key', checkedIdList);
-		}
-	})
+			for (checked of checkedList) {
+				checkedIdList.push($(checked).val());
+			}
+		let sendList = checkedIdList.toString();
+		sessionStorage.setItem("staff" , sendList );
+	});
 	
 </script>
 </body>
