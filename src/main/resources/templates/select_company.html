@@ -41,36 +41,6 @@
 <script th:inline="javascript">
 /*[CDATA[*/
 $(() => {
-
-	$(function(){
-		let checkedList = $('.checkList:checked');
-		let checkedIdList = [];
-		for (checked of checkedList) {
-			checkedIdList.push($(checked).val());
-			sessionStorage.setItem('key', checkedIdList);
-		}
-		var d = sessionStorage.getItem('key');
-		$("#result").text(d);
-	})
-
-	//送信先全選択機能
-	$(function() {
-	//「全選択」する
-		$('#all').on('click', function() {
-			$("input[name='chk[]']").prop('checked', this.checked);
-		});
-
-	//「全選択」以外のチェックボックスがクリックされたら、
-	$("input[name='chk[]']").on('click', function() {
-		if ($('#boxes :checked').length == $('#boxes :input').length) {
-			// 全てのチェックボックスにチェックが入っていたら、「全選択」 = checked
-			$('#all').prop('checked', true);
-		} else {
-			// 1つでもチェックが入っていたら、「全選択」 = checked
-			$('#all').prop('checked', false);
-		}
-    });
-});
 	
 	//連絡先検索機能
 	$(function () {

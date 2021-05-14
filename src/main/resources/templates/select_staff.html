@@ -12,9 +12,9 @@
 
 <main>
 
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffName1}" />
+		<label><input type="checkbox" class="checkList" id="${address.staffMail1}" name="checkbox" th:value="${address.staffName1}" />
 		<span th:text="${address.staffName1}"></span><span th:text="${address.staffMail1}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffName2}" />
+		<label><input type="checkbox" class="checkList" id="${address.staffMail2}" name="checkbox" th:value="${address.staffName2}" />
 		<span th:text="${address.staffName2}"></span><span th:text="${address.staffMail2}"></span></label><br />
 		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
 		<span th:text="${address.staffName3}"></span><span th:text="${address.staffMail3}"></span></label><br />
@@ -42,14 +42,20 @@
 
 	$('#test').on('click', () => {
 		let checkedList = $('.checkList:checked');
-		let checkedIdList = [];
+		let checkedNameList = [];
 			for (checked of checkedList) {
-				checkedIdList.push($(checked).val());
+				checkedNameList.push($(checked).val());
 			}
-		let sendList = checkedIdList.toString();
-		sessionStorage.setItem("staff" , sendList );
+		let checkedMailList = [];
+			for (checked of checkedList) {
+				checkedMailList.push($(checked).id());
+			}
+		let nameList = checkedNameList.toString();
+		let mailList = checkedMailList.toString();
+		sessionStorage.setItem("staffName" , nameList );
+		sessionStorage.setItem("staffMail" , mailList );
 	});
-	
+
 </script>
 </body>
 

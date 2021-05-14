@@ -23,18 +23,32 @@
 		<input type="file" id="files" class="menubar_files"/>
 		<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
 		<button onclick="location.href='http://localhost:8080/mailsystem/select/'" id="selectButton" class="menubar_llnextscreen">連絡先選択へ</button>
+		<button id="deleteStorage">保持終了</button>
 	</div>
 	
+	
+	
 	<p id="result"></p>
+	<p id="p"></p>
 	
 </main>
 
 <script type="text/javascript">
 
 	$(function(){
-		var d = sessionStorage.getItem('staff');
+		var d = sessionStorage.getItem('staffName');
 		$("#result").text(d);
-	})
+	});
+	
+	$(function(){
+		var c = sessionStorage.getItem('staffMail');
+		$("#p").text(c);
+	});
+	
+	$('#deleteStorage').on('click', () => {
+		sessionStorage.removeItem('staffName');
+		sessionStorage.removeItem('staffMail');
+	});
 	
 </script>
 </body>
