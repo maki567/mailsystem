@@ -22,17 +22,21 @@
 	<div class="menubar">
 		<input type="file" id="files" class="menubar_files"/>
 		<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
-		<button id="confirm" class="menubar_llnextscreen">連絡先選択へ</button>
+		<button onclick="location.href='http://localhost:8080/mailsystem/select/'" id="selectButton" class="menubar_llnextscreen">連絡先選択へ</button>
 	</div>
 	
-	
-<!-- Modal Dialog (入力内容確認) -->
-<div th:insert="fragments/dialog_select_address::dialogSelectAddress"></div>
+	<p id="result"></p>
 	
 </main>
 
-<script>
+<script type="text/javascript">
 
-	$('#selectAddress').dialog(dialogConfig.selectAddress);
-
+	$(function(){
+		var d = sessionStorage.getItem('key');
+		$("#result").text(d);
+	})
+	
 </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!doctype HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+
+<header th:insert="fragments/page_header::commonHeader"></header>
+
+<main>
+
+	<form action="http://localhost:8080/mailsystem/select/">
+
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName1}"></span><span th:text="${address.staffMail1}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName2}"></span><span th:text="${address.staffMail2}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName3}"></span><span th:text="${address.staffMail3}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName4}"></span><span th:text="${address.staffMail4}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName5}"></span><span th:text="${address.staffMail5}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName6}"></span><span th:text="${address.staffMail6}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName7}"></span><span th:text="${address.staffMail7}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName8}"></span><span th:text="${address.staffMail8}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName9}"></span><span th:text="${address.staffMail9}"></span></label><br />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<span th:text="${address.staffName10}"></span><span th:text="${address.staffMail10}"></span></label><br />
+		<input type="submit" id="submit">
+		
+	</form>
+	
+</main>
+
+<script type="text/javascript">
+
+	$('#submit').on('click', () => {
+  		let checkedList = $('.checkList:checked');
+		let checkedIdList = [];
+		for (checked of checkedList) {
+			checkedIdList.push($(checked).val());
+			sessionStorage.setItem('key', checkedIdList);
+		}
+	})
+	
+</script>
+</body>
+
+</html>

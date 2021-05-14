@@ -502,14 +502,16 @@ const dialogConfig = {
 		]
 	},
 	selectAddress: {
-		autoOpen: true,
+		autoOpen: false,
 		width: 1200,
 		modal: true,
 		buttons: [
 			{
 				text: 'OK',
 				click: function() {
-					location.reload(true)
+					let checkedList = $('.checkList:checked');
+					let checkedIdList = [];
+					$(this).dialog('close');
 				}
 			},
 		]

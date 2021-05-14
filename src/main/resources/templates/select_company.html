@@ -4,14 +4,19 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>メール作成画面</title>
+	<link href="/css/select_company.css" th:href="@{/css/select_company.css}" rel="stylesheet" />
 </head>
 
 <body>
 
-<th:block th:fragment="dialogSelectAddress">
-	<div id="selectAddress" title="送信先選択" class="hidden">
+<header th:insert="fragments/page_header::commonHeader"></header>
+
+<main>
+
+	<div id="selectAddress" title="送信先選択">
 		<div class="form"> 
 			<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
+			<button class="delete" onclick="location.href='http://localhost:8080/mailsystem/test/'">メール作成へ戻る</button>
 		</div>
 		<br>
 		
@@ -21,17 +26,32 @@
 				<input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
 			</td>
 			<td class="inner">
-				<a href="/mailsystem/test/select/" th:href="@{/mailsystem/test/select/{id}(id=${address.id})}" >
+				<a href="/mailsystem/select/" th:href="@{/mailsystem/select/{id}(id=${address.id})}" >
 				<label th:text="${address.companyName}" /></label></a>
 			</td>
 		</tr>
 	</table>
 		
 	</div>
+	
+	<p id="result"></p>
+	
+</main>
 
 <script th:inline="javascript">
 /*[CDATA[*/
 $(() => {
+
+	$(function(){
+		let checkedList = $('.checkList:checked');
+		let checkedIdList = [];
+		for (checked of checkedList) {
+			checkedIdList.push($(checked).val());
+			sessionStorage.setItem('key', checkedIdList);
+		}
+		var d = sessionStorage.getItem('key');
+		$("#result").text(d);
+	})
 
 	//送信先全選択機能
 	$(function() {

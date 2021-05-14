@@ -74,4 +74,7 @@ public interface MstAddressMapper {
 				+ "staff_name10 = #{staffName10}, staff_mail10 = #{staffMail10}, staff_number10 = #{staffNumber10}"
 				+ "where id = #{id}")
 		int update(MstAddress address);
+		
+		@Select("SELECT * FROM mst_address WHERE id = #{id}")
+		List<MstAddress> selectStaff(@Param("id") int id);
 }
