@@ -16,17 +16,17 @@
 				<!-- メール作成エリア -->
 				<div class="message" id="create">
 					<div class="message_subject">
-						<input type="text" name="messageSubject" value="" placeholder="件名" id="subject">
+						<input type="text" class="text_subject" name="messageSubject" value="" placeholder="件名" id="subject">
 					</div>
 					<br>
 					<div class="message_text">
-						<textarea name="messageText" placeholder="本文" id="text" rows="4" cols="40"></textarea>
+						<textarea name="messageText" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
 					</div>
 				</div>
 				<div class="menubar">
 					<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
 					<input type="file" id="files" class="menubar_files"/>
-					<button id="confirm" class="menubar_address-select">連絡先選択へ</button>
+					<button type="submit" id="confirm" class="menubar_address-select">連絡先選択へ</button>
 				</div>
 				
 			</div>
@@ -44,29 +44,44 @@
 	</div>
 </main>
 
-<!-- 件名、本文が未入力（片方、両方）だった場合javaScriptでアラート出す -->
+<!-- 件名と本文が未入力だった場合にアラートを表示 -->
 <script th:inline="javascript">
 
+//連絡先選択ボタンを押下した時の処理
 
-$(() => {	
-	// jQuery-UIダイアログの初期設定
-	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
+$("#confirm").on("click",function(){
+
+/*件名と本文の入力判定*/
+var form_subject = $("#subject").val();　//件名
+var form_text = $("#text").val(); //本文
+
+
+/*両方か片方が未入力であればアラートを表示*/
+
+if( form_subject == "" & form_text == "" ){
+	alert(["件名と本文を入力してください"]);
+	return false; //連絡先選択ダイアログを表示しない
 	
+}else if( form_subject == "" & form_text != "" ){
+	//件名が入力されていない場合
+	alert(["件名を入力してください"]);
+	return false; //連絡先選択ダイアログを表示しない
 	
+}else if( form_subject != "" & form_text == "" ){
+	//本文が入力されていない場合
+	alert(["本文を入力してください"]);
+	return false; //連絡先選択ダイアログを表示しない
 	
-	$('button#confirm').on('click', () => {
-		let subject = document.getElementById("subject");
-	
-	
-	
-		if(subject.value == null){
-			alert('件名と本文を入力してください')
-		} else{
-			$("#createMailConfirm").dialog("open");
-			
-		}
-	});
+}else{
+	//両方入力されている場合
+	return true;
+}
+
 });
+
+
+
+
 </script>
 
 
