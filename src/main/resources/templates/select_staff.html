@@ -12,48 +12,41 @@
 
 <main>
 
-		<label><input type="checkbox" class="checkList" id="${address.staffMail1}" name="checkbox" th:value="${address.staffName1}" />
+		<label><input type="checkbox" class="checkList" id="$checkbox" name="checkbox" th:value="${address.staffMail1}" />
 		<span th:text="${address.staffName1}"></span><span th:text="${address.staffMail1}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="${address.staffMail2}" name="checkbox" th:value="${address.staffName2}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail2}" />
 		<span th:text="${address.staffName2}"></span><span th:text="${address.staffMail2}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail3}" />
 		<span th:text="${address.staffName3}"></span><span th:text="${address.staffMail3}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail4}" />
 		<span th:text="${address.staffName4}"></span><span th:text="${address.staffMail4}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail5}" />
 		<span th:text="${address.staffName5}"></span><span th:text="${address.staffMail5}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail6}" />
 		<span th:text="${address.staffName6}"></span><span th:text="${address.staffMail6}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail7}" />
 		<span th:text="${address.staffName7}"></span><span th:text="${address.staffMail7}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail8}" />
 		<span th:text="${address.staffName8}"></span><span th:text="${address.staffMail8}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail9}" />
 		<span th:text="${address.staffName9}"></span><span th:text="${address.staffMail9}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.id}" />
+		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail10}" />
 		<span th:text="${address.staffName10}"></span><span th:text="${address.staffMail10}"></span></label><br />
 		
 		<button id="test" onclick="location.href='http://localhost:8080/mailsystem/select/'">テスト</button>
-		
-	
+
 </main>
 
 <script type="text/javascript">
 
 	$('#test').on('click', () => {
 		let checkedList = $('.checkList:checked');
-		let checkedNameList = [];
+		let checkedStaffList = [];
 			for (checked of checkedList) {
-				checkedNameList.push($(checked).val());
+				checkedStaffList.push($(checked).val());
 			}
-		let checkedMailList = [];
-			for (checked of checkedList) {
-				checkedMailList.push($(checked).id());
-			}
-		let nameList = checkedNameList.toString();
-		let mailList = checkedMailList.toString();
-		sessionStorage.setItem("staffName" , nameList );
-		sessionStorage.setItem("staffMail" , mailList );
+		let staffList = checkedStaffList.toString();
+		sessionStorage.setItem("staff" , staffList );
 	});
 
 </script>

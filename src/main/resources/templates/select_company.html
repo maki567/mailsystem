@@ -28,6 +28,16 @@
 			<td class="inner">
 				<a href="/mailsystem/select/" th:href="@{/mailsystem/select/{id}(id=${address.id})}" >
 				<label th:text="${address.companyName}" /></label></a>
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail1}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail2}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail3}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail4}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail5}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail6}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail7}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail8}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail9}" />
+				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail10}" />
 			</td>
 		</tr>
 	</table>
@@ -51,7 +61,7 @@ $(() => {
     $('.target-area').each(function() {
     	targetText = $(this).text();
 
-	// 検索対象となるリストに入力された文字列が存在するかどうかを判断
+	//検索対象となるリストに入力された文字列が存在するかどうかを判断
 		if (targetText.indexOf(searchText) != -1) {
 			$(this).removeClass('hidden');
 		} else {

@@ -26,7 +26,9 @@
 				<div class="menubar">
 					<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
 					<input type="file" id="files" class="menubar_files"/>
-					<button type="submit" id="confirm" class="menubar_address-select">連絡先選択へ</button>
+					<button onclick="location.href='http://localhost:8080/mailsystem/select/'" 
+						type="submit" id="confirm" class="menubar_address-select">連絡先選択へ</button>
+					<button id="deleteStorage">保持終了</button>
 				</div>
 				
 			</div>
@@ -38,6 +40,7 @@
 					<p>送信先リスト</p>
 				</div>
 				<div class="select_address">
+					<p id="result"></p>
 				</div>
 			</div>
 		</div>
@@ -45,7 +48,18 @@
 </main>
 
 <!-- 件名と本文が未入力だった場合にアラートを表示 -->
-<script th:inline="javascript">
+<script type="text/javascript">
+
+	//送信先選択画面で選択した値を表示する(仮)
+	$(function(){
+		var d = sessionStorage.getItem('staff');
+		$("#result").text(d);
+	});
+	
+	$('#deleteStorage').on('click', () => {
+		sessionStorage.removeItem('staff');
+	});
+	
 
 //連絡先選択ボタンを押下した時の処理
 
@@ -79,9 +93,7 @@ if( form_subject == "" & form_text == "" ){
 
 });
 
-
-
-
+	
 </script>
 
 
