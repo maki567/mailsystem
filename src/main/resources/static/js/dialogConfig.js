@@ -510,9 +510,14 @@ const dialogConfig = {
 			{
 				text: 'OK',
 				click: function() {
-					let checkedList = $('.checkList:checked');
-					let checkedIdList = [];
-					$(this).dialog('close');
+					let checkedList = $('#check:checked');
+					let checkedStaffList = [];
+						for (checked of checkedList) {
+							checkedStaffList.push($(checked).val());
+						}
+					let staffList = checkedStaffList.toString();
+					sessionStorage.setItem("staff" , staffList );
+					location.reload(true);
 				}
 			},
 		]

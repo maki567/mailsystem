@@ -22,26 +22,37 @@
 	<div class="menubar">
 		<input type="file" id="files" class="menubar_files"/>
 		<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
-		<button onclick="location.href='http://localhost:8080/mailsystem/select/'" 
-			type="submit" id="confirm" class="menubar_address-select">連絡先選択へ</button>
-		<button id="deleteStorage">保持終了</button>
+		<button id="selectButton" class="menubar_address-select">連絡先選択へ</button>
+		<button id="deleteButton">ストレージ削除</button>
 	</div>
 	
 	<p id="result"></p>
-	<p id="p"></p>
+	
+<!-- Modal Dialog (送信先選択) -->
+<div th:insert="fragments/dialog_Select_Address::dialogSelectAddress"></div>
 	
 </main>
 
 <script type="text/javascript">
 
-	$(function(){
-		var d = sessionStorage.getItem('staff');
-		$("#result").text(d);
+	//jQuery-UIダイアログの初期設定
+	$('#selectAddress').dialog(dialogConfig.selectAddress);
+
+	//送信先選択機能
+	$('#selectButton').on('click', () => {
+		$("#selectAddress").dialog("open");
 	});
 	
-	$('#deleteStorage').on('click', () => {
-		sessionStorage.removeItem('staff');
-	});
+	$(function() {
+		let data = sessionStorage.getItem('staff');
+		sprit = data.split(",");
+		$("#result").text(sprit);
+	})
+	
+	$('#deleteButton').on('click', () => {
+	sessionStorage.removeItem('staff');
+	location.reload(true);
+	})
 	
 </script>
 </body>

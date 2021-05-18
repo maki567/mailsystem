@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<title>メール作成画面</title>
+	<title>送信先選択画面</title>
 	<link href="/css/select_company.css" th:href="@{/css/select_company.css}" rel="stylesheet" />
 </head>
 
@@ -16,18 +16,17 @@
 	<div id="selectAddress" title="送信先選択">
 		<div class="form"> 
 			<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
-			<button class="delete" onclick="location.href='http://localhost:8080/mailsystem/test/'">メール作成へ戻る</button>
+			<button class="delete" onclick="location.href='http://localhost:8080/mailsystem/test/'">決定</button>
 		</div>
 		<br>
 		
 	<table class="target-area" th:each="address : ${address}">
 		<tr>
 			<td class="check">
-				<input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
+				<input type="checkbox" th:name="${address.id}" id="check" class="checkList" th:value="${address.id}" >
 			</td>
 			<td class="inner">
-				<a href="/mailsystem/select/" th:href="@{/mailsystem/select/{id}(id=${address.id})}" >
-				<label th:text="${address.companyName}" /></label></a>
+				<label th:text="${address.companyName}" /></label>
 				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail1}" />
 				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail2}" />
 				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail3}" />

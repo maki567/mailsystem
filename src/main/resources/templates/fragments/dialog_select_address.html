@@ -17,12 +17,52 @@
 		
 	<table class="target-area" th:each="address : ${address}">
 		<tr>
-			<td class="check">
-				<input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
-			</td>
 			<td class="inner">
-				<a href="/mailsystem/test/select/" th:href="@{/mailsystem/test/select/{id}(id=${address.id})}" >
-				<label th:text="${address.companyName}" /></label></a>
+				<label><input type="checkbox" id="all" class="checkList" th:value="${address.id}" >
+				<span th:text="${address.companyName}" /></span></label>
+			</td>
+		</tr>
+		<tr>
+			<td class="">
+				<label><input type="checkbox" id="check" th:class="${address.staffName1 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName1} + ',' + ${address.staffMail1}">
+				<span th:text="${address.staffName1}" /></span><span th:text="${address.staffMail1}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName2 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName2} + ',' + ${address.staffMail2}">
+				<span th:text="${address.staffName2}" /></span><span th:text="${address.staffMail2}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName3 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName3} + ',' + ${address.staffMail3}">
+				<span th:text="${address.staffName3}" /></span><span th:text="${address.staffMail3}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName4 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName4} + ',' + ${address.staffMail4}">
+				<span th:text="${address.staffName4}" /></span><span th:text="${address.staffMail4}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName5 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName5} + ',' + ${address.staffMail5}">
+				<span th:text="${address.staffName5}" /></span><span th:text="${address.staffMail5}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName6 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName6} + ',' + ${address.staffMail6}">
+				<span th:text="${address.staffName6}" /></span><span th:text="${address.staffMail6}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName7 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName7} + ',' + ${address.staffMail7}">
+				<span th:text="${address.staffName7}" /></span><span th:text="${address.staffMail7}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName8 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName8} + ',' + ${address.staffMail8}">
+				<span th:text="${address.staffName8}" /></span><span th:text="${address.staffMail8}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName9 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName9} + ',' + ${address.staffMail9}">
+				<span th:text="${address.staffName9}" /></span><span th:text="${address.staffMail9}" /></span></label>
+				
+				<label><input type="checkbox" id="check" th:class="${address.staffName10 == '' ? 'hidden' : ''}" 
+				th:name="${address.companyName}" th:value="${address.companyName} + ',' + ${address.staffName10} + ',' + ${address.staffMail10}">
+				<span th:text="${address.staffName10}" /></span><span th:text="${address.staffMail10}" /></span></label>
 			</td>
 		</tr>
 	</table>
@@ -33,24 +73,15 @@
 /*[CDATA[*/
 $(() => {
 
-	//送信先全選択機能
 	$(function() {
-	//「全選択」する
-		$('#all').on('click', function() {
-			$("input[name='chk[]']").prop('checked', this.checked);
-		});
-
-	//「全選択」以外のチェックボックスがクリックされたら、
-	$("input[name='chk[]']").on('click', function() {
-		if ($('#boxes :checked').length == $('#boxes :input').length) {
-			// 全てのチェックボックスにチェックが入っていたら、「全選択」 = checked
-			$('#all').prop('checked', true);
-		} else {
-			// 1つでもチェックが入っていたら、「全選択」 = checked
-			$('#all').prop('checked', false);
-		}
+    // 1. 「全選択」する
+    $('#all').on('click', function() {
+		$("input[name='${address.companyName}").prop('checked', this.checked);
+		})
     });
-});
+
+	let checkedList = $('#check:checked');
+	let checkedStaffList = [];
 	
 	//連絡先検索機能
 	$(function () {
@@ -73,6 +104,7 @@ $(() => {
 	//searchWordの実行
 		$('#search-text').on('input', searchWord);
 	});
+	
 })
 /*]]>*/
 </script>
