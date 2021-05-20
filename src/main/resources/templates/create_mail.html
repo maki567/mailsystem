@@ -26,9 +26,7 @@
 				<div class="menubar">
 					<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
 					<input type="file" id="files" class="menubar_files"/>
-					<button onclick="location.href='http://localhost:8080/mailsystem/select/'" 
-						type="submit" id="confirm" class="menubar_address-select">連絡先選択へ</button>
-					<button id="deleteStorage">保持終了</button>
+					<button id="selectButton" class="menubar_address-select">連絡先選択へ</button>
 				</div>
 				
 			</div>
@@ -37,61 +35,73 @@
 			<div class="mail-right_brock">
 				<!-- 送信先表示エリア -->
 				<div class="select_bar">
-					<p>送信先リスト</p>
+					<p class="title">送信先リスト</p>
 				</div>
 				<div class="select_address">
 					<p id="result"></p>
 				</div>
+					<button id="deleteStorage">送信確認</button>
 			</div>
 		</div>
 	</div>
 </main>
 
+<!-- Modal Dialog (送信先選択) -->
+<div th:insert="fragments/dialog_Select_Address::dialogSelectAddress"></div>
+
 <!-- 件名と本文が未入力だった場合にアラートを表示 -->
 <script type="text/javascript">
 
-	//送信先選択画面で選択した値を表示する(仮)
-	$(function(){
-		var d = sessionStorage.getItem('staff');
-		$("#result").text(d);
+	//jQuery-UIダイアログの初期設定
+	$('#selectAddress').dialog(dialogConfig.selectAddress);
+
+	//送信先選択機能
+	$('#selectButton').on('click', () => {
+		$("#selectAddress").dialog("open");
 	});
+	
+	$(function() {
+		let data = sessionStorage.getItem('staff');
+		arr = new Array();
+		arr = data.split(",");
+		$("#result").text(data);
+	})
 	
 	$('#deleteStorage').on('click', () => {
 		sessionStorage.removeItem('staff');
-	});
+		location.reload(true);
+	})
 	
 
-//連絡先選択ボタンを押下した時の処理
+	//連絡先選択ボタンを押下した時の処理
+	$("#confirm").on("click",function(){
 
-$("#confirm").on("click",function(){
-
-/*件名と本文の入力判定*/
-var form_subject = $("#subject").val();　//件名
-var form_text = $("#text").val(); //本文
+	/*件名と本文の入力判定*/
+	var form_subject = $("#subject").val();　//件名
+	var form_text = $("#text").val(); //本文
 
 
-/*両方か片方が未入力であればアラートを表示*/
-
-if( form_subject == "" & form_text == "" ){
-	alert(["件名と本文を入力してください"]);
-	return false; //連絡先選択ダイアログを表示しない
+	/*両方か片方が未入力であればアラートを表示*/
+	if( form_subject == "" & form_text == "" ){
+		alert(["件名と本文を入力してください"]);
+		return false; //連絡先選択ダイアログを表示しない
 	
-}else if( form_subject == "" & form_text != "" ){
+	}else if( form_subject == "" & form_text != "" ){
 	//件名が入力されていない場合
-	alert(["件名を入力してください"]);
-	return false; //連絡先選択ダイアログを表示しない
+		alert(["件名を入力してください"]);
+		return false; //連絡先選択ダイアログを表示しない
 	
-}else if( form_subject != "" & form_text == "" ){
+	}else if( form_subject != "" & form_text == "" ){
 	//本文が入力されていない場合
-	alert(["本文を入力してください"]);
-	return false; //連絡先選択ダイアログを表示しない
+		alert(["本文を入力してください"]);
+		return false; //連絡先選択ダイアログを表示しない
 	
-}else{
+	}else{
 	//両方入力されている場合
-	return true;
-}
+		return true;
+	}
 
-});
+	});
 
 	
 </script>

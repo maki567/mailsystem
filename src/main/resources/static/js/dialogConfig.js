@@ -508,7 +508,7 @@ const dialogConfig = {
 		modal: true,
 		buttons: [
 			{
-				text: 'OK',
+				text: '決定',
 				click: function() {
 					let checkedList = $('#check:checked');
 					let checkedStaffList = [];

@@ -145,7 +145,7 @@ textarea[name="messageText"] {
 }
 
 /*バータイトル*/
-p {
+.title {
 	color: #ffffff;
 	position: senter;
 	text-align: center;
@@ -154,7 +154,7 @@ p {
 /*送信先表示エリア*/
 .select_address {
 	width: 590px;
-	height: 8000px;
+	height: 400px;
 	border-style: none;
 	border-style: solid;
 	border-width: 2px;
@@ -162,4 +162,15 @@ p {
 	overflow: scroll;
 }
 
+/*送信先選択ダイアログ*/
+.company {
+	
+}
 
+.target-area .hidden {
+	display: none
+}
+
+.hidden {
+	display: none;
+}
