@@ -200,6 +200,238 @@
 			alert('すでに選択されています。');
 		});
 	});
+	
+	$('button#register3').on('click', () => {
+		let jsonString = {
+			'userId3': $('table#register input[name=userId3]').val(),
+			'companyName3': $('table#register input[name=companyName3]').val(),
+			'corporation3': $('table#register input[name=corporation3]').val(),
+			'staffName3': $('table#register input[name=staffName3]').val(),
+			'staffMail3': $('table#register input[name=staffMail3]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register3',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId3]').val('');
+			$('table#register input[name=companyName3]').val('');
+			$('table#register input[name=corporation3]').val('');
+			$('table#register input[name=staffName3]').val('');
+			$('table#register input[name=staffMail3]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register4').on('click', () => {
+		let jsonString = {
+			'userId4': $('table#register input[name=userId4]').val(),
+			'companyName4': $('table#register input[name=companyName4]').val(),
+			'corporation4': $('table#register input[name=corporation4]').val(),
+			'staffName4': $('table#register input[name=staffName4]').val(),
+			'staffMail4': $('table#register input[name=staffMail4]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register4',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId4]').val('');
+			$('table#register input[name=companyName4]').val('');
+			$('table#register input[name=corporation4]').val('');
+			$('table#register input[name=staffName4]').val('');
+			$('table#register input[name=staffMail4]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register5').on('click', () => {
+		let jsonString = {
+			'userId5': $('table#register input[name=userId5]').val(),
+			'companyName5': $('table#register input[name=companyName5]').val(),
+			'corporation5': $('table#register input[name=corporation5]').val(),
+			'staffName5': $('table#register input[name=staffName5]').val(),
+			'staffMail5': $('table#register input[name=staffMail5]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register5',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId5]').val('');
+			$('table#register input[name=companyName5]').val('');
+			$('table#register input[name=corporation5]').val('');
+			$('table#register input[name=staffName5]').val('');
+			$('table#register input[name=staffMail5]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register6').on('click', () => {
+		let jsonString = {
+			'userId6': $('table#register input[name=userId6]').val(),
+			'companyName6': $('table#register input[name=companyName6]').val(),
+			'corporation6': $('table#register input[name=corporation6]').val(),
+			'staffName6': $('table#register input[name=staffName6]').val(),
+			'staffMail6': $('table#register input[name=staffMail6]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register6',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId6]').val('');
+			$('table#register input[name=companyName6]').val('');
+			$('table#register input[name=corporation6]').val('');
+			$('table#register input[name=staffName6]').val('');
+			$('table#register input[name=staffMail6]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register7').on('click', () => {
+		let jsonString = {
+			'userId7': $('table#register input[name=userId7]').val(),
+			'companyName7': $('table#register input[name=companyName7]').val(),
+			'corporation7': $('table#register input[name=corporation7]').val(),
+			'staffName7': $('table#register input[name=staffName7]').val(),
+			'staffMail7': $('table#register input[name=staffMail7]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register7',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId7]').val('');
+			$('table#register input[name=companyName7]').val('');
+			$('table#register input[name=corporation7]').val('');
+			$('table#register input[name=staffName7]').val('');
+			$('table#register input[name=staffMail7]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register8').on('click', () => {
+		let jsonString = {
+			'userId8': $('table#register input[name=userId8]').val(),
+			'companyName8': $('table#register input[name=companyName8]').val(),
+			'corporation8': $('table#register input[name=corporation8]').val(),
+			'staffName8': $('table#register input[name=staffName8]').val(),
+			'staffMail8': $('table#register input[name=staffMail8]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register8',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId8]').val('');
+			$('table#register input[name=companyName8]').val('');
+			$('table#register input[name=corporation8]').val('');
+			$('table#register input[name=staffName8]').val('');
+			$('table#register input[name=staffMail8]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register9').on('click', () => {
+		let jsonString = {
+			'userId9': $('table#register input[name=userId9]').val(),
+			'companyName9': $('table#register input[name=companyName9]').val(),
+			'corporation9': $('table#register input[name=corporation9]').val(),
+			'staffName9': $('table#register input[name=staffName9]').val(),
+			'staffMail9': $('table#register input[name=staffMail9]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register9',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId9]').val('');
+			$('table#register input[name=companyName9]').val('');
+			$('table#register input[name=corporation9]').val('');
+			$('table#register input[name=staffName9]').val('');
+			$('table#register input[name=staffMail9]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register10').on('click', () => {
+		let jsonString = {
+			'userId10': $('table#register input[name=userId10]').val(),
+			'companyName10': $('table#register input[name=companyName10]').val(),
+			'corporation10': $('table#register input[name=corporation10]').val(),
+			'staffName10': $('table#register input[name=staffName10]').val(),
+			'staffMail10': $('table#register input[name=staffMail10]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register10',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId10]').val('');
+			$('table#register input[name=companyName10]').val('');
+			$('table#register input[name=corporation10]').val('');
+			$('table#register input[name=staffName10]').val('');
+			$('table#register input[name=staffMail10]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
 
 </script>
 </body>
