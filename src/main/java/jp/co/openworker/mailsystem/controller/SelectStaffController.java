@@ -57,4 +57,84 @@ public class SelectStaffController {
 		
 		return count > 0;
 	}
+	
+	@RequestMapping("/register3")
+	@ResponseBody
+	public boolean register3(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert3(address);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/register4")
+	@ResponseBody
+	public boolean register4(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert4(address);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/register5")
+	@ResponseBody
+	public boolean register5(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert5(address);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/register6")
+	@ResponseBody
+	public boolean register6(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert6(address);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/register7")
+	@ResponseBody
+	public boolean register7(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert7(address);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/register8")
+	@ResponseBody
+	public boolean register8(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert8(address);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/register9")
+	@ResponseBody
+	public boolean register9(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert9(address);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/register10")
+	@ResponseBody
+	public boolean register10(@RequestBody SelectForm f) {
+		SelectAddress address = new SelectAddress(f);
+		
+		int count = selectAddressMapper.insert10(address);
+		
+		return count > 0;
+	}
 }
