@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
+	<link href="/css/select_staff.css" th:href="@{/css/select_staff.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 	
 	<table id="register">
 		<tr>
-			<td><button class="" id="register1">追加</button></td>
+			<td><button th:class="${address.staffMail1 == '' ? 'hidden' : ''}" id="register1">追加</button></td>
 			<td><span th:text="${address.staffName1}"></span></td>
 			<td>
 				<span th:text="${address.staffMail1}"></span>
@@ -28,7 +29,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td><button class="" id="register2">追加</button></td>
+			<td><button th:class="${address.staffMail10 == '' ? 'hidden' : ''}" id="register2">追加</button></td>
 			<td><span th:text="${address.staffName2}"></span></td>
 			<td>
 				<span th:text="${address.staffMail2}"></span>
@@ -39,6 +40,7 @@
 				<input class="form" type="text" name="staffMail2" th:value="${address.staffMail2}" />
 			</td>
 		</tr>
+		
 	</table>
 
 </main>
@@ -76,15 +78,15 @@
 	
 	$('button#register2').on('click', () => {
 		let jsonString = {
-			'userId': $('table#register input[name=userId2]').val(),
-			'companyName': $('table#register input[name=companyName2]').val(),
-			'corporation': $('table#register input[name=corporation2]').val(),
-			'staffName1': $('table#register input[name=staffName2]').val(),
-			'staffMail1': $('table#register input[name=staffMail2]').val()
+			'userId2': $('table#register input[name=userId2]').val(),
+			'companyName2': $('table#register input[name=companyName2]').val(),
+			'corporation2': $('table#register input[name=corporation2]').val(),
+			'staffName2': $('table#register input[name=staffName2]').val(),
+			'staffMail2': $('table#register input[name=staffMail2]').val()
 		};
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/selectStaff/register',
+			url: '/mailsystem/selectStaff/register2',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',
@@ -99,7 +101,7 @@
 			$('table#register input[name=staffName2]').val('');
 			$('table#register input[name=staffMail2]').val('');
 		}, () => {
-			alert('Error: ajax connection failed.');
+			alert('すでに選択されています。');
 		});
 	});
 
