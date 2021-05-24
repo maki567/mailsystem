@@ -12,8 +12,8 @@ import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
-@RequestMapping("/mailsystem/select")
-public class SelectController {
+@RequestMapping("/mailsystem/selectCompany")
+public class SelectCompanyController {
 	
 	@Autowired
 	private LoginSession loginSession;

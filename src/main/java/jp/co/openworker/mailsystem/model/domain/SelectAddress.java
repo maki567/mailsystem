@@ -1,29 +1,29 @@
 package jp.co.openworker.mailsystem.model.domain;
 
-import java.sql.Timestamp;
-
 import jp.co.openworker.mailsystem.model.form.SelectForm;
 
 public class SelectAddress {
 
 	private int id;
-	private int userId;
-	private String companyName;
-	private int corporation;
-	private String staffName;
-	private String staffMail;
-	private Timestamp createdAt;
-	private Timestamp updatedAt;
+	private int userId1;
+	private String companyName1;
+	private int corporation1;
+	private String staffName1;
+	private String staffMail1;
+	private String staffName2;
+	private String staffMail2;
 
 	public SelectAddress() {}
 
 	public SelectAddress(SelectForm f) {
 		id = f.getId();
-		userId = f.getUserId();
-		companyName = f.getCompanyName();
-		corporation = f.getCorporation();
-		staffName = f.getStaffName();
-		staffMail = f.getStaffMail();
+		userId1 = f.getUserId1();
+		companyName1 = f.getCompanyName1();
+		corporation1 = f.getCorporation1();
+		staffName1 = f.getStaffName1();
+		staffMail1 = f.getStaffMail1();
+		staffName2 = f.getStaffName2();
+		staffMail2 = f.getStaffMail2();
 	}
 
 	public int getId() {
@@ -32,46 +32,46 @@ public class SelectAddress {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getUserId() {
-		return userId;
+	public int getUserId1() {
+		return userId1;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserId1(int userId1) {
+		this.userId1 = userId1;
 	}
-	public String getCompanyName() {
-		return companyName;
+	public String getCompanyName1() {
+		return companyName1;
 	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCompanyName1(String companyName1) {
+		this.companyName1 = companyName1;
 	}
-	public int getCorporation() {
-		return corporation;
+	public int getCorporation1() {
+		return corporation1;
 	}
-	public void setCorporation(int corporation) {
-		this.corporation = corporation;
+	public void setCorporation1(int corporation1) {
+		this.corporation1 = corporation1;
 	}
-	public String getStaffName() {
-		return staffName;
+	public String getStaffName1() {
+		return staffName1;
 	}
-	public void setStaffName(String staffName) {
-		this.staffName = staffName;
+	public void setStaffName1(String staffName1) {
+		this.staffName1 = staffName1;
 	}
-	public String getStaffMail() {
-		return staffMail;
+	public String getStaffMail1() {
+		return staffMail1;
 	}
-	public void setStaffMail(String staffMail) {
-		this.staffMail = staffMail;
+	public void setStaffMail1(String staffMail1) {
+		this.staffMail1 = staffMail1;
 	}
-	public Timestamp getCreatedAt() {
-		return createdAt;
+	public String getStaffName2() {
+		return staffName2;
 	}
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
+	public void setStaffName2(String staffName2) {
+		this.staffName2 = staffName2;
 	}
-	public Timestamp getUpdatedAt() {
-		return updatedAt;
+	public String getStaffMail2() {
+		return staffMail2;
 	}
-	public void setUpdatedAt(Timestamp updatedAt) {
-		this.updatedAt = updatedAt;
+	public void setStaffMail2(String staffMail2) {
+		this.staffMail2 = staffMail2;
 	}
 }

@@ -22,7 +22,10 @@
 		
 	<table class="target-area" th:each="address : ${address}">
 		<tr class="company">
-			<td th:text="${address.companyName}"></td>
+			<td>
+				<a href="/mailsystem/selectStaff/" th:href="@{/mailsystem/selectStaff/{id}(id=${address.id})}" >
+				<label th:text="${address.companyName}" /></label></a>
+			</td>
 		</tr>
 	</table>
 		

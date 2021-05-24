@@ -12,41 +12,95 @@
 
 <main>
 
-		<label><input type="checkbox" class="checkList" id="$checkbox" name="checkbox" th:value="${address.staffMail1}" />
-		<span th:text="${address.staffName1}"></span><span th:text="${address.staffMail1}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail2}" />
-		<span th:text="${address.staffName2}"></span><span th:text="${address.staffMail2}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail3}" />
-		<span th:text="${address.staffName3}"></span><span th:text="${address.staffMail3}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail4}" />
-		<span th:text="${address.staffName4}"></span><span th:text="${address.staffMail4}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail5}" />
-		<span th:text="${address.staffName5}"></span><span th:text="${address.staffMail5}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail6}" />
-		<span th:text="${address.staffName6}"></span><span th:text="${address.staffMail6}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail7}" />
-		<span th:text="${address.staffName7}"></span><span th:text="${address.staffMail7}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail8}" />
-		<span th:text="${address.staffName8}"></span><span th:text="${address.staffMail8}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail9}" />
-		<span th:text="${address.staffName9}"></span><span th:text="${address.staffMail9}"></span></label><br />
-		<label><input type="checkbox" class="checkList" id="checkbox" name="checkbox" th:value="${address.staffMail10}" />
-		<span th:text="${address.staffName10}"></span><span th:text="${address.staffMail10}"></span></label><br />
-		
-		<button id="test" onclick="location.href='http://localhost:8080/mailsystem/select/'">テスト</button>
+	<h1><span th:text="${address.companyName}"></span></h1>
+	
+	<table id="register">
+		<tr>
+			<td><button class="" id="register1">追加</button></td>
+			<td><span th:text="${address.staffName1}"></span></td>
+			<td>
+				<span th:text="${address.staffMail1}"></span>
+				<input class="form" type="text" name="companyName1" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation1" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId1" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName1" th:value="${address.staffName1}" />
+				<input class="form" type="text" name="staffMail1" th:value="${address.staffMail1}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button class="" id="register2">追加</button></td>
+			<td><span th:text="${address.staffName2}"></span></td>
+			<td>
+				<span th:text="${address.staffMail2}"></span>
+				<input class="form" type="text" name="companyName2" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation2" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId2" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName2" th:value="${address.staffName2}" />
+				<input class="form" type="text" name="staffMail2" th:value="${address.staffMail2}" />
+			</td>
+		</tr>
+	</table>
 
 </main>
 
 <script type="text/javascript">
 
-	$('#test').on('click', () => {
-		let checkedList = $('.checkList:checked');
-		let checkedStaffList = [];
-			for (checked of checkedList) {
-				checkedStaffList.push($(checked).val());
-			}
-		let staffList = checkedStaffList.toString();
-		sessionStorage.setItem("staff" , staffList );
+	$('button#register1').on('click', () => {
+		let jsonString = {
+			'userId1': $('table#register input[name=userId1]').val(),
+			'companyName1': $('table#register input[name=companyName1]').val(),
+			'corporation1': $('table#register input[name=corporation1]').val(),
+			'staffName1': $('table#register input[name=staffName1]').val(),
+			'staffMail1': $('table#register input[name=staffMail1]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register1',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId1]').val('');
+			$('table#register input[name=companyName1]').val('');
+			$('table#register input[name=corporation1]').val('');
+			$('table#register input[name=staffName1]').val('');
+			$('table#register input[name=staffMail1]').val('');
+		}, () => {
+			alert('すでに選択されています。');
+		});
+	});
+	
+	$('button#register2').on('click', () => {
+		let jsonString = {
+			'userId': $('table#register input[name=userId2]').val(),
+			'companyName': $('table#register input[name=companyName2]').val(),
+			'corporation': $('table#register input[name=corporation2]').val(),
+			'staffName1': $('table#register input[name=staffName2]').val(),
+			'staffMail1': $('table#register input[name=staffMail2]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/selectStaff/register',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('table#register input[name=userId2]').val('');
+			$('table#register input[name=companyName2]').val('');
+			$('table#register input[name=corporation2]').val('');
+			$('table#register input[name=staffName2]').val('');
+			$('table#register input[name=staffMail2]').val('');
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});
 	});
 
 </script>

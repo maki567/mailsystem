@@ -15,16 +15,25 @@ import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 @Mapper
 public interface SelectAddressMapper {
 	
-		@Insert("INSERT INTO select_address ("
-					+ "user_id, company_name, corporation,"
-					+ "staff_name, staff_mail,"
-					+ ") "
-					+ "VALUES ("
-					+ "#{userId}, #{companyName}, #{corporation},"
-					+ "#{staffName}, #{staffMail},"
-					+ ")")
-		@Options(useGeneratedKeys=true, keyProperty="id")
-		int insert(SelectAddress address);
-	
+	@Insert("INSERT INTO select_address ("
+				+ "user_id, company_name, corporation,"
+				+ "staff_name, staff_mail"
+				+ ") "
+				+ "VALUES ("
+				+ "#{userId1}, #{companyName1}, #{corporation1},"
+				+ "#{staffName1}, #{staffMail1}"
+				+ ")")
+	@Options(useGeneratedKeys=true, keyProperty="id")
+	int insert1(SelectAddress address);
 
+	@Insert("INSERT INTO select_address ("
+				+ "user_id, company_name, corporation,"
+				+ "staff_name, staff_mail"
+				+ ") "
+				+ "VALUES ("
+				+ "#{userId2}, #{companyName2}, #{corporation2},"
+				+ "#{staffName2}, #{staffMail2}"
+				+ ")")
+	@Options(useGeneratedKeys=true, keyProperty="id")
+	int insert2(SelectAddress address);
 }
