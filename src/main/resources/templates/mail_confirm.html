@@ -1,0 +1,87 @@
+<!doctype HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>メール作成画面</title>
+	<link href="/css/create_mail.css" th:href="@{/css/create_mail.css}" rel="stylesheet" />
+</head>
+
+<body>
+<header th:insert="fragments/page_header::commonHeader"></header>
+<main>
+	<div class="mail">
+		<div class="mail-item mail-left">
+			<div class="mail-left_brock">
+				<!-- メール作成エリア -->
+				<div class="message" id="create">
+					<div class="message_subject">
+						<input type="text" class="text_subject" name="messageSubject" value="" placeholder="件名" id="subject">
+					</div>
+					<br>
+					<div class="message_text">
+						<textarea name="messageText" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
+					</div>
+				</div>
+				<div class="menubar">
+					<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
+					<input type="file" id="files" class="menubar_files"/>
+					<button onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
+				</div>
+				
+			</div>
+		</div>
+		<div class="mail-item mail-right">
+			<div class="mail-right_brock">
+				<!-- 送信先表示エリア -->
+				<div class="select_bar">
+					<p class="title">送信先リスト</p>
+				</div>
+				<div class="select_address">
+					<p id="result"></p>
+				</div>
+					<button id="deleteStorage">送信確認</button>
+			</div>
+		</div>
+	</div>
+</main>
+
+<!-- 件名と本文が未入力だった場合にアラートを表示 -->
+<script type="text/javascript">
+
+	//連絡先選択ボタンを押下した時の処理
+	$("#confirm").on("click",function(){
+
+	/*件名と本文の入力判定*/
+	var form_subject = $("#subject").val();　//件名
+	var form_text = $("#text").val(); //本文
+
+
+	/*両方か片方が未入力であればアラートを表示*/
+	if( form_subject == "" & form_text == "" ){
+		alert(["件名と本文を入力してください"]);
+		return false; //連絡先選択ダイアログを表示しない
+	
+	}else if( form_subject == "" & form_text != "" ){
+	//件名が入力されていない場合
+		alert(["件名を入力してください"]);
+		return false; //連絡先選択ダイアログを表示しない
+	
+	}else if( form_subject != "" & form_text == "" ){
+	//本文が入力されていない場合
+		alert(["本文を入力してください"]);
+		return false; //連絡先選択ダイアログを表示しない
+	
+	}else{
+	//両方入力されている場合
+		return true;
+	}
+
+	});
+
+</script>
+
+
+</body>
+
+</html>

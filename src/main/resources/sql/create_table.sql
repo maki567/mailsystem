@@ -72,3 +72,7 @@ CREATE TABLE mail_history (
  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 );
  
+CREATE TABLE create_mail (
+ subject VARCHAR(255) NOT NUll,
+ text VARCHAR(255) NOT NUll
+);
