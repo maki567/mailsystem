@@ -50,6 +50,17 @@ CREATE TABLE mst_address (
  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 );
 
+CREATE TABLE select_address (
+ id int(11) PRIMARY KEY AUTO_INCREMENT,
+ company_name VARCHAR(32) NOT NULL,
+ corporation TINYINT,
+ user_id int(11) NOT NULL,
+ staff_name int(11) NOT NULL,
+ staff_mail int(11) NOT NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT current_timestamp(),
+ updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+);
+
 CREATE TABLE mail_history (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
  user_id int(11) NOT NUll,

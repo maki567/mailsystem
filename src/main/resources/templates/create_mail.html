@@ -26,7 +26,7 @@
 				<div class="menubar">
 					<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
 					<input type="file" id="files" class="menubar_files"/>
-					<button id="selectButton" class="menubar_address-select">連絡先選択へ</button>
+					<button onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
 				</div>
 				
 			</div>
@@ -46,32 +46,8 @@
 	</div>
 </main>
 
-<!-- Modal Dialog (送信先選択) -->
-<div th:insert="fragments/dialog_Select_Address::dialogSelectAddress"></div>
-
 <!-- 件名と本文が未入力だった場合にアラートを表示 -->
 <script type="text/javascript">
-
-	//jQuery-UIダイアログの初期設定
-	$('#selectAddress').dialog(dialogConfig.selectAddress);
-
-	//送信先選択機能
-	$('#selectButton').on('click', () => {
-		$("#selectAddress").dialog("open");
-	});
-	
-	$(function() {
-		let data = sessionStorage.getItem('staff');
-		arr = new Array();
-		arr = data.split(",");
-		$("#result").text(data);
-	})
-	
-	$('#deleteStorage').on('click', () => {
-		sessionStorage.removeItem('staff');
-		location.reload(true);
-	})
-	
 
 	//連絡先選択ボタンを押下した時の処理
 	$("#confirm").on("click",function(){
@@ -103,7 +79,6 @@
 
 	});
 
-	
 </script>
 
 

@@ -16,41 +16,24 @@
 	<div id="selectAddress" title="送信先選択">
 		<div class="form"> 
 			<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
-			<button class="delete" onclick="location.href='http://localhost:8080/mailsystem/test/'">決定</button>
+			<button class="delete" onclick="location.href='http://localhost:8080/mailsystem/mail/'">決定</button>
 		</div>
 		<br>
 		
 	<table class="target-area" th:each="address : ${address}">
-		<tr>
-			<td class="check">
-				<input type="checkbox" th:name="${address.id}" id="check" class="checkList" th:value="${address.id}" >
-			</td>
-			<td class="inner">
-				<label th:text="${address.companyName}" /></label>
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail1}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail2}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail3}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail4}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail5}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail6}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail7}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail8}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail9}" />
-				<input type="checkbox" class="checkList" id="$checkbox" name="hidden" th:value="${address.staffMail10}" />
-			</td>
+		<tr class="company">
+			<td th:text="${address.companyName}"></td>
 		</tr>
 	</table>
 		
 	</div>
-	
-	<p id="result"></p>
 	
 </main>
 
 <script th:inline="javascript">
 /*[CDATA[*/
 $(() => {
-	
+
 	//連絡先検索機能
 	$(function () {
 		searchWord = function(){

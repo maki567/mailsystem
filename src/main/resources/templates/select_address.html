@@ -1,10 +1,10 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>送信選択画面</title>
-	<link href="/css/select_address.css" th:href="@{/css/select_address.css}" rel="stylesheet" />
+	<meta charset="UTF-8" />
+	<title>送信先選択画面</title>
+	<link href="/css/select_company.css" th:href="@{/css/select_company.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -13,43 +13,53 @@
 
 <main>
 
-	<frameset cols="150,*">
-		<frame src="frame_select_list.html" name="hidari>
-		<frame src="frame_select_scroll.html" name="migi">
-	</frameset>
-
-	
-	
+	<div id="selectAddress" title="送信先選択">
+		<div class="form"> 
+			<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
+			<button class="delete" onclick="location.href='http://localhost:8080/mailsystem/mail/'">決定</button>
+		</div>
+		<br>
+		
+	<table class="target-area" th:each="address : ${address}">
+		<tr class="company">
+			<td th:text="${address.companyName}"></td>
+		</tr>
+	</table>
+		
+	</div>
 	
 </main>
 
-
 <script th:inline="javascript">
- 
+/*[CDATA[*/
+$(() => {
 
+	//連絡先検索機能
+	$(function () {
+		searchWord = function(){
+    	let searchText = $(this).val(), // 検索ボックスに入力された値
+		targetText;
 
-$(() => {	
-	// jQuery-UIダイアログの初期設定
-	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
-	
-	
-	
-	$('button#confirm').on('click', () => {
-		let subject = document.getElementById("subject");
-	
-	
-	
-		if(subject.value == null){
-			alert('件名と本文を入力してください')
-		} else{
-			$("#createMailConfirm").dialog("open");
-			
+    $('.target-area').each(function() {
+    	targetText = $(this).text();
+
+	//検索対象となるリストに入力された文字列が存在するかどうかを判断
+		if (targetText.indexOf(searchText) != -1) {
+			$(this).removeClass('hidden');
+		} else {
+			$(this).addClass('hidden');
 		}
 	});
-});
+	};
+
+	//searchWordの実行
+		$('#search-text').on('input', searchWord);
+	});
+})
+/*]]>*/
 </script>
 
+</th:block>
 
 </body>
-
 </html>

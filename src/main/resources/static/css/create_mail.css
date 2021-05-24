@@ -163,8 +163,34 @@ textarea[name="messageText"] {
 }
 
 /*送信先選択ダイアログ*/
+.form {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.kensaku {
+	border-radius: 3px;
+}
+
+input[id="search-text"] {
+	width: 400px;
+	height: 30px;
+	padding-left: 10px;
+}
+
 .company {
-	
+	color: red;
+}
+
+table {
+	text-align: left;
+	vertical-align: middle;
+	display: inline-block;
+	background-color: #80ff80;
+	margin-bottom: 5px;
+	margin-left: 7px;
+	border-radius: 6px;
+	position: relative;
 }
 
 .target-area .hidden {
