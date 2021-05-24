@@ -29,7 +29,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td><button th:class="${address.staffMail10 == '' ? 'hidden' : ''}" id="register2">追加</button></td>
+			<td><button th:class="${address.staffMail2 == '' ? 'hidden' : ''}" id="register2">追加</button></td>
 			<td><span th:text="${address.staffName2}"></span></td>
 			<td>
 				<span th:text="${address.staffMail2}"></span>
@@ -38,6 +38,102 @@
 				<input class="form" type="text" name="userId2" th:value="${loginSession.getUserId}" />
 				<input class="form" type="text" name="staffName2" th:value="${address.staffName2}" />
 				<input class="form" type="text" name="staffMail2" th:value="${address.staffMail2}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail3 == '' ? 'hidden' : ''}" id="register3">追加</button></td>
+			<td><span th:text="${address.staffName3}"></span></td>
+			<td>
+				<span th:text="${address.staffMail3}"></span>
+				<input class="form" type="text" name="companyName3" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation3" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId3" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName3" th:value="${address.staffName3}" />
+				<input class="form" type="text" name="staffMail3" th:value="${address.staffMail3}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail4 == '' ? 'hidden' : ''}" id="register4">追加</button></td>
+			<td><span th:text="${address.staffName4}"></span></td>
+			<td>
+				<span th:text="${address.staffMail4}"></span>
+				<input class="form" type="text" name="companyName4" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation4" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId4" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName4" th:value="${address.staffName4}" />
+				<input class="form" type="text" name="staffMail4" th:value="${address.staffMail4}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail5 == '' ? 'hidden' : ''}" id="register5">追加</button></td>
+			<td><span th:text="${address.staffName5}"></span></td>
+			<td>
+				<span th:text="${address.staffMail5}"></span>
+				<input class="form" type="text" name="companyName5" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation5" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId5" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName5" th:value="${address.staffName5}" />
+				<input class="form" type="text" name="staffMail5" th:value="${address.staffMail5}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail6 == '' ? 'hidden' : ''}" id="register6">追加</button></td>
+			<td><span th:text="${address.staffName6}"></span></td>
+			<td>
+				<span th:text="${address.staffMail6}"></span>
+				<input class="form" type="text" name="companyName6" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation6" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId6" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName6" th:value="${address.staffName6}" />
+				<input class="form" type="text" name="staffMail6" th:value="${address.staffMail6}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail7 == '' ? 'hidden' : ''}" id="register7">追加</button></td>
+			<td><span th:text="${address.staffName7}"></span></td>
+			<td>
+				<span th:text="${address.staffMail7}"></span>
+				<input class="form" type="text" name="companyName7" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation7" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId7" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName7" th:value="${address.staffName7}" />
+				<input class="form" type="text" name="staffMail7" th:value="${address.staffMail7}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail8 == '' ? 'hidden' : ''}" id="register8">追加</button></td>
+			<td><span th:text="${address.staffName8}"></span></td>
+			<td>
+				<span th:text="${address.staffMail8}"></span>
+				<input class="form" type="text" name="companyName8" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation8" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId8" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName8" th:value="${address.staffName8}" />
+				<input class="form" type="text" name="staffMail8" th:value="${address.staffMail8}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail9 == '' ? 'hidden' : ''}" id="register9">追加</button></td>
+			<td><span th:text="${address.staffName9}"></span></td>
+			<td>
+				<span th:text="${address.staffMail9}"></span>
+				<input class="form" type="text" name="companyName9" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation9" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId9" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName9" th:value="${address.staffName9}" />
+				<input class="form" type="text" name="staffMail9" th:value="${address.staffMail9}" />
+			</td>
+		</tr>
+		<tr>
+			<td><button th:class="${address.staffMail10 == '' ? 'hidden' : ''}" id="register10">追加</button></td>
+			<td><span th:text="${address.staffName10}"></span></td>
+			<td>
+				<span th:text="${address.staffMail10}"></span>
+				<input class="form" type="text" name="companyName10" th:value="${address.companyName}" />
+				<input class="form" type="text" name="corporation10" th:value="${address.corporation}" />
+				<input class="form" type="text" name="userId10" th:value="${loginSession.getUserId}" />
+				<input class="form" type="text" name="staffName10" th:value="${address.staffName10}" />
+				<input class="form" type="text" name="staffMail10" th:value="${address.staffMail10}" />
 			</td>
 		</tr>
 		
