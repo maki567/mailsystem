@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>送信先選択画面</title>
 	<link href="/css/select_staff.css" th:href="@{/css/select_staff.css}" rel="stylesheet" />
 </head>
 
@@ -13,7 +13,11 @@
 
 <main>
 
-	<h1><span th:text="${address.companyName}"></span></h1>
+	<button class="back_mail" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
+	<button class="back_company" onclick="location.href='http://localhost:8080/mailsystem/select/'">会社一覧へ戻る</button>
+	<br />
+	<h1><span class="company_name" th:text="${address.companyName}"></span></h1>
+	<br />
 	
 	<table id="register">
 		<tr>

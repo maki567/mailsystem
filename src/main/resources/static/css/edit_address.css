@@ -5,7 +5,8 @@
 }
 
 table {
-	display: inline;
+	width: 1000px;
+	display: inline-block;
 }
 
 .first, .second, .third {

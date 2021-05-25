@@ -1,5 +1,37 @@
 @charset "UTF-8";
 
+main {
+	text-align: center;
+}
+
+.back_mail {
+	margin-left: 600px;
+	margin-top: 10px;
+}
+
+.back_company {
+	margin-left: 30px;
+}
+
+h1 {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+table {
+	width: 1000px;
+	display: inline-block;
+}
+
+.staff_name, .staff_mail {
+	font-weight: bold;
+	color: white;
+	background-color: gray;
+	padding-top: 10px;
+	width: 280px;
+	height: 30px;
+}
+
 .form {
 	display: none;
 }
