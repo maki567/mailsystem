@@ -5,10 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.openworker.mailsystem.model.domain.SelectAddress;
+import jp.co.openworker.mailsystem.model.domain.SelectMail;
+import jp.co.openworker.mailsystem.model.form.SelectForm;
+import jp.co.openworker.mailsystem.model.form.SelectMailForm;
 import jp.co.openworker.mailsystem.model.mapper.SelectAddressMapper;
+import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
@@ -21,6 +27,9 @@ public class MailController {
 	@Autowired
 	SelectAddressMapper selectMapper;
 	
+	@Autowired
+	SelectMailMapper selectMailMapper;
+	
 	@RequestMapping("/")
 	public String index(Model m) {
 		
@@ -29,6 +38,16 @@ public class MailController {
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);
 		return "create_mail";
+	}
+	
+	@RequestMapping("/send")
+	@ResponseBody
+	public boolean send(@RequestBody SelectMailForm f) {
+		SelectMail mail = new SelectMail(f);
+		
+		int count = selectMailMapper.insert(mail);
+		
+		return count > 0;
 	}
 }
 

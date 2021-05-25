@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>メール作成画面</title>
+	<title>送信確認画面</title>
 	<link href="/css/create_mail.css" th:href="@{/css/create_mail.css}" rel="stylesheet" />
 </head>
 
@@ -46,39 +46,9 @@
 	</div>
 </main>
 
-<!-- 件名と本文が未入力だった場合にアラートを表示 -->
 <script type="text/javascript">
 
-	//連絡先選択ボタンを押下した時の処理
-	$("#confirm").on("click",function(){
-
-	/*件名と本文の入力判定*/
-	var form_subject = $("#subject").val();　//件名
-	var form_text = $("#text").val(); //本文
-
-
-	/*両方か片方が未入力であればアラートを表示*/
-	if( form_subject == "" & form_text == "" ){
-		alert(["件名と本文を入力してください"]);
-		return false; //連絡先選択ダイアログを表示しない
 	
-	}else if( form_subject == "" & form_text != "" ){
-	//件名が入力されていない場合
-		alert(["件名を入力してください"]);
-		return false; //連絡先選択ダイアログを表示しない
-	
-	}else if( form_subject != "" & form_text == "" ){
-	//本文が入力されていない場合
-		alert(["本文を入力してください"]);
-		return false; //連絡先選択ダイアログを表示しない
-	
-	}else{
-	//両方入力されている場合
-		return true;
-	}
-
-	});
-
 </script>
 
 
