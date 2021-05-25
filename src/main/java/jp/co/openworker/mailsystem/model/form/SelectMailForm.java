@@ -5,9 +5,16 @@ import java.io.Serializable;
 public class SelectMailForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	private int userId;
 	private String subject;
 	private String text;
 
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public String getSubject() {
 		return subject;
 	}

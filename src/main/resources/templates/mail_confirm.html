@@ -10,40 +10,34 @@
 <body>
 <header th:insert="fragments/page_header::commonHeader"></header>
 <main>
-	<div class="mail">
-		<div class="mail-item mail-left">
-			<div class="mail-left_brock">
-				<!-- メール作成エリア -->
-				<div class="message" id="create">
-					<div class="message_subject">
-						<input type="text" class="text_subject" name="messageSubject" value="" placeholder="件名" id="subject">
-					</div>
-					<br>
-					<div class="message_text">
-						<textarea name="messageText" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
-					</div>
-				</div>
-				<div class="menubar">
-					<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
-					<input type="file" id="files" class="menubar_files"/>
-					<button onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
-				</div>
-				
-			</div>
-		</div>
-		<div class="mail-item mail-right">
-			<div class="mail-right_brock">
-				<!-- 送信先表示エリア -->
-				<div class="select_bar">
-					<p class="title">送信先リスト</p>
-				</div>
-				<div class="select_address">
-					<p id="result"></p>
-				</div>
-					<button id="deleteStorage">送信確認</button>
-			</div>
-		</div>
-	</div>
+	
+	<table th:each="mail : ${mail}">
+		<tr>
+			<th>件名</th>
+			<td><span th:text="${mail.subject}"></span></td>
+		</tr>
+		<tr>
+			<th>本文</th>
+			<td><span th:text="${mail.subject}"></span></td>
+		</tr>
+		<tr>
+			<th>添付ファイル</th>
+		</tr>
+	</table>
+	
+	
+	
+	
+	<table>
+		<tr>
+			<th>会社</th>
+			<th>担当者</th>
+			<th>メールアドレス</th>
+		</tr>
+		
+	</table>
+	
+	
 </main>
 
 <script type="text/javascript">

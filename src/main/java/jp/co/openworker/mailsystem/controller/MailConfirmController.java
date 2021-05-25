@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.openworker.mailsystem.model.domain.SelectAddress;
+import jp.co.openworker.mailsystem.model.domain.SelectMail;
 import jp.co.openworker.mailsystem.model.mapper.SelectAddressMapper;
+import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
@@ -21,13 +23,18 @@ public class MailConfirmController {
 	@Autowired
 	SelectAddressMapper selectMapper;
 	
+	@Autowired
+	SelectMailMapper selectMailMapper;
+	
 	@RequestMapping("/")
 	public String index(Model m) {
 		
 		List<SelectAddress> select = selectMapper.select(loginSession.getUserId());
+		List<SelectMail> mail = selectMailMapper.select(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);
+		m.addAttribute("mail", mail);
 		return "mail_confirm";
 	}
 }

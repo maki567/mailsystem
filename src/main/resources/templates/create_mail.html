@@ -21,6 +21,7 @@
 					<br>
 					<div class="message_text">
 						<textarea name="messageText" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
+						<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
 					</div>
 				</div>
 				<div class="menubar">
@@ -58,6 +59,7 @@
 	//メール入力内容をデータベースに一時保存//
 	$('button#send').on('click', () => {
 		let jsonString = {
+			'userId': $('div#create input[name=userId]').val(),
 			'subject': $('div#create input[name=messageSubject]').val(),
 			'text': $('div#create textarea[name=messageText]').val()
 		};
@@ -72,6 +74,7 @@
 		.then((result) => {
 			$('.info').removeClass('hidden');
 			$('#checkOK').addClass('hidden');
+			$('div#create input[name=userId]').val('');
 			$('div#create input[name=messageSubject]').val('');
 			$('div#create texterea[name=messageText]').val('');
 		}, () => {
