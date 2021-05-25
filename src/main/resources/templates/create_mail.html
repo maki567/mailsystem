@@ -42,7 +42,9 @@
 					<table class="" th:each="select : ${select}">
 						<tr class="">
 							<td>
-								<p th:value="${select.companyName}"></p>
+								<span th:text="${select.companyName}"></span>
+								<span th:text="${select.staffName}"></span>
+								<span th:text="${select.staffMail}"></span>
 							</td>
 						</tr>
 					</table>
