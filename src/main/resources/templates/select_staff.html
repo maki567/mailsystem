@@ -21,6 +21,12 @@
 	
 	<table id="register">
 		<tr>
+			<td></td>
+			<td><div class="staff_name">担当者名</div></td>
+			<td><div class="staff_mail">メールアドレス</div></td>
+			<td><div class="staff_number">電話番号</div></td>
+		</tr>
+		<tr>
 			<td><button th:class="${address.staffMail1 == '' ? 'hidden' : ''}" id="register1">追加</button></td>
 			<td><span th:text="${address.staffName1}"></span></td>
 			<td>
@@ -31,6 +37,7 @@
 				<input class="form" type="text" name="staffName1" th:value="${address.staffName1}" />
 				<input class="form" type="text" name="staffMail1" th:value="${address.staffMail1}" />
 			</td>
+			<td><span th:text="${address.staffNumber1}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail2 == '' ? 'hidden' : ''}" id="register2">追加</button></td>
@@ -43,6 +50,7 @@
 				<input class="form" type="text" name="staffName2" th:value="${address.staffName2}" />
 				<input class="form" type="text" name="staffMail2" th:value="${address.staffMail2}" />
 			</td>
+			<td><span th:text="${address.staffNumber2}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail3 == '' ? 'hidden' : ''}" id="register3">追加</button></td>
@@ -55,6 +63,7 @@
 				<input class="form" type="text" name="staffName3" th:value="${address.staffName3}" />
 				<input class="form" type="text" name="staffMail3" th:value="${address.staffMail3}" />
 			</td>
+			<td><span th:text="${address.staffNumber3}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail4 == '' ? 'hidden' : ''}" id="register4">追加</button></td>
@@ -67,6 +76,7 @@
 				<input class="form" type="text" name="staffName4" th:value="${address.staffName4}" />
 				<input class="form" type="text" name="staffMail4" th:value="${address.staffMail4}" />
 			</td>
+			<td><span th:text="${address.staffNumber4}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail5 == '' ? 'hidden' : ''}" id="register5">追加</button></td>
@@ -79,6 +89,7 @@
 				<input class="form" type="text" name="staffName5" th:value="${address.staffName5}" />
 				<input class="form" type="text" name="staffMail5" th:value="${address.staffMail5}" />
 			</td>
+			<td><span th:text="${address.staffNumber5}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail6 == '' ? 'hidden' : ''}" id="register6">追加</button></td>
@@ -91,6 +102,7 @@
 				<input class="form" type="text" name="staffName6" th:value="${address.staffName6}" />
 				<input class="form" type="text" name="staffMail6" th:value="${address.staffMail6}" />
 			</td>
+			<td><span th:text="${address.staffNumber6}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail7 == '' ? 'hidden' : ''}" id="register7">追加</button></td>
@@ -103,6 +115,7 @@
 				<input class="form" type="text" name="staffName7" th:value="${address.staffName7}" />
 				<input class="form" type="text" name="staffMail7" th:value="${address.staffMail7}" />
 			</td>
+			<td><span th:text="${address.staffNumber7}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail8 == '' ? 'hidden' : ''}" id="register8">追加</button></td>
@@ -115,6 +128,7 @@
 				<input class="form" type="text" name="staffName8" th:value="${address.staffName8}" />
 				<input class="form" type="text" name="staffMail8" th:value="${address.staffMail8}" />
 			</td>
+			<td><span th:text="${address.staffNumber8}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail9 == '' ? 'hidden' : ''}" id="register9">追加</button></td>
@@ -127,6 +141,7 @@
 				<input class="form" type="text" name="staffName9" th:value="${address.staffName9}" />
 				<input class="form" type="text" name="staffMail9" th:value="${address.staffMail9}" />
 			</td>
+			<td><span th:text="${address.staffNumber9}"></span></td>
 		</tr>
 		<tr>
 			<td><button th:class="${address.staffMail10 == '' ? 'hidden' : ''}" id="register10">追加</button></td>
@@ -139,6 +154,7 @@
 				<input class="form" type="text" name="staffName10" th:value="${address.staffName10}" />
 				<input class="form" type="text" name="staffMail10" th:value="${address.staffMail10}" />
 			</td>
+			<td><span th:text="${address.staffNumber10}"></span></td>
 		</tr>
 		
 	</table>
