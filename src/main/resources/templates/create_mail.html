@@ -38,9 +38,15 @@
 					<p class="title">送信先リスト</p>
 				</div>
 				<div class="select_address">
-					<p id="result"></p>
+					<table class="" th:each="select : ${select}">
+						<tr class="">
+							<td>
+								<p th:value="${select.companyName}"></p>
+							</td>
+						</tr>
+					</table>
 				</div>
-					<button id="deleteStorage">送信確認</button>
+					<button id="">送信確認</button>
 			</div>
 		</div>
 	</div>

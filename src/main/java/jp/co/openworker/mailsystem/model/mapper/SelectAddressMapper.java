@@ -14,13 +14,16 @@ import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 @Mapper
 public interface SelectAddressMapper {
 	
+	@Select("SELECT * FROM select_address WHERE user_id = #{userId} ORDER BY company_name")
+	List<SelectAddress> select(@Param("userId") int userId);
+	
 	@Insert("INSERT INTO select_address ("
 				+ "user_id, company_name, corporation,"
 				+ "staff_name, staff_mail"
 				+ ") "
 				+ "VALUES ("
-				+ "#{userId1}, #{companyName1}, #{corporation1},"
-				+ "#{staffName1}, #{staffMail1}"
+				+ "#{userId}, #{companyName}, #{corporation},"
+				+ "#{staffName}, #{staffMail}"
 				+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert1(SelectAddress address);
