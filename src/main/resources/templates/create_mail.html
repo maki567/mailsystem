@@ -82,10 +82,18 @@
 			alert(["送信先を選択してください"]);
 			return false; //連絡先選択ダイアログを表示しない
 		}else{
-			window.location.href = 'http://localhost:8080/mailsystem/mail/confirm/';
 			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
 				return;
-		} else {
+		}else {
+			$.ajax({
+				type: 'POST',
+				url: '/mailsystem/mail/delete'
+			})
+			.then((result) => {
+				isExistsHistoryList(true);	
+			}, () => {
+				alert('Error: ajax connection failed.');
+			});		
 			let jsonString = {
 				'userId': $('div#create input[name=userId]').val(),
 				'subject': $('div#create input[name=messageSubject]').val(),
@@ -108,10 +116,10 @@
 			}, () => {
 				alert('エラー');
 			});
+			window.location.href = 'http://localhost:8080/mailsystem/mail/confirm/';
 		}
 		}
 	});
-	
 	
 
 	//連絡先選択ボタンを押下した時の処理

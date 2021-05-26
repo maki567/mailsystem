@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 import jp.co.openworker.mailsystem.model.domain.SelectMail;
-import jp.co.openworker.mailsystem.model.form.SelectForm;
 import jp.co.openworker.mailsystem.model.form.SelectMailForm;
 import jp.co.openworker.mailsystem.model.mapper.SelectAddressMapper;
 import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
@@ -38,6 +37,14 @@ public class MailController {
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);
 		return "create_mail";
+	}
+	
+	@RequestMapping("/delete")
+	@ResponseBody
+	public boolean delete() {
+		int userId = loginSession.getUserId();
+		int result = selectMailMapper.delete(userId);
+		return result > 0;
 	}
 	
 	@RequestMapping("/send")
