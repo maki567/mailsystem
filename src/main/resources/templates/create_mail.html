@@ -61,6 +61,25 @@
 
 	//メール入力内容をデータベースに一時保存//
 	$('button#send').on('click', () => {
+		if( form_subject == "" & form_text == "" ){
+			alert(["件名と本文を入力してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else if( form_subject == "" & form_text != "" ){
+			//件名が入力されていない場合
+			alert(["件名を入力してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else if( form_subject != "" & form_text == "" ){
+			//本文が入力されていない場合
+			alert(["本文を入力してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else if( form_subject != "" & form_text == "" ){
+			//本文が入力されていない場合
+			alert(["本文を入力してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else{
+			//両方入力されている場合
+			return true;
+	}
 		if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
 			return;
 		} else {
@@ -97,7 +116,6 @@
 	/*件名と本文の入力判定*/
 	var form_subject = $("#subject").val();　//件名
 	var form_text = $("#text").val(); //本文
-
 
 	/*両方か片方が未入力であればアラートを表示*/
 	if( form_subject == "" & form_text == "" ){

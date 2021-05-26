@@ -14,24 +14,16 @@ html {
 	border-radius: 3px;
 }
 
-.delete {
-	margin-left: 50px;
-}
-
 input[id="search-text"] {
 	width: 400px;
 	height: 30px;
 	padding-left: 10px;
 }
 
-button[id="deleteButton"] {
-	width: 100px;
-	height: 35px;
-	background-color: orange;
-}
-
 table {
 	text-align: left;
+	width: 178px;
+	height: 50px;
 	vertical-align: middle;
 	display: inline-block;
 	background-color: #80ff80;
@@ -39,25 +31,6 @@ table {
 	margin-left: 7px;
 	border-radius: 6px;
 	position: relative;
-}
-
-td[class="check"] {
-	line-height: 50px;
-}
-
-td[class="inner"] {
-	position: absolute;
-	top: 50%;
-	-webkit-transform : translateY(-50%);
-	transform : translateY(-50%);
-}
-
-input[type="checkbox"] {
-	display: inline;
-}
-
-.target-area .hidden {
-	display: none
 }
 
 .hidden {
