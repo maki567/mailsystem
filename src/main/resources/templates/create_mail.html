@@ -39,7 +39,7 @@
 					<p class="title">送信先リスト</p>
 				</div>
 				<div class="select_address">
-					<table class="" th:each="select : ${select}">
+					<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
 						<tr class="">
 							<td>
 								<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
@@ -50,7 +50,7 @@
 						</tr>
 					</table>
 				</div>
-					<button id="send" onclick="location.href='http://localhost:8080/mailsystem/mail/confirm/'">送信確認</button>
+					<button id="send">送信確認</button>
 			</div>
 		</div>
 	</div>
@@ -61,6 +61,11 @@
 
 	//メール入力内容をデータベースに一時保存//
 	$('button#send').on('click', () => {
+	
+		var form_subject = $("#subject").val();　//件名
+		var form_text = $("#text").val(); //本文
+		var list = $("#list").val();
+		
 		if( form_subject == "" & form_text == "" ){
 			alert(["件名と本文を入力してください"]);
 			return false; //連絡先選択ダイアログを表示しない
@@ -72,16 +77,14 @@
 			//本文が入力されていない場合
 			alert(["本文を入力してください"]);
 			return false; //連絡先選択ダイアログを表示しない
-		}else if( form_subject != "" & form_text == "" ){
-			//本文が入力されていない場合
-			alert(["本文を入力してください"]);
+		}else if( list == null ){
+			//送信先が選択されていない場合
+			alert(["送信先を選択してください"]);
 			return false; //連絡先選択ダイアログを表示しない
 		}else{
-			//両方入力されている場合
-			return true;
-	}
-		if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
-			return;
+			window.location.href = 'http://localhost:8080/mailsystem/mail/confirm/';
+			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
+				return;
 		} else {
 			let jsonString = {
 				'userId': $('div#create input[name=userId]').val(),
@@ -105,6 +108,7 @@
 			}, () => {
 				alert('エラー');
 			});
+		}
 		}
 	});
 	
@@ -136,7 +140,6 @@
 	//両方入力されている場合
 		return true;
 	}
-
 	});
 
 </script>
