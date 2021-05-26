@@ -15,7 +15,7 @@ main {
 
 h1 {
 	display: inline-block;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 table {
@@ -29,6 +29,15 @@ td {
 	border: 1px solid black;
 }
 
+.staff_select{
+	font-weight: bold;
+	color: white;
+	background-color: gray;
+	padding-top: 10px;
+	width: 45px;
+	height: 30px;
+}
+
 .staff_name, .staff_mail, .staff_number {
 	font-weight: bold;
 	color: white;
@@ -39,7 +48,7 @@ td {
 }
 
 .form {
-	display: none;
+	
 }
 
 .hidden {

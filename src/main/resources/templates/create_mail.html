@@ -42,7 +42,8 @@
 					<table class="" th:each="select : ${select}">
 						<tr class="">
 							<td>
-								<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span><span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
+								<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
+									<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
 								<span th:text="${select.staffName}"></span>
 								<span th:text="${select.staffMail}"></span>
 							</td>
@@ -60,28 +61,32 @@
 
 	//メール入力内容をデータベースに一時保存//
 	$('button#send').on('click', () => {
-		let jsonString = {
-			'userId': $('div#create input[name=userId]').val(),
-			'subject': $('div#create input[name=messageSubject]').val(),
-			'text': $('div#create textarea[name=messageText]').val()
-		};
-		$.ajax({
-			type: 'POST',
-			url: '/mailsystem/mail/send',
-			data: JSON.stringify(jsonString),
-			contentType: 'application/json',
-			datatype: 'json',
-			scriptCharset: 'utf-8'
-		})
-		.then((result) => {
-			$('.info').removeClass('hidden');
-			$('#checkOK').addClass('hidden');
-			$('div#create input[name=userId]').val('');
-			$('div#create input[name=messageSubject]').val('');
-			$('div#create texterea[name=messageText]').val('');
-		}, () => {
-			alert('エラー');
-		});
+		if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
+			return;
+		} else {
+			let jsonString = {
+				'userId': $('div#create input[name=userId]').val(),
+				'subject': $('div#create input[name=messageSubject]').val(),
+				'text': $('div#create textarea[name=messageText]').val()
+			};
+			$.ajax({
+				type: 'POST',
+				url: '/mailsystem/mail/send',
+				data: JSON.stringify(jsonString),
+				contentType: 'application/json',
+				datatype: 'json',
+				scriptCharset: 'utf-8'
+			})
+			.then((result) => {
+				$('.info').removeClass('hidden');
+				$('#checkOK').addClass('hidden');
+				$('div#create input[name=userId]').val('');
+				$('div#create input[name=messageSubject]').val('');
+				$('div#create texterea[name=messageText]').val('');
+			}, () => {
+				alert('エラー');
+			});
+		}
 	});
 	
 	

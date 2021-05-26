@@ -52,11 +52,11 @@ CREATE TABLE mst_address (
 
 CREATE TABLE select_address (
  id int(11) PRIMARY KEY AUTO_INCREMENT,
- company_name VARCHAR(32),
- corporation TINYINT,
- user_id int(11),
- staff_name VARCHAR(16),
- staff_mail VARCHAR(32) UNIQUE
+ company_name VARCHAR(32) NOT NULL,
+ corporation TINYINT NOT NULL,
+ user_id int(11) NOT NULL,
+ staff_name VARCHAR(16) ,
+ staff_mail VARCHAR(32) NOT NULL UNIQUE
 );
 
 CREATE TABLE mail_history (
