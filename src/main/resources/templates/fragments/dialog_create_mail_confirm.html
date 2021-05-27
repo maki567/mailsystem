@@ -7,21 +7,10 @@
 <body>
 
 <th:block th:fragment="dialogCreateMailConfirm">
-	<div id="createMailConfirm" title="入力内容確認" class="hidden">
-		<table class="mail confirm">
-			<tr>
-				<th>件名</th>
-				<td>
-					<span class="messageSubject"></span>
-				</td>
-			</tr>
-			<tr>
-				<th>本文</th>
-				<td>
-					<span class="messageText"></span>
-				</td>
-			</tr>
-		</table>
+	<div id="createMailConfirm" title="送信内容確認" class="hidden">
+		<p>この入力内容で送信します。</p>
+		<p>送信先のアドレスに間違いはありませんか？</p>
+		<p>本当によろしいですか？</p>
 	</div>
 </th:block>
 </body>
