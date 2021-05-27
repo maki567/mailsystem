@@ -30,7 +30,7 @@ public class MailConfirmController {
 	public String index(Model m) {
 		
 		List<SelectAddress> select = selectMapper.select(loginSession.getUserId());
-		List<SelectMail> mail = selectMailMapper.select(loginSession.getUserId());
+		SelectMail mail = selectMailMapper.select(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);

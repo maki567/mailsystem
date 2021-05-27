@@ -16,11 +16,11 @@
 				<!-- メール作成エリア -->
 				<div class="message" id="create">
 					<div class="message_subject">
-						<input type="text" class="text_subject" name="messageSubject" placeholder="件名" id="subject">
+						<input type="text" class="text_subject" name="messageSubject" th:value="${mail == null ? '' : mail.subject}" placeholder="件名" id="subject">
 					</div>
 					<br>
 					<div class="message_text">
-						<textarea name="messageText" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
+						<textarea name="messageText" th:text="${mail == null ? '' : mail.text}" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
 						<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
 					</div>
 				</div>
