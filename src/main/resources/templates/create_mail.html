@@ -14,13 +14,13 @@
 		<div class="mail-item mail-left">
 			<div class="mail-left_brock">
 				<!-- メール作成エリア -->
-				<div class="message" id="create" th:each="mail : ${mail}">
+				<div class="message" id="create">
 					<div class="message_subject">
-						<input type="text" class="text_subject" name="messageSubject" th:value="${mail.subject}" placeholder="件名" id="subject">
+						<input type="text" class="text_subject" name="messageSubject" placeholder="件名" id="subject">
 					</div>
 					<br>
 					<div class="message_text">
-						<textarea name="messageText" th:text="${mail.text}" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
+						<textarea name="messageText" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
 						<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
 					</div>
 				</div>

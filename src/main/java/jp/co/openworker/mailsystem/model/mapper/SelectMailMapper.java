@@ -1,7 +1,5 @@
 package jp.co.openworker.mailsystem.model.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -18,7 +16,7 @@ public interface SelectMailMapper {
 	int delete(@Param("userId") int userId);
 	
 	@Select("SELECT * FROM create_mail WHERE user_id = #{userId}")
-	List<SelectMail> select(@Param("userId") int userId);
+	SelectMail select(@Param("userId") int userId);
 	
 	@Insert("INSERT INTO create_mail ("
 				+ "user_id, subject, text"

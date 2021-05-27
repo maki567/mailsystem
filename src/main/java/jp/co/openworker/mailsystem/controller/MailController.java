@@ -33,7 +33,7 @@ public class MailController {
 	public String index(Model m) {
 		
 		List<SelectAddress> select = selectAddressMapper.select(loginSession.getUserId());
-		List<SelectMail> mail = selectMailMapper.select(loginSession.getUserId());
+		SelectMail mail = selectMailMapper.select(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);
