@@ -4,9 +4,14 @@ main {
 	text-align: center;
 }
 
+.all_select {
+	
+}
+
 .back_mail {
 	margin-left: 600px;
 	margin-top: 10px;
+	background-color: rgb(128, 255, 128);
 }
 
 .back_company {

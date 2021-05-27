@@ -14,20 +14,20 @@
 		<div class="mail-item mail-left">
 			<div class="mail-left_brock">
 				<!-- メール作成エリア -->
-				<div class="message" id="create">
+				<div class="message" id="create" th:each="mail : ${mail}">
 					<div class="message_subject">
-						<input type="text" class="text_subject" name="messageSubject" value="" placeholder="件名" id="subject">
+						<input type="text" class="text_subject" name="messageSubject" th:value="${mail.subject}" placeholder="件名" id="subject">
 					</div>
 					<br>
 					<div class="message_text">
-						<textarea name="messageText" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
+						<textarea name="messageText" th:text="${mail.text}" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
 						<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
 					</div>
 				</div>
 				<div class="menubar">
-					<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
+					<button class="menubar_cancel" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
 					<input type="file" id="files" class="menubar_files"/>
-					<button onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
+					<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
 				</div>
 				
 			</div>
@@ -50,7 +50,8 @@
 						</tr>
 					</table>
 				</div>
-					<button id="send">送信確認</button>
+					<button class="send_confirm" id="send">送信確認</button>
+					<button class="select_release" id="release">選択解除</button>
 			</div>
 		</div>
 	</div>
@@ -58,6 +59,22 @@
 
 <!-- 件名と本文が未入力だった場合にアラートを表示 -->
 <script type="text/javascript">
+
+	//送信先リスト一括解除
+	$('button#release').on('click', () => {
+		$.ajax({
+				type: 'POST',
+				url: '/mailsystem/mail/release'
+			})
+			.then((result) => {
+			}, () => {
+				alert('Error: ajax connection failed.');
+		});
+		setTimeout(function(){
+			location.reload();
+		},500);
+
+	})
 
 	//メール入力内容をデータベースに一時保存//
 	$('button#send').on('click', () => {
@@ -90,7 +107,6 @@
 				url: '/mailsystem/mail/delete'
 			})
 			.then((result) => {
-				isExistsHistoryList(true);	
 			}, () => {
 				alert('Error: ajax connection failed.');
 			});		
@@ -119,6 +135,40 @@
 			window.location.href = 'http://localhost:8080/mailsystem/mail/confirm/';
 		}
 		}
+	});
+	
+	//送信先選択画面に遷移した際のメール内容保持
+	$('button#select_address').on('click', () => {
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/mail/delete'
+		})
+		.then((result) => {
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});		
+		let jsonString = {
+			'userId': $('div#create input[name=userId]').val(),
+			'subject': $('div#create input[name=messageSubject]').val(),
+			'text': $('div#create textarea[name=messageText]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/mail/send',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('div#create input[name=userId]').val('');
+			$('div#create input[name=messageSubject]').val('');
+			$('div#create texterea[name=messageText]').val('');
+		}, () => {
+			alert('エラー');
+		});
 	});
 	
 

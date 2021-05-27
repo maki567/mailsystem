@@ -24,7 +24,7 @@ public class MailController {
 	private LoginSession loginSession;
 	
 	@Autowired
-	SelectAddressMapper selectMapper;
+	SelectAddressMapper selectAddressMapper;
 	
 	@Autowired
 	SelectMailMapper selectMailMapper;
@@ -32,10 +32,12 @@ public class MailController {
 	@RequestMapping("/")
 	public String index(Model m) {
 		
-		List<SelectAddress> select = selectMapper.select(loginSession.getUserId());
+		List<SelectAddress> select = selectAddressMapper.select(loginSession.getUserId());
+		List<SelectMail> mail = selectMailMapper.select(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);
+		m.addAttribute("mail", mail);
 		return "create_mail";
 	}
 	
@@ -56,6 +58,15 @@ public class MailController {
 		
 		return count > 0;
 	}
+	
+	@RequestMapping("/release")
+	@ResponseBody
+	public boolean release() {
+		int userId = loginSession.getUserId();
+		int result = selectAddressMapper.release(userId);
+		return result > 0;
+	}
+	
 }
 
 //この下からメール作成　送信先選択に遷移//

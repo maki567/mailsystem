@@ -14,6 +14,9 @@ import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 @Mapper
 public interface SelectAddressMapper {
 	
+	@Delete("DELETE FROM select_address WHERE user_Id = #{userId}")
+	int release(@Param("userId") int userId);
+	
 	@Select("SELECT * FROM select_address WHERE user_id = #{userId} ORDER BY company_name")
 	List<SelectAddress> select(@Param("userId") int userId);
 	

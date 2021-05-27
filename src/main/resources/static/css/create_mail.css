@@ -37,6 +37,10 @@ html, body{
 
 /*メール作成*/
 /*入力欄*/
+.message {
+	display: inline;
+	margin-bottom: 0px;
+}
 
 /*件名フォーム*/
 input[name="messageSubject"] {
@@ -80,7 +84,6 @@ textarea[name="messageText"] {
 /*横並び*/
 .menubar {
 	position: relative;
-	
 }
 
 .menubar_attachment {
@@ -88,6 +91,25 @@ textarea[name="messageText"] {
 }
 
 .menubar_cancel {
+	display: inline;
+}
+
+.select_page {
+	display: inline;
+}
+
+.send_confirm {
+	display: inline;
+	color: white;
+	background-color: #0080ff;
+}
+
+.select_release {
+	background-color: #ea4515;
+	color: #ffffff;
+}
+
+.select_release {
 	display: inline;
 }
 
@@ -162,26 +184,6 @@ textarea[name="messageText"] {
 	overflow: scroll;
 }
 
-/*送信先選択ダイアログ*/
-.form {
-	text-align: center;
-	margin-top: 30px;
-}
-
-.kensaku {
-	border-radius: 3px;
-}
-
-input[id="search-text"] {
-	width: 400px;
-	height: 30px;
-	padding-left: 10px;
-}
-
-.company {
-	color: red;
-}
-
 table {
 	width: 560px;
 	text-align: left;
@@ -191,10 +193,6 @@ table {
 	margin-left: 7px;
 	border-radius: 6px;
 	position: relative;
-}
-
-.target-area .hidden {
-	display: none
 }
 
 .hidden {
