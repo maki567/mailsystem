@@ -57,6 +57,9 @@
 	</div>
 </main>
 
+<!-- Modal Dialog (メール送信確認) -->
+<div th:insert="fragments/dialog_create_mail_confirm::dialogCreateMailConfirm"></div>
+
 <!-- 件名と本文が未入力だった場合にアラートを表示 -->
 <script type="text/javascript">
 
@@ -75,8 +78,12 @@
 		},500);
 
 	})
+	
 
-	//メール入力内容をデータベースに一時保存//
+	// jQuery-UIダイアログの初期設定
+	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
+
+	//メール送信確認ダイアログ表示
 	$('button#send').on('click', () => {
 	
 		var form_subject = $("#subject").val();　//件名
@@ -102,37 +109,7 @@
 			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
 				return;
 		}else {
-			$.ajax({
-				type: 'POST',
-				url: '/mailsystem/mail/delete'
-			})
-			.then((result) => {
-			}, () => {
-				alert('Error: ajax connection failed.');
-			});		
-			let jsonString = {
-				'userId': $('div#create input[name=userId]').val(),
-				'subject': $('div#create input[name=messageSubject]').val(),
-				'text': $('div#create textarea[name=messageText]').val()
-			};
-			$.ajax({
-				type: 'POST',
-				url: '/mailsystem/mail/send',
-				data: JSON.stringify(jsonString),
-				contentType: 'application/json',
-				datatype: 'json',
-				scriptCharset: 'utf-8'
-			})
-			.then((result) => {
-				$('.info').removeClass('hidden');
-				$('#checkOK').addClass('hidden');
-				$('div#create input[name=userId]').val('');
-				$('div#create input[name=messageSubject]').val('');
-				$('div#create texterea[name=messageText]').val('');
-			}, () => {
-				alert('エラー');
-			});
-			window.location.href = 'http://localhost:8080/mailsystem/mail/confirm/';
+			$("#createMailConfirm").dialog("open");
 		}
 		}
 	});

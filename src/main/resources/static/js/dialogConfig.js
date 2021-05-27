@@ -489,7 +489,7 @@ const dialogConfig = {
 			},
 		]
 	},
-	createMailConfilm: {
+	createMailConfirm: {
 		autoOpen: false,
 		width: 550,
 		modal: true,
