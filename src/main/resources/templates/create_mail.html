@@ -25,9 +25,8 @@
 					</div>
 				</div>
 				<div class="menubar">
-					<button class="menubar_cancel" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
 					<input type="file" id="files" class="menubar_files"/>
-					<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
+					<button class="back_home" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
 				</div>
 				
 			</div>
@@ -36,7 +35,7 @@
 			<div class="mail-right_brock">
 				<!-- 送信先表示エリア -->
 				<div class="select_bar">
-					<p class="title">送信先リスト</p>
+					<p class="title">送信先リスト<button class="select_release" id="release">選択解除</button></p>
 				</div>
 				<div class="select_address">
 					<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
@@ -50,8 +49,8 @@
 						</tr>
 					</table>
 				</div>
+					<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
 					<button class="send_confirm" id="send">送信確認</button>
-					<button class="select_release" id="release">選択解除</button>
 			</div>
 		</div>
 	</div>
@@ -66,6 +65,36 @@
 	//送信先リスト一括解除
 	$('button#release').on('click', () => {
 		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/mail/delete'
+		})
+		.then((result) => {
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});		
+		let jsonString = {
+			'userId': $('div#create input[name=userId]').val(),
+			'subject': $('div#create input[name=messageSubject]').val(),
+			'text': $('div#create textarea[name=messageText]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/mail/send',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('.info').removeClass('hidden');
+			$('#checkOK').addClass('hidden');
+			$('div#create input[name=userId]').val('');
+			$('div#create input[name=messageSubject]').val('');
+			$('div#create texterea[name=messageText]').val('');
+		}, () => {
+			alert('エラー');
+		});
+		$.ajax({
 				type: 'POST',
 				url: '/mailsystem/mail/release'
 			})
@@ -75,7 +104,7 @@
 		});
 		setTimeout(function(){
 			location.reload();
-		},500);
+		},200);
 
 	})
 	

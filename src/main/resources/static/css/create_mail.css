@@ -90,21 +90,6 @@ textarea[name="messageText"] {
 	display: inline;
 }
 
-.send_confirm {
-	display: inline;
-	color: white;
-	background-color: #0080ff;
-}
-
-.select_release {
-	background-color: #ea4515;
-	color: #ffffff;
-}
-
-.select_release {
-	display: inline;
-}
-
 .menubar_llnextscreen {
 	display: inline;
 }
@@ -120,31 +105,40 @@ textarea[name="messageText"] {
 /*ボタン*/
 /*添付ファイルボタン*/
 .menubar_files {
-	margin-right: 5px;
+	margin-left: 110px;
 }
 
-/*キャンセルボタン*/
-.menubar_cancel {
-	width: 100px;
-	height: 30px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #808080;
-	margin-right: 40px;
-	margin-left: 90px;
+.back_home {
+	display: inline;
+	margin-top: 5px;
+	margin-left: 100px;
 }
 
-/*連絡先選択ボタン*/
-.menubar_address-select {
+.select_page {
+	display: inline;
 	width: 100px;
 	height: 30px;
-	background-color: #1e90ff;
+	margin-top: 20px;
+	margin-left: 50px;
+	color: white;
+	background-color: #ff8080;
+}
+
+.send_confirm {
+	display: inline;
+	width: 100px;
+	height: 30px;
+	margin-left: 50px;
+	color: white;
+	background-color: #0080ff;
+}
+
+.select_release {
+	display: inline;
+	margin-left: 120px;
+	background-color: #ea4515;
 	color: #ffffff;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #808080;
 }
-
 
 /*送信先リスト*/
 /*送信先ヘッダー*/
@@ -161,6 +155,7 @@ textarea[name="messageText"] {
 
 /*バータイトル*/
 .title {
+	margin-left: 200px;
 	color: #ffffff;
 	position: senter;
 	text-align: center;
