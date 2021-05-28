@@ -141,9 +141,7 @@ const dialogConfig = {
 			},
 		]
 	},
-		
-	
-		electronicSignature: {
+	electronicSignature: {
 		autoOpen: false,
 		width: 750,
 		modal: true,
@@ -176,8 +174,6 @@ const dialogConfig = {
 			},
 		]
 	},
-	
-	
 	inputDestinationError: {
 		autoOpen: false,
 		width: 650,
@@ -495,7 +491,52 @@ const dialogConfig = {
 		modal: true,
 		buttons: [
 			{
-				text: 'OK',
+				text: '送信',
+				click: function() {
+					let jsonString = {
+						'userId': $('div#create input[name=userId]').val(),
+						'subject': $('div#create input[name=messageSubject]').val(),
+						'to_staff': $('div#create textarea[name=messageText]').val()
+					};
+					$.ajax({
+						type: 'POST',
+						url: '/mailsystem/mail/send',
+						data: JSON.stringify(jsonString),
+						contentType: 'application/json',
+						datatype: 'json',
+						scriptCharset: 'utf-8'
+					})
+					.then((result) => {
+						$('.info').removeClass('hidden');
+						$('#checkOK').addClass('hidden');
+						$('div#create input[name=userId]').val('');
+						$('div#create input[name=messageSubject]').val('');
+						$('div#create texterea[name=messageText]').val('');
+					}, () => {
+						alert('エラー');
+					});
+					$.ajax({
+						type: 'POST',
+						url: '/mailsystem/mail/delete'
+					})
+					.then((result) => {
+					}, () => {
+						alert('Error: ajax connection failed.');
+					});		
+					$.ajax({
+						type: 'POST',
+						url: '/mailsystem/mail/release'
+					})
+					.then((result) => {
+					}, () => {
+						alert('Error: ajax connection failed.');
+					});
+					$(this).dialog('close');
+					location.reload();
+				}
+			},
+			{
+				text: 'キャンセル',
 				click: function() {
 					$(this).dialog('close');
 				}

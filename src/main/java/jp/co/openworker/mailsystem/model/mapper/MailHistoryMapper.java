@@ -24,8 +24,6 @@ public interface MailHistoryMapper {
 					+ "VALUES ("
 					+ "#{subject}, #{to_staff}, #{to_company}, #{day_time}"
 					+ ")")
-	
-	
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MailHistory mail);
 	

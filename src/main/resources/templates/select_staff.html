@@ -15,6 +15,7 @@
 
 	<button class="back_mail" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
 	<button class="back_company" onclick="location.href='http://localhost:8080/mailsystem/select/'">会社一覧へ戻る</button>
+	<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/test/'">test</button>
 	<br />
 	<h1><span th:class="${address.corporation == 1 ? 'hidden' : ''}">株式会社 </span><span class="company_name" th:text="${address.companyName}"></span>
 		<span th:class="${address.corporation == 0 ? 'hidden' : ''}">株式会社</span></h1>

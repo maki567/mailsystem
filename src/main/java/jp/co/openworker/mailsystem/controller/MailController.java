@@ -49,7 +49,7 @@ public class MailController {
 		return result > 0;
 	}
 	
-	@RequestMapping("/send")
+	@RequestMapping("/send_confirm")
 	@ResponseBody
 	public boolean send(@RequestBody SelectMailForm f) {
 		SelectMail mail = new SelectMail(f);

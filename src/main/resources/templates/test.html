@@ -4,56 +4,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>メール作成画面</title>
-	<link href="/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
+	<link href="/css/create_mail.css" th:href="@{/css/create_mail.css}" rel="stylesheet" />
 </head>
 
 <body>
 
-<header th:insert="fragments/page_header::commonHeader"></header>
-
 <main>
-	<div class="message" id="create">
-		<input type="text" name="messageSubject" value="" placeholder="件名" id="subject">
-		<br>
-		<textarea name="messageText" placeholder="本文" id="text" rows="4" cols="40"></textarea>
-	</div>
+
+<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
 	
-	
-	<div class="menubar">
-		<input type="file" id="files" class="menubar_files"/>
-		<button onclick="location.href='http://localhost:8080/mailsystem/home/'" class="menubar_cancel">キャンセル</button>
-		<button id="selectButton" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
-		<button id="deleteButton">ストレージ削除</button>
-	</div>
-	
-	<p id="result"></p>
-	
-<!-- Modal Dialog (送信先選択) -->
-<div th:insert="fragments/dialog_Select_Address::dialogSelectAddress"></div>
+	<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
+						<tr class="">
+							<td>
+								<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
+									<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
+								<span th:text="${select.staffName}"></span>
+								<span th:text="${select.staffMail}"></span>
+							</td>
+						</tr>
+					</table>
+	<button class="send_confirm" id="send_confirm">送信確認</button>
 	
 </main>
 
 <script type="text/javascript">
 
-	//jQuery-UIダイアログの初期設定
-	$('#selectAddress').dialog(dialogConfig.selectAddress);
+	
+		var list_length = select.length;
+		document.write("list_length");
+	
 
-	//送信先選択機能
-	$('#selectButton').on('click', () => {
-		$("#selectAddress").dialog("open");
-	});
-	
-	$(function() {
-		let data = sessionStorage.getItem('staff');
-		sprit = data.split(",");
-		$("#result").text(sprit);
-	})
-	
-	$('#deleteButton').on('click', () => {
-	sessionStorage.removeItem('staff');
-	location.reload(true);
-	})
-	
 </script>
 </body>
 

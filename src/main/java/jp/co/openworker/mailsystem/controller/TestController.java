@@ -8,7 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.openworker.mailsystem.model.domain.MstAddress;
+import jp.co.openworker.mailsystem.model.domain.SelectAddress;
+import jp.co.openworker.mailsystem.model.domain.SelectMail;
 import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
+import jp.co.openworker.mailsystem.model.mapper.SelectAddressMapper;
+import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
@@ -19,15 +23,20 @@ public class TestController {
 	private LoginSession loginSession;
 	
 	@Autowired
-	MstAddressMapper addressMapper;
+	SelectAddressMapper selectAddressMapper;
+	
+	@Autowired
+	SelectMailMapper selectMailMapper;
 	
 	@RequestMapping("/")
 	public String index(Model m) {
 		
-		List<MstAddress> address = addressMapper.select(loginSession.getUserId());
+		List<SelectAddress> select = selectAddressMapper.select(loginSession.getUserId());
+		SelectMail mail = selectMailMapper.select(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
-		m.addAttribute("address", address);
+		m.addAttribute("select", select);
+		m.addAttribute("mail", mail);
 		return "test";
 	}
 }

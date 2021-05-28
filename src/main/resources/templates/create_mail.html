@@ -50,7 +50,7 @@
 					</table>
 				</div>
 					<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
-					<button class="send_confirm" id="send">送信確認</button>
+					<button class="send_confirm" id="send_confirm">送信確認</button>
 			</div>
 		</div>
 	</div>
@@ -61,6 +61,41 @@
 
 <!-- 件名と本文が未入力だった場合にアラートを表示 -->
 <script type="text/javascript">
+
+	// jQuery-UIダイアログの初期設定
+	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
+	
+	//メール送信確認ダイアログ表示
+	$('button#send_confirm').on('click', () => {
+		var form_subject = $("#subject").val();　//件名
+		var form_text = $("#text").val(); //本文
+		var list = $("#list").val();
+		var list_length = select.length;
+		
+		if( form_subject == "" & form_text == "" ){
+			alert(["件名と本文を入力してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else if( form_subject == "" & form_text != "" ){
+			//件名が入力されていない場合
+			alert(["件名を入力してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else if( form_subject != "" & form_text == "" ){
+			//本文が入力されていない場合
+			alert(["本文を入力してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else if( list == null ){
+			//送信先が選択されていない場合
+			alert(["送信先を選択してください"]);
+			return false; //連絡先選択ダイアログを表示しない
+		}else{
+			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
+				return;
+		}else {
+			$("#createMailConfirm").dialog("open");
+		}
+		}
+	});
+	
 
 	//送信先リスト一括解除
 	$('button#release').on('click', () => {
@@ -79,7 +114,7 @@
 		};
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/mail/send',
+			url: '/mailsystem/mail/send_confirm',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',
@@ -108,40 +143,6 @@
 
 	})
 	
-
-	// jQuery-UIダイアログの初期設定
-	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
-
-	//メール送信確認ダイアログ表示
-	$('button#send').on('click', () => {
-	
-		var form_subject = $("#subject").val();　//件名
-		var form_text = $("#text").val(); //本文
-		var list = $("#list").val();
-		
-		if( form_subject == "" & form_text == "" ){
-			alert(["件名と本文を入力してください"]);
-			return false; //連絡先選択ダイアログを表示しない
-		}else if( form_subject == "" & form_text != "" ){
-			//件名が入力されていない場合
-			alert(["件名を入力してください"]);
-			return false; //連絡先選択ダイアログを表示しない
-		}else if( form_subject != "" & form_text == "" ){
-			//本文が入力されていない場合
-			alert(["本文を入力してください"]);
-			return false; //連絡先選択ダイアログを表示しない
-		}else if( list == null ){
-			//送信先が選択されていない場合
-			alert(["送信先を選択してください"]);
-			return false; //連絡先選択ダイアログを表示しない
-		}else{
-			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
-				return;
-		}else {
-			$("#createMailConfirm").dialog("open");
-		}
-		}
-	});
 	
 	//送信先選択画面に遷移した際のメール内容保持
 	$('button#select_address').on('click', () => {
