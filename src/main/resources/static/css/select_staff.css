@@ -4,28 +4,30 @@ main {
 	text-align: center;
 }
 
-.all_select {
-	
-}
-
 .back_mail {
-	margin-left: 600px;
+	height: 30px;
+	margin-left: 650px;
 	margin-top: 10px;
-	background-color: rgb(128, 255, 128);
+	font-weight: bold;
+	background-color: #ff8080;
 }
 
 .back_company {
+	height: 30px;
 	margin-left: 30px;
+	font-weight: bold;
+	background-color: rgb(128, 255, 128);
 }
 
 h1 {
 	display: inline-block;
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 table {
 	display: inline-block;
-	margin-right: 45px;
+	margin-right: 110px;
 	border: 1px solid black;
 }
 
@@ -34,7 +36,30 @@ td {
 	border: 1px solid black;
 }
 
-.staff_select{
+.check {
+	font-weight: bold;
+	color: white;
+	background-color: gray;
+	padding-top: 10px;
+	width: 45px;
+	height: 30px;
+}
+
+.all_select {
+	background-color: gray;
+}
+
+button[id="all_select"] {
+	width: 60px;
+	height: 30px;
+}
+
+button[id="register1"], [id="register2"], [id="register3"], [id="register4"], [id="register5"], [id="register6"], [id="register7"], [id="register8"], [id="register9"], [id="register10"] {
+	width: 55px;
+	height: 25px;
+}
+
+.staff_select {
 	font-weight: bold;
 	color: white;
 	background-color: gray;

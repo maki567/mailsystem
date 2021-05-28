@@ -7,7 +7,7 @@ html {
 .form {
 	text-align: center;
 	margin-top: 30px;
-	margin-left: 80px;
+	margin-left: 160px;
 }
 
 .kensaku {
@@ -20,9 +20,11 @@ input[id="search-text"] {
 	padding-left: 10px;
 }
 
-.back {
-	width: 70px;
+.back_mail {
 	height: 30px;
+	margin-left: 30px;
+	font-weight: bold;
+	background-color: #ff8080;
 }
 
 table {
