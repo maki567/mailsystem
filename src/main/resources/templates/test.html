@@ -13,26 +13,26 @@
 
 <button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
 	
-	<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
+	<table class="" id="list" th:each="select : ${select}" th:value=select >
 						<tr class="">
 							<td>
-								<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
-									<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
-								<span th:text="${select.staffName}"></span>
-								<span th:text="${select.staffMail}"></span>
 							</td>
 						</tr>
 					</table>
-	<button class="send_confirm" id="send_confirm">送信確認</button>
+	
+	<div class="test">				
+		<button class="send_confirm" id="send_confirm">送信確認</button>
+	</div>
 	
 </main>
 
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
 
-	
-		var list_length = select.length;
-		document.write("list_length");
-	
+	let test = "1";
+
+	/*[# th:each="select : ${select}"]*/
+	 	document.write(test.val(/*[[${select.staffName}]]*/));
+	/*[/]*/
 
 </script>
 </body>

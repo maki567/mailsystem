@@ -9,20 +9,20 @@ import jp.co.openworker.mailsystem.model.form.MailForm;
 public class MailHistory {
 
 	private int id;
+	private int userId;
 	private String subject;
 	private String toStaff;
 	private String toCompany;
-	private String dayTime;
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
 
 	public MailHistory() {}
 
 	public MailHistory(MailForm f) {
+		userId = f.getUserId();
 		subject = f.getSubject();
 		toStaff = f.getToStaff();
 		toCompany = f.getToCompany();
-		dayTime = f.getDayTime();
 	}
 
 	public int getId() {
@@ -30,6 +30,12 @@ public class MailHistory {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getSubject() {
 		return subject;
@@ -48,12 +54,6 @@ public class MailHistory {
 	}
 	public void setToCompany(String toCompany) {
 		this.toCompany = toCompany;
-	}
-	public String getDayTime() {
-		return dayTime;
-	}
-	public void setDayTime(String dayTime) {
-		this.dayTime = dayTime;
 	}
 	public Timestamp getCreatedAt() {
 		return createdAt;

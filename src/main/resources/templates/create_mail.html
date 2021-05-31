@@ -26,7 +26,7 @@
 				</div>
 				<div class="menubar">
 					<input type="file" id="files" class="menubar_files"/>
-					<button class="back_home" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
+					<button class="back_home" id="back_home" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
 				</div>
 				
 			</div>
@@ -60,7 +60,7 @@
 <div th:insert="fragments/dialog_create_mail_confirm::dialogCreateMailConfirm"></div>
 
 <!-- 件名と本文が未入力だった場合にアラートを表示 -->
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
 
 	// jQuery-UIダイアログの初期設定
 	$('#createMailConfirm').dialog(dialogConfig.createMailConfirm);
@@ -70,7 +70,6 @@
 		var form_subject = $("#subject").val();　//件名
 		var form_text = $("#text").val(); //本文
 		var list = $("#list").val();
-		var list_length = select.length;
 		
 		if( form_subject == "" & form_text == "" ){
 			alert(["件名と本文を入力してください"]);
@@ -114,7 +113,7 @@
 		};
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/mail/send_confirm',
+			url: '/mailsystem/mail/retention',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',
@@ -127,7 +126,7 @@
 			$('div#create input[name=messageSubject]').val('');
 			$('div#create texterea[name=messageText]').val('');
 		}, () => {
-			alert('エラー');
+			alert('Error: ajax connection failed.');
 		});
 		$.ajax({
 				type: 'POST',
@@ -161,7 +160,7 @@
 		};
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/mail/send',
+			url: '/mailsystem/mail/retention',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',
@@ -174,9 +173,22 @@
 			$('div#create input[name=messageSubject]').val('');
 			$('div#create texterea[name=messageText]').val('');
 		}, () => {
-			alert('エラー');
+			alert('Error: ajax connection failed.');
 		});
 	});
+	
+	
+	//ホームへ戻るボタンを押下した際メール内容を削除する
+	$('button#back_home').on('click', () => {
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/mail/delete'
+		})
+		.then((result) => {
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});
+	})	
 	
 
 	//連絡先選択ボタンを押下した時の処理

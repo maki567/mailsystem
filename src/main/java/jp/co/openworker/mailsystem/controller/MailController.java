@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import jp.co.openworker.mailsystem.model.domain.MailHistory;
 import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 import jp.co.openworker.mailsystem.model.domain.SelectMail;
+import jp.co.openworker.mailsystem.model.form.MailForm;
 import jp.co.openworker.mailsystem.model.form.SelectMailForm;
+import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
 import jp.co.openworker.mailsystem.model.mapper.SelectAddressMapper;
 import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
@@ -28,6 +31,9 @@ public class MailController {
 	
 	@Autowired
 	SelectMailMapper selectMailMapper;
+	
+	@Autowired
+	MailHistoryMapper mailHistoryMapper;
 	
 	@RequestMapping("/")
 	public String index(Model m) {
@@ -49,7 +55,7 @@ public class MailController {
 		return result > 0;
 	}
 	
-	@RequestMapping("/send_confirm")
+	@RequestMapping("/retention")
 	@ResponseBody
 	public boolean send(@RequestBody SelectMailForm f) {
 		SelectMail mail = new SelectMail(f);
@@ -67,13 +73,14 @@ public class MailController {
 		return result > 0;
 	}
 	
+	@RequestMapping("/record")
+	@ResponseBody
+	public boolean record(@RequestBody MailForm f) {
+		MailHistory history = new MailHistory(f);
+		
+		int count = mailHistoryMapper.insert(history);
+		
+		return count > 0;
+	}
 }
-
-//この下からメール作成　送信先選択に遷移//
-
-
-
-
-
-
 

@@ -5,11 +5,17 @@ import java.io.Serializable;
 public class MailForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	private int userId;
 	private String subject;
 	private String toStaff;
 	private String toCompany;
-	private String dayTime;
 	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public String getSubject() {
 		return subject;
 	}
@@ -27,11 +33,5 @@ public class MailForm implements Serializable {
 	}
 	public void setToCompany(String toCompany) {
 		this.toCompany = toCompany;
-	}
-	public String getDayTime() {
-		return dayTime;
-	}
-	public void setDayTime(String dayTime) {
-		this.dayTime = dayTime;
 	}
 }

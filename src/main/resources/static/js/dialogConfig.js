@@ -493,44 +493,31 @@ const dialogConfig = {
 			{
 				text: '送信',
 				click: function() {
+					/*[# th:each="select : ${select}"]*/
 					let jsonString = {
-						'userId': $('div#create input[name=userId]').val(),
-						'subject': $('div#create input[name=messageSubject]').val(),
-						'to_staff': $('div#create textarea[name=messageText]').val()
+						'userId': $(/*[[${loginSession.userId}]]*/).val(),
+						'subject': $(/*[[${mail.subject}]]*/).val(),
+						'toCompany': $(/*[[${select.companyName}]]*/).val(),
+						'toStaff': $(/*[[${select.staffName}]]*/).val()
 					};
 					$.ajax({
 						type: 'POST',
-						url: '/mailsystem/mail/send',
+						url: '/mailsystem/mail/record',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						datatype: 'json',
 						scriptCharset: 'utf-8'
 					})
 					.then((result) => {
-						$('.info').removeClass('hidden');
-						$('#checkOK').addClass('hidden');
-						$('div#create input[name=userId]').val('');
-						$('div#create input[name=messageSubject]').val('');
-						$('div#create texterea[name=messageText]').val('');
+						$(/*[[${loginSession.userId}]]*/).val('');
+						$(/*[[${mail.subject}]]*/).val('');
+						$(/*[[${select.companyName}]]*/).val('');
+						$(/*[[${select.staffName}]]*/).val('');
 					}, () => {
 						alert('エラー');
 					});
-					$.ajax({
-						type: 'POST',
-						url: '/mailsystem/mail/delete'
-					})
-					.then((result) => {
-					}, () => {
-						alert('Error: ajax connection failed.');
-					});		
-					$.ajax({
-						type: 'POST',
-						url: '/mailsystem/mail/release'
-					})
-					.then((result) => {
-					}, () => {
-						alert('Error: ajax connection failed.');
-					});
+					/*[/]*/
+					
 					$(this).dialog('close');
 					location.reload();
 				}

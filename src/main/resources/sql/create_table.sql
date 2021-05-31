@@ -65,7 +65,6 @@ CREATE TABLE mail_history (
  subject VARCHAR(255), 
  to_staff VARCHAR(16),
  to_company VARCHAR(32), 
- day_time VARCHAR(32),
  created_at TIMESTAMP NOT NULL DEFAULT current_timestamp(),
  updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 );

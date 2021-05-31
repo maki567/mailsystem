@@ -5,11 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import jp.co.openworker.mailsystem.model.domain.MailHistory;
 import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 import jp.co.openworker.mailsystem.model.domain.SelectMail;
+import jp.co.openworker.mailsystem.model.form.MailForm;
+import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
 import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
 import jp.co.openworker.mailsystem.model.mapper.SelectAddressMapper;
 import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
@@ -28,6 +33,9 @@ public class TestController {
 	@Autowired
 	SelectMailMapper selectMailMapper;
 	
+	@Autowired
+	MailHistoryMapper mailHistoryMapper;
+	
 	@RequestMapping("/")
 	public String index(Model m) {
 		
@@ -38,5 +46,15 @@ public class TestController {
 		m.addAttribute("select", select);
 		m.addAttribute("mail", mail);
 		return "test";
+	}
+	
+	@RequestMapping("/record")
+	@ResponseBody
+	public boolean record(@RequestBody MailForm f) {
+		MailHistory history = new MailHistory(f);
+		
+		int count = mailHistoryMapper.insert(history);
+		
+		return count > 0;
 	}
 }

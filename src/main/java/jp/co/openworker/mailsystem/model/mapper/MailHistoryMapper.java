@@ -19,10 +19,10 @@ import jp.co.openworker.mailsystem.model.domain.MailHistory;
 public interface MailHistoryMapper {
 	
 	@Insert("INSERT INTO mail_history ("
-					+ "subject, to_staff, to_company, day_time"					
+					+ "user_id, subject, to_staff, to_company"					
 					+ ") "
 					+ "VALUES ("
-					+ "#{subject}, #{to_staff}, #{to_company}, #{day_time}"
+					+ "#{userId}, #{subject}, #{toStaff}, #{toCompany}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MailHistory mail);
