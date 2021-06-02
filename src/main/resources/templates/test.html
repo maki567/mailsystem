@@ -45,8 +45,10 @@
 
     async function sendEmail() {
     
-    for(var i = 0; i < 3; i++) {
-    	let address = "okawa.test123@gmail.com";
+    let addresslist = ['okawa.test123@gmail.com', 'yamadatest567@gmail.com'];
+    
+    for(var i = 0; i < addresslist.length; i++) {
+    	let address = addresslist[i];
     	let kenmei = i;
     	let text = i;
     
