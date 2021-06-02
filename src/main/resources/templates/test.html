@@ -44,11 +44,16 @@
     }
 
     async function sendEmail() {
+    
+    	let test = "aaa";
+    	let text = "bbb";
+    	let address = "okawa.test123@gmail.com";
+    
       try {
         // 送りたいメールアドレスに書き換えてください。
-        const to = 'yamadatest567@gmail.com';
-        const subject = 'テスト';
-        const body = 'これはテストです。';
+        const to = address;
+        const subject = test;
+        const body = text;
 
         // サインイン済みかチェック。
         if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
