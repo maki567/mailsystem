@@ -1,40 +1,86 @@
-<!doctype HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8"> 
+</head><body>
+  <button onclick="signIn()">Sign in</button>
+  <button onclick="sendEmail()">Send email</button>
+  <button onclick="signOut()">Sign out</button>
 
-<head>
-	<meta charset="UTF-8">
-	<title>メール作成画面</title>
-	<link href="/css/create_mail.css" th:href="@{/css/create_mail.css}" rel="stylesheet" />
-</head>
+  <script>
+    // Step 1で取得したOAuthクライアントIDをここに書く。
+    const CLIENT_ID = '45580690216-2u6fkqb55marfnh3dsvb329qi0rvi8sb.apps.googleusercontent.com';
 
-<body>
+    async function onLoad() {
+      try {
+        // Google APIs Client Libraryの初期化。
+        await gapi.load('client:auth2');
+        await gapi.client.init({
+            clientId: CLIENT_ID,
+            scope: 'https://www.googleapis.com/auth/gmail.send'
+        });
+        await gapi.client.load('gmail', 'v1');
+        console.log('Initialized');
+      } catch (e) {
+        console.error(e);
+      }
+    }
 
-<main>
+    async function signIn() {
+      try {
+        await gapi.auth2.getAuthInstance().signIn();
+        console.log('Signed in');
+      } catch (e) {
+        console.error(e);
+      }
+    }
 
-<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
-	
-	<table class="" id="list" th:each="select : ${select}" th:value=select >
-						<tr class="">
-							<td>
-							</td>
-						</tr>
-					</table>
-	
-	<div class="test">				
-		<button class="send_confirm" id="send_confirm">送信確認</button>
-	</div>
-	
-</main>
+    async function signOut() {
+      try {
+        await gapi.auth2.getAuthInstance().signOut();
+        console.log('Signed out');
+      } catch (e) {
+        console.error(e);
+      }
+    }
 
-<script type="text/javascript" th:inline="javascript">
+    async function sendEmail() {
+      try {
+        // 送りたいメールアドレスに書き換えてください。
+        const to = 'yamadatest567@gmail.com';
+        const subject = 'テスト';
+        const body = 'これはテストです。';
 
-	let test = "1";
+        // サインイン済みかチェック。
+        if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
+          console.error('Sign in first');
+          return;
+        }
 
-	/*[# th:each="select : ${select}"]*/
-	 	document.write(test.val(/*[[${select.staffName}]]*/));
-	/*[/]*/
+        // メールデータの作成。
+        const mimeData = [
+          `To: ${to}`,
+          'Subject: =?utf-8?B?' + btoa(unescape(encodeURIComponent(subject))) + '?=',
+          'MIME-Version: 1.0',
+          'Content-Type: text/plain; charset=UTF-8',
+          'Content-Transfer-Encoding: 7bit',
+          '',
+          body,
+        ].join('\n').trim();
+        const raw = btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
 
-</script>
-</body>
+        // メールの送信。
+        await gapi.client.gmail.users.messages.send({
+          'userId': 'me',
+          'resource': {raw: raw},
+        });
+        console.log('Sent email');
 
-</html>
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  </script>
+
+  <!-- Google APIs Client Libraryの読み込み。読み込み後にonloadに指定した関数が呼ばれる。 -->
+  <script src="https://apis.google.com/js/client.js?onload=onLoad"></script>
+</body></html>
