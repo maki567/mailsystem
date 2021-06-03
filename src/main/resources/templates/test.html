@@ -47,16 +47,13 @@
 	}
 
 	async function sendEmail() {
-    
-		let address = 'okawa.test123@gmail.com';
-		let kenmei = /*[[${mail.subject}]]*/ 'subject';
-		let text = /*[[${mail.text}]]*/ 'text';
-    
+
+	/*[# th:each = "select : ${select}"]*/
 		try {
 			// 送りたいメールアドレスに書き換えてください。
-			const to = address;
-			const subject = kenmei;
-			const body = text;
+			var to = /*[[${select.staffMail}]]*/ 'address';
+			var subject = /*[[${mail.subject}]]*/ 'subject';
+			var body = /*[[${mail.text}]]*/ 'text';
 
 			// サインイン済みかチェック。
 			if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
@@ -82,10 +79,11 @@
 				'resource': {raw: raw},
 			});
 				console.log('Sent email');
-
+				
 			} catch (e) {
 				console.error(e);
 			}
+	/*[/]*/
 	}
 
 /*]]>*/
