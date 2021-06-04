@@ -20,10 +20,10 @@ import jp.co.openworker.mailsystem.model.form.UserForm;
 public interface MstUserMapper {
 	
 	@Insert("INSERT INTO mst_user ("
-					+ "user_name, password, signature"
+					+ "user_name, client_id, password, signature"
 					+ ") "
 					+ "VALUES ("
-					+ "#{userName}, #{password}, #{signature}"
+					+ "#{userName}, #{clientId}, #{password}, #{signature}"
 					+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(MstUser user);

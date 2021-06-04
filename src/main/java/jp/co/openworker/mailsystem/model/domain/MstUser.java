@@ -8,6 +8,7 @@ public class MstUser {
 
 	private int id;
 	private String userName;
+	private String clientId;
 	private String password;
 	private String signature;
 	private Timestamp createdAt;
@@ -18,6 +19,7 @@ public class MstUser {
 	public MstUser(UserForm f) {
 		id = f.getId();
 		userName = f.getUserName();
+		clientId = f.getClientId();
 		password = f.getPassword();
 		signature = f.getSignature();
 	}
@@ -33,6 +35,12 @@ public class MstUser {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	public String getClientId() {
+		return clientId;
+	}
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
 	}
 	public String getPassword() {
 		return password;

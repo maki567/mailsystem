@@ -7,6 +7,7 @@ public class UserForm implements Serializable {
 	
 	private int id;
 	private String userName;
+	private String clientId;
 	private String password;
 	private String newPassword;
 	private String newPasswordConfirm;
@@ -25,6 +26,14 @@ public class UserForm implements Serializable {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	public String getClientId() {
+		return clientId;
+	}
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
+	}
+	
 	public String getPassword() {
 		return password;
 	}

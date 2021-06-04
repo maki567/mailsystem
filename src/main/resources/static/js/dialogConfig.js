@@ -51,6 +51,7 @@ const dialogConfig = {
 				click: function() {
 					let jsonString = {
 						'userName': $('table#register input[name=userName]').val(),
+						'clientId': $('table#register input[name=clientId]').val(),
 						'password': $('table#register input[name=password]').val(),
 						'signature': $('table#register input[name=signature]').val()
 					};
@@ -66,6 +67,7 @@ const dialogConfig = {
 						$('.info').removeClass('hidden');
 						$('#checkOK').addClass('hidden');
 						$('table#register input[name=userName]').val('');
+						$('table#register input[name=clientId]').val('');
 						$('table#register input[name=password]').val('');
 						$('table#register input[name=signature]').val('');
 					}, () => {

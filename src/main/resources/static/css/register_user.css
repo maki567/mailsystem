@@ -29,6 +29,13 @@ main {
 	font-size: 15px;
 }
 
+.clientId {
+	padding-top: 20px;
+	margin-right: 180px;
+	font-weight: bold;
+	font-size: 15px;
+}
+
 .koumokuPass {
 	padding-top: 20px;
 	margin-right: 215px;
