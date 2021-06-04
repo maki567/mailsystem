@@ -1,56 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymelef.org">
 <head>
-<meta charset="utf-8"> 
-<title>メール作成画面</title>
-
+	<meta charset="utf-8"> 
+	<title>メール送信画面</title>
+	<link href="/css/send_mail.css" th:href="@{/css/send_mail.css}" rel="stylesheet" />
 </head>
 
 <header th:insert="fragments/page_header::commonHeader"></header>
 
 <body>
+<main>
 
-	<div class="mail">
-		<div class="mail-item mail-left">
-			<div class="mail-left_brock">
-				<!-- メール作成エリア -->
-				<div class="message" id="create">
-					<div class="message_subject">
-						<input type="text" class="text_subject" name="messageSubject" th:value="${mail == null ? '' : mail.subject}" placeholder="件名" id="subject">
-					</div>
-					<br>
-					<div class="message_text">
-						<textarea name="messageText" th:text="${mail == null ? '' : mail.text}" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
-						<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		<div class="mail-item mail-right">
-			<div class="mail-right_brock">
-				<!-- 送信先表示エリア -->
-				<div class="select_bar">
-				</div>
-				<div class="select_address">
-					<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
-						<tr class="">
-							<td>
-								<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
-									<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
-								<span th:text="${select.staffName}"></span>
-								<span th:text="${select.staffMail}"></span>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
+	<div class="left">
+		<span>件名：</span>
+		<span class="text_subject" th:text="${mail.subject}" id="subject"></span>
+		<br /><br />
+		<div>本文</div>
+		<textarea class="text_text" th:text="${mail.text}" id="text" readonly></textarea>
+		<br>
+		<button onclick="signIn()">Sign in</button>
+		<button onclick="sendEmail()">Send email</button>
+		<button onclick="signOut()">Sign out</button>
+		<button class="back" id="back" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
 	</div>
-
-	<button onclick="signIn()">Sign in</button>
-	<button onclick="sendEmail()">Send email</button>
-	<button onclick="signOut()">Sign out</button>
+					
+	<div class="right">
+		<p class="title">送信先リスト</p>
+		<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
+			<tr class="">
+				<td>
+					<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
+						<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
+					<span th:text="${select.staffName}"></span>
+					<span th:text="${select.staffMail}"></span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+</main>
 
 <script th:inline="javascript">
 /*<![CDATA[*/

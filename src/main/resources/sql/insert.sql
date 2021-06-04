@@ -1,6 +1,6 @@
 --mst_user
-INSERT INTO mst_user(user_name,password,signature)
-VALUES('a@a','aaaaaa','ABC株式会社
+INSERT INTO mst_user(id,user_name,client_id,password,signature)
+VALUES('0','b@b','82470608748-js4mj1te7kavl1coj04al63g3oal9e4o.apps.googleusercontent.com','aaaaaa','ABC株式会社
 〒000-0000
 東京都品川区中延　0-0-0
 

@@ -57,7 +57,7 @@ CREATE TABLE select_address (
  corporation TINYINT NOT NULL,
  user_id int(11) NOT NULL,
  staff_name VARCHAR(16) ,
- staff_mail VARCHAR(32) NOT NULL UNIQUE
+ staff_mail VARCHAR(32) NOT NULL
 );
 
 CREATE TABLE mail_history (
