@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.openworker.mailsystem.model.domain.MailHistory;
 import jp.co.openworker.mailsystem.model.domain.MstAddress;
+import jp.co.openworker.mailsystem.model.domain.MstUser;
 import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 import jp.co.openworker.mailsystem.model.domain.SelectMail;
 import jp.co.openworker.mailsystem.model.form.MailForm;
 import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
 import jp.co.openworker.mailsystem.model.mapper.MstAddressMapper;
+import jp.co.openworker.mailsystem.model.mapper.MstUserMapper;
 import jp.co.openworker.mailsystem.model.mapper.SelectAddressMapper;
 import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
@@ -36,15 +38,20 @@ public class TestController {
 	@Autowired
 	MailHistoryMapper mailHistoryMapper;
 	
+	@Autowired
+	MstUserMapper userMapper;
+	
 	@RequestMapping("/")
 	public String index(Model m) {
 		
 		List<SelectAddress> select = selectAddressMapper.select(loginSession.getUserId());
 		SelectMail mail = selectMailMapper.select(loginSession.getUserId());
+		MstUser user = userMapper.findBySignature(loginSession.getUserId());
 		
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);
 		m.addAttribute("mail", mail);
+		m.addAttribute("user", user);
 		return "test";
 	}
 	

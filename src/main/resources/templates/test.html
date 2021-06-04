@@ -53,7 +53,11 @@
 			// 送りたいメールアドレスに書き換えてください。
 			var to = /*[[${select.staffMail}]]*/ 'address';
 			var subject = /*[[${mail.subject}]]*/ 'subject';
-			var body = (/*[[${select.companyName}]]*/ 'company') + (/*[[${select.staffNama}]]*/ 'address') + (/*[[${mail.text}]]*/ 'text');
+			var body = ((/*[[${select.corporation}]]*/ 'corporation') == 0 ? '株式会社' : '') + (/*[[${select.companyName}]]*/ 'company')　
+						+ ((/*[[${select.corporation}]]*/ 'corporation') == 1 ? '株式会社' : '') + '\n' 
+						+ (/*[[${select.staffName}]]*/ 'name') + '様'　+ '\n\n' 
+						+ (/*[[${mail.text}]]*/ 'text')
+						+ '\n\n' + (/*[[${user.signature}]]*/ 'signature');
 
 			// サインイン済みかチェック。
 			if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
