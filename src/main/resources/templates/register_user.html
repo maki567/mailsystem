@@ -103,6 +103,7 @@ $(() => {
 	// 引数はvalidate.js:checkerからチェックしたい項目の変数の宣言を作成する
 		let errInfo = validate({
 			'userName': checker.userName,
+			'clientId': checker.clientId,
 			'password': checker.password,
 		});
 		if (errInfo.isError) {
@@ -116,6 +117,7 @@ $(() => {
 			// エラーがなければ、確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
 			createConfirmDialog({
 				'userName': checker.userName,
+				'clientId': checker.clientId,
 				'password': checker.password,
 			});
 			$("#inputUserConfirm").dialog("open");

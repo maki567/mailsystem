@@ -96,6 +96,14 @@ const checker = {
 		}
 		return errMsg;
 	},
+	clientId: (target) => {
+		const title = '「クライアントID」';
+		let errMsg = new Array();
+		if (validator.isEmpty(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.EMPTY);
+		}
+		return errMsg;
+	},
 	password: (target) => {
 		const title = '「パスワード」';
 		let errMsg = new Array();
