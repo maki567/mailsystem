@@ -492,34 +492,8 @@ const dialogConfig = {
 		buttons: [
 			{
 				text: '送信',
-				click: function() {
-					/*[# th:each="select : ${select}"]*/
-					let jsonString = {
-						'userId': $(/*[[${loginSession.userId}]]*/).val(),
-						'subject': $(/*[[${mail.subject}]]*/).val(),
-						'toCompany': $(/*[[${select.companyName}]]*/).val(),
-						'toStaff': $(/*[[${select.staffName}]]*/).val()
-					};
-					$.ajax({
-						type: 'POST',
-						url: '/mailsystem/mail/record',
-						data: JSON.stringify(jsonString),
-						contentType: 'application/json',
-						datatype: 'json',
-						scriptCharset: 'utf-8'
-					})
-					.then((result) => {
-						$(/*[[${loginSession.userId}]]*/).val('');
-						$(/*[[${mail.subject}]]*/).val('');
-						$(/*[[${select.companyName}]]*/).val('');
-						$(/*[[${select.staffName}]]*/).val('');
-					}, () => {
-						alert('エラー');
-					});
-					/*[/]*/
-					
+				click: function sendMail() {
 					$(this).dialog('close');
-					location.reload();
 				}
 			},
 			{

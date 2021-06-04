@@ -34,16 +34,17 @@
 <!-- Modal Dialog (ログインエラー) -->
 <div th:insert="fragments/dialog_login_error::dialogLoginError"></div>
 
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<link rel="stylesheet"
-			href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-	<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script>
-	<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
-	<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
-	<script th:inline="javascript">
-	/*<![CDATA[*/
-	$(() => {
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+		href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="/js/util/stringUtil.js" th:src="@{/js/util/stringUtil.js}"></script>
+<script src="/js/util/validator.js" th:src="@{/js/util/validator.js}"></script>
+<script src="/js/dialogConfig.js" th:src="@{/js/dialogConfig.js}"></script>
+<script th:inline="javascript">
+/*<![CDATA[*/
+$(() => {
+
 		$('#loginError').dialog(dialogConfig.loginError);
 		
 		$('button#login').on('click', () => {
@@ -120,8 +121,9 @@
 		$('div.loginArea input[name=userName]').val('');
 		$('div.loginArea input[name=password]').val('');
 	}
-	/*]]>*/
-	</script>
+	
+/*]]>*/
+</script>
 
 </body>
 
