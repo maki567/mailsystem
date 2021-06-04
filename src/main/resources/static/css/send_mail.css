@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+/*画面固定*/
+body{
+	overflow-y: hidden;
+}
+
+html, body{
+	overflow: hidden;
+}
+
+/*画面分割*/
+.mail{
+	display: table;
+	width: 100%;
+}
+
+.mail-item{
+	display: table-cell;
+	padding: 10px;
+	width: 50%;
+}
+
+.mail-left{
+	position: relative;
+}
+
+.mail-left_brock{
+	height: 8000px;
+}
+
+.mail-right_brock{
+	height: 8000px;
+	/*overflow: scroll;*/
+}
+
+
+/*メール作成*/
+/*入力欄*/
+.message {
+	display: inline;
+	margin-bottom: 0px;
+}
+
+/*件名フォーム*/
+input[name="messageSubject"] {
+	width: 500px;
+	height: 50px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	padding: 0px;
+	font-size: 13px;
+}
+
+/*本文フォーム*/
+textarea[name="messageText"] {
+	width: 500px;
+	height: 400px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	padding: 0px;
+	font-size: 13px;
+}
+
+/*入力フォームの位置*/
+.message_subject {
+	position: relative;
+	left: 100px;
+	top: 0px;
+	width: 500px;
+}
+
+.message_text {
+	position: relative;
+	left: 100px;
+	width: 500px;
+	top: -24px;
+}
+
+/*メニューバー*/
+/*横並び*/
+.menubar {
+	position: relative;
+}
+
+.menubar_attachment　.menubar_cancel　.select_page {
+	display: inline;
+}
+
+.menubar_llnextscreen {
+	display: inline;
+}
+
+/*メニューバーを入れているボックス*/
+.menubar {
+	padding: 10px;
+	width: 700px;
+	top: -30px;
+}
+
+
+/*ボタン*/
+/*添付ファイルボタン*/
+.menubar_files {
+	margin-left: 110px;
+}
+
+.back_home {
+	display: inline;
+	margin-top: 5px;
+	margin-left: 100px;
+}
+
+.select_page {
+	display: inline;
+	width: 100px;
+	height: 30px;
+	margin-top: 20px;
+	margin-left: 50px;
+	color: white;
+	background-color: #ff8080;
+}
+
+.send_confirm {
+	display: inline;
+	width: 100px;
+	height: 30px;
+	margin-left: 50px;
+	color: white;
+	background-color: #0080ff;
+}
+
+.select_release {
+	display: inline;
+	margin-left: 120px;
+	background-color: #ea4515;
+	color: #ffffff;
+}
+
+/*送信先リスト*/
+/*送信先ヘッダー*/
+.select_bar {
+	width: 590px;
+	height: 50px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	background-color: #696969;
+	padding: 0px;
+}
+
+/*バータイトル*/
+.title {
+	margin-left: 200px;
+	color: #ffffff;
+	position: senter;
+	text-align: center;
+}
+
+/*送信先表示エリア*/
+.select_address {
+	width: 590px;
+	height: 400px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	overflow: scroll;
+}
+
+table {
+	width: 560px;
+	text-align: left;
+	vertical-align: middle;
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-left: 7px;
+	border-radius: 6px;
+	position: relative;
+}
+
+.hidden {
+	display: none;
+}
