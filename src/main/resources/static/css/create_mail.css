@@ -23,6 +23,7 @@ html, body{
 
 .mail-left{
 	position: relative;
+	width: 600px;
 }
 
 .mail-left_brock{
@@ -105,7 +106,7 @@ textarea[name="messageText"] {
 /*ボタン*/
 /*添付ファイルボタン*/
 .menubar_files {
-	margin-left: 110px;
+	margin-left: 90px;
 }
 
 .back_home {
@@ -118,19 +119,17 @@ textarea[name="messageText"] {
 	display: inline;
 	width: 100px;
 	height: 30px;
-	margin-top: 20px;
-	margin-left: 50px;
-	color: white;
-	background-color: #ff8080;
+	margin-top: 10px;
+	margin-left: 10px;
+	background-color: rgb(128, 255, 128);
 }
 
 .send_confirm {
 	display: inline;
 	width: 100px;
 	height: 30px;
-	margin-left: 50px;
-	color: white;
-	background-color: #0080ff;
+	margin-left: 30px;
+	background-color: skyblue;
 }
 
 .select_release {

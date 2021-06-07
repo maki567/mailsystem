@@ -26,7 +26,8 @@
 				</div>
 				<div class="menubar">
 					<input type="file" id="files" class="menubar_files"/>
-					<button class="back_home" id="back_home" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
+					<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
+					<button class="send_confirm" id="send_confirm">送信確認</button>
 				</div>
 				
 			</div>
@@ -49,8 +50,6 @@
 						</tr>
 					</table>
 				</div>
-					<button class="select_page" id="select_address" onclick="location.href='http://localhost:8080/mailsystem/select/'">連絡先選択へ</button>
-					<button class="send_confirm" id="send_confirm">送信確認</button>
 			</div>
 		</div>
 	</div>
@@ -87,8 +86,45 @@
 			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
 				return;
 		}else {
+			let jsonString = {
+				'userId': $('div#create input[name=userId]').val(),
+				'subject': $('div#create input[name=messageSubject]').val(),
+				'text': $('div#create textarea[name=messageText]').val()
+			};
+			setTimeout(function(){
+			$.ajax({
+				type: 'POST',
+				url: '/mailsystem/mail/retention',
+				data: JSON.stringify(jsonString),
+				contentType: 'application/json',
+				datatype: 'json',
+				scriptCharset: 'utf-8'
+			})
+			.then((result) => {
+				$('.info').removeClass('hidden');
+				$('#checkOK').addClass('hidden');
+				$('div#create input[name=userId]').val('');
+				$('div#create input[name=messageSubject]').val('');
+				$('div#create texterea[name=messageText]').val('');
+			}, () => {
+				alert('Error: ajax connection failed.');
+			});
+			$.ajax({
+				type: 'POST',
+				url: '/mailsystem/mail/release'
+			})
+			.then((result) => {
+			}, () => {
+				alert('Error: ajax connection failed.');
+		});
+		},200);
+		setTimeout(function(){
+			location.reload();
+		},200);
+			setTimeout(function(){
 			location.replace('/mailsystem/mail/send/');
-		}
+				},200);
+			}
 		}
 	});
 	
@@ -108,6 +144,7 @@
 			'subject': $('div#create input[name=messageSubject]').val(),
 			'text': $('div#create textarea[name=messageText]').val()
 		};
+		setTimeout(function(){
 		$.ajax({
 			type: 'POST',
 			url: '/mailsystem/mail/retention',
@@ -133,6 +170,7 @@
 			}, () => {
 				alert('Error: ajax connection failed.');
 		});
+		},200);
 		setTimeout(function(){
 			location.reload();
 		},200);
@@ -155,6 +193,7 @@
 			'subject': $('div#create input[name=messageSubject]').val(),
 			'text': $('div#create textarea[name=messageText]').val()
 		};
+		setTimeout(function(){
 		$.ajax({
 			type: 'POST',
 			url: '/mailsystem/mail/retention',
@@ -172,20 +211,8 @@
 		}, () => {
 			alert('Error: ajax connection failed.');
 		});
+		},200);
 	});
-	
-	
-	//ホームへ戻るボタンを押下した際メール内容を削除する
-	$('button#back_home').on('click', () => {
-		$.ajax({
-			type: 'POST',
-			url: '/mailsystem/mail/delete'
-		})
-		.then((result) => {
-		}, () => {
-			alert('Error: ajax connection failed.');
-		});
-	})	
 	
 
 	//連絡先選択ボタンを押下した時の処理

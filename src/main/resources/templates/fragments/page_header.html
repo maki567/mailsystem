@@ -59,6 +59,18 @@
 	function koshin(){
 		location.reload();
 	}
+	
+	//ホームへ戻るボタンを押下した際メール内容を削除する
+	$('button#back_home').on('click', () => {
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/mail/delete'
+		})
+		.then((result) => {
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});
+	})	
 /*]]>*/
 </script>
 
@@ -74,7 +86,8 @@
 	</span>
 		
 	<span class="logout">
-		<button style="position: relative;left: 700px;" id="logout">ログアウト</button>
+		<button style="position: absolute; left: 1000px; top:15px;" id="back_home" onclick="location.href='http://localhost:8080/mailsystem/home/'">ホームへ戻る</button>
+		<button style="position: absolute; left: 1120px; top:15px;" id="logout" >ログアウト</button>
 	</span>
 	<hr>
 	

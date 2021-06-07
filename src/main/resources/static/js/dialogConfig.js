@@ -73,6 +73,7 @@ const dialogConfig = {
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
+					
 					$(this).dialog('close');
 					location.replace('/mailsystem/login/');
 				}
@@ -310,7 +311,9 @@ const dialogConfig = {
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
-					$(this).dialog('close');
+					setTimeout(function(){
+						location.reload();
+					},200);
 				}
 			},
 			{

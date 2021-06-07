@@ -52,14 +52,14 @@ table.mail-history {
 .mail {
 	display: inline;
 	margin: 20px;
-	background-color: rgb(128, 255, 128);
+	background-color: #ff8080;
 	width: 150px;
 }
 
 .ichiran {
 	display: inline;
 	margin: 20px;
-	background-color: rgb(254, 51, 29);
+	background-color: rgb(128, 255, 128);
 	width: 150px;
 }
 
@@ -70,9 +70,13 @@ table.mail-history {
 	width: 150px;
 }
 
+.user-info {
+	margin-top: 20px;
+}
 
-
-
+.mail-history {
+	margin-top: 0px;
+}
 
 
 

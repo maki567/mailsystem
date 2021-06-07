@@ -52,7 +52,7 @@ table {
 }
 
 .company_number {
-	margin-right: 95px;
+	margin-right: 220px;
 }
 
 .modoru {
@@ -106,7 +106,7 @@ input[name="companyAddress"] {
 }
 
 input[name="companyNumber"] {
-	width: 200px;
+	width: 300px;
 }
 
 input[placeholder="氏名"],[placeholder="※必須 氏名"],[placeholder="担当者の電話番号"] {

@@ -11,7 +11,7 @@
 	<header th:insert="fragments/page_header::commonHeader"></header>
 <main>
 
-	<table class = "user-info" border="1" align="left">
+	<table class="user-info" border="1" align="left">
 		<tr>
     		<th class = "user-info">ユーザー情報</th>
     	</tr>
@@ -47,12 +47,12 @@
     	</tr>
     </table>
 
-	<table class = "mail-history" border="1" rules="rows">
+	<table class="mail-history" border="1" rules="rows">
 	 <tr>
-      <th class="home">件名</th>
-      <th class="home">送信先</th>
-      <th class="home">所属</th>
-      <th class="home">日付</th>
+		<th class="home">件名</th>
+		<th class="home">送信先</th>
+		<th class="home">所属</th>
+		<th class="home">日付</th>
     </tr>
 		<tr th:each="mail : ${mail}">
 			<td><p th:text="${mail.subject}"/></td>

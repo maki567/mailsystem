@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.openworker.mailsystem.model.domain.MstUser;
+import jp.co.openworker.mailsystem.model.domain.SelectMail;
+import jp.co.openworker.mailsystem.model.form.SelectMailForm;
 import jp.co.openworker.mailsystem.model.form.UserForm;
 import jp.co.openworker.mailsystem.model.mapper.MstUserMapper;
+import jp.co.openworker.mailsystem.model.mapper.SelectMailMapper;
 import jp.co.openworker.mailsystem.model.session.LoginSession;
 
 @Controller
@@ -22,6 +25,9 @@ public class UserController {
 	
 	@Autowired
 	private LoginSession loginSession;
+	
+	@Autowired
+	private SelectMailMapper selectMailMapper;
 	
 	@RequestMapping("/")
 	public String index(Model m) {
@@ -42,6 +48,16 @@ public class UserController {
 		MstUser user = new MstUser(f);
 		
 		int count = userMapper.insert(user);
+		
+		return count > 0;
+	}
+	
+	@RequestMapping("/insert")
+	@ResponseBody
+	public boolean retention(@RequestBody SelectMailForm f) {
+		SelectMail mail = new SelectMail(f);
+		
+		int count = selectMailMapper.insert(mail);
 		
 		return count > 0;
 	}

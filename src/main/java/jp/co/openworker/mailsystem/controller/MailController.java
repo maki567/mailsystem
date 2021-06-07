@@ -57,7 +57,7 @@ public class MailController {
 	
 	@RequestMapping("/retention")
 	@ResponseBody
-	public boolean send(@RequestBody SelectMailForm f) {
+	public boolean retention(@RequestBody SelectMailForm f) {
 		SelectMail mail = new SelectMail(f);
 		
 		int count = selectMailMapper.insert(mail);
