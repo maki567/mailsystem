@@ -86,6 +86,14 @@
 			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
 				return;
 		}else {
+			$.ajax({
+				type: 'POST',
+				url: '/mailsystem/mail/delete'
+			})
+			.then((result) => {
+			}, () => {
+				alert('Error: ajax connection failed.');
+			});		
 			let jsonString = {
 				'userId': $('div#create input[name=userId]').val(),
 				'subject': $('div#create input[name=messageSubject]').val(),
@@ -109,18 +117,7 @@
 			}, () => {
 				alert('Error: ajax connection failed.');
 			});
-			$.ajax({
-				type: 'POST',
-				url: '/mailsystem/mail/release'
-			})
-			.then((result) => {
-			}, () => {
-				alert('Error: ajax connection failed.');
-		});
-		},200);
-		setTimeout(function(){
-			location.reload();
-		},200);
+			},200);
 			setTimeout(function(){
 			location.replace('/mailsystem/mail/send/');
 				},200);
@@ -193,7 +190,6 @@
 			'subject': $('div#create input[name=messageSubject]').val(),
 			'text': $('div#create textarea[name=messageText]').val()
 		};
-		setTimeout(function(){
 		$.ajax({
 			type: 'POST',
 			url: '/mailsystem/mail/retention',
@@ -211,7 +207,6 @@
 		}, () => {
 			alert('Error: ajax connection failed.');
 		});
-		},200);
 	});
 	
 

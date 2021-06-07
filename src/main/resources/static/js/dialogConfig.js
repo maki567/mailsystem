@@ -73,7 +73,6 @@ const dialogConfig = {
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
-					
 					$(this).dialog('close');
 					location.replace('/mailsystem/login/');
 				}
