@@ -43,7 +43,7 @@ const dialogConfig = {
 	},
 	inputUserConfirm: {
 		autoOpen: false,
-		width: 850,
+		width: 700,
 		modal: true,
 		buttons: [
 			{
