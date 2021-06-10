@@ -21,7 +21,7 @@
 				<td>
 					<textarea name="signature" placeholder="" maxlength="255" 
 					style="width:350px;height:200px;" 
-					th:text="${user.signature}"></textarea>
+					th:text="${user == null ? '' : user.signature}"></textarea>
 					<textarea class= "hidden" name="id" th:text="${user.id}"></textarea>
 				</td>
 			</tr>
