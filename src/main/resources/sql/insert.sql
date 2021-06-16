@@ -211,13 +211,13 @@ INSERT INTO mst_address(id,company_name,company_address,corporation,company_numb
 VALUES('100','baaaaa1','a','1','0','a','a@a','0');
 
 INSERT INTO mail_history(id,user_id,subject,to_staff,to_company)
-VALUES('1','3','業務経歴書の件でのご相談1','田中太郎1','ABC1');
+VALUES('1','3','案件情報のご案内','山田次郎','株式会社サンプルA');
 
 INSERT INTO mail_history(id,user_id,subject,to_staff,to_company)
-VALUES('2','3','業務経歴書の件でのご相談2','田中太郎2','ABC2');
+VALUES('2','3','案件情報のご案内','佐々木太郎','サンプルB株式会社');
 
 INSERT INTO mail_history(id,user_id,subject,to_staff,to_company)
-VALUES('3','3','業務経歴書の件でのご相談3','田中太郎3','ABC3');
+VALUES('3','3','案件情報のご案内','鈴木はじめ','株式会社サンプルC');
 
 INSERT INTO mail_history(id,user_id,subject,to_staff,to_company)
 VALUES('4','3','業務経歴書の件でのご相談4','田中太郎4','ABC4');
