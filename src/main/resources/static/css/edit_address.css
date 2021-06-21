@@ -9,6 +9,10 @@ table {
 	display: inline-block;
 }
 
+.first, .second {
+	margin-left: 70px;
+}
+
 .first, .second, .third {
 	text-align: center;	
 }

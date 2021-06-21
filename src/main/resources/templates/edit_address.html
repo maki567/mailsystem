@@ -20,11 +20,11 @@
 		<tr>
 			<td>
 				<div class="company_name">会社名</div>
-				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="16" th:value="${address.companyName}" />
+				<input class="form" type="text" name="companyName" placeholder="会社名" maxlength="16" th:value="${address.companyName}" tabindex="1"/>
 			</td>
 			<td>	
 				<div class="company_address">所在地</div>
-				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="32" th:value="${address.companyAddress}" />
+				<input class="form" type="text" name="companyAddress" placeholder="所在地" maxlength="32" th:value="${address.companyAddress}" tabindex="2"/>
 			</td>
 		</tr>
 	</table>
@@ -39,7 +39,7 @@
 			</td>
 			<td>
 				<div class="company_number">電話番号(会社)</div>
-				<input class="form" type="tel" name="companyNumber" placeholder="会社の電話番号" maxlength="16" th:value="${address.companyNumber}" /><br />
+				<input class="form" type="tel" name="companyNumber" placeholder="会社の電話番号" maxlength="16" th:value="${address.companyNumber}" tabindex="3"/><br />
 			</td>
 			<td>
 				<button onclick="location.href='http://localhost:8080/mailsystem/list/'" class="modoru">一覧へ戻る</button>
@@ -67,42 +67,42 @@
 			</td>
 			<td class="staffform">
 				<div class="staff_name">担当者名</div>
-				<input class="form" type="text" id="name1" name="staffName1" placeholder="※必須 氏名" maxlength="16" th:value="${address.staffName1}" /><br />
-				<input class="form" type="text" id="name2" name="staffName2" placeholder="氏名" maxlength="16" th:value="${address.staffName2}" /><br />
-				<input class="form" type="text" id="name3" name="staffName3" placeholder="氏名" maxlength="16" th:value="${address.staffName3}" /><br />
-				<input class="form" type="text" id="name4" name="staffName4" placeholder="氏名" maxlength="16" th:value="${address.staffName4}" /><br />
-				<input class="form" type="text" id="name5" name="staffName5" placeholder="氏名" maxlength="16" th:value="${address.staffName5}" /><br />
-				<input class="form" type="text" id="name6" name="staffName6" placeholder="氏名" maxlength="16" th:value="${address.staffName6}" /><br />
-				<input class="form" type="text" id="name7" name="staffName7" placeholder="氏名" maxlength="16" th:value="${address.staffName7}" /><br />
-				<input class="form" type="text" id="name8" name="staffName8" placeholder="氏名" maxlength="16" th:value="${address.staffName8}" /><br />
-				<input class="form" type="text" id="name9" name="staffName9" placeholder="氏名" maxlength="16" th:value="${address.staffName9}" /><br />
-				<input class="form" type="text" id="name10" name="staffName10" placeholder="氏名" maxlength="16" th:value="${address.staffName10}" /><br />
+				<input class="form" type="text" id="name1" name="staffName1" placeholder="※必須 氏名" maxlength="16" th:value="${address.staffName1}" tabindex="4"/><br />
+				<input class="form" type="text" id="name2" name="staffName2" placeholder="氏名" maxlength="16" th:value="${address.staffName2}" tabindex="7"/><br />
+				<input class="form" type="text" id="name3" name="staffName3" placeholder="氏名" maxlength="16" th:value="${address.staffName3}" tabindex="10"/><br />
+				<input class="form" type="text" id="name4" name="staffName4" placeholder="氏名" maxlength="16" th:value="${address.staffName4}" tabindex="13"/><br />
+				<input class="form" type="text" id="name5" name="staffName5" placeholder="氏名" maxlength="16" th:value="${address.staffName5}" tabindex="16"/><br />
+				<input class="form" type="text" id="name6" name="staffName6" placeholder="氏名" maxlength="16" th:value="${address.staffName6}" tabindex="19"/><br />
+				<input class="form" type="text" id="name7" name="staffName7" placeholder="氏名" maxlength="16" th:value="${address.staffName7}" tabindex="22"/><br />
+				<input class="form" type="text" id="name8" name="staffName8" placeholder="氏名" maxlength="16" th:value="${address.staffName8}" tabindex="25"/><br />
+				<input class="form" type="text" id="name9" name="staffName9" placeholder="氏名" maxlength="16" th:value="${address.staffName9}" tabindex="28"/><br />
+				<input class="form" type="text" id="name10" name="staffName10" placeholder="氏名" maxlength="16" th:value="${address.staffName10}" tabindex="31"/><br />
 			</td>
 			<td class="staffform">
 				<div class="staff_mail">メールアドレス</div>
-				<input class="form" type="email" id="mail1" name="staffMail1" placeholder="※必須 担当者のメールアドレス" maxlength="32" th:value="${address.staffMail1}" /><br />
-				<input class="form" type="email" id="mail2" name="staffMail2" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail2}" /><br />
-				<input class="form" type="email" id="mail3" name="staffMail3" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail3}" /><br />
-				<input class="form" type="email" id="mail4" name="staffMail4" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail4}" /><br />
-				<input class="form" type="email" id="mail5" name="staffMail5" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail5}" /><br />
-				<input class="form" type="email" id="mail6" name="staffMail6" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail6}" /><br />
-				<input class="form" type="email" id="mail7" name="staffMail7" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail7}" /><br />
-				<input class="form" type="email" id="mail8" name="staffMail8" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail8}" /><br />
-				<input class="form" type="email" id="mail9" name="staffMail9" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail9}" /><br />
-				<input class="form" type="email" id="mail10" name="staffMail10" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail10}" /><br />
+				<input class="form" type="email" id="mail1" name="staffMail1" placeholder="※必須 担当者のメールアドレス" maxlength="32" th:value="${address.staffMail1}" tabindex="5"/><br />
+				<input class="form" type="email" id="mail2" name="staffMail2" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail2}" tabindex="8"/><br />
+				<input class="form" type="email" id="mail3" name="staffMail3" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail3}" tabindex="11"/><br />
+				<input class="form" type="email" id="mail4" name="staffMail4" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail4}" tabindex="14"/><br />
+				<input class="form" type="email" id="mail5" name="staffMail5" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail5}" tabindex="17"/><br />
+				<input class="form" type="email" id="mail6" name="staffMail6" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail6}" tabindex="20"/><br />
+				<input class="form" type="email" id="mail7" name="staffMail7" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail7}" tabindex="23"/><br />
+				<input class="form" type="email" id="mail8" name="staffMail8" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail8}" tabindex="26"/><br />
+				<input class="form" type="email" id="mail9" name="staffMail9" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail9}" tabindex="29"/><br />
+				<input class="form" type="email" id="mail10" name="staffMail10" placeholder="担当者のメールアドレス" maxlength="32" th:value="${address.staffMail10}" tabindex="32"/><br />
 			</td>
 			<td class="staffform">
 				<div class="staff_number">電話番号</div>
-				<input class="form" type="tel" id="num1" name="staffNumber1" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber1}" /><br />
-				<input class="form" type="tel" id="num2" name="staffNumber2" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber2}" /><br />
-				<input class="form" type="tel" id="num3" name="staffNumber3" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber3}" /><br />
-				<input class="form" type="tel" id="num4" name="staffNumber4" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber4}" /><br />
-				<input class="form" type="tel" id="num5" name="staffNumber5" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber5}" /><br />
-				<input class="form" type="tel" id="num6" name="staffNumber6" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber6}" /><br />
-				<input class="form" type="tel" id="num7" name="staffNumber7" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber7}" /><br />
-				<input class="form" type="tel" id="num8" name="staffNumber8" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber8}" /><br />
-				<input class="form" type="tel" id="num9" name="staffNumber9" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber9}" /><br />
-				<input class="form" type="tel" id="num10" name="staffNumber10" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber10}" /><br />
+				<input class="form" type="tel" id="num1" name="staffNumber1" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber1}" tabindex="6"/><br />
+				<input class="form" type="tel" id="num2" name="staffNumber2" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber2}" tabindex="9"/><br />
+				<input class="form" type="tel" id="num3" name="staffNumber3" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber3}" tabindex="12"/><br />
+				<input class="form" type="tel" id="num4" name="staffNumber4" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber4}" tabindex="15"/><br />
+				<input class="form" type="tel" id="num5" name="staffNumber5" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber5}" tabindex="18"/><br />
+				<input class="form" type="tel" id="num6" name="staffNumber6" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber6}" tabindex="21"/><br />
+				<input class="form" type="tel" id="num7" name="staffNumber7" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber7}" tabindex="24"/><br />
+				<input class="form" type="tel" id="num8" name="staffNumber8" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber8}" tabindex="27"/><br />
+				<input class="form" type="tel" id="num9" name="staffNumber9" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber9}" tabindex="30"/><br />
+				<input class="form" type="tel" id="num10" name="staffNumber10" placeholder="担当者の電話番号" maxlength="16" th:value="${address.staffNumber10}" tabindex="33"/><br />
 			</td>
 		</tr>
 		<tr>

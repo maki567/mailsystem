@@ -41,13 +41,18 @@ public class TestController {
 	@Autowired
 	MstUserMapper userMapper;
 	
+	@Autowired
+	MstAddressMapper addressMapper;
+	
 	@RequestMapping("/")
 	public String index(Model m) {
 		
 		List<SelectAddress> select = selectAddressMapper.select(loginSession.getUserId());
 		SelectMail mail = selectMailMapper.select(loginSession.getUserId());
 		MstUser user = userMapper.findBySignature(loginSession.getUserId());
+		List<MstAddress> address = addressMapper.select(loginSession.getUserId());
 		
+		m.addAttribute("address", address);
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("select", select);
 		m.addAttribute("mail", mail);

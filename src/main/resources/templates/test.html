@@ -1,98 +1,96 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymelef.org">
+
 <head>
-  <meta charset="utf-8"> 
-</head><body>
-	<button onclick="signIn()">Sign in</button>
-	<button onclick="sendEmail()">Send email</button>
-	<button onclick="signOut()">Sign out</button>
+	<meta charset="UTF-8">
+	<title>取引先一覧画面</title>
+	<link href="/css/address_list.css" th:href="@{/css/address_list.css}" rel="stylesheet" />
+</head>
+
+<body>
+
+	<header th:insert="fragments/page_header::commonHeader"></header>
+
+<main>
+
+	<div class="form"> 
+		<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
+		<button class="delete" id="deleteButton">連絡先削除</button>
+	</div>
+	<br>
+	<table class="target-area" th:each="address : ${address}">
+		<tr>
+			<td class="check">
+				<input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
+			</td>
+			<td class="inner">
+				<label th:text="${address.companyName}" /></label>
+			</td>	
+			<td>
+				<label th:text="${address.staffName1}" /></label>
+			</td>
+			<td>
+				<label th:text="${address.staffName2}" /></label>
+			</td>
+		</tr>
+	</table>
+
+	
+<!-- Modal Dialog (削除確認) -->
+<div th:insert="fragments/dialog_Dalete_Address_Confirm::dialogDaleteAddressConfirm"></div>
+
+<!-- Modal Dialog (削除完了) -->
+<div th:insert="fragments/dialog_Complete_Delete_Address::dialogCompleteDeleteAddress"></div>
+
+</main>
 
 <script th:inline="javascript">
-/*<![CDATA[*/
+/*[CDATA[*/
+$(() => {
 
-	// Step 1で取得したOAuthクライアントIDをここに書く。
-	const CLIENT_ID = '82470608748-js4mj1te7kavl1coj04al63g3oal9e4o.apps.googleusercontent.com';
-
-	async function onLoad() {
-		try {
-		// Google APIs Client Libraryの初期化。
-		await gapi.load('client:auth2');
-		await gapi.client.init({
-			clientId: CLIENT_ID,
-			scope: 'https://www.googleapis.com/auth/gmail.send'
+	//jQuery-UIダイアログの初期設定
+	$('#daleteAddressConfirm').dialog(dialogConfig.daleteAddressConfirm);
+	
+	//連絡先削除機能
+	$('#deleteButton').on('click', () => {
+		let checkedList = $('.checkList:checked');
+		let checkedIdList = [];
+	
+		if ($(checkedList).prop("checked") == true) {
+			// チェックボックスにチェックが入っている場合は確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
+			$("#daleteAddressConfirm").dialog("open");
+		} else {
+			// チェックボックスにチェックが入っていない場合はアラートを表示する
+			alert('削除する連絡先を選択してください。');
+		}
 		});
-		await gapi.client.load('gmail', 'v1');
-		console.log('Initialized');
-		} catch (e) {
-			console.error(e);
+		
+	});
+	
+	//連絡先検索機能
+	$(function () {
+		searchWord = function(){
+    	let searchText = $(this).val(), // 検索ボックスに入力された値
+		targetText;
+
+    $('.target-area').each(function() {
+    	targetText = $(this).text();
+
+	// 検索対象となるリストに入力された文字列が存在するかどうかを判断
+		if (targetText.indexOf(searchText) != -1) {
+			$(this).removeClass('hidden');
+		} else {
+			$(this).addClass('hidden');
 		}
-	}
+	});
+	};
 
-	async function signIn() {
-		try {
-			await gapi.auth2.getAuthInstance().signIn();
-			console.log('Signed in');
-		} catch (e) {
-			console.error(e);
-		}
-	}
-
-	async function signOut() {
-		try {
-			await gapi.auth2.getAuthInstance().signOut();
-			console.log('Signed out');
-		} catch (e) {
-			console.error(e);
-		}
-	}
-
-	async function sendEmail() {
-
-	/*[# th:each = "select : ${select}"]*/
-		try {
-			// 送りたいメールアドレスに書き換えてください。
-			var to = /*[[${select.staffMail}]]*/ 'address';
-			var subject = /*[[${mail.subject}]]*/ 'subject';
-			var body = ((/*[[${select.corporation}]]*/ 'corporation') == 0 ? '株式会社' : '') + (/*[[${select.companyName}]]*/ 'company')　
-						+ ((/*[[${select.corporation}]]*/ 'corporation') == 1 ? '株式会社' : '') + '\n' 
-						+ (/*[[${select.staffName}]]*/ 'name') + '様'　+ '\n\n' 
-						+ (/*[[${mail.text}]]*/ 'text')
-						+ '\n\n' + (/*[[${user.signature}]]*/ 'signature');
-
-			// サインイン済みかチェック。
-			if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
-			console.error('Sign in first');
-			return;
-        	}
-
-			// メールデータの作成。
-			const mimeData = [
-				`To: ${to}`,
-				'Subject: =?utf-8?B?' + btoa(unescape(encodeURIComponent(subject))) + '?=',
-				'MIME-Version: 1.0',
-				'Content-Type: text/plain; charset=UTF-8',
-				'Content-Transfer-Encoding: 7bit',
-				'',
-				body,
-			].join('\n').trim();
-			const raw = btoa(unescape(encodeURIComponent(mimeData))).replace(/\+/g, '-').replace(/\//g, '_');
-
-			// メールの送信。
-			await gapi.client.gmail.users.messages.send({
-				'userId': 'me',
-				'resource': {raw: raw},
-			});
-				console.log('Sent email');
-				
-			} catch (e) {
-				console.error(e);
-			}
-	/*[/]*/
-	}
-
+	// searchWordの実行
+		$('#search-text').on('input', searchWord);
+});
 /*]]>*/
 </script>
 
-<!-- Google APIs Client Libraryの読み込み。読み込み後にonloadに指定した関数が呼ばれる。 -->
-<script src="https://apis.google.com/js/client.js?onload=onLoad"></script>
-</body></html>
+</body>
+
+</html>
