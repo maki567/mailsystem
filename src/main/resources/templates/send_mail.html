@@ -15,7 +15,9 @@
 		<div>件名</div>
 		<input type="text" class="text_subject" th:value="${mail.subject}" id="subject" readonly></input>
 		<div>本文</div>
-		<textarea class="text_text" th:text="${mail.text}" id="text" readonly></textarea>
+		<textarea class="text" th:text="${mail.text}" id="text" readonly></textarea>
+		<div>電子署名</div>
+		<textarea class=signature th:text="${user.signature}" id="signature" readonly></textarea>
 		<br>
 		<button onclick="signIn()">Sign in</button>
 		<button onclick="sendEmail()">Send email</button>

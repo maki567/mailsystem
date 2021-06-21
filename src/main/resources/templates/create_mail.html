@@ -23,6 +23,9 @@
 						<textarea name="messageText" th:text="${mail == null ? '' : mail.text}" class="text_text" placeholder="本文" id="text" rows="4" cols="40"></textarea>
 						<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
 					</div>
+					<div class="signature">
+						<textarea name="signature" th:text="${user == null ? '' : user.signature}" readonly></textarea>
+					</div>
 				</div>
 				<div class="menubar">
 					<input type="file" id="files" class="menubar_files"/>

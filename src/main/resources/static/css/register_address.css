@@ -18,7 +18,7 @@ table {
 
 .company_name {
 	font-weight: bold;
-	margin-right: 260px;
+	margin-right: 360px;
 }
 
 .chofukukakunin {
@@ -99,6 +99,7 @@ table {
 
 input[name="companyName"] {
 	width: 300px;
+	margin-right: 100px;
 }
 
 input[name="companyAddress"] {
@@ -107,6 +108,7 @@ input[name="companyAddress"] {
 
 input[name="companyNumber"] {
 	width: 300px;
+	margin-right: 25px;
 }
 
 input[placeholder="氏名"],[placeholder="※必須 氏名"],[placeholder="担当者の電話番号"] {
