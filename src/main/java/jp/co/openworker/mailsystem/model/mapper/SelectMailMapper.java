@@ -21,12 +21,12 @@ public interface SelectMailMapper {
 	SelectMail select(@Param("userId") int userId);
 	
 	@Insert("INSERT INTO create_mail ("
-				+ "user_id, subject, text"
+				+ "subject, text"
 				+ ") "
 				+ "VALUES ("
-				+ "#{userId}, #{subject}, #{text}"
+				+ "#{subject}, #{text}"
 				+ ")")
-	@Options(useGeneratedKeys=true, keyProperty="id")
+	@Options(useGeneratedKeys=true, keyProperty="user_id")
 	int insert(SelectMail mail);
 	
 	@Update("UPDATE create_mail SET "

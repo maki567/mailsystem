@@ -53,11 +53,21 @@ const dialogConfig = {
 						'userName': $('table#register input[name=userName]').val(),
 						'clientId': $('table#register input[name=clientId]').val(),
 						'password': $('table#register input[name=password]').val(),
-						'signature': $('table#register input[name=signature]').val()
+						'signature': $('table#register input[name=signature]').val(),
+						'subject': $('table#register input[name=subject]').val(),
+						'text': $('table#register input[name=text]').val()
 					};
 					$.ajax({
 						type: 'POST',
 						url: '/mailsystem/user/register',
+						data: JSON.stringify(jsonString),
+						contentType: 'application/json',
+						datatype: 'json',
+						scriptCharset: 'utf-8'
+					})
+					$.ajax({
+						type: 'POST',
+						url: '/mailsystem/user/insert',
 						data: JSON.stringify(jsonString),
 						contentType: 'application/json',
 						datatype: 'json',
@@ -70,6 +80,8 @@ const dialogConfig = {
 						$('table#register input[name=clientId]').val('');
 						$('table#register input[name=password]').val('');
 						$('table#register input[name=signature]').val('');
+						$('table#register input[name=subject]').val('');
+						$('table#register input[name=text]').val('');
 					}, () => {
 						alert('Error: ajax connection failed.');
 					});
