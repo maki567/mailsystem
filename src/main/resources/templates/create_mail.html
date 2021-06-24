@@ -89,23 +89,14 @@
 			if($('div#create input[name=messageSubject]').val() == '' || $('div#create textarea[name=messageText]').val() == '') {
 				return;
 		}else {
-			$.ajax({
-				type: 'POST',
-				url: '/mailsystem/mail/delete'
-			})
-			.then((result) => {
-			}, () => {
-				alert('Error: ajax connection failed.');
-			});		
 			let jsonString = {
 				'userId': $('div#create input[name=userId]').val(),
 				'subject': $('div#create input[name=messageSubject]').val(),
 				'text': $('div#create textarea[name=messageText]').val()
 			};
-			setTimeout(function(){
 			$.ajax({
 				type: 'POST',
-				url: '/mailsystem/mail/retention',
+				url: '/mailsystem/mail/update',
 				data: JSON.stringify(jsonString),
 				contentType: 'application/json',
 				datatype: 'json',
@@ -120,7 +111,6 @@
 			}, () => {
 				alert('Error: ajax connection failed.');
 			});
-			},200);
 			setTimeout(function(){
 			location.replace('/mailsystem/mail/send/');
 				},200);
@@ -131,23 +121,14 @@
 
 	//送信先リスト一括解除
 	$('button#release').on('click', () => {
-		$.ajax({
-			type: 'POST',
-			url: '/mailsystem/mail/delete'
-		})
-		.then((result) => {
-		}, () => {
-			alert('Error: ajax connection failed.');
-		});		
 		let jsonString = {
 			'userId': $('div#create input[name=userId]').val(),
 			'subject': $('div#create input[name=messageSubject]').val(),
 			'text': $('div#create textarea[name=messageText]').val()
 		};
-		setTimeout(function(){
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/mail/retention',
+			url: '/mailsystem/mail/update',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',
@@ -170,7 +151,6 @@
 			}, () => {
 				alert('Error: ajax connection failed.');
 		});
-		},200);
 		setTimeout(function(){
 			location.reload();
 		},200);
@@ -180,14 +160,6 @@
 	
 	//送信先選択画面に遷移した際のメール内容保持
 	$('button#select_address').on('click', () => {
-		$.ajax({
-			type: 'POST',
-			url: '/mailsystem/mail/delete'
-		})
-		.then((result) => {
-		}, () => {
-			alert('Error: ajax connection failed.');
-		});		
 		let jsonString = {
 			'userId': $('div#create input[name=userId]').val(),
 			'subject': $('div#create input[name=messageSubject]').val(),
@@ -195,7 +167,7 @@
 		};
 		$.ajax({
 			type: 'POST',
-			url: '/mailsystem/mail/retention',
+			url: '/mailsystem/mail/update',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',

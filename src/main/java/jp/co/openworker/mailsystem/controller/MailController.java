@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import jp.co.openworker.mailsystem.model.domain.MailHistory;
+import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.domain.MstUser;
 import jp.co.openworker.mailsystem.model.domain.SelectAddress;
 import jp.co.openworker.mailsystem.model.domain.SelectMail;
+import jp.co.openworker.mailsystem.model.form.AddressForm;
 import jp.co.openworker.mailsystem.model.form.MailForm;
 import jp.co.openworker.mailsystem.model.form.SelectMailForm;
 import jp.co.openworker.mailsystem.model.mapper.MailHistoryMapper;
@@ -54,24 +56,6 @@ public class MailController {
 		return "create_mail";
 	}
 	
-	@RequestMapping("/delete")
-	@ResponseBody
-	public boolean delete() {
-		int userId = loginSession.getUserId();
-		int result = selectMailMapper.delete(userId);
-		return result > 0;
-	}
-	
-	@RequestMapping("/retention")
-	@ResponseBody
-	public boolean retention(@RequestBody SelectMailForm f) {
-		SelectMail mail = new SelectMail(f);
-		
-		int count = selectMailMapper.insert(mail);
-		
-		return count > 0;
-	}
-	
 	@RequestMapping("/release")
 	@ResponseBody
 	public boolean release() {
@@ -88,6 +72,16 @@ public class MailController {
 		int count = mailHistoryMapper.insert(history);
 		
 		return count > 0;
+	}
+	
+	@RequestMapping("/update")
+	@ResponseBody
+	public boolean update(@RequestBody SelectMailForm f) {
+		SelectMail mail = new SelectMail(f);
+		
+		int result = selectMailMapper.update(mail);
+		
+		return result > 0;
 	}
 }
 

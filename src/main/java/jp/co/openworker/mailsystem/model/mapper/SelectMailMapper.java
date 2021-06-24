@@ -6,7 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
+import jp.co.openworker.mailsystem.model.domain.MstAddress;
 import jp.co.openworker.mailsystem.model.domain.SelectMail;
 
 @Mapper
@@ -26,4 +28,9 @@ public interface SelectMailMapper {
 				+ ")")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int insert(SelectMail mail);
+	
+	@Update("UPDATE create_mail SET "
+			+ "subject = #{subject}, text = #{text}"
+			+ "where user_id = #{userId}")
+	int update(SelectMail mail);
 }

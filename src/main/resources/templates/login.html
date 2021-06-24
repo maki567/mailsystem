@@ -26,6 +26,8 @@
 	</div>
 	
 	<a href="http://localhost:8080/mailsystem/user/" class="register">新規ユーザー登録はこちら</a>
+	
+	<button onclick="signIn()">Sign in</button>
 		
 </nav>
 
@@ -75,23 +77,6 @@ $(() => {
 			});
 		});
 		
-		$('button#logout').on('click', () => {
-			$.ajax({
-				type: 'POST',
-				url: '/mailsystem/auth/logout',
-				datatype: 'json',
-				scriptCharset: 'utf-8'
-			})
-			.then((result) => {
-				$('#hiddenUserName').val('');
-				logout();
-				alert('ログアウトしました。');
-				location.replace('/mailsystem/user/');
-			}, () => {
-				alert('Error: ajax connection failed.');
-			});
-		});
-		
 	});
 	
 	function login(user) {
@@ -120,6 +105,15 @@ $(() => {
 		
 		$('div.loginArea input[name=userName]').val('');
 		$('div.loginArea input[name=password]').val('');
+	}
+	
+	async function signIn() {
+		try {
+			await gapi.auth2.getAuthInstance().signIn();
+			console.log('Signed in');
+		} catch (e) {
+			console.error(e);
+		}
 	}
 	
 /*]]>*/
