@@ -71,7 +71,7 @@ CREATE TABLE mail_history (
 );
  
 CREATE TABLE create_mail (
- user_id int(11) NOT NUll,
+ user_id int(11) PRIMARY KEY AUTO_INCREMENT,
  subject VARCHAR(255) NOT NUll,
  text VARCHAR(255) NOT NUll
 );
