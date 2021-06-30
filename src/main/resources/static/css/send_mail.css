@@ -1,30 +1,171 @@
 @charset "UTF-8";
 
-.left {
-	float: left;
-	margin-top: 15px;
-	margin-left: 100px;
+
+/*画面分割*/
+.all {
+	display: table;
+	width: 100%;
 }
 
-.right {
-	float: right;
-	margin-right: 400px;
+.all_item {
+	display: table-cell;
+	padding: 10px;
+	width: 50%;
 }
 
+.item_left {
+	position: relative;
+	width: 600px;
+}
+
+.left .right {
+	height: 8000px;
+}
+
+
+
+/*入力表示エリアのサイズ*/
 input{
-	width: 500px;
+	width: 620px;
+	height: 30px;
 }
 
 textarea[id="text"] {
-	width: 500px;
+	width: 620px;
 	height: 250px;
 }
 
 textarea[id="signature"] {
-	width: 500px;
+	width: 620px;
 	height: 100px;
 }
 
 .hidden {
 	display: none;
 }
+
+
+
+/*画面左側*/
+/*入力内容*/
+.left_title {
+	background-color: #696969;
+	color: #ffffff;
+	padding: 6px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	margin: 0px;
+	width: out;
+	text-align: center;
+}
+
+
+/*件名エリア*/
+.text_subject {
+	border-style: none;
+}
+
+
+/*本文エリア*/
+.text {
+	border-style: none;
+}
+
+
+/*電子署名エリア*/
+.signature {
+	border-style: none;
+}
+
+
+/*枠線*/
+.left_line {
+	padding: 10px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+}
+
+
+
+/*ボタングループ*/
+/*サインイン*/
+.sign_in {
+	display: inline;
+	width: 80px;
+	height: 30px;
+	margin-left: 30px;
+	background-color: #32cd32;
+}
+
+/*センドメール*/
+.send_email {
+	display: inline;
+	width: 100px;
+	height: 30px;
+	margin-left: 30px;
+	background-color: skyblue;
+}
+
+/*サインアウト*/
+.sign_out {
+	display: inline;
+	width: 80px;
+	height: 30px;
+	margin-left: 30px;
+	background-color: #fa8072;
+}
+
+
+/*メール作成に戻る*/
+.back {
+	display: inline;
+	width: 130px;
+	height: 30px;
+	margin-left: 30px;
+	background-color: #dcdcdc;
+	margin-left: 90px;
+}
+
+
+
+
+
+/*画面右側*/
+/*アドレスリスト*/
+.title {
+	background-color: #696969;
+	color: #ffffff;
+	padding: 6px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	margin: 0px;
+	text-align: center;
+}
+
+.right_item {
+	padding: 10px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+}
+
+
+.right {
+	padding: 10px;
+	border-style: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+}
+
+
+
+
+

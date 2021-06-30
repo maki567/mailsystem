@@ -11,32 +11,44 @@
 <body>
 <main>
 
-	<div class="left">
-		<div>件名</div>
-		<input type="text" class="text_subject" th:value="${mail.subject}" id="subject" readonly></input>
-		<div>本文</div>
-		<textarea class="text" th:text="${mail.text}" id="text" readonly></textarea>
-		<div>電子署名</div>
-		<textarea class=signature th:text="${user.signature}" id="signature" readonly></textarea>
-		<br>
-		<button onclick="signIn()">Sign in</button>
-		<button onclick="sendEmail()">Send email</button>
-		<button onclick="signOut()">Sign out</button>
-		<button class="back" id="back" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
-	</div>
-					
-	<div class="right">
-		<p class="title">送信先リスト</p>
-		<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
-			<tr class="">
-				<td>
-					<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
-						<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
-					<span th:text="${select.staffName}"></span>
-					<span th:text="${select.staffMail}"></span>
-				</td>
-			</tr>
-		</table>
+	<div class="all">
+	<!-- 入力内容表示エリア -->
+		<div class="all_item item_left">
+			<div class="left">
+				<div class="left_line">
+					<div class="left_title">件名</div>
+					<input type="text" class="text_subject" th:value="${mail.subject}" id="subject" readonly></input>
+					<div class="left_title">本文</div>
+					<textarea class="text" th:text="${mail.text}" id="text" readonly></textarea>
+					<div class="left_title">電子署名</div>
+					<textarea class=signature th:text="${user.signature}" id="signature" readonly></textarea>
+				</div>
+				<br>
+				<div class="left_button">
+					<button class="sign_in" onclick="signIn()">Sign in</button>
+					<button class="send_email" onclick="sendEmail()">Send email</button>
+					<button class="sign_out" onclick="signOut()">Sign out</button>
+					<button class="back" id="back" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
+				</div>
+			</div>
+		</div>
+			
+		<!-- アドレス表示エリア -->
+		<div class="all_item">				
+			<div class="right">
+				<p class="title">送信先リスト</p>
+				<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
+					<tr class="">
+						<td>
+							<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
+								<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
+							<span th:text="${select.staffName}"></span>
+							<span th:text="${select.staffMail}"></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</div>
 	
 </main>
