@@ -10,6 +10,7 @@ const validateConstants = {
 		NOT_ONLY_ALPHANUMERIC: 'に半角英数字以外の文字が含まれています。',
 		NOT_ONLY_NUMERIC: 'に半角数字以外の文字が含まれています。',
 		INVALID_FORMAT: 'の書式が不正です。',
+		NOT_ZENKAKU:'スペースは半角で入力してください。'
 	},
 	USER_NAME_MIN: 3,
 	USER_NAME_MAX: 32,
@@ -69,6 +70,12 @@ const validator = {
 	isHalfNumeric: (target) => {
 		target = (target === null) ? '' : target;
 		return target.match(/^[0-9-]*$/);
+	},
+	// スペースが含まれているか判定する
+	isZenkaku: (target) => {
+		target = (target === null) ? '' : target;
+		//target = target.trim();
+		return target.match(/^[\u30a0-\u30ff\u3040-\u309f\u3005-\u3006\u30e0-\u9fcf\ \a-zA-Z0-9]*$/);
 	},
 };
 
@@ -131,6 +138,10 @@ const checker = {
 		if (validator.overMax(target, validateConstants.CAMPANY_NAME_MAX)) {
 			errMsg.push(title + validateConstants.ERR_MSG.OVER_MAX);
 		}
+		if (!validator.isZenkaku(target)) {
+			errMsg.push(title + validateConstants.ERR_MSG.NOT_ZENKAKU);
+		}
+		
 		return errMsg;
 	},
 	// 所在地チェック
