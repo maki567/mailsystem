@@ -25,8 +25,7 @@
 				</div>
 				<br>
 				<div class="left_button">
-					<button class="sign_in" onclick="signIn()">Sign in</button>
-					<button class="send_email" onclick="sendEmail()">Send email</button>
+					<button class="send_email" onclick="sendEmail()">送信</button>
 					<button class="sign_out" onclick="signOut()">Sign out</button>
 					<button class="back" id="back" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
 				</div>
@@ -107,8 +106,14 @@
 
 			// サインイン済みかチェック。
 			if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
-			console.error('Sign in first');
-			return;
+				try {
+					alert("Gmail API クライアントへのサインインを完了してから再度送信してください。");
+					await gapi.auth2.getAuthInstance().signIn();
+					console.log('Signed in');
+				} catch (e) {
+					console.error(e);
+				}
+				return;
         	}
 
 			// メールデータの作成。
@@ -129,12 +134,11 @@
 				'resource': {raw: raw},
 			});
 				console.log('Sent email');
-				
+
 			} catch (e) {
 				console.error(e);
 			}
 	/*[/]*/
-	alert('メールを送信しました。');
 	}
 
 /*]]>*/
