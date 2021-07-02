@@ -38,9 +38,9 @@ table.user-info {
 }
 
 table.mail-history {
-	position: relative;
-	top: 50px;
-	left: 20px;
+	position: absolute;
+	top: 90px;
+	left: 300px;
 	width: 1000px;
 	text-align: center;
 }
