@@ -17,15 +17,16 @@
 			<div class="left">
 				<div class="left_line">
 					<div class="left_title">件名</div>
-					<input type="text" class="text_subject" th:value="${mail.subject}" id="subject" readonly></input>
+					<input type="text" class="text_subject" th:value="${mail.subject}" id="subject" name="messageSubject" readonly></input>
 					<div class="left_title">本文</div>
 					<textarea class="text" th:text="${mail.text}" id="text" readonly></textarea>
 					<div class="left_title">電子署名</div>
 					<textarea class=signature th:text="${user.signature}" id="signature" readonly></textarea>
+					<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
 				</div>
 				<br>
 				<div class="left_button">
-					<button class="send_email" onclick="sendEmail()">送信</button>
+					<button class="send_email" onclick="sendEmail()" id="send">送信</button>
 					<button class="sign_out" onclick="signOut()">Sign out</button>
 					<button class="back" id="back" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
 				</div>
@@ -51,6 +52,10 @@
 	</div>
 	
 </main>
+
+<script type="text/javascript">
+	
+</script>
 
 <script th:inline="javascript">
 /*<![CDATA[*/
@@ -139,6 +144,26 @@
 				console.error(e);
 			}
 	/*[/]*/
+	$('button#send').on('click', () => {
+		let jsonString = {
+			'userId': $('div#left_line input[name=userId]').val(),
+			'subject': $('div#left_line input[name=messageSubject]').val()
+		};
+		$.ajax({
+			type: 'POST',
+			url: '/mailsystem/mail/send/record',
+			data: JSON.stringify(jsonString),
+			contentType: 'application/json',
+			datatype: 'json',
+			scriptCharset: 'utf-8'
+		})
+		.then((result) => {
+			$('div#left_line input[name=userId]').val('');
+			$('div#left_line input[name=messageSubject]').val('');
+		}, () => {
+			alert('Error: ajax connection failed.');
+		});
+	});
 	}
 
 /*]]>*/
