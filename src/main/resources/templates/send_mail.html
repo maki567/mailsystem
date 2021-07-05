@@ -144,7 +144,6 @@
 				console.error(e);
 			}
 	/*[/]*/
-	$('button#send').on('click', () => {
 		let jsonString = {
 			'userId': $('div#left_line input[name=userId]').val(),
 			'subject': $('div#left_line input[name=messageSubject]').val()
@@ -163,7 +162,6 @@
 		}, () => {
 			alert('Error: ajax connection failed.');
 		});
-	});
 	}
 
 /*]]>*/
