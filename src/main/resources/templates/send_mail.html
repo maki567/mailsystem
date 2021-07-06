@@ -22,7 +22,6 @@
 					<textarea class="text" th:text="${mail.text}" id="text" readonly></textarea>
 					<div class="left_title">電子署名</div>
 					<textarea class=signature th:text="${user.signature}" id="signature" readonly></textarea>
-					<input class="hidden" name="userId" type="text" th:value="${loginSession.getUserId}"></input>
 				</div>
 				<br>
 				<div class="left_button">
@@ -52,10 +51,6 @@
 	</div>
 	
 </main>
-
-<script type="text/javascript">
-	
-</script>
 
 <script th:inline="javascript">
 /*<![CDATA[*/
@@ -138,31 +133,30 @@
 				'userId': 'me',
 				'resource': {raw: raw},
 			});
-				console.log('Sent email');
+				let jsonString = {
+					'userId': /*[[${loginSession.getUserId}]]*/ 'userId',
+					'subject': /*[[${mail.subject}]]*/ 'subject',
+					'toStaff': /*[[${select.staffName}]]*/ 'staff',
+					'toCompany': /*[[${select.companyName}]]*/ 'company'
+				};
+				$.ajax({
+					type: 'POST',
+					url: '/mailsystem/mail/send/record',
+					data: JSON.stringify(jsonString),
+					contentType: 'application/json',
+					datatype: 'json',
+					scriptCharset: 'utf-8'
+				})
+				.then((result) => {
+				}, () => {
+					alert('Error: ajax connection failed.');
+				});
 
 			} catch (e) {
 				console.error(e);
 			}
 	/*[/]*/
-		let jsonString = {
-			'userId': $('div#left_line input[name=userId]').val(),
-			'subject': $('div#left_line input[name=messageSubject]').val()
-		};
-		$.ajax({
-			type: 'POST',
-			url: '/mailsystem/mail/send/record',
-			data: JSON.stringify(jsonString),
-			contentType: 'application/json',
-			datatype: 'json',
-			scriptCharset: 'utf-8'
-		})
-		.then((result) => {
-			$('div#left_line input[name=userId]').val('');
-			$('div#left_line input[name=messageSubject]').val('');
-		}, () => {
-			alert('Error: ajax connection failed.');
-		});
-	}
+		}
 
 /*]]>*/
 </script>
