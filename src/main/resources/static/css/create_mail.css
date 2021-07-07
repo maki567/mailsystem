@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*画面固定*/
+/*画面を固定*/
 body{
 	overflow-y: hidden;
 }
@@ -9,197 +9,205 @@ html, body{
 	overflow: hidden;
 }
 
-/*画面分割*/
-.mail{
+
+/*画面を両分割*/
+.all {
 	display: table;
 	width: 100%;
 }
 
-.mail-item{
+.all_item {
 	display: table-cell;
 	padding: 10px;
 	width: 50%;
 }
 
-.mail-left{
+.item_left {
 	position: relative;
 	width: 600px;
 }
 
-.mail-left_brock{
+.left .right {
 	height: 8000px;
 }
 
-.mail-right_brock{
-	height: 8000px;
-	/*overflow: scroll;*/
+
+/*ナンバーを非表示にする*/
+.hidden {
+	display: none;
 }
 
 
-/*メール作成*/
-/*入力欄*/
-.message {
-	display: inline;
-	margin-bottom: 0px;
-}
+/*-----------以下画面詳細-----------*/
 
-/*件名フォーム*/
-input[name="messageSubject"] {
-	width: 500px;
-	height: 30px;
+
+/*アドレス一覧表示_right*/
+/*外枠*/
+.right {
+	width: out;
+	height: 500px;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #dcdcdc;
 	padding: 0px;
-	font-size: 13px;
-}
-
-/*本文フォーム*/
-textarea[name="messageText"] {
-	width: 500px;
-	height: 320px;
-	border-style: none;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #dcdcdc;
-	padding: 0px;
-	font-size: 13px;
-}
-
-textarea[name="signature"] {
-	width: 500px;
-	height: 100px;
-	border-style: none;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #dcdcdc;
-	padding: 0px;
-	font-size: 13px;
-}
-
-/*入力フォームの位置*/
-.message_subject {
-	position: relative;
-	left: 100px;
-	top: -10px;
-	width: 500px;
-}
-
-.message_text {
-	position: relative;
-	left: 100px;
-	width: 500px;
-	top: -35px;
-}
-
-.signature{
-	position: relative;
-	left: 100px;
-	width: 500px;
-	top: -43px;
-}
-
-/*メニューバー*/
-/*横並び*/
-.menubar {
-	position: relative;
-}
-
-.menubar_attachment　.menubar_cancel　.select_page {
-	display: inline;
-}
-
-.menubar_llnextscreen {
-	display: inline;
-}
-
-/*メニューバーを入れているボックス*/
-.menubar {
-	padding: 10px;
-	width: 700px;
-	top: -50px;
+	font-size: 16px;
+	position:relative;
+	top: -7px;	
 }
 
 
-/*ボタン*/
-/*添付ファイルボタン*/
-.menubar_files {
-	margin-left: 90px;
-}
-
-.back_home {
-	display: inline;
-	margin-top: 5px;
-	margin-left: 100px;
-}
-
-.select_page {
-	display: inline;
+.select_release {
 	width: 100px;
 	height: 30px;
-	margin-top: 10px;
-	margin-left: 10px;
-	background-color: rgb(128, 255, 128);
+	background-color: #ff8e8e;
 }
 
-.send_confirm {
-	display: inline;
+
+
+/*内容入力表示_left*/
+.message {
+	width: 620px;
+	height: 320px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	padding: 0px;
+	position:relative;
+	top: -15px;
+}
+
+
+/*内容入力欄_詳細*/
+/*件名入力欄*/
+.message_subject .text_subject {
+	width: 590px;
+	height: 30px;
+	position:relative;
+	left: 12px;
+	top: 5px;
+	border-style: none;
+	border-bottom: 1px solid;
+	border-color: #dcdcdc;
+}
+
+
+/*本文入力欄*/
+.message_text .text_text {
+	width: 590px;
+	height: 200px;
+	position:relative;
+	left: 12px;
+	top: -6px;
+	border-style: none;
+}
+
+
+
+/*ボタンデザイン、位置*/
+.select_page, .send_confirm {
 	width: 100px;
 	height: 30px;
 	margin-left: 30px;
-	background-color: skyblue;
 }
 
-.select_release {
-	display: inline;
-	margin-left: 120px;
-	background-color: #ea4515;
+.select_page {
+	background-color: #8eff8e;
+	margin-left: 75px;
+}
+
+.send_confirm {
+	background-color: #8ec6ff;
+}
+
+.menubar_files {
+	margin-left: 20px;
+}
+
+
+
+/*電子署名表示欄*/
+/*電子署名_div*/
+.signature {
+	width: 620px;
+	height: 168px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	padding: 0px;
+	position:relative;
+	top: -8px;
+}
+
+
+/*電子署名_タイトルバー*/
+.signature_title {
+	text-align: center;
 	color: #ffffff;
-}
-
-/*送信先リスト*/
-/*送信先ヘッダー*/
-.select_bar {
-	width: 590px;
-	height: 50px;
-	border-style: none;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #dcdcdc;
 	background-color: #696969;
 	padding: 0px;
+	width: 595px;
+	height: 30px;
+	margin-left: 10px;
+	margin-top: 10px;
+	display:block;
+	line-height: 2;
 }
 
-/*バータイトル*/
-.title {
-	margin-left: 200px;
-	color: #ffffff;
-	position: senter;
-	text-align: center;
-}
 
-/*送信先表示エリア*/
-.select_address {
+/*電子署名_テキスト表示*/
+.signature_text {
 	width: 590px;
-	height: 460px;
+	height: 100px;
+	position:relative;
+	left: 12px;
+	position:relative;
+	top: -7px;
 	border-style: none;
+}
+
+
+
+/*リストグループ*/
+/*連絡先リスト*/
+.title_item {
+	margin-right: none;
+	overflow: hidden;
+	width: out;
+}
+
+
+.title {
+	text-align: center;
+	color: #ffffff;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #dcdcdc;
-	overflow: scroll;
-}
-
-table {
-	width: 560px;
-	text-align: left;
-	vertical-align: middle;
+	background-color: #696969;
+	padding: 0px;
+	width: 500px;
+	height: 30px;
+	margin: 10px;
+	margin-right: none;
 	display: inline-block;
-	margin-bottom: 5px;
-	margin-left: 7px;
-	border-radius: 6px;
-	position: relative;
+	line-height: 2;
 }
 
-.hidden {
-	display: none;
+
+/*選択解除*/
+.select_release {
+	display: inline-block;
+	position:relative;
+	top: -2px;
 }
+
+
+/*アドレスリスト*/
+.address_rist {
+	margin-left: 10px;
+}
+
+
+
