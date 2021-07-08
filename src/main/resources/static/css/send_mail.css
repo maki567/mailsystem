@@ -1,7 +1,16 @@
 @charset "UTF-8";
 
+/*画面を固定*/
+body{
+	overflow-y: hidden;
+}
 
-/*画面分割*/
+html, body{
+	overflow: hidden;
+}
+
+
+/*画面を両分割*/
 .all {
 	display: table;
 	width: 100%;
@@ -23,20 +32,22 @@
 }
 
 
+/*-----------以下画面詳細-----------*/
+
 
 /*入力表示エリアのサイズ*/
 input{
-	width: 620px;
+	width: 627px;
 	height: 30px;
 }
 
 textarea[id="text"] {
-	width: 620px;
-	height: 250px;
+	width: 627px;
+	height: 200px;
 }
 
 textarea[id="signature"] {
-	width: 620px;
+	width: 627px;
 	height: 100px;
 }
 
@@ -52,13 +63,14 @@ textarea[id="signature"] {
 	background-color: #696969;
 	color: #ffffff;
 	padding: 6px;
-	border-style: none;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #dcdcdc;
 	margin: 0px;
-	width: out;
 	text-align: center;
+	height: 18px;
+	display:block;
+	line-height: 1.3;	
 }
 
 
@@ -92,44 +104,47 @@ textarea[id="signature"] {
 
 
 /*ボタングループ*/
-/*サインイン*/
-.sign_in {
-	display: inline;
-	width: 80px;
+.left_button {
+	width: out;
 	height: 30px;
-	margin-left: 30px;
-	background-color: #32cd32;
-}
-
-/*センドメール*/
-.send_email {
-	display: inline;
-	width: 100px;
-	height: 30px;
-	margin-left: 30px;
-	background-color: skyblue;
-}
-
-/*サインアウト*/
-.sign_out {
-	display: inline;
-	width: 80px;
-	height: 30px;
-	margin-left: 30px;
-	background-color: #fa8072;
+	/*margin-left: 30px;*/
+	
+	overflow: hidden;
+	position:relative;
+	top: 17px;
 }
 
 
 /*メール作成に戻る*/
 .back {
 	display: inline;
-	width: 130px;
+	width: 100px;
 	height: 30px;
 	margin-left: 30px;
 	background-color: #dcdcdc;
 	margin-left: 90px;
+	margin-left: 40px;
 }
 
+/*サインアウト*/
+.sign_out {
+	width: 130px;
+	height: 30px;
+	background-color: #fa8072;
+	display: inline-block;
+	position:relative;
+	margin-left: 200px;
+}
+
+/*センドメール*/
+.send_email {
+	width: 100px;
+	height: 30px;
+	background-color: skyblue;
+	display: inline-block;
+	position:relative;
+	margin-left: 40px;
+}
 
 
 
@@ -146,7 +161,11 @@ textarea[id="signature"] {
 	border-color: #dcdcdc;
 	margin: 0px;
 	text-align: center;
+	height: 18px;
+	display:block;
+	line-height: 1.3;
 }
+
 
 .right_item {
 	padding: 10px;
@@ -166,6 +185,11 @@ textarea[id="signature"] {
 }
 
 
-
+.right_list {
+	width: out;
+	height: 470px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
 
 

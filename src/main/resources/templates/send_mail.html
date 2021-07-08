@@ -23,11 +23,11 @@
 					<div class="left_title">電子署名</div>
 					<textarea class=signature th:text="${user.signature}" id="signature" readonly></textarea>
 				</div>
-				<br>
+
 				<div class="left_button">
+					<button class="back" id="back" onclick="location.href='http://localhost:8080/mailsystem/mail/'">戻る</button>
+					<button class="sign_out" onclick="signOut()">サインアウト</button>
 					<button class="send_email" onclick="sendEmail()" id="send">送信</button>
-					<button class="sign_out" onclick="signOut()">Sign out</button>
-					<button class="back" id="back" onclick="location.href='http://localhost:8080/mailsystem/mail/'">メール作成へ戻る</button>
 				</div>
 			</div>
 		</div>
@@ -36,16 +36,18 @@
 		<div class="all_item">				
 			<div class="right">
 				<p class="title">送信先リスト</p>
-				<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
-					<tr class="">
-						<td>
-							<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
-								<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
-							<span th:text="${select.staffName}"></span>
-							<span th:text="${select.staffMail}"></span>
-						</td>
-					</tr>
-				</table>
+				<div class="right_list">
+					<table class="" id="list" th:each="select : ${select}" th:value="${select.staffMail}">
+						<tr class="">
+							<td>
+								<span th:class="${select.corporation == 1 ? 'hidden' : ''}">株式会社</span><span th:text="${select.companyName}"></span>
+									<span th:class="${select.corporation == 0 ? 'hidden' : ''}">株式会社</span>
+								<span th:text="${select.staffName}"></span>
+								<span th:text="${select.staffMail}"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
