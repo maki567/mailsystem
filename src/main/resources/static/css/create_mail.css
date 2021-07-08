@@ -52,7 +52,7 @@ html, body{
 	padding: 0px;
 	font-size: 16px;
 	position:relative;
-	top: -7px;	
+	top: -7px;
 }
 
 
@@ -206,7 +206,11 @@ html, body{
 
 /*アドレスリスト*/
 .address_rist {
+	width: out;
+	height: 440px;
 	margin-left: 10px;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
 
