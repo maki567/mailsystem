@@ -129,35 +129,48 @@ $(() => {
 });
 
 	function checkUserName(userName) {
+		
+	
 		let errInfo = validate({ 'userName': checker.userName });
 		if (errInfo.isError) {
 				createErrorDialog(errInfo.errMsg);
 				$("#inputUserError").dialog("open");
 				return;
 			}
-	
+				
+		// url, typeは適切な値に書き換えてください
 		$.ajax({
-			type: 'POST',
-			url: '/mailsystem/user/duplicatedUserName',
-			data: userName,
+		    url: '/mailsystem/user/duplicatedUserName',
+		    type: 'POST',
+		    data: userName,
 			scriptCharset: 'utf-8'
 		})
-		.then((result) => {
-			if (result) {	// 重複あり
-				$('button#confirm').prop('disabled', true);
-				$("#duplicatedUserName").dialog("open");
-				//$('button#checkUserName').prop('class', '');
-				$('span#checkOK').prop('class', 'hidden');
-			} else {			// 重複なし
-				$('button#confirm').prop('disabled', false);
-				//$('button#checkUserName').prop('class', 'hidden');
-				$('span#checkOK').prop('class', 'info');
+		.done(function( data, textStatus, jqXHR ) {
+		    // 通信が成功した時の処理、span#messageへの値設定処理を記述する
+		    alert('success!!');
+		})
+		.fail(function( jqXHR, textStatus, errorThrown ) {
+		    // 通信が失敗した時の処理、通信失敗のメッセージ表示などを行う
+		    alert('error!!!');
+		})
+
+			.then((result) => {
+				if (result) {	// 重複あり
+					$('button#confirm').prop('disabled', true);
+					$("#duplicatedUserName").dialog("open");
+					//$('button#checkUserName').prop('class', '');
+					$('span#checkOK').prop('class', 'hidden');
+				} else {			// 重複なし
+					$('button#confirm').prop('disabled', false);
+					//$('button#checkUserName').prop('class', 'hidden');
+					$('span#checkOK').prop('class', 'info');
+				}
+			}, () => {
+				alert('Error: ajax connection failed.');
+			});
+			
 			}
-		}, () => {
-			alert('Error: ajax connection failed.');
-		});
 	
-}
 
 </script>
 

@@ -1,96 +1,13 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymelef.org">
-
+<%@page pageEncoding="UTF-8"%>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>取引先一覧画面</title>
-	<link href="/css/address_list.css" th:href="@{/css/address_list.css}" rel="stylesheet" />
+<title>Tutorial: Ajax</title>
+<script src="${f:url('/js/jquery.js')}"></script>
 </head>
-
 <body>
 
-	<header th:insert="fragments/page_header::commonHeader"></header>
-
-<main>
-
-	<div class="form"> 
-		<input class="kensaku" type="text" id="search-text" placeholder="社名検索">
-		<button class="delete" id="deleteButton">連絡先削除</button>
-	</div>
-	<br>
-	<table class="target-area" th:each="address : ${address}">
-		<tr>
-			<td class="check">
-				<input type="checkbox" name="id" id="check" class="checkList" th:value="${address.id}" >
-			</td>
-			<td class="inner">
-				<label th:text="${address.companyName}" /></label>
-			</td>	
-			<td>
-				<label th:text="${address.staffName1}" /></label>
-			</td>
-			<td>
-				<label th:text="${address.staffName2}" /></label>
-			</td>
-		</tr>
-	</table>
-
-	
-<!-- Modal Dialog (削除確認) -->
-<div th:insert="fragments/dialog_Dalete_Address_Confirm::dialogDaleteAddressConfirm"></div>
-
-<!-- Modal Dialog (削除完了) -->
-<div th:insert="fragments/dialog_Complete_Delete_Address::dialogCompleteDeleteAddress"></div>
-
-</main>
-
-<script th:inline="javascript">
-/*[CDATA[*/
-$(() => {
-
-	//jQuery-UIダイアログの初期設定
-	$('#daleteAddressConfirm').dialog(dialogConfig.daleteAddressConfirm);
-	
-	//連絡先削除機能
-	$('#deleteButton').on('click', () => {
-		let checkedList = $('.checkList:checked');
-		let checkedIdList = [];
-	
-		if ($(checkedList).prop("checked") == true) {
-			// チェックボックスにチェックが入っている場合は確認ダイアログを表示する(dialogConfig.js:createConfirmDialog(checkerConfig))
-			$("#daleteAddressConfirm").dialog("open");
-		} else {
-			// チェックボックスにチェックが入っていない場合はアラートを表示する
-			alert('削除する連絡先を選択してください。');
-		}
-		});
-		
-	});
-	
-	//連絡先検索機能
-	$(function () {
-		searchWord = function(){
-    	let searchText = $(this).val(), // 検索ボックスに入力された値
-		targetText;
-
-    $('.target-area').each(function() {
-    	targetText = $(this).text();
-
-	// 検索対象となるリストに入力された文字列が存在するかどうかを判断
-		if (targetText.indexOf(searchText) != -1) {
-			$(this).removeClass('hidden');
-		} else {
-			$(this).addClass('hidden');
-		}
-	});
-	};
-
-	// searchWordの実行
-		$('#search-text').on('input', searchWord);
-});
-/*]]>*/
-</script>
-
+<h1>Tutorial: Ajax</h1>
+<span id="message"></span><br />
+<input type="button" value="hello" onclick="$('#message').load('hello');"/>
 </body>
-
 </html>
