@@ -25,7 +25,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="lib" path="C:/Users/user/Downloads/javax.mail.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/Downloads/jaf-1_1_1 (1)/jaf-1.1.1/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Downloads/javax.mail.jar"/>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
